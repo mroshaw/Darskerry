@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1c89896f5f7f6439ef1a93a23a0f3d, type: 3}
+  m_Name: AudioSurface - Horse - Forest
+  m_EditorClassIdentifier: 
+  audioMixerGroup: {fileID: -8991655405756310492, guid: d4cb3dd8c857cad4599292f12c8e37c2,
+    type: 2}
+  TextureOrMaterialNames:
+  - T_forest_ground_grass_01_A_SM
+  - PW_Ground_Forest_Sequia_01_D
+  audioClips:
+  - {fileID: 8300000, guid: a142d2b38e201ef4a878ddb5905ad6af, type: 3}
+  - {fileID: 8300000, guid: 9ae84eba63170ce48bf6c238876cfd1d, type: 3}
+  - {fileID: 8300000, guid: 74275655966027548ad2b5ea857f9cb5, type: 3}
+  - {fileID: 8300000, guid: e410ce6b540f81b4ab2b98898de4d474, type: 3}
+  - {fileID: 8300000, guid: 045407622d959ef419666c9a08e7af24, type: 3}
+  - {fileID: 8300000, guid: 7d08a92747fae454d8620602defa034a, type: 3}
+  spawnParticle: 0
+  spawnHumanStep: 0
+  spawnHorseStep: 0
+  stepLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  timeToDestroy: 5

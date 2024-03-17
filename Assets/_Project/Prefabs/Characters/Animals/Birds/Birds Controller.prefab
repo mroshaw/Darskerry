@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400000}
+  - component: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: Birds Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35acec13e92dc0846a893a2496fea9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idealNumberOfBirds: 20
+  maximumNumberOfBirds: 40
+  currentCamera: {fileID: 0}
+  unspawnDistance: 20
+  highQuality: 1
+  birdScale: 1
+  collideWithObjects: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1052425
+  birdPrefabs:
+  - {fileID: 100092, guid: 040770b1b5d24ef48be3b2b48353c1ff, type: 3}
+  - {fileID: 100092, guid: 5a7612e645ba26a43a6483249999e907, type: 3}
+  - {fileID: 100092, guid: 7d394b5ffd1a15943aae17fcdd87bea9, type: 3}
+  - {fileID: 100124, guid: 459aeb780b3c43748b5a2bb13e1809c8, type: 3}
+  - {fileID: 100092, guid: 40ba60a1fcd52884f8878990bd8dd37e, type: 3}
+  - {fileID: 100092, guid: 91da67b32e5c13648a459e093ac1acb6, type: 3}
+  - {fileID: 100094, guid: ade6a9cba6f7bc242b5cc6c1b8769677, type: 3}
+  featherEmitterPrefab: {fileID: 100000, guid: caf9ed1b35da9be4ca771c1c07c070cf, type: 3}
+  birdGroundTargets:
+  - {fileID: 0}
+  birdPerchTargets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &418072491539600566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4206301531922501440}
+  - component: {fileID: 8906826524339109225}
+  m_Layer: 0
+  m_Name: Audio Surface Pooling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4206301531922501440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418072491539600566}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8906826524339109225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418072491539600566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622e0da4335958843b8be18e00b69243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourcePrefab: {fileID: 4662075937453056734, guid: 0595ffd15c7609f4eb76c338001a0056,
+    type: 3}
+  particleFxPrefab: {fileID: 135586, guid: 0bdf2df9ac47ba54e83d6273c25c6a59, type: 3}
+  stepPrefabHuman: {fileID: 184202, guid: 69a41efff35b9e140a4592dcd9a6bb7e, type: 3}
+  stepPrefabHorse: {fileID: 184202, guid: f1ee4b71fecdaf64b9e006d43e8fc0ac, type: 3}
+  debug: 0
+  audioPoolSize: 0
+  particlePoolSize: 0
+  stepPoolSize: 0

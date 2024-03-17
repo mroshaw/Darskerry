@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4be37e37ce1ed7469e6336772dddf05, type: 3}
+  m_Name: 3D Forge - Building Settings
+  m_EditorClassIdentifier: 
+  buildingComponentPrefab: {fileID: 2621375727089362462, guid: e91bf1ff71a39b04c82d05f25e715e57,
+    type: 3}
+  exteriorSearchStrings:
+  - Exterior
+  - Exteriors
+  - Roof
+  - Tries
+  - GroundFloor
+  - Plinth
+  interiorSearchStrings:
+  - Interior
+  - Interiors
+  propsSearchStrings:
+  - Props
+  exteriorLayer: StructureExterior
+  interiorLayer: StructureInterior
+  propsLayer: InteriorProps
+  layerExcludeSearchStrings: []
+  staticFlags: 127
+  staticIgnoreSearchStrings:
+  - door
+  interiorCullingMargin: 10
+  interiorTriggerMargin: 0
+  navMeshMargin: 5
+  navMeshArea: Building
+  propNamesSearchStrings:
+  - Props
+  propAlignOffset: 0
+  terrainBrush: {fileID: 0}
+  flattenMargin: 0
+  clearDetailMargin: 0
+  flattenHeightModifier: 0
+  buildingHeightOffset: 0
+  boundsCheckIncludeNames:
+  - root
+  - frame
+  - vil_wall
+  boundsCheckIncludeLayer: 

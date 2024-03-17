@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978ac1a3482510549a170a1ebba54387, type: 3}
+  m_Name: DeerCalfSettings
+  m_EditorClassIdentifier: 
+  animationAvatar: {fileID: 9000000, guid: 5ab1904b02a4b684c9790383eb710a36, type: 3}
+  animatorController: {fileID: 9100000, guid: bd8669e5c6f88114f9fef36d4f0337c8, type: 2}
+  animationsRootFolder: Assets/_Project/Animations/Animals/Deer-Calf
+  idle1: {fileID: 7400000, guid: c22d194168b518744bb0f544f760caf0, type: 2}
+  idle2: {fileID: 7400000, guid: 06f2d566e05314d4abb1f68b2153cb91, type: 2}
+  idle3: {fileID: 7400000, guid: 5834a3e8f0ffd2a438f17569d1a4f6de, type: 2}
+  death1: {fileID: 7400000, guid: 026fcdb46894f754b9021700af2a6023, type: 2}
+  death2: {fileID: 7400000, guid: cbd8527417e0a204686037cfc4a89fc5, type: 2}
+  death3: {fileID: 0}
+  rotateLeft: {fileID: 7400000, guid: ef3d8d163585314448161f2839b95898, type: 2}
+  locoIdle: {fileID: 7400000, guid: c22d194168b518744bb0f544f760caf0, type: 2}
+  rotateRight: {fileID: 7400000, guid: bbcf078a900680f4ca34d16b705c3d3d, type: 2}
+  walkLeft: {fileID: 7400000, guid: 552d1cd8ed4806141b0921e130895a36, type: 2}
+  walkForward: {fileID: 7400000, guid: 961b6a454ec11ae4dbc9b2e1be272917, type: 2}
+  walkRight: {fileID: 7400000, guid: bfc6985db7f06f3488e9f201620bb64c, type: 2}
+  trotLeft: {fileID: 7400000, guid: 72a4f1b1cf7df5a4b80938663814b9d1, type: 2}
+  trotForward: {fileID: 7400000, guid: ab261c4c75edf22478592ed50749980f, type: 2}
+  trotRight: {fileID: 7400000, guid: 9fdf6225d1ee11c4890a581a806d505a, type: 2}
+  runLeft: {fileID: 7400000, guid: ecec6f5466d3af64bb19f7d215383e5a, type: 2}
+  runForward: {fileID: 7400000, guid: a6d4eae576f23ac468c9e3877d111006, type: 2}
+  runRight: {fileID: 7400000, guid: 445f56aaf68226e4d9ffae60b37484f6, type: 2}
+  eyesYModifier: 0.001
+  eyesZModifier: 0.0008
+  neckLookAtOffset: {x: 0, y: -90, z: -90}
+  headLookAtOffset: {x: 0, y: -90, z: -90}

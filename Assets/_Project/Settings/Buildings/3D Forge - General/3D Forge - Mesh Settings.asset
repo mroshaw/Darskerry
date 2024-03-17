@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69db2ab93592e64cbd9d98dbca4b054, type: 3}
+  m_Name: 3D Forge - Mesh Settings
+  m_EditorClassIdentifier: 
+  exterior:
+    searchCriteria:
+      ParentGameObjectNames:
+      - Exterior
+      - Exteriors
+      ParentGameObjectLayers: []
+      ParentGameObjectTags: []
+      ComponentNames:
+      - roof
+      - frame
+      - door
+      - wall
+      - tiles
+      - plinth
+      - deck
+      - stair
+    lightLayers: 1
+    contributeGi: 1
+    shadowCastingMode: 1
+    staticShadowCaster: 1
+    receiveGi: 1
+    lightProbes: 1
+    reflectionProbes: 2
+    motionVectors: 0
+    dynamicOcclusion: 0
+  interior:
+    searchCriteria:
+      ParentGameObjectNames:
+      - Interior
+      - Interiors
+      ParentGameObjectLayers: []
+      ParentGameObjectTags: []
+      ComponentNames:
+      - floor
+      - wall
+      - vault
+      - furniture
+      - pillar
+      - stair
+      - upright
+      - winwood
+      - counter
+      - library
+      - bed
+      - carpet
+      - candle
+      - food
+      - kitch
+      - fire
+      - dias
+      - container
+    lightLayers: 2
+    contributeGi: 1
+    shadowCastingMode: 1
+    staticShadowCaster: 1
+    receiveGi: 1
+    lightProbes: 1
+    reflectionProbes: 1
+    motionVectors: 0
+    dynamicOcclusion: 0
+  interiorProps:
+    searchCriteria:
+      ParentGameObjectNames:
+      - Props
+      - InsideProps
+      - PropsBasement
+      ParentGameObjectLayers: []
+      ParentGameObjectTags: []
+      ComponentNames: []
+    lightLayers: 2
+    contributeGi: 1
+    shadowCastingMode: 1
+    staticShadowCaster: 1
+    receiveGi: 1
+    lightProbes: 1
+    reflectionProbes: 1
+    motionVectors: 0
+    dynamicOcclusion: 0
+  exteriorProps:
+    searchCriteria:
+      ParentGameObjectNames:
+      - OutsideProps
+      - ExteriorProps
+      ParentGameObjectLayers: []
+      ParentGameObjectTags: []
+      ComponentNames: []
+    lightLayers: 1
+    contributeGi: 1
+    shadowCastingMode: 1
+    staticShadowCaster: 1
+    receiveGi: 1
+    lightProbes: 1
+    reflectionProbes: 1
+    motionVectors: 0
+    dynamicOcclusion: 0

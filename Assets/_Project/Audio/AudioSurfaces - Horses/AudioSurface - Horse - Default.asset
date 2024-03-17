@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1c89896f5f7f6439ef1a93a23a0f3d, type: 3}
+  m_Name: AudioSurface - Horse - Default
+  m_EditorClassIdentifier: 
+  audioMixerGroup: {fileID: -8991655405756310492, guid: d4cb3dd8c857cad4599292f12c8e37c2,
+    type: 2}
+  TextureOrMaterialNames: []
+  audioClips:
+  - {fileID: 8300000, guid: a96bc8f91bbb2194b85239e6b77b6ccb, type: 3}
+  - {fileID: 8300000, guid: bdd95f0ff189161489bf5b1699402763, type: 3}
+  - {fileID: 8300000, guid: 9f2ece15f06a5794f931ce07c0fe067a, type: 3}
+  - {fileID: 8300000, guid: ce29ab1a70b3abe4faa754e29c49f349, type: 3}
+  - {fileID: 8300000, guid: 952ea6837c0bd75438e139fcc61da2aa, type: 3}
+  spawnParticle: 1
+  spawnHumanStep: 0
+  spawnHorseStep: 0
+  stepLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  timeToDestroy: 5

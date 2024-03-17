@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Animal_FSM 2
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"valueA":{"_name":"Distance
+    To Target","_targetVariableID":"6748eebe-01c8-402e-ad21-5bf203f4cd8e"},"valueB":{},"$type":"NodeCanvas.Tasks.Actions.SetFloat"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":33.10144,"y":-2.788162},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"malbersHelperBBParam":{"_name":"Malbers
+    AI Helper","_targetVariableID":"a61e3ba4-2aa7-4952-91f6-1926a7593f53"},"targetTransformBBParam":{"_name":"Wander
+    Area","_targetVariableID":"1e327144-661f-443c-8278-4e57fc71601b"},"$type":"DaftAppleGames.Common.AI.MoveTo"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Switch
+    to Move","_position":{"x":114.7237,"y":244.1214},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"valueA":{"_name":"Energy","_targetVariableID":"adee1397-ddda-4a31-ad8e-952ce3b0e414"},"Operation":2,"valueB":{"_value":1.0},"perSecond":true,"$type":"NodeCanvas.Tasks.Actions.SetFloat"},{"searchTag":{"_value":"Player"},"ignoreChildren":{},"saveObjectAs":{"_name":"Enemy
+    Target","_targetVariableID":"a3fb8395-d74c-4ddc-9b45-d234c056d617"},"saveDistanceAs":{"_name":"Distance
+    To Target","_targetVariableID":"6748eebe-01c8-402e-ad21-5bf203f4cd8e"},"$type":"NodeCanvas.Tasks.Actions.FindClosestWithTag"}]},"_repeatStateActions":true,"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Patrolling","_position":{"x":513.684,"y":13.8071},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"malbersHelperBBParam":{"_name":"Malbers
+    AI Helper","_targetVariableID":"a61e3ba4-2aa7-4952-91f6-1926a7593f53"},"$type":"DaftAppleGames.Common.AI.StopMove"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Switch
+    to Stop","_position":{"x":873.768,"y":229.4475},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"executionMode":1,"actions":[{"valueA":{"_name":"Energy","_targetVariableID":"adee1397-ddda-4a31-ad8e-952ce3b0e414"},"Operation":1,"valueB":{"_value":1.0},"perSecond":true,"$type":"NodeCanvas.Tasks.Actions.SetFloat"},{"searchTag":{"_value":"Player"},"ignoreChildren":{},"saveObjectAs":{"_name":"Enemy
+    Target","_targetVariableID":"a3fb8395-d74c-4ddc-9b45-d234c056d617"},"saveDistanceAs":{"_name":"Distance
+    To Target","_targetVariableID":"6748eebe-01c8-402e-ad21-5bf203f4cd8e"},"$type":"NodeCanvas.Tasks.Actions.FindClosestWithTag"}]},"_repeatStateActions":true,"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Resting","_position":{"x":438.98,"y":357.9775},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"},{"_position":{"x":-192.0722,"y":-43.0191},"$type":"NodeCanvas.StateMachines.AnyState","$id":"5"},{"_actionList":{"executionMode":1,"actions":[{"malbersHelperBBParam":{"_name":"Malbers
+    AI Helper","_targetVariableID":"a61e3ba4-2aa7-4952-91f6-1926a7593f53"},"fleeDistance":20.0,"$type":"DaftAppleGames.Common.AI.Flee"},{"valueA":{"_name":"Distance
+    To Target","_targetVariableID":"6748eebe-01c8-402e-ad21-5bf203f4cd8e"},"valueB":{},"$type":"NodeCanvas.Tasks.Actions.SetFloat"},{"valueA":{"_name":"Enemy
+    Target","_targetVariableID":"a3fb8395-d74c-4ddc-9b45-d234c056d617"},"valueB":{},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Flee","_position":{"x":-236.4395,"y":173.4137},"$type":"NodeCanvas.StateMachines.ActionState","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"Energy","_targetVariableID":"adee1397-ddda-4a31-ad8e-952ce3b0e414"},"checkType":2,"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"Energy","_targetVariableID":"adee1397-ddda-4a31-ad8e-952ce3b0e414"},"checkType":1,"valueB":{"_value":20.0},"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"conditions":[{"valueA":{"_name":"Distance
+    To Target","_targetVariableID":"6748eebe-01c8-402e-ad21-5bf203f4cd8e"},"checkType":2,"valueB":{"_value":5.0},"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"},{"valueA":{"_name":"Distance
+    To Target","_targetVariableID":"6748eebe-01c8-402e-ad21-5bf203f4cd8e"},"valueB":{},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"timeout":{"_name":"Flee
+    Time","_targetVariableID":"42604c0a-f63a-4b9c-b3b1-98bd718468c4"},"$type":"NodeCanvas.Tasks.Conditions.Timeout"},"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.29
+    _category: 
+    _comments: 
+    _translation: {x: 600, y: 103}
+    _zoomFactor: 0.75007886
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}

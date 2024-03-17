@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: Animal_BehaviourTree 3
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":636.0,"y":80.0},"_comment":"Patrol
+    Sequence","$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_action":{"actions":[{"malbersHelperBBParam":{"_name":"Malbers
+    AI Helper","_targetVariableID":"a61e3ba4-2aa7-4952-91f6-1926a7593f53"},"targetTransformBBParam":{"_name":"Wander
+    Area","_targetVariableID":"1e327144-661f-443c-8278-4e57fc71601b"},"$type":"DaftAppleGames.Common.AI.MoveTo"},{"valueA":{"_name":"Energy","_targetVariableID":"adee1397-ddda-4a31-ad8e-952ce3b0e414"},"Operation":2,"valueB":{"_value":-1.0},"perSecond":true,"$type":"NodeCanvas.Tasks.Actions.SetFloat"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":457.0,"y":245.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"1"},{"_condition":{"valueA":{"_name":"Energy","_targetVariableID":"adee1397-ddda-4a31-ad8e-952ce3b0e414"},"checkType":2,"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckFloat"},"_tag":"","_position":{"x":770.0,"y":178.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"2"},{"_position":{"x":792.0,"y":372.0},"_comment":"Rest
+    Sequence","$type":"NodeCanvas.BehaviourTrees.Sequencer"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.29
+    _category: 
+    _comments: 
+    _translation: {x: -93.94538, y: -37.975864}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}
