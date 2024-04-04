@@ -75,5 +75,25 @@ namespace DaftAppleGames.Common.Debugger
         {
             _debugTerrain.SetDetailDistance(distance);
         }
+
+        public void EnableTreesHandler()
+        {
+            _debugTerrain.EnableTrees();
+        }
+
+        public void DisableTreesHandler()
+        {
+            _debugTerrain.DisableTrees();
+        }
+
+        public void EnableDetailsHandler()
+        {
+            _debugTerrain.EnableDetails();
+        }
+
+        public void DisableDetailsHandler()
+        {
+            _debugTerrain.DisableDetails();
+        }
     }
 }

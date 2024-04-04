@@ -8,16 +8,25 @@ namespace DaftAppleGames.Common.Debugger
     public class DebugTerrain : DebugBase
     {
         [BoxGroup("Terrain Settings")] public Terrain terrain;
-        [BoxGroup("Terrain Settings")] public NatureRenderer natureRenderer;
 
         private NatureRendererCameraSettings _cameraSettings;
+        private NatureRenderer _natureRenderer;
 
+        /// <summary>
+        /// Configure terrain before any components start
+        /// </summary>
+        private void Awake()
+        {
+            terrain.drawTreesAndFoliage = false;
+        }
+        
         /// <summary>
         /// Set up the components
         /// </summary>
         public void Start()
         {
             _cameraSettings = PlayerCameraManager.Instance.MainCamera.GetComponent<NatureRendererCameraSettings>();
+            _natureRenderer = terrain.GetComponent<NatureRenderer>();
         }
 
         /// <summary>
@@ -36,6 +45,42 @@ namespace DaftAppleGames.Common.Debugger
             _cameraSettings.Render = false;
         }
 
+        /// <summary>
+        /// Enable trees in NR (terrain draw should be 'false')
+        /// </summary>
+        public void EnableTrees()
+        {
+            _natureRenderer.RenderTreesWithNatureRenderer = true;
+            _natureRenderer.Restart();
+        }
+
+        /// <summary>
+        /// Disable trees in NR
+        /// </summary>
+        public void DisableTrees()
+        {
+            _natureRenderer.RenderTreesWithNatureRenderer = false;
+            _natureRenderer.Restart();
+        }
+
+        /// <summary>
+        /// Enable details in NR
+        /// </summary>
+        public void EnableDetails()
+        {
+            _natureRenderer.RenderDetailsWithNatureRenderer = true;
+            _natureRenderer.Restart();
+        }
+
+        /// <summary>
+        /// Disable details in NR
+        /// </summary>
+        public void DisableDetails()
+        {
+            _natureRenderer.RenderDetailsWithNatureRenderer = false;
+            _natureRenderer.Restart();
+        }
+        
         /// <summary>
         /// Toggles terrain detail and tree shadows on
         /// </summary>
