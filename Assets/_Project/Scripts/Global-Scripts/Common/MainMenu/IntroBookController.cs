@@ -1,4 +1,3 @@
-#if BOOK
 using DaftAppleGames.Common.Books;
 using UnityEngine;
 
@@ -35,4 +34,3 @@ namespace DaftAppleGames.Common.MainMenu
         }
     }
 }
-#endif

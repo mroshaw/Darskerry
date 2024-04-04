@@ -15,6 +15,7 @@ namespace DaftAppleGames.Common.Buildings
         [BoxGroup("Light Settings")] public LightmapBakeType lightMode = LightmapBakeType.Mixed;
         [BoxGroup("Light Settings")] public float Radius = 0.025f;
         [BoxGroup("Light Settings")] public float Intensity = 150.0f;
+        [BoxGroup("Light Settings")] public Color TemperatureColor = new Color(227, 197, 100, 255);
         [BoxGroup("Light Settings")] public float Temperature = 5630.0f;
         [BoxGroup("Light Settings")] public float Range = 10.0f;
         [BoxGroup("Light Settings")] public bool EnableVolumetrics = false;
@@ -38,7 +39,7 @@ namespace DaftAppleGames.Common.Buildings
             additionalData.intensity = Intensity;
             additionalData.range = Range;
             additionalData.shadowUpdateMode = ShadowMapUpdateMode;
-            additionalData.SetColor(Color.white, Temperature);
+            additionalData.SetColor(TemperatureColor, Temperature);
             additionalData.affectsVolumetric = EnableVolumetrics;
             additionalData.lightlayersMask = lightLayers;
         }

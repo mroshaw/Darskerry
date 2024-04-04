@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
 using UnityEngine.Rendering.HighDefinition;
 #endif
 
@@ -97,7 +97,7 @@ namespace DaftAppleGames.Common.Buildings
         /// <param name="light"></param>
         private void ConfigureLight(Light light)
         {
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
             HDAdditionalLightData hdLight = light.GetComponent<HDAdditionalLightData>();
             hdLight.intensity = intensity;
             hdLight.range = range;

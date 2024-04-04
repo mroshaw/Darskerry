@@ -1,5 +1,3 @@
-#if MAGICA
-#if THE_VEGETATION_ENGINE
 using System.Collections;
 using MagicaCloth2;
 using TheVegetationEngine;
@@ -83,5 +81,3 @@ namespace DaftAppleGames.Common.Environment
         }
     }
 }
-#endif
-#endif

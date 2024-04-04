@@ -98,14 +98,21 @@ namespace DaftAppleGames.Common.Settings
                 case PerformanceSettingsManager.DynamicResolutionType.None:
                     dlssQualityDropdown.interactable = false;
                     fsrQualityDropdown.interactable = false;
+                    antiAliasingDropdown.interactable = true;
+                    antiAliasingModeDropdown.interactable = true;
                     break;
                 case PerformanceSettingsManager.DynamicResolutionType.DLSS:
                     dlssQualityDropdown.interactable = true;
                     fsrQualityDropdown.interactable = false;
+                    antiAliasingDropdown.interactable = false;
+                    antiAliasingModeDropdown.interactable = false;
                     break;
                 case PerformanceSettingsManager.DynamicResolutionType.FSR:
                     dlssQualityDropdown.interactable = false;
                     fsrQualityDropdown.interactable = true;
+                    antiAliasingDropdown.interactable = false;
+                    antiAliasingModeDropdown.interactable = false;
+
                     break;
             }
         }

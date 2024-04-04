@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
 using UnityEngine.Rendering.HighDefinition;
 #else
 using UnityEngine.Rendering;
@@ -27,19 +27,19 @@ namespace DaftAppleGames.Editor.Common.Performance
         public bool createIfMissing = false;
 
         [BoxGroup("Point Light")]
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
         public LightSettingsHd pointLightSettings;
 #else
     public LightSettings pointLightSettings;
 #endif
         [BoxGroup("Spot Light")]
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
         public LightSettingsHd spotLightSettings;
 #else
     public LightSettings spotLightSettings;
 #endif
         [BoxGroup("Area Light")]
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
         public LightSettingsHd areaLightSettings;
 #else
     public LightSettings areaLightSettings;

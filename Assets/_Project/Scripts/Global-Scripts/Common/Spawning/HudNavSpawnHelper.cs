@@ -1,4 +1,3 @@
-#if HNS
 using SickscoreGames.HUDNavigationSystem;
 using UnityEngine;
 
@@ -23,4 +22,3 @@ namespace DaftAppleGames.Common.Spawning
         }
     }
 }
-#endif

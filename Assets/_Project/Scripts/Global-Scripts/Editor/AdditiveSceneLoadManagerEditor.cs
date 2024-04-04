@@ -49,8 +49,11 @@ namespace DaftAppleGames.Editor
         public void Awake()
         {
             sceneLoader = target as AdditiveSceneLoadManager;
-            EditorSceneManager.sceneOpened -= LoadEditorScenes;
-            EditorSceneManager.sceneOpened += LoadEditorScenes;
+            if (sceneLoader.loadScenesEditorOnAwake)
+            {
+                Debug.Log("Loading all scenes in Editor...");
+                LoadAllScenes();
+            }
         }
 
         public void OnDestroy()

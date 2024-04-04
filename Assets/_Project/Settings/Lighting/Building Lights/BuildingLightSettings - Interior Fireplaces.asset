@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec86e09e2c7983448fb2efb2a17aee7, type: 3}
   m_Name: BuildingLightSettings - Interior Fireplaces
   m_EditorClassIdentifier: 
+  lightMode: 1
   Radius: 0.025
   Intensity: 10
+  TemperatureColor: {r: 227, g: 197, b: 100, a: 255}
   Temperature: 3000
   Range: 2
   EnableVolumetrics: 0
-  EnableShadowMap: 1
+  EnableShadowMap: 0
   ShadowMapUpdateMode: 2
   lightLayers: 2
   dayTimeState: 1

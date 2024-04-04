@@ -348,9 +348,68 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: Delay({{end}})
+        value: LookAt(listener); Camera(Full Back Left,speaker,2);
         type: 0
         typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 1
+        destinationConversationID: 1
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 24
+        y: 174
+        width: 160
+        height: 30
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 'Camera(original, , 1); // Move the camera to its pre-conversation
+          position over 1 second.
+
+          Continue()@1; // Continue past this
+          dialogue entry at the 1-second mark.'
+        type: 0
+        typeString: 
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -367,7 +426,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 24
-        y: 174
+        y: 248
         width: 160
         height: 30
     entryGroups: []
@@ -2588,8 +2647,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 17.1875, y: 0}
-    canvasZoom: 0.64000034
+    canvasScrollPosition: {x: 9.681992, y: 9.821915}
+    canvasZoom: 0.85000014
   - id: 8
     fields:
     - title: Title
@@ -2605,7 +2664,7 @@ MonoBehaviour:
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 2
+      value: 4
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -2651,7 +2710,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -2702,7 +2761,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 2
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -2761,7 +2820,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -2812,7 +2871,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 2
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -2872,7 +2931,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -3238,11 +3297,11 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Actor
-      value: 2
+      value: 1
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 1
+      value: 2
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -3288,7 +3347,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -3314,7 +3373,7 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 0
         destinationConversationID: 10
-        destinationDialogueID: 1
+        destinationDialogueID: 13
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3324,8 +3383,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 50
+        x: 84.12372
+        y: 6.7010345
         width: 160
         height: 30
     - id: 1
@@ -3398,7 +3457,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -3510,7 +3569,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -3622,7 +3681,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -3735,7 +3794,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -3847,7 +3906,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -3881,9 +3940,64 @@ MonoBehaviour:
         y: 948.7217
         width: 160
         height: 30
+    - id: 13
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Hello Player!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 13
+        destinationConversationID: 10
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 85.15465
+        y: 65.97937
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 622.54895}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.9100001
   - id: 11
     fields:
     - title: Title
@@ -4613,11 +4727,11 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Actor
-      value: 4
+      value: 1
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 1
+      value: 4
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -4663,7 +4777,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -4692,6 +4806,12 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 12
+        originDialogueID: 0
+        destinationConversationID: 12
+        destinationDialogueID: 16
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -4699,8 +4819,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 50
+        x: 83.65854
+        y: 4.8780518
         width: 160
         height: 30
     - id: 1
@@ -4726,8 +4846,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Eddie, have you heard those strange noises coming from the woods alongside
-          the farm? It sounds like some kind of creature roaring.
+        value: Good day, Eddie! Have you heard those strange noises coming from the
+          woods? It sounds like roaring!
         type: 0
         typeString: 
       - title: Sequence
@@ -4739,7 +4859,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
@@ -4774,7 +4894,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -4782,8 +4902,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: (nervously) Yeah, I've heard 'em. They've been going on for a while
-          now. It's got me on edge.
+        value: Yes, I've heard 'em. They've been going on for a while now. It's got
+          me on edge.
         type: 0
         typeString: 
       - title: Sequence
@@ -4795,7 +4915,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
@@ -4851,7 +4971,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
@@ -4868,7 +4988,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 302
+        y: 300.7805
         width: 160
         height: 30
     - id: 4
@@ -4886,7 +5006,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -4894,9 +5014,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: (hesitant) I... I'm not sure. But it's definitely something out of
-          the ordinary. I've been working on this farm for years, and I've never
-          heard anything like it.
+        value: I... I'm not sure. But it's something out of the ordinary, that's
+          for sure. I've been working here for years, and ain't never heard anything
+          like it.
         type: 0
         typeString: 
       - title: Sequence
@@ -4908,7 +5028,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
@@ -4964,7 +5084,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
@@ -4999,7 +5119,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -5007,9 +5127,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: (quietly) I haven't seen anything myself, but I've noticed some strange
-          markings on the trees. Deep scratches, like something big and powerful
-          has been clawing at them.
+        value: I ain't seen any tracks, but I've noticed some strange markings on
+          the trees. Deep scratches, like something been clawing at them.
         type: 0
         typeString: 
       - title: Sequence
@@ -5021,7 +5140,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
@@ -5064,8 +5183,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: That doesn't sound good. We should probably inform Grace and the others
-          about this. It could be a potential threat to the farm.
+        value: That doesn't sound good. Let's steer well clear of the woods for now,
+          agreed?
         type: 0
         typeString: 
       - title: Sequence
@@ -5077,7 +5196,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
@@ -5112,7 +5231,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -5120,8 +5239,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: (worried) I... I don't think that's a good idea. We don't know what
-          we're dealing with here. It could be dangerous.
+        value: Fine by me, Ma'am.
         type: 0
         typeString: 
       - title: Sequence
@@ -5133,7 +5251,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
@@ -5176,8 +5294,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Eddie, we can't just ignore this. If there's something out there that
-          could harm us or the animals, we need to take action.
+        value: Very good, Eddie. Well, I'd best be on my way. Be safe!
         type: 0
         typeString: 
       - title: Sequence
@@ -5189,7 +5306,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
@@ -5224,7 +5341,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -5232,10 +5349,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: (hesitant) I understand your concern, but... there's something you
-          should know. I've heard rumors about strange happenings in these woods
-          before. Unexplained disappearances, eerie sightings... things that people
-          don't like to talk about.
+        value: And you, ma'am!
         type: 0
         typeString: 
       - title: Sequence
@@ -5247,15 +5361,9 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 10
-        destinationConversationID: 12
-        destinationDialogueID: 11
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
       onExecute:
@@ -5267,7 +5375,7 @@ MonoBehaviour:
         y: 890
         width: 160
         height: 30
-    - id: 11
+    - id: 16
       fields:
       - title: Title
         value: 
@@ -5278,11 +5386,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 4
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -5290,7 +5398,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: (curious) What kind of things?
+        value: Good day to you ma'am!
         type: 0
         typeString: 
       - title: Sequence
@@ -5302,13 +5410,13 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 12
-        originDialogueID: 11
+        originDialogueID: 16
         destinationConversationID: 12
-        destinationDialogueID: 12
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -5318,234 +5426,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 974
-        width: 160
-        height: 30
-    - id: 12
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 4
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: (whispering) I've heard whispers of ancient creatures, long forgotten
-          by time. Beings that lurk in the shadows, waiting for unsuspecting prey.
-          I don't know if it's true, but... I've seen enough to make me believe there's
-          something unnatural going on.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: 
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 12
-        destinationConversationID: 12
-        destinationDialogueID: 13
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 80
-        y: 1058
-        width: 160
-        height: 30
-    - id: 13
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 4
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: (reflective) I see... Well, regardless of what it is, we can't just
-          sit here and do nothing. We need to find a way to protect ourselves and
-          the farm.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: 
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 13
-        destinationConversationID: 12
-        destinationDialogueID: 14
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 80
-        y: 1142
-        width: 160
-        height: 30
-    - id: 14
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 4
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: (nervously) I... I'll help you, but please be careful. Whatever's
-          out there, it's not something to be taken lightly.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: 
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 14
-        destinationConversationID: 12
-        destinationDialogueID: 15
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 80
-        y: 1226
-        width: 160
-        height: 30
-    - id: 15
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 4
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Don't worry, Eddie. We'll figure this out together. Let's gather the
-          others and come up with a plan. We won't
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: 
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 80
-        y: 1310
+        x: 76.092026
+        y: 69.73393
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.82000005
   - id: 13
     fields:
     - title: Title
@@ -5633,7 +5520,7 @@ MonoBehaviour:
       - originConversationID: 13
         originDialogueID: 0
         destinationConversationID: 13
-        destinationDialogueID: 1
+        destinationDialogueID: 17
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -5643,8 +5530,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 50
+        x: 71
+        y: 8
         width: 160
         height: 30
     - id: 1
@@ -5670,8 +5557,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Grace, have you heard those strange noises coming from the woods alongside
-          the farm?
+        value: Hello Grace! Have you heard those strange noises coming from the woods?
         type: 0
         typeString: 
       - title: Sequence
@@ -5683,7 +5569,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 13
@@ -5726,8 +5612,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Oh, you mean those eerie sounds? Yes, I've heard them too. They've
-          been giving me quite the goosebumps!
+        value: Yes, I've heard them too. They've been giving me quite the goosebumps!
         type: 0
         typeString: 
       - title: Sequence
@@ -5739,7 +5624,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 13
@@ -5795,7 +5680,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 13
@@ -5851,7 +5736,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 13
@@ -6538,6 +6423,61 @@ MonoBehaviour:
         y: 1394
         width: 160
         height: 30
+    - id: 17
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Good day, Player!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 13
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 13
+        originDialogueID: 17
+        destinationConversationID: 13
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 76
+        y: 68
+        width: 160
+        height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
@@ -6665,8 +6605,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hello Yannah, I'm back! I needed that walk, that time to think. But
-          I need to talk to you, I had the strangest dream.
+        value: Hello Yannah, I'm back! I need to talk to you, I have to tell you
+          about my dream.
         type: 0
         typeString: 
       - title: Sequence
@@ -6688,7 +6628,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: SetQuestNodeState("ADarkDream", "Return Home", "True")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6721,7 +6661,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Oh, really? What was it about?
+        value: Oh my poor love, you're shaking! Tell me, what was it about?
         type: 0
         typeString: 
       - title: Sequence
@@ -6776,11 +6716,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: It's hard to describe. I was here, on the island, but it was diifferent.
-          There was fire, smoke, and I could hear people screaming and some sort
-          of creature roaring. It felt so real, like I was reliving a memory. Like
-          I was there, but not scared... I was revelling in it! Oh Yahhah, what could
-          it mean?
+        value: I was here, on the island, but it was diifferent. There was fire,
+          smoke, and I could hear people screaming and something roaring. It was
+          so real, like I was reliving a memory. But I wasn't scared... I was revelling
+          in it! Oh Yahhah, what could it mean?
         type: 0
         typeString: 
       - title: Sequence
@@ -6835,7 +6774,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: My poor love, that sounds terrifying! Do you think it means something?
+        value: My poor love, that sounds awful! Do you think it means something?
         type: 0
         typeString: 
       - title: Sequence
@@ -6890,10 +6829,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I'm not sure, but it felt so vivid. It's been bothering me all day.
-          I can't remember anything from before, when we first met on the island.
-          The dream felt like a memory, though a horrible one. Did something happen
-          here? Could I have been here, been a part of something?
+        value: It's been bothering me all day. I can't remember anything from before,
+          when we first met. The dream felt like a memory, though a horrible one.
+          Did something happen here? Could I have been here, been a part of it?
         type: 0
         typeString: 
       - title: Sequence
@@ -6950,8 +6888,8 @@ MonoBehaviour:
       - title: Dialogue Text
         value: I just don't know. You seem shaken, you're worrying me Player! You
           should find out more, put your mind at ease! The old priest has been here
-          for ages gone, and he might have some knowledge of the island's past. Maybe
-          he can shed some light on your dream and help us understand its meaning?
+          for ages gone, he'll know of the island's past. Maybe he can shed some
+          light on your dream and help us understand its meaning?
         type: 0
         typeString: 
       - title: Sequence
@@ -7006,10 +6944,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Yes, I must do this. I'm scared, and I know deep down that I have
-          to find out more. It's been weighing on my mind, and I feel like there's
-          something important I need to uncover. I'll go to the church, try to find
-          out more.
+        value: Yes, I must do this. I'm scared, Yannah, I know deep down that I have
+          to find out more. Somethings wrong, terribly wrong! I'll go to the church,
+          try to find out more.
         type: 0
         typeString: 
       - title: Sequence
@@ -7064,9 +7001,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Yes, go no w and see what he has to say. Maybe you'll find something,
-          guidance or even some closure for you. We'll figure this out together,
-          just like we always do, I promise my love.
+        value: Yes, go now but come straight back! We'll figure this out together,
+          just like we always do. I promise, my love.
         type: 0
         typeString: 
       - title: Sequence
@@ -7177,8 +7113,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You don't have to thank me. We're in this together, and I'll always
-          be here for you. We'll face together whatever comes our way.
+        value: You don't have to thank me, I'll always be here for you. We'll face
+          together whatever comes our way.
         type: 0
         typeString: 
       - title: Sequence
@@ -7206,7 +7142,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.97
+    canvasZoom: 0.8200002
   syncInfo:
     syncActors: 0
     syncItems: 0

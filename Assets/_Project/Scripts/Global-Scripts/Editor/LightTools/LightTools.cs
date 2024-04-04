@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using Object = System.Object;
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
 using UnityEngine.Rendering.HighDefinition;
 #endif
 
@@ -61,7 +61,7 @@ namespace DaftAppleGames.Editor.Common.Performance
         /// <param name="settings"></param>
         private static void ConfigureSpotLight(Light light, LightingEditorSettings settings)
         {
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
 #else
             light.intensity = settings.spotLightIntensity;
             light.cullingMask = settings.spotLightCullingMask;
@@ -76,7 +76,7 @@ namespace DaftAppleGames.Editor.Common.Performance
         private static void ConfigurePointLight(Light light, LightingEditorSettings settings)
         {
             Debug.Log($"LightTools: ConfigurePointLight: Configuring {light.gameObject.name}...");
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
             LensFlare lensFlare = light.GetComponent<LensFlare>();
             if (lensFlare)
             {
@@ -146,7 +146,7 @@ namespace DaftAppleGames.Editor.Common.Performance
         
         public static int CalculateBitmask(int currentBitmask, Array enumValues)
         {
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
             //int originalBitVal = currentBitmask;
             LightLayerEnum targetLayer = LightLayerEnum.LightLayerDefault;
             foreach (LightLayerEnum current in enumValues)
@@ -176,7 +176,7 @@ namespace DaftAppleGames.Editor.Common.Performance
 
         public static int SetBitmask(int bitmask, int bitVal, bool set)
         {
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
             if (set)
                 // or "|" will add the value, the 1 at the right position
                 bitmask |= bitVal;

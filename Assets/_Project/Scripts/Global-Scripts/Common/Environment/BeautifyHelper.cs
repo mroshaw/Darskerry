@@ -1,5 +1,5 @@
 #if BEAUTIFY3
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
 using BeautifyHDRP;
 #else
 using BeautifyEffect;
@@ -11,7 +11,7 @@ namespace DaftAppleGames.Common.Environment
     public class BeautifyHelper : MonoBehaviour
     {
         [Header("Beautify Settings")]
-        #if HDPipeline
+        #if HDRPPACKAGE_EXIST
         #else
         public BeautifyProfile[] profiles;
         #endif        
@@ -28,7 +28,7 @@ namespace DaftAppleGames.Common.Environment
         /// <param name="profileIndex"></param>
         public void EnableProfile(int profileIndex)
         {
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
 #else
             _beautify.profile = profiles[profileIndex];
 #endif
@@ -44,7 +44,7 @@ namespace DaftAppleGames.Common.Environment
         {
             if (_beautify)
             {
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
                 
 #else
                 _beautify.enabled = true;
@@ -59,7 +59,7 @@ namespace DaftAppleGames.Common.Environment
         {
             if (_beautify)
             {
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
       
 #else
                 _beautify.enabled = false;

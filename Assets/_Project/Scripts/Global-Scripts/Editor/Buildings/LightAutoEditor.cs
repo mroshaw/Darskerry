@@ -1,7 +1,7 @@
 using DaftAppleGames.Common.Buildings;
 using UnityEditor;
 using UnityEngine;
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
 using UnityEngine.Rendering.HighDefinition;
 #endif
 namespace DaftAppleGames.Editor.AutoEditor.Buildings
@@ -11,7 +11,7 @@ namespace DaftAppleGames.Editor.AutoEditor.Buildings
         [Header("Light Settings")]
         public float range;
         public float intensity;
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
         public float radius;
 #else
         public float indirectMultiplier;
@@ -31,7 +31,7 @@ namespace DaftAppleGames.Editor.AutoEditor.Buildings
             LightAutoEditorSettings lightAutoEditorSettings = autoEditorSettings as LightAutoEditorSettings;
             range = lightAutoEditorSettings.range;
             intensity = lightAutoEditorSettings.intensity;
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
             radius = lightAutoEditorSettings.radius;
 #else
             indirectMultiplier = lightAutoEditorSettings.indirectMultiplier;
@@ -77,7 +77,7 @@ namespace DaftAppleGames.Editor.AutoEditor.Buildings
             Light[] allLights = gameObject.GetComponentsInChildren<Light>();
             foreach (Light light in allLights)
             {
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
                 theCandleLight.lights.Add(light);
                 HDAdditionalLightData hdLight = light.gameObject.GetComponent<HDAdditionalLightData>();
                 if (!hdLight)

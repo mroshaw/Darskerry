@@ -975,6 +975,7 @@ MonoBehaviour:
     Name: Unarmed Aereal
     CachedMode:
       active: 1
+      TemporalActivation: 1
       ignoreLowerModes: 0
       hasCoolDown: 0
       Input: 
@@ -1081,6 +1082,7 @@ MonoBehaviour:
     Name: Unarmed
     CachedMode:
       active: 1
+      TemporalActivation: 1
       ignoreLowerModes: 0
       hasCoolDown: 0
       Input: 
@@ -1182,6 +1184,7 @@ MonoBehaviour:
     Name: Melee Aereal
     CachedMode:
       active: 1
+      TemporalActivation: 1
       ignoreLowerModes: 0
       hasCoolDown: 0
       Input: 
@@ -1276,6 +1279,7 @@ MonoBehaviour:
     Name: Melee
     CachedMode:
       active: 1
+      TemporalActivation: 1
       ignoreLowerModes: 0
       hasCoolDown: 0
       Input: 
@@ -1461,6 +1465,7 @@ MonoBehaviour:
     Name: 2Hand Axe
     CachedMode:
       active: 1
+      TemporalActivation: 1
       ignoreLowerModes: 0
       hasCoolDown: 0
       Input: 
@@ -1562,6 +1567,7 @@ MonoBehaviour:
     Name: Spear
     CachedMode:
       active: 1
+      TemporalActivation: 1
       ignoreLowerModes: 0
       hasCoolDown: 0
       Input: 
@@ -13799,7 +13805,7 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 9
     Variable: {fileID: 0}
   Tracks: {fileID: 198000013136168986, guid: 09f1ade9e80c39d48a787edbe3e5ae80, type: 3}
   Dust: {fileID: 198000010737321038, guid: f0185de6019ebaa4db45528f37bad8d2, type: 3}
@@ -14300,7 +14306,8 @@ AudioSource:
   m_GameObject: {fileID: 5169847255139761105}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8991655405756310492, guid: d4cb3dd8c857cad4599292f12c8e37c2,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -19670,7 +19677,8 @@ AudioSource:
   m_GameObject: {fileID: 6097535176928879463}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8991655405756310492, guid: d4cb3dd8c857cad4599292f12c8e37c2,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.854
@@ -25920,6 +25928,7 @@ MonoBehaviour:
     DisableStances: []
   modes:
   - active: 1
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 0
     Input: Interact
@@ -26663,6 +26672,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 1
+    TemporalActivation: 1
     ignoreLowerModes: 1
     hasCoolDown: 0
     Input: Dodge
@@ -27082,6 +27092,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 1
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 0
     Input: Attack1
@@ -27742,6 +27753,7 @@ MonoBehaviour:
     m_Source: {fileID: 452168355676117046}
     ActivationTime: 0
   - active: 1
+    TemporalActivation: 1
     ignoreLowerModes: 1
     hasCoolDown: 0
     Input: 
@@ -27864,6 +27876,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 1
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 0
     Input: 
@@ -27984,6 +27997,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 0
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 0
     Input: 
@@ -28270,6 +28284,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 0
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 1
     Input: 
@@ -28473,6 +28488,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 0
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 0
     Input: 
@@ -28759,6 +28775,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 0
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 0
     Input: 
@@ -29045,6 +29062,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 0
+    TemporalActivation: 1
     ignoreLowerModes: 1
     hasCoolDown: 1
     Input: 
@@ -30190,6 +30208,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 0
+    TemporalActivation: 1
     ignoreLowerModes: 1
     hasCoolDown: 0
     Input: 
@@ -30725,6 +30744,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 0
+    TemporalActivation: 1
     ignoreLowerModes: 1
     hasCoolDown: 0
     Input: 
@@ -31177,6 +31197,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 1
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 0
     Input: 
@@ -31380,6 +31401,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 1
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 1
     Input: 
@@ -31587,6 +31609,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 1
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 0
     Input: 
@@ -32049,6 +32072,7 @@ MonoBehaviour:
     m_Source: {fileID: 0}
     ActivationTime: 0
   - active: 1
+    TemporalActivation: 1
     ignoreLowerModes: 0
     hasCoolDown: 0
     Input: 
@@ -32502,6 +32526,9 @@ MonoBehaviour:
     ActivationTime: 0
   CloneStates: 1
   OverrideStartState: {fileID: 0}
+  activeState: {fileID: 0}
+  lastState: {fileID: 0}
+  queueState: {fileID: 0}
   groundLayer:
     UseConstant: 1
     ConstantValue:
@@ -34152,7 +34179,7 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 0}
   TurnLimit: 45
-  rootMotion:
+  GlobalRootMotion:
     UseConstant: 1
     ConstantValue: 1
     Variable: {fileID: 0}
@@ -34573,6 +34600,10 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 1
       Variable: {fileID: 0}
+    Round:
+      UseConstant: 1
+      ConstantValue: -1
+      Variable: {fileID: 0}
     multiplier:
       UseConstant: 1
       ConstantValue: 1
@@ -34686,6 +34717,10 @@ MonoBehaviour:
     DisableOnEmpty:
       UseConstant: 1
       ConstantValue: 0
+      Variable: {fileID: 0}
+    Round:
+      UseConstant: 1
+      ConstantValue: -1
       Variable: {fileID: 0}
     multiplier:
       UseConstant: 1
@@ -34824,6 +34859,10 @@ MonoBehaviour:
     DisableOnEmpty:
       UseConstant: 1
       ConstantValue: 0
+      Variable: {fileID: 0}
+    Round:
+      UseConstant: 1
+      ConstantValue: -1
       Variable: {fileID: 0}
     multiplier:
       UseConstant: 1
@@ -35730,6 +35769,7 @@ MonoBehaviour:
   animal: {fileID: 806521914398758314}
   modes:
   - {fileID: 11400000, guid: 1286867ad3c4cdd4baacac3373aff92c, type: 2}
+  ExcludeAbilities: 
   ignoreStates:
   - {fileID: 11400000, guid: adfa24f62d6db4d40a1d837f4ec1a6e9, type: 2}
   KeepCurrentTarget:
@@ -35788,6 +35828,7 @@ MonoBehaviour:
   modes:
   - {fileID: 11400000, guid: 29bdac49b8510e74db1c074ba91fbe3f, type: 2}
   - {fileID: 11400000, guid: 87cd5a9f71d66f84493bd68df8277f21, type: 2}
+  ExcludeAbilities: 
   ignoreStates:
   - {fileID: 11400000, guid: adfa24f62d6db4d40a1d837f4ec1a6e9, type: 2}
   KeepCurrentTarget:
@@ -35845,6 +35886,7 @@ MonoBehaviour:
   animal: {fileID: 806521914398758314}
   modes:
   - {fileID: 11400000, guid: dc411047be38d924fbfc67128f6957f2, type: 2}
+  ExcludeAbilities: 
   ignoreStates:
   - {fileID: 11400000, guid: adfa24f62d6db4d40a1d837f4ec1a6e9, type: 2}
   KeepCurrentTarget:
@@ -36306,7 +36348,8 @@ AudioSource:
   m_GameObject: {fileID: 7745782681381996219}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8991655405756310492, guid: d4cb3dd8c857cad4599292f12c8e37c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 8df1df53c4baa7a4b9f136e2b96525fd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.854
@@ -36434,7 +36477,8 @@ AudioSource:
   m_GameObject: {fileID: 7783838406110323030}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8991655405756310492, guid: d4cb3dd8c857cad4599292f12c8e37c2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 2af30537405d5734b92a67c8f83a17be, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

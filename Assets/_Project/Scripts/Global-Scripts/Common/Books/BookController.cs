@@ -1,4 +1,3 @@
-#if BOOK
 using System.Linq;
 using UnityEngine;
 using echo17.EndlessBook;
@@ -757,4 +756,3 @@ namespace DaftAppleGames.Common.Books
         }
     }
 }
-#endif

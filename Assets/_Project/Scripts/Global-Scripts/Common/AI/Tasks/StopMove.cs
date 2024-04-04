@@ -1,3 +1,4 @@
+#if NODECANVAS
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
@@ -47,3 +48,4 @@ namespace DaftAppleGames.Common.AI
 		}
 	}
 }
+#endif

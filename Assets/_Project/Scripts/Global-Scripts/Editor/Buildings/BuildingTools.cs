@@ -132,7 +132,7 @@ namespace DaftAppleGames.Editor.Buildings
                     // Box Collider size for "Interior Culling Controller".
                     newScale = new Vector3(building.length + settings.interiorCullingMargin, building.height, building.width + settings.interiorCullingMargin);
                 }
-                else if (collider.GetComponent<InteriorTriggerController>())
+                else if (collider.GetComponent<InteriorTrigger>())
                 {
                     // Box Collider for "Interior Trigger Controller"
                     newScale = new Vector3(building.length + settings.interiorTriggerMargin, building.height, building.width + settings.interiorTriggerMargin);

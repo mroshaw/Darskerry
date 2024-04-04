@@ -1,3 +1,4 @@
+using Codice.Client.BaseCommands.Differences;
 using PixelCrushers.DialogueSystem;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
@@ -12,6 +13,7 @@ namespace DaftAppleGames.Editor.AutoEditor
         [BoxGroup("LOD Group Editor Settings")] public float[] twoLodWeights = new float[] { 0.9f, 0.0f };
         [BoxGroup("LOD Group Editor Settings")] public float[] threeLodWeights = new float[] { 0.9f, 0.5f, 0.0f };
         [BoxGroup("LOD Group Editor Settings")] public float[] fourLodWeights = new float[] {0.9f, 0.5f, 0.3f, 0.0f };
+        [BoxGroup("LOD Group Editor Settings")] public float[] fiveLodWeights = new float[] { 0.9f, 0.5f, 0.3f, 0.2f, 0.1f };
         [BoxGroup("LOD Group Editor Settings")] public LODFadeMode fadeMode = LODFadeMode.CrossFade;
         [BoxGroup("LOD Group Editor Settings")] public float cullRatio = 0.01f;
 
@@ -54,7 +56,7 @@ namespace DaftAppleGames.Editor.AutoEditor
 
             float[] lodWeights = new []{0.0f};
 
-            switch (numberOfLods-1)
+            switch (numberOfLods)
             {
                 case 2:
                     lodWeights = twoLodWeights;
@@ -64,6 +66,9 @@ namespace DaftAppleGames.Editor.AutoEditor
                     break;
                 case 4:
                     lodWeights = fourLodWeights;
+                    break;
+                case 5:
+                    lodWeights = fiveLodWeights;
                     break;
                     
             }
@@ -96,6 +101,11 @@ namespace DaftAppleGames.Editor.AutoEditor
                 curLodPos = curLodPos - lodLength;
 
                 lods[j].screenRelativeTransitionHeight = curLodPos;
+            }
+
+            for(int i=0; i < lods.Length; i++)
+            {
+                Debug.Log($"Lod {i}: {lods[i].screenRelativeTransitionHeight}");
             }
 
             lodGroup.SetLODs(lods);

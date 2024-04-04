@@ -29,17 +29,18 @@ namespace DaftAppleGames.Common.GameControllers
         GameLoader,
         GameCompleteLoader
     }
-    
+
     /// <summary>
     /// MonoBehaviour class to manage the additive / incremental loading of many scenes
     /// </summary>
-    public class AdditiveSceneLoadManager : MonoBehaviour
+  public class AdditiveSceneLoadManager : MonoBehaviour
     {
         /// <summary>
         /// Internal class for metadata related to each scene
         /// </summary>
         [BoxGroup("Behaviour")] public bool loadScenesOnStart = true;
         [BoxGroup("Behaviour")] public bool loadScenesOnAwake = false;
+        [BoxGroup("Behaviour")] public bool loadScenesEditorOnAwake = false;
         [BoxGroup("Behaviour")] public bool useLoadingScene = true;
         [BoxGroup("Behaviour")] public bool showProgress = true;
         [BoxGroup("Behaviour")] public bool showRotatingLogo = true;
@@ -80,7 +81,7 @@ namespace DaftAppleGames.Common.GameControllers
         // Singleton static instance
         private static AdditiveSceneLoadManager _instance;
         public static AdditiveSceneLoadManager Instance => _instance;
-        
+
         /// <summary>
         /// Setup the Scene Loader
         /// </summary>
@@ -97,17 +98,12 @@ namespace DaftAppleGames.Common.GameControllers
             }
 
             _sceneFader = GetComponent<SceneFader>();
-            
+
             if (loadScenesOnAwake)
             {
                 GetScenesToLoad();
                 ProcessAllScenes(LoadSceneMode.Additive);
             }
-
-            // Subscribe to SceneLoad load event
-            SceneManager.sceneLoaded -= ThisSceneLoadedHandler;
-            SceneManager.sceneLoaded += ThisSceneLoadedHandler;
-
         }
 
         /// <summary>
@@ -131,7 +127,18 @@ namespace DaftAppleGames.Common.GameControllers
         {
             onThisSceneLoadedEvent?.Invoke();
         }
-        
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// Handler for current scene loading event
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="mode"></param>
+        private void EditorSceneLoadedHandler(Scene scene, LoadSceneMode mode)
+        {
+            Debug.Log($"AdditiveSceneManager: Editor Scene Loaded detected: {scene.name}");
+        }
+#endif
         /// <summary>
         /// Init the scene load status
         /// </summary>
@@ -209,11 +216,11 @@ namespace DaftAppleGames.Common.GameControllers
         {
             InitSettings();
 #if PIXELCRUSHERS
-            if (GameController.Instance.IsLoadingFromSave)
+            if (GameController.Instance && GameController.Instance.IsLoadingFromSave)
             {
                 SaveSystem.LoadFromSlot(GameController.Instance.LoadSlot);
             }
-#endif            
+#endif
             if (_scenesToLoad.Count < 1)
             {
                 AllScenesReady();

@@ -26,8 +26,8 @@ namespace DaftAppleGames.Common.Audio
         [FoldoutGroup("Events")] public UnityEvent<string> ClipGroupStartedEvent;
         [FoldoutGroup("Events")] public UnityEvent<string> ClipGroupFinishedEvent;
 
-        [FoldoutGroup("Debug")] [SerializeField] private string _currentClipName;
-        [FoldoutGroup("Debug")] [SerializeField] public string _currentClipGroupName;
+        [FoldoutGroup("Debug")] [SerializeField] private BackgroundMusicClip _currentClip;
+        [FoldoutGroup("Debug")] [SerializeField] public BackgroundMusicGroup _currentClipGroup;
         [FoldoutGroup("Debug")] [SerializeField] private float _currentClipLength;
         [FoldoutGroup("Debug")] [SerializeField] private float _playedSoFar;
         [FoldoutGroup("Debug")] [SerializeField] private bool _inFade = false;
@@ -92,6 +92,15 @@ namespace DaftAppleGames.Common.Audio
                 bool lastGroup = _currentGroupIndex == backgroundMusicGroups.Count - 1;
 
                 Debug.Log($"BackgroundMusicPlayer: Update: GroupClipsFinished={groupClipsFinished}, LastGroup={lastGroup}");
+
+                // If we've reached the end of the current group, and it's set to repeat, restart the group
+                if (groupClipsFinished && _currentClipGroup.LoopGroup)
+                {
+                    Debug.Log("BackgroundMusicPlayer: Update: Group clips finished. Moving on to next group");
+                    _currentGroupClipIndex = 0;
+                    FadeOut(true, _currentGroupIndex, _currentGroupClipIndex);
+                    return;
+                }
 
                 // If we've reached the end of all clips in all groups
                 if (lastGroup && groupClipsFinished)
@@ -197,8 +206,9 @@ namespace DaftAppleGames.Common.Audio
             _audioSource.Play();
             _isPlaying = true;
 
-            _currentClipGroupName = backgroundMusicGroups[groupIndex].GroupName;
-            _currentClipName = backgroundMusicGroups[groupIndex].GroupClips[groupClipIndex].ClipName;
+            _currentClipGroup = backgroundMusicGroups[groupIndex];
+            // _currentClipGroupName = backgroundMusicGroups[groupIndex].GroupName;
+            // _currentClipName = backgroundMusicGroups[groupIndex].GroupClips[groupClipIndex].ClipName;
 
             float time = 0.0f;
 
@@ -206,7 +216,7 @@ namespace DaftAppleGames.Common.Audio
             while (time < fadeTimeInSeconds)
             {
                 _audioSource.volume = Mathf.Lerp(0, 1.0f, time / fadeTimeInSeconds);
-                time += Time.deltaTime;
+                time += Time.unscaledDeltaTime;
                 yield return null;
             }
 
@@ -243,7 +253,7 @@ namespace DaftAppleGames.Common.Audio
             while (time < fadeTimeInSeconds)
             {
                 _audioSource.volume = Mathf.Lerp(startVolume, 0.0f, time / fadeTimeInSeconds);
-                time += Time.deltaTime;
+                time += Time.unscaledDeltaTime;
                 yield return null;
             }
 
@@ -266,6 +276,7 @@ namespace DaftAppleGames.Common.Audio
         public class BackgroundMusicGroup
         {
             [BoxGroup("Group Details")] public string GroupName;
+            [BoxGroup("Group Details")] public bool LoopGroup;
             [BoxGroup("Group Clips")] public List<BackgroundMusicClip> GroupClips;
             [FoldoutGroup("Events")] public UnityEvent ClipStartEvent;
             [FoldoutGroup("Events")] public UnityEvent ClipFinishEvent;

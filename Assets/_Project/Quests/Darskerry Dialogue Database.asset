@@ -3373,7 +3373,7 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 0
         destinationConversationID: 10
-        destinationDialogueID: 13
+        destinationDialogueID: 14
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3385,117 +3385,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 84.12372
         y: 6.7010345
-        width: 160
-        height: 30
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Good morning, Grace! What a beautiful day it is, isn't it?
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 10
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 10
-        originDialogueID: 1
-        destinationConversationID: 10
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 80
-        y: 134
-        width: 160
-        height: 30
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Oh, absolutely! The sun is shining so brightly, and the sky is as
-          blue as can be. It's a perfect day to be out on the farm.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 10
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 10
-        originDialogueID: 2
-        destinationConversationID: 10
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 80
-        y: 218
         width: 160
         height: 30
     - id: 3
@@ -3521,8 +3410,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I couldn't agree more. And have you seen how lovely the meadow flowers
-          are looking? They seem to be in full bloom.
+        value: And the meadow flowers, so beautiful!
         type: 0
         typeString: 
       - title: Sequence
@@ -3550,8 +3438,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 86.18558
-        y: 312.30927
+        x: 92.15573
+        y: 215.2944
         width: 160
         height: 30
     - id: 6
@@ -3569,63 +3457,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: The flowers bring so much joy and cheerfulness to the farm. It's like
-          they're saying, "Hey, look at us! We're here to brighten your day!"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 10
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 10
-        originDialogueID: 6
-        destinationConversationID: 10
-        destinationDialogueID: 7
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 88.24744
-        y: 430.28873
-        width: 160
-        height: 30
-    - id: 7
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
         value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -3650,7 +3482,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 10
-        originDialogueID: 7
+        originDialogueID: 6
         destinationConversationID: 10
         destinationDialogueID: 8
         isConnector: 0
@@ -3662,68 +3494,11 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 91.34021
-        y: 533.8763
+        x: 90.52724
+        y: 294.5007
         width: 160
         height: 30
     - id: 8
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Sometimes, we get so caught up in our daily tasks that we forget to
-          appreciate the little things. But days like today remind us to slow down
-          and take it all in.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 10
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 10
-        originDialogueID: 8
-        destinationConversationID: 10
-        destinationDialogueID: 9
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 99.58763
-        y: 622
-        width: 160
-        height: 30
-    - id: 9
       fields:
       - title: Title
         value: 
@@ -3746,8 +3521,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I couldn't have said it better myself, Grace. Let's make sure to enjoy
-          this beautiful day and take a moment to appreciate the wonders of nature.
+        value: Sometimes, we get so caught up that we forget to appreciate the little
+          things. But days like today remind us to slow down and take it all in.
         type: 0
         typeString: 
       - title: Sequence
@@ -3763,9 +3538,9 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 10
-        originDialogueID: 9
+        originDialogueID: 8
         destinationConversationID: 10
-        destinationDialogueID: 10
+        destinationDialogueID: 15
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3775,65 +3550,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 99.58763
-        y: 709.0928
-        width: 160
-        height: 30
-    - id: 10
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Let's soak up the sunshine, breathe in the fresh air, and let the
-          beauty of these meadow flowers fill our hearts with joy. But first, I must
-          attend to the sheep!
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 10
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 10
-        originDialogueID: 10
-        destinationConversationID: 10
-        destinationDialogueID: 11
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 96.49484
-        y: 785.8763
+        x: 87.49971
+        y: 376.04373
         width: 160
         height: 30
     - id: 11
@@ -3887,8 +3605,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 95.46393
-        y: 866.7835
+        x: 90.29152
+        y: 537.47345
         width: 160
         height: 30
     - id: 12
@@ -3906,7 +3624,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -3914,7 +3632,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Farewell!
+        value: Farewell, [var=Actor]!
         type: 0
         typeString: 
       - title: Sequence
@@ -3936,8 +3654,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 86.18556
-        y: 948.7217
+        x: 82.73729
+        y: 633.20465
         width: 160
         height: 30
     - id: 13
@@ -3963,7 +3681,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hello Player!
+        value: Hello, [var=Actor]! Isn't it just! A perfect day to be out on the
+          farm.
         type: 0
         typeString: 
       - title: Sequence
@@ -3981,7 +3700,7 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 13
         destinationConversationID: 10
-        destinationDialogueID: 1
+        destinationDialogueID: 3
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3991,13 +3710,124 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 85.15465
-        y: 65.97937
+        x: 88.13971
+        y: 139.11365
+        width: 160
+        height: 30
+    - id: 14
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Good morning, Grace! What a beautiful day!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 14
+        destinationConversationID: 10
+        destinationDialogueID: 13
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 93.07901
+        y: 68.64131
+        width: 160
+        height: 30
+    - id: 15
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Well, much as I'd love to slow down, those sheep still need looking
+          after!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 15
+        destinationConversationID: 10
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 80.603195
+        y: 446.73337
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.9100001
+    canvasZoom: 0.5800004
   - id: 11
     fields:
     - title: Title
@@ -4809,7 +4639,7 @@ MonoBehaviour:
       - originConversationID: 12
         originDialogueID: 0
         destinationConversationID: 12
-        destinationDialogueID: 16
+        destinationDialogueID: 17
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -4846,8 +4676,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Good day, Eddie! Have you heard those strange noises coming from the
-          woods? It sounds like roaring!
+        value: What say you, Eddie? I trust all is well?
         type: 0
         typeString: 
       - title: Sequence
@@ -4875,8 +4704,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 134
+        x: 75.12195
+        y: 182.78049
         width: 160
         height: 30
     - id: 2
@@ -4902,8 +4731,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Yes, I've heard 'em. They've been going on for a while now. It's got
-          me on edge.
+        value: Well, maam, it's well enough. But have to heard them noises, coming
+          from the trees over yonder? Not natural, no they are not!
         type: 0
         typeString: 
       - title: Sequence
@@ -4931,8 +4760,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 218
+        x: 77.560974
+        y: 246.04877
         width: 160
         height: 30
     - id: 3
@@ -4958,8 +4787,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Do you have any idea what it could be? It's not like any animal I've
-          ever heard before.
+        value: Oh my, what do you think it could be? An injured deer, perhaps?
         type: 0
         typeString: 
       - title: Sequence
@@ -4987,8 +4815,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 300.7805
+        x: 78.78049
+        y: 315.41464
         width: 160
         height: 30
     - id: 4
@@ -5071,8 +4899,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Have you seen anything unusual in the woods lately? Maybe some tracks
-          or signs of a creature?
+        value: You're worrying me, Eddie. Have you seen any tracks? Any signs of
+          what it might be?
         type: 0
         typeString: 
       - title: Sequence
@@ -5100,8 +4928,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 470
+        x: 83.65853
+        y: 454.14636
         width: 160
         height: 30
     - id: 6
@@ -5156,8 +4984,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 554
+        x: 82.439026
+        y: 539.36584
         width: 160
         height: 30
     - id: 7
@@ -5183,8 +5011,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: That doesn't sound good. Let's steer well clear of the woods for now,
-          agreed?
+        value: That doesn't sound good, not at all. Steer clear of the woods, Eddie.
+          At least until we've found out what's going on.
         type: 0
         typeString: 
       - title: Sequence
@@ -5212,8 +5040,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 638
+        x: 81.21951
+        y: 616.0487
         width: 160
         height: 30
     - id: 8
@@ -5231,7 +5059,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 4
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -5341,7 +5169,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 4
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -5426,12 +5254,67 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 76.092026
-        y: 69.73393
+        x: 73.653
+        y: 107.5388
+        width: 160
+        height: 30
+    - id: 17
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 4
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Well met, Eddie!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 17
+        destinationConversationID: 12
+        destinationDialogueID: 16
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 76.34148
+        y: 50
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 382.9268}
     canvasZoom: 0.82000005
   - id: 13
     fields:
@@ -6605,8 +6488,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hello Yannah, I'm back! I needed that walk, that time to think. But
-          I need to talk to you, I had the strangest dream.
+        value: Hello Yannah, I'm back! I need to talk to you, I have to tell you
+          about my dream.
         type: 0
         typeString: 
       - title: Sequence
@@ -6628,7 +6511,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: SetQuestNodeState("ADarkDream", "Return Home", "True")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6661,7 +6544,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Oh, really? What was it about?
+        value: Oh my poor love, you're shaking! Tell me, what was it about?
         type: 0
         typeString: 
       - title: Sequence
@@ -6716,11 +6599,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: It's hard to describe. I was here, on the island, but it was diifferent.
-          There was fire, smoke, and I could hear people screaming and some sort
-          of creature roaring. It felt so real, like I was reliving a memory. Like
-          I was there, but not scared... I was revelling in it! Oh Yahhah, what could
-          it mean?
+        value: I was here, on the island, but there was fire, smoke, and I could
+          hear people screaming and something roaring. It was so real, like a memory!
+          But I wasn't scared... I was revelling in it! Oh Yahhah, what could it
+          mean?
         type: 0
         typeString: 
       - title: Sequence
@@ -6749,7 +6631,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 302
+        y: 300.73416
         width: 160
         height: 30
     - id: 4
@@ -6775,7 +6657,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: My poor love, that sounds terrifying! Do you think it means something?
+        value: My poor love, that sounds awful! I'm sure there's nothing in it. Just
+          a dream!
         type: 0
         typeString: 
       - title: Sequence
@@ -6830,10 +6713,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I'm not sure, but it felt so vivid. It's been bothering me all day.
-          I can't remember anything from before, when we first met on the island.
-          The dream felt like a memory, though a horrible one. Did something happen
-          here? Could I have been here, been a part of something?
+        value: It's been bothering me all day. I can't remember anything from before,
+          when we first met. The dream felt like a memory, though a horrible one.
+          Did something happen here? Could I have been here, been a part of it?
         type: 0
         typeString: 
       - title: Sequence
@@ -6888,10 +6770,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I just don't know. You seem shaken, you're worrying me Player! You
-          should find out more, put your mind at ease! The old priest has been here
-          for ages gone, and he might have some knowledge of the island's past. Maybe
-          he can shed some light on your dream and help us understand its meaning?
+        value: I just don't know. You seem shaken, you're worrying me [var=Actor]!
+          You should find out more, put your mind at ease! The old priest has been
+          here for ages gone, he'll know of the island's past. Maybe he can shed
+          some light on your dream and help us understand its meaning?
         type: 0
         typeString: 
       - title: Sequence
@@ -6946,10 +6828,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Yes, I must do this. I'm scared, and I know deep down that I have
-          to find out more. It's been weighing on my mind, and I feel like there's
-          something important I need to uncover. I'll go to the church, try to find
-          out more.
+        value: Yes, I must do this. I'm scared, Yannah, I know deep down that I have
+          to find out more. Somethings wrong, terribly wrong! I'll go to the church,
+          try to find out more.
         type: 0
         typeString: 
       - title: Sequence
@@ -6971,14 +6852,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: GiveQuestToQuester("Yannah", "HolierThanThou", "Player")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 638
+        y: 636.78046
         width: 160
         height: 30
     - id: 8
@@ -7004,9 +6885,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Yes, go no w and see what he has to say. Maybe you'll find something,
-          guidance or even some closure for you. We'll figure this out together,
-          just like we always do, I promise my love.
+        value: Yes, go now but come straight back! We'll figure this out together,
+          just like we always do. I promise, my love.
         type: 0
         typeString: 
       - title: Sequence
@@ -7117,8 +6997,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You don't have to thank me. We're in this together, and I'll always
-          be here for you. We'll face together whatever comes our way.
+        value: You don't have to thank me, I'll always be here for you. We'll face
+          together whatever comes our way.
         type: 0
         typeString: 
       - title: Sequence
@@ -7146,7 +7026,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.97
+    canvasZoom: 0.7900002
   syncInfo:
     syncActors: 0
     syncItems: 0

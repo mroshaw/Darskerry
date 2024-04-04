@@ -1,3 +1,4 @@
+#if NODECANVAS
 using MalbersAnimations.Controller.AI;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
@@ -63,3 +64,4 @@ namespace DaftAppleGames.Common.AI
 		}
 	}
 }
+#endif

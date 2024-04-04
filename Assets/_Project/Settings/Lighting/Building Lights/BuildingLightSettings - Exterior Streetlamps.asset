@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec86e09e2c7983448fb2efb2a17aee7, type: 3}
   m_Name: BuildingLightSettings - Exterior Streetlamps
   m_EditorClassIdentifier: 
+  lightMode: 1
   Radius: 0.025
   Intensity: 150
+  TemperatureColor: {r: 227, g: 197, b: 100, a: 255}
   Temperature: 5630
   Range: 10
   EnableVolumetrics: 0
@@ -21,4 +23,4 @@ MonoBehaviour:
   ShadowMapUpdateMode: 2
   lightLayers: 4
   dayTimeState: 0
-  nightTimeState: 1
+  nightTimeState: 0

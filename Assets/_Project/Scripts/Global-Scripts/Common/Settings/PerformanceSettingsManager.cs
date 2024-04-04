@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 #if UNITY_POST_PROCESSING_STACK_V2
 using UnityEngine.Rendering.PostProcessing;
 #endif
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
 using UnityEngine.Rendering.HighDefinition;
 using static DaftAppleGames.Common.Settings.PerformanceSettingsManager;
 #endif
@@ -345,6 +345,7 @@ namespace DaftAppleGames.Common.Settings
 #else
             HDAdditionalCameraData additionalCameraData = mainCamera.GetComponent<HDAdditionalCameraData>();
             additionalCameraData.antialiasing = (HDAdditionalCameraData.AntialiasingMode)AntiAliasingModeIndex;
+            Debug.Log($"PerformanceSettings: AntiAliasingMode is now {additionalCameraData.antialiasing}");
 #endif
         }
         
@@ -414,7 +415,7 @@ namespace DaftAppleGames.Common.Settings
             {
                 mainDirectionalLight = GameUtils.FindMainDirectionalLight();
             }
-#if HDPipeline
+#if HDRPPACKAGE_EXIST
             HDAdditionalLightData hdLightData = mainDirectionalLight.GetComponent<HDAdditionalLightData>();
             if(EnableShadows)
             {
@@ -487,6 +488,8 @@ namespace DaftAppleGames.Common.Settings
                 case DynamicResolutionType.None:
                     HDCam.allowDeepLearningSuperSampling = false;
                     HDCam.allowDynamicResolution = false;
+                    ApplyAntiAliasingMode();
+                    ApplyAntiAliasingResolution();
                     break;
                 case DynamicResolutionType.DLSS:
                     HDCam.allowDynamicResolution = true;
@@ -499,7 +502,6 @@ namespace DaftAppleGames.Common.Settings
                     HDCam.allowDeepLearningSuperSampling = false;
                     break;
             }
-
         }
 
         /// <summary>

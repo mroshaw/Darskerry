@@ -1,19 +1,17 @@
-using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
-using LightType = UnityEngine.LightType;
 
 namespace DaftAppleGames.Common.Buildings
 {
+    public enum StartBehaviour { AllOn, AllOff, DayState, NightState, Configured }
+
     public class BuildingLights : MonoBehaviour
     {
         [BoxGroup("Behaviour")] public bool refreshOnStart = false;
         [BoxGroup("Behaviour")] public bool configureOnStart = false;
-        [BoxGroup("Behaviour")] public bool startAsDaytime = true;
-        
+        [BoxGroup("Behaviour")] public StartBehaviour startBehaviour = StartBehaviour.AllOff;
+
         [InlineEditor][FoldoutGroup("Interior Light Settings")] public BuildingLightSettings intCandleSettings;
         [InlineEditor][FoldoutGroup("Interior Light Settings")] public BuildingLightSettings intFireplaceSettings;
         [InlineEditor][FoldoutGroup("Interior Light Settings")] public BuildingLightSettings intCookingFireSettings;
@@ -45,13 +43,20 @@ namespace DaftAppleGames.Common.Buildings
                 ApplyLightSettings();
             }
 
-            if (startAsDaytime)
+            switch (startBehaviour)
             {
-                EnableDaytimeLights();
-            }
-            else
-            {
-                EnableNighttimeLights();
+                case StartBehaviour.AllOff:
+                    TurnOffAllLights();
+                    break;
+                case StartBehaviour.AllOn:
+                    TurnOnAllLights();
+                    break;
+                case StartBehaviour.DayState:
+                    EnableDaytimeLights();
+                    break;
+                case StartBehaviour.NightState:
+                    EnableNighttimeLights();
+                    break;
             }
         }
 
@@ -168,6 +173,28 @@ namespace DaftAppleGames.Common.Buildings
             {
                 extStreetLampSettings.ConfigureLight(extStreetLamp.Light);
             }
+        }
+
+        [BoxGroup("Control")]
+        [Button("Turn All On")]
+        public void TurnOnAllLights()
+        {
+            TurnOnIntCandles();
+            TurnOnIntCookingFires();
+            TurnOnIntFireplaces();
+            TurnOnExtStreetLamps();
+            TurnOnExtTorches();
+        }
+
+        [BoxGroup("Control")]
+        [Button("Turn All Off")]
+        public void TurnOffAllLights()
+        {
+            TurnOffIntCandles();
+            TurnOffIntCookingFires();
+            TurnOffIntFireplaces();
+            TurnOffExtStreetLamps();
+            TurnOffExtTorches();
         }
 
         [BoxGroup("Control")] [Button("Daytime Lights")]

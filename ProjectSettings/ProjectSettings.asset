@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 6a1de53cba5c4ef4a9f0e68570f1cd13
+  productGUID: 3e8692798a3376541839abca5c3a50d8
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,16 +13,16 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Daft Apple Games
-  productName: Darskerry Redemption
+  productName: Darskerry
   defaultCursor: {fileID: 2800000, guid: d41cb70d856299f46af624ce5db00baa, type: 3}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
   m_SplashScreenLogoStyle: 1
-  m_SplashScreenDrawMode: 0
+  m_SplashScreenDrawMode: 1
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
   m_SplashScreenBackgroundLandscapeAspect: 1
@@ -40,6 +40,8 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
+  - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
+    duration: 2
   - logo: {fileID: 21300000, guid: 2e3accfb20231b54cb02478f59024843, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
@@ -81,7 +83,7 @@ PlayerSettings:
   androidAutoRotationBehavior: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-  runInBackground: 0
+  runInBackground: 1
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -139,7 +141,9 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 2022-HDRP-23.08.01
+  visionOSBundleVersion: 1.0
+  tvOSBundleVersion: 1.0
+  bundleVersion: 0.0.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -163,7 +167,6 @@ PlayerSettings:
   applicationIdentifier:
     Standalone: com.Unity-Technologies.com.unity.template.hdrp-blank
   buildNumber:
-    Bratwurst: 0
     Standalone: 0
     VisionOS: 0
     iPhone: 0
@@ -821,28 +824,13 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;ENVIRO_3;ENVIRO_HDRP
-    EmbeddedLinux: ENVIRO_3;ENVIRO_HDRP
-    GameCoreXboxOne: ENVIRO_3;ENVIRO_HDRP
-    Nintendo Switch: ENVIRO_3;ENVIRO_HDRP
-    PS4: ENVIRO_3;ENVIRO_HDRP
-    PS5: ENVIRO_3;ENVIRO_HDRP
-    QNX: ENVIRO_3;ENVIRO_HDRP
-    Stadia: ENVIRO_3;ENVIRO_HDRP
-    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_INSPECTOR_EDITOR_ONLY;THE_VEGETATION_ENGINE;PIXELCRUSHERS;HDPipeline;__MICROSPLAT__;INVECTOR_BASIC;INVECTOR_MELEE;INVECTOR_SHOOTER;TERRAINPACKAGE_EXIST;HDRPPACKAGE_EXIST;MAGICA;HNS;SOULLINK_SPAWNER;HAP;BOOK;BEAUTIFY3;NODECANVAS;TMP_PRESENT;CROSS_PLATFORM_INPUT;ATMOSPHERIC_HEIGHT_FOG;MAGICACLOTH2;ENVIRO_3;THE_VEGETATION_ENGINE_ELEMENTS;__MICROSPLAT_TESSELLATION__;__MICROSPLAT_MICROVERSEPREVIEW__;SOULLINK_USE_MAC;USE_NAVMESH;USE_OPENAI;ENVIRO_HDRP
-    VisionOS: ENVIRO_3;ENVIRO_HDRP
-    WebGL: ENVIRO_3;ENVIRO_HDRP
-    Windows Store Apps: MOBILE_INPUT
-    XboxOne: ENVIRO_3;ENVIRO_HDRP
-    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT
-    tvOS: ENVIRO_3;ENVIRO_HDRP
+    Standalone: SOULLINK_SPAWNER;INVECTOR_BASIC;INVECTOR_MELEE;INVECTOR_SHOOTER;MAGICACLOTH2;TERRAINPACKAGE_EXIST;HDRPPACKAGE_EXIST;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;PIXELCRUSHERS;ODIN_INSPECTOR_EDITOR_ONLY;__MICROSPLAT__;TMP_PRESENT;USE_NAVMESH;HAP;SOULLINK_USE_MAC;THE_VEGETATION_ENGINE
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   managedStrippingLevel:
-    Bratwurst: 1
     EmbeddedLinux: 1
     GameCoreScarlett: 1
     GameCoreXboxOne: 1
@@ -851,6 +839,7 @@ PlayerSettings:
     PS5: 1
     QNX: 1
     Stadia: 1
+    VisionOS: 1
     WebGL: 1
     Windows Store Apps: 1
     XboxOne: 1
@@ -867,16 +856,16 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Darskerry-Game-2022-HDRP
-  metroPackageVersion: 1.0.0.0
+  metroPackageName: Darskerry22
+  metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Darskerry-Game-2022-HDRP
+  metroApplicationDescription: Darskerry22
   wsaImages: {}
-  metroTileShortName: Darskerry Redemption
+  metroTileShortName: 
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -945,10 +934,7 @@ PlayerSettings:
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  qualitySettingsNames:
-  - High Fidelity
-  - Balanced
-  - Performant
+  qualitySettingsNames: []
   projectName: 
   organizationId: 
   cloudEnabled: 0

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DaftAppleGames.Common.UI
 {
@@ -19,6 +20,12 @@ namespace DaftAppleGames.Common.UI
         {
             base.Start();
             valueText.gameObject.SetActive(showValue);
+
+            if (showValue)
+            {
+                SetValue(GetComponent<Slider>().value);
+                GetComponent<Slider>().onValueChanged.AddListener(SetValue);
+            }
         }
 
         /// <summary>

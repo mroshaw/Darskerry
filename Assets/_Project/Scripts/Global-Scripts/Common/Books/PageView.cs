@@ -1,4 +1,3 @@
-#if BOOK
 using UnityEngine;
 
 namespace DaftAppleGames.Common.Books
@@ -89,4 +88,3 @@ namespace DaftAppleGames.Common.Books
         }
     }
 }
-#endif
