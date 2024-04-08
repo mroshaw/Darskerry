@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
@@ -21,6 +22,19 @@ namespace DaftAppleGames.Scripts.Editor.Buildings
         [BoxGroup("Lighting")] public ShadowCastingMode shadowCastingMode = ShadowCastingMode.Off;
         [BoxGroup("Lighting")] public LightLayerEnum lightLayer;
         [BoxGroup("Lighting")] public DecalLayerEnum decalLayer;
+        [BoxGroup("Lighting")] public ReceiveGI receiveGlobalIllumination = ReceiveGI.LightProbes;
+        [BoxGroup("Additional")] public MotionVectorGenerationMode motionVectorMode = MotionVectorGenerationMode.Camera;
+        [BoxGroup("Additional")] public bool allowDynamicOcclusion = false;
+
+        [BoxGroup("Selected Objects")] public GameObject[] selectedObjects;
+
+        /// <summary>
+        /// Refresh the list of GameObjects selected
+        /// </summary>
+        private void OnSelectionChange()
+        {
+            selectedObjects = Selection.gameObjects;
+        }
 
         [Button("Contribute GI")]
         private void ConfigureGI()
@@ -37,8 +51,20 @@ namespace DaftAppleGames.Scripts.Editor.Buildings
                 {
                     newFlags = flags & ~StaticEditorFlags.ContributeGI;
                 }
-                
+
+                renderer.receiveGI = receiveGlobalIllumination;
+
                 GameObjectUtility.SetStaticEditorFlags(renderer.gameObject, newFlags);
+            }
+        }
+
+        [Button("Additional")]
+        private void ConfigureAdditionalSettings()
+        {
+            foreach (MeshRenderer renderer in GetChildMeshRenderers())
+            {
+                renderer.motionVectorGenerationMode = motionVectorMode;
+                renderer.allowOcclusionWhenDynamic = allowDynamicOcclusion;
             }
         }
 

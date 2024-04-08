@@ -1025,10 +1025,10 @@ MonoBehaviour:
   m_detailVelocity: {x: 0.01, y: 0.01, z: 0}
   m_baseWarpVelocity: {x: 0, y: 0, z: 0}
   m_detailWarpVelocity: {x: 0, y: 0, z: 0}
-  m_coverageOffset: {x: 0.9161318, y: -0.07745067}
-  m_baseOffset: {x: 11.795551, y: 3.994715, z: -0.6614623}
-  m_structureOffset: {x: 39.947544, y: 39.94704, z: -0.0005}
-  m_detailOffset: {x: 39.948048, y: 39.94704, z: -0.001}
+  m_coverageOffset: {x: 1.1436068, y: -0.07745067}
+  m_baseOffset: {x: 12.705635, y: 4.9045978, z: -0.6614623}
+  m_structureOffset: {x: 49.04613, y: 49.045628, z: -0.0005}
+  m_detailOffset: {x: 49.046635, y: 49.045628, z: -0.001}
   m_baseWarpOffset: {x: 0, y: 0, z: 0}
   m_detailWarpOffset: {x: 0, y: 0, z: 0}
   m_customPostProcessPasses: []
@@ -1323,6 +1323,7 @@ GameObject:
   - component: {fileID: 4189160854093521237}
   - component: {fileID: 4189160854093521234}
   - component: {fileID: 4189160854093521235}
+  - component: {fileID: 4189160854093521238}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1476,7 +1477,7 @@ MonoBehaviour:
   m_castCloudShadows: 1
   m_volumetricShadows: 1
   m_shadowmapVolumetrics: 1
-  m_direction: {x: 346.50766, y: 60.740376, z: 0.00000043900275}
+  m_direction: {x: 346.68045, y: 60.916264, z: 0.0000008773747}
   m_position: {x: 0, y: 0, z: 0}
   m_range: 10
   m_lightType: 1
@@ -1543,6 +1544,132 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &4189160854093521238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4189160854093521233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LensFlareData: {fileID: 11400000, guid: 3d8d1368dd637fd419e7bc0932005be6, type: 2}
+  intensity: 1
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 1
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  occlusionRadius: 0.1
+  useBackgroundCloudOcclusion: 0
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!1 &4189160854122928020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,7 +1884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4189160854454120233}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.10135119, y: 0.50208443, z: 0.05939153, w: 0.8568033}
+  m_LocalRotation: {x: -0.09996903, y: 0.5034882, z: 0.058787912, w: 0.85618335}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2093,7 +2220,7 @@ MonoBehaviour:
     month: 4
     day: 24
     hour: 2
-    minute: 44
+    minute: 45
     second: 0
     millisecond: 0
   m_skyOffset: 0
@@ -2222,7 +2349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4189160855712333806}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.04906027, y: 0.7681419, z: -0.059287254, w: -0.6356384}
+  m_LocalRotation: {x: -0.048074305, y: 0.7673924, z: -0.057938423, w: -0.63674253}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2498,7 +2625,7 @@ MonoBehaviour:
   m_castCloudShadows: 1
   m_volumetricShadows: 1
   m_shadowmapVolumetrics: 0
-  m_direction: {x: 8.826984, y: 259.2156, z: 0.0000008640067}
+  m_direction: {x: 8.635325, y: 259.36826, z: 0.00000043178142}
   m_position: {x: 0, y: 0, z: 0}
   m_range: 10
   m_lightType: 1
@@ -2514,7 +2641,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.3075329, g: 0.2576145, b: 0.16742826, a: 1}
+  m_Color: {r: 0.29235226, g: 0.24390037, b: 0.15703371, a: 1}
   m_Intensity: 25
   m_Range: 10
   m_SpotAngle: 30
@@ -2657,7 +2784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770f707dd48304f41b6cffaf1e734e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotation: {x: 148, y: 74, z: 207.11957}
+  m_rotation: {x: 148.125, y: 74.0625, z: 207.29457}
   m_intensity: 1
   m_tint: {r: 1, g: 1, b: 1, a: 1}
   m_lightPollutionIntensity: 0

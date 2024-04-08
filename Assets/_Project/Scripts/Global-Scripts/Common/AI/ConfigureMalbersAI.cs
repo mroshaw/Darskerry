@@ -14,7 +14,6 @@ using MalbersAnimations;
 
 namespace DaftAppleGames.Common.AI
 {
-    [ExecuteInEditMode]
     public class ConfigureMalbersAI : MonoBehaviour
     {
 #if UNITY_EDITOR

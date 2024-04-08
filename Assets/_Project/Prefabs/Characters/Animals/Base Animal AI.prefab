@@ -193,7 +193,7 @@ MonoBehaviour:
   Tracks: {fileID: 198000013136168986, guid: 7745c70da32263b4e86efaf5c965c60d, type: 3}
   Dust: {fileID: 198000010737321038, guid: f0185de6019ebaa4db45528f37bad8d2, type: 3}
   instantiateTracks: 0
-  GroundIsStatic: 0
+  GroundIsStatic: 1
   StepsVolume: 0.2
   DustParticles: 10
   Scale: {x: 1, y: 1, z: 1}
@@ -20639,6 +20639,7 @@ GameObject:
   - component: {fileID: 3035682468550092328}
   - component: {fileID: 668592212291898699}
   - component: {fileID: 3889167046818676404}
+  - component: {fileID: 9090106376836444892}
   m_Layer: 20
   m_Name: Base Animal AI
   m_TagString: Animal
@@ -21818,7 +21819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d7e9b8ded38f24aa639ee069914da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnAction: {fileID: 0}
+  _spawnAction: {fileID: 9090106376836444892}
   _despawnDelay: 5
   _despawnCheckInterval: 5
   _despawnRangeBuffer: 15
@@ -21858,6 +21859,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   malbersSettings: {fileID: 0}
   skeleton: {fileID: 0}
+--- !u!114 &9090106376836444892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175593079921595540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3022969b3582240895c9b6454e02f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnActionEnabled: 1
+  _despawnActionEnabled: 1
+  OnSpawnActionStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSpawnActionComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDespawnActionStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDespawnActionComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _texColorName: _BaseColor
+  _fadeInLength: 2
+  _fadeOutLength: 2
 --- !u!1 &5407971614130894719
 GameObject:
   m_ObjectHideFlags: 0
@@ -21903,7 +21933,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.549
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -22052,7 +22082,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -27403,7 +27433,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.549
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

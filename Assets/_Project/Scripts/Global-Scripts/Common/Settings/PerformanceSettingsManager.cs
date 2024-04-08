@@ -14,6 +14,7 @@ using UnityEngine.Rendering.HighDefinition;
 using static DaftAppleGames.Common.Settings.PerformanceSettingsManager;
 #endif
 #if GPU_INSTANCER
+using System.Collections.Generic;
 using GPUInstancer;
 #endif
 
@@ -390,6 +391,26 @@ namespace DaftAppleGames.Common.Settings
             onSettingsAppliedEvent.Invoke();
         }
 
+        #if GPU_INSTANCER
+        /// <summary>
+        /// Used to set the state (true or false) of Occlussion culling in GPU Instancer, if in use.
+        /// Required when using DLSS, as it's not supported with Occlussion Culling
+        /// </summary>
+        /// <param name="state"></param>
+        private void SetGPUIOcclusionCullingState(bool state)
+        {
+            List<GPUInstancerManager> allManagers = GPUInstancerAPI.GetActiveManagers();
+            if (allManagers == null || allManagers.Count == 0)
+            {
+                return;
+            }
+            foreach (GPUInstancerManager manager in allManagers)
+            {
+                manager.isOcclusionCulling = state;
+            }
+        }
+        #endif
+
         /// <summary>
         /// Apply the shadow enable settings
         /// </summary>
@@ -474,16 +495,25 @@ namespace DaftAppleGames.Common.Settings
                     HDCam.allowDynamicResolution = false;
                     ApplyAntiAliasingMode();
                     ApplyAntiAliasingResolution();
+                    #if GPU_INSTANCER
+                    SetGPUIOcclusionCullingState(true);
+                    #endif
                     break;
                 case DynamicResolutionType.DLSS:
                     HDCam.allowDynamicResolution = true;
                     HDCam.allowDeepLearningSuperSampling = true;
                     HDCam.deepLearningSuperSamplingUseCustomQualitySettings = true;
                     HDCam.deepLearningSuperSamplingQuality = mode.QualityMode;
+                    #if GPU_INSTANCER
+                    SetGPUIOcclusionCullingState(false);
+                    #endif
                     break;
                 case DynamicResolutionType.FSR:
                     HDCam.allowDynamicResolution = true;
                     HDCam.allowDeepLearningSuperSampling = false;
+                    #if GPU_INSTANCER
+                    SetGPUIOcclusionCullingState(false);
+                    #endif
                     break;
             }
         }
@@ -561,9 +591,9 @@ namespace DaftAppleGames.Common.Settings
         /// </summary>
         private void SwitchToFSRMode()
         {
-            ApplyResolutionConfigurationToCamera();
             Configurations[ResolutionConfigurationIndex].DynamicResolutionScale = GetFSRDynamicScale(Configurations[ResolutionConfigurationIndex].fsrQuality);
             ApplyResolution();
+            ApplyResolutionConfigurationToCamera();
         }
 
         /// <summary>
