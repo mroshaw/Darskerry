@@ -9,23 +9,6 @@ namespace DaftAppleGames.Common.Environment
     public class WindHelper : MonoBehaviour
     {
         private float _windSpeed;
-
-        /// <summary>
-        /// If collider is present, stop wind on enter
-        /// </summary>
-        private void OnTriggerEnter()
-        {
-            StopWind();
-        }
-
-        /// <summary>
-        /// If collider is present, restart wind on exit
-        /// </summary>
-        private void OnTriggerExit()
-        {
-            RestartWind();
-        }
-
         /// <summary>
         /// Stops TVE wind from blowing
         /// </summary>

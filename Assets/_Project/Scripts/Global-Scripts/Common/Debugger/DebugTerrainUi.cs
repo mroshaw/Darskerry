@@ -1,3 +1,4 @@
+using DaftAppleGames.Common.UI;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -6,7 +7,16 @@ namespace DaftAppleGames.Common.Debugger
     public class DebugTerrainUi : DebugBaseUi
     {
         [BoxGroup("Settings")] public string debugTerrainObjectName;
+
+        [BoxGroup("UI Settings")] public UiSlider renderDistanceSlider;
+        [BoxGroup("UI Settings")] public UiSlider shadowDistanceSlider;
+        [BoxGroup("UI Settings")] public UiSlider detailRenderDistanceSlider;
+        [BoxGroup("UI Settings")] public UiSlider detailShadowRenderDistanceSlider;
+        [BoxGroup("UI Settings")] public UiSlider treeRenderDistanceSlider;
+        [BoxGroup("UI Settings")] public UiSlider treeShadowRenderDistanceSlider;
+
         private DebugTerrain _debugTerrain;
+        private DebuggerUi _debuggerUi;
 
         /// <summary>
         /// Set up the component
@@ -23,7 +33,21 @@ namespace DaftAppleGames.Common.Debugger
             {
                 _debugTerrain = (DebugTerrain)base.FindDebugObject<DebugTerrain>(debugTerrainObjectName);
             }
+            _debuggerUi = GetComponentInParent<DebuggerUi>();
+            SetValues();
+        }
 
+        /// <summary>
+        /// Sets the control defaults
+        /// </summary>
+        public void SetValues()
+        {
+            // renderDistanceSlider.SetValueWithoutNotify(_debugTerrain.GetRenderDistance());
+            // shadowDistanceSlider.SetValueWithoutNotify(_debugTerrain.GetShadowDistance());
+            detailRenderDistanceSlider.SetValueWithoutNotify(_debugTerrain.GetDetailRenderDistance());
+            detailShadowRenderDistanceSlider.SetValueWithoutNotify(_debugTerrain.GetDetailShadowRenderDistance());
+            treeRenderDistanceSlider.SetValueWithoutNotify(_debugTerrain.GetTreeRenderDistance());
+            treeShadowRenderDistanceSlider.SetValueWithoutNotify(_debugTerrain.GetTreeShadowRenderDistance());
         }
 
         /// <summary>
@@ -31,7 +55,8 @@ namespace DaftAppleGames.Common.Debugger
         /// </summary>
         public void EnableNatureRendererHandler()
         {
-            _debugTerrain.EnableNatureRenderer();
+            _debugTerrain.EnableNatureRenderer(out string logText);
+            _debuggerUi.ShowLog(logText);
         }
 
         /// <summary>
@@ -39,7 +64,17 @@ namespace DaftAppleGames.Common.Debugger
         /// </summary>
         public void DisableNatureRendererHandler()
         {
-            _debugTerrain.DisableNatureRenderer();
+            _debugTerrain.DisableNatureRenderer(out string logText);
+            _debuggerUi.ShowLog(logText);
+        }
+
+        /// <summary>
+        /// Handler for Toggle NR button
+        /// </summary>
+        public void ToggleNatureRendererHandler()
+        {
+            _debugTerrain.ToggleNatureRenderer(out string logText);
+            _debuggerUi.ShowLog(logText);
         }
 
         /// <summary>
@@ -47,7 +82,8 @@ namespace DaftAppleGames.Common.Debugger
         /// </summary>
         public void EnableShadowsHandler()
         {
-            _debugTerrain.EnableShadows();
+            _debugTerrain.EnableShadows(out string logText);
+            _debuggerUi.ShowLog(logText);;
         }
 
         /// <summary>
@@ -55,7 +91,17 @@ namespace DaftAppleGames.Common.Debugger
         /// </summary>
         public void DisableShadowsHandler()
         {
-            _debugTerrain.DisableShadows();
+            _debugTerrain.DisableShadows(out string logText);
+            _debuggerUi.ShowLog(logText);;
+        }
+
+        /// <summary>
+        /// Handler for Toggle Shadows button
+        /// </summary>
+        public void ToggleShadowsHandler()
+        {
+            _debugTerrain.ToggleShadows(out string logText);
+            _debuggerUi.ShowLog(logText);
         }
 
         /// <summary>
@@ -64,36 +110,122 @@ namespace DaftAppleGames.Common.Debugger
         /// <param name="distance"></param>
         public void SetShadowDistanceHandler(float distance)
         {
-            _debugTerrain.SetShadowDistance(distance);
+            _debugTerrain.SetShadowDistance(distance, out string logText);
+            _debuggerUi.ShowLog(logText);
         }
 
         /// <summary>
-        /// Handler for the Detail Distance slider
+        /// Handler for the Render Distance slider
         /// </summary>
         /// <param name="distance"></param>
-        public void SetDetailDistanceHandler(float distance)
+        public void SetRenderDistanceHandler(float distance)
         {
-            _debugTerrain.SetDetailDistance(distance);
+            _debugTerrain.SetRenderDistance(distance, out string logText);
+            _debuggerUi.ShowLog(logText);
         }
 
+        /// <summary>
+        /// Handler for Detail Render Distance slider
+        /// </summary>
+        /// <param name="distance"></param>
+        public void SetDetailRenderDistanceHandler(float distance)
+        {
+            _debugTerrain.SetDetailRenderDistance(distance, out string logText);
+            _debuggerUi.ShowLog(logText);
+        }
+
+        /// <summary>
+        /// Handler for Detail Shadow Distance slider
+        /// </summary>
+        /// <param name="distance"></param>
+        public void SetDetailShadowRenderDistanceHandler(float distance)
+        {
+            _debugTerrain.SetDetailShadowRenderDistance(distance, out string logText);
+            _debuggerUi.ShowLog(logText);
+        }
+
+        /// <summary>
+        /// Handler for Tree Render Distance slider
+        /// </summary>
+        /// <param name="distance"></param>
+        public void SetTreeRenderDistanceHandler(float distance)
+        {
+            _debugTerrain.SetTreeRenderDistance(distance, out string logText);
+            _debuggerUi.ShowLog(logText);
+        }
+
+        /// <summary>
+        /// Handler for Tree Shadow Render Distance slider
+        /// </summary>
+        /// <param name="distance"></param>
+        public void SetTreeShadowRenderDistanceHandler(float distance)
+        {
+            _debugTerrain.SetTreeShadowRenderDistance(distance, out string logText);
+            _debuggerUi.ShowLog(logText);
+        }
+
+        /// <summary>
+        /// Handler for Enable Trees button
+        /// </summary>
         public void EnableTreesHandler()
         {
-            _debugTerrain.EnableTrees();
+            _debugTerrain.EnableTrees(out string logText);
+            _debuggerUi.ShowLog(logText);
         }
 
+        /// <summary>
+        /// Handler for Disable Tree button
+        /// </summary>
         public void DisableTreesHandler()
         {
-            _debugTerrain.DisableTrees();
+            _debugTerrain.DisableTrees(out string logText);
+            _debuggerUi.ShowLog(logText);
         }
 
+        /// <summary>
+        /// Handler for Render Trees button
+        /// </summary>
+        public void ToggleTreesHandler()
+        {
+            _debugTerrain.ToggleTrees(out string logText);
+            _debuggerUi.ShowLog(logText);
+        }
+
+        /// <summary>
+        /// Handler for Enable Details button
+        /// </summary>
         public void EnableDetailsHandler()
         {
-            _debugTerrain.EnableDetails();
+            _debugTerrain.EnableDetails(out string logText);
+            _debuggerUi.ShowLog(logText);
         }
 
+        /// <summary>
+        /// Handler for Disable Details button
+        /// </summary>
         public void DisableDetailsHandler()
         {
-            _debugTerrain.DisableDetails();
+            _debugTerrain.DisableDetails(out string logText);
+            _debuggerUi.ShowLog(logText);
         }
+
+        /// <summary>
+        /// Handler for Render Details button
+        /// </summary>
+        public void ToggleDetailsHandler()
+        {
+            _debugTerrain.ToggleDetails(out string logText);
+            _debuggerUi.ShowLog(logText);
+        }
+
+        /// <summary>
+        /// Handler for Toggle TVE button
+        /// </summary>
+        public void ToggleTVEHandler()
+        {
+            _debugTerrain.ToggleVegetationEngine(out string logText);
+            _debuggerUi.ShowLog(logText);
+        }
+
     }
 }

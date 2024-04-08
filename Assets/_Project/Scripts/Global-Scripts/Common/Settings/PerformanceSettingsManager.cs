@@ -157,7 +157,7 @@ namespace DaftAppleGames.Common.Settings
         public override void ApplySettings()
         {
             ApplyQualityPresets();
-            // ApplyTerrainDetailLevel();
+            ApplyTerrainDetailLevel();
             ApplyAntiAliasingMode();
             ApplyAntiAliasingResolution();
             ApplyTextureResolution();
@@ -226,7 +226,7 @@ namespace DaftAppleGames.Common.Settings
         public void SetTerrainDetailLevel(float value)
         {
             TerrainDetailLevel = value;
-            // ApplyTerrainDetailLevel();
+            ApplyTerrainDetailLevel();
         }
 
         /// <summary>
@@ -382,27 +382,11 @@ namespace DaftAppleGames.Common.Settings
         /// </summary>
         private void ApplyTerrainDetailLevel()
         {
-            #if GPU_INSTANCER
-            GPUInstancerDetailManager gpuiDetailManager = GameUtils.FindGpuDetailManager().GetComponent<GPUInstancerDetailManager>();
-            if(!gpuiDetailManager)
+            Terrain[] allActiveTerrains = Terrain.activeTerrains;
+            foreach (Terrain currTerrain in allActiveTerrains)
             {
-                return;
+                currTerrain.detailObjectDensity = TerrainDetailLevel;
             }
-            // _mainTerrain.detailObjectDensity= _terrainDetailLevel;
-            if (Math.Abs(gpuiDetailManager.terrainSettings.detailDensity - TerrainDetailLevel) > 0.0001f)
-            {
-                Debug.Log("Updating terrain detail...");
-                foreach (GPUInstancerDetailPrototype p in gpuiDetailManager.prototypeList)
-                {
-                    if (p.detailDensity == gpuiDetailManager.terrainSettings.detailDensity || p.detailDensity > TerrainDetailLevel)
-                    {
-                        p.detailDensity = TerrainDetailLevel / 10.0f;
-                    }
-                }
-                gpuiDetailManager.terrainSettings.detailDensity = TerrainDetailLevel;
-                GPUInstancerAPI.UpdateDetailInstances(gpuiDetailManager, true);
-            }
-#endif
             onSettingsAppliedEvent.Invoke();
         }
 

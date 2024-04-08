@@ -1,17 +1,12 @@
 #if INVECTOR_SHOOTER
 using Invector.vCharacterController;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace DaftAppleGames.Common.Characters 
 {
     public class PlayerSpeedLimiter : MonoBehaviour
     {
-        [Header("Speed Settings")] 
-        public bool allowRunning = false;
-        public bool allowSprinting = false;
-        [Header("Zone Settings")]
-        public string zoneTag = "SlowSpeedZone";
-        
         private vThirdPersonController _controller;
         private vShooterMeleeInput _input;
         private float _currentWalkSpeed;
@@ -26,39 +21,30 @@ namespace DaftAppleGames.Common.Characters
             _controller = GetComponent<vThirdPersonController>();
             _input = GetComponent<vShooterMeleeInput>();
         }
-        
-        /// <summary>
-        /// Set speed limits
-        /// </summary>
-        /// <param name="other"></param>
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag(zoneTag))
-            {
-                if (!allowSprinting)
-                {
-                    _input.sprintInput.useInput = false;
-                }
 
-                if (!allowRunning)
-                {
-                    _controller.alwaysWalkByDefault = true;
-                }
+        /// <summary>
+        /// Only allow walking
+        /// </summary>
+        public void WalkOnlyEnabled(bool allowRunning, bool allowSprinting)
+        {
+            if (!allowSprinting)
+            {
+                _input.sprintInput.useInput = false;
+            }
+
+            if (!allowRunning)
+            {
+                _controller.alwaysWalkByDefault = true;
             }
         }
 
         /// <summary>
-        /// Restore speed
+        /// Allow any movement speed
         /// </summary>
-        /// <param name="other"></param>
-        private void OnTriggerExit(Collider other)
+        public void WalkOnlyDisabled()
         {
-            if (other.CompareTag(zoneTag))
-            {
-                _input.sprintInput.useInput = true;
-                _controller.alwaysWalkByDefault = false;
-
-            }
+            _input.sprintInput.useInput = true;
+            _controller.alwaysWalkByDefault = false;
         }
     }
 }

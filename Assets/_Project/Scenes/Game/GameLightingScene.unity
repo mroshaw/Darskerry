@@ -653,6 +653,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2027938388}
+    - targetCorrespondingSourceObject: {fileID: 55951552581632915, guid: 720659ec2ab637d4ca40bc5116cb51c7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2027938389}
   m_SourcePrefab: {fileID: 100100000, guid: 720659ec2ab637d4ca40bc5116cb51c7, type: 3}
 --- !u!20 &2027938377 stripped
 Camera:
@@ -673,7 +677,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978008873}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -648461970, guid: b04c77e0938d27643b3f69f2dd39ce77, type: 3}
   m_Name: 
@@ -681,21 +685,21 @@ MonoBehaviour:
   _supported: 1
   _overrideSupported: 1
   _render: 1
-  _overrideRendering: 1
+  _overrideRendering: 0
   _renderDistance: 100
-  _overrideRenderDistance: 1
+  _overrideRenderDistance: 0
   _renderShadows: 1
-  _overrideRenderShadows: 1
+  _overrideRenderShadows: 0
   _shadowDistance: 20
-  _overrideShadowDistance: 1
-  _densityInDistance: 0.05
-  _overrideDensityInDistance: 1
-  _densityInDistanceFalloff: {x: 0.05856234, y: 0.02700299}
-  _overrideDensityInDistanceFalloff: 1
+  _overrideShadowDistance: 0
+  _densityInDistance: 0.1
+  _overrideDensityInDistance: 0
+  _densityInDistanceFalloff: {x: 0.031559348, y: 0}
+  _overrideDensityInDistanceFalloff: 0
   _lodBias: 1
   _overrideLodBias: 0
   _perObjectMotionVectors: 0
-  _overridePerObjectMotionVectors: 1
+  _overridePerObjectMotionVectors: 0
 --- !u!114 &2027938388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +719,25 @@ MonoBehaviour:
   ScaleUpStepCount: 5
   ScaleDownStepCount: 2
   EnableDebugView: 0
+--- !u!114 &2027938389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978008873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875db408166627149bafb2231cdcfee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debuggerEnabled: 0
+  debuggerGUIOnTop: 0
+  debuggerOverlay: 0
+  debuggerMipLevel: 0
+  hiZDepthTexture: {fileID: 0}
+  unityDepthTexture: {fileID: 0}
+  hiZTextureSize: {x: 0, y: 0}
 --- !u!1 &56792344277280329
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,7 +984,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.76069474, g: 0.6910116, b: 0.5916204, a: 1}
+  m_Color: {r: 0.7798206, g: 0.70861495, b: 0.6069777, a: 1}
   m_Intensity: 123000
   m_Range: 10
   m_SpotAngle: 30
@@ -1780,7 +1803,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.58049744, g: 0.52645135, b: 0.41527054, a: 1}
+  m_Color: {r: 0.61006904, g: 0.5533068, b: 0.43689334, a: 1}
   m_Intensity: 25
   m_Range: 10
   m_SpotAngle: 30
@@ -2294,6 +2317,11 @@ PrefabInstance:
       propertyPath: _playerGameObject
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8566255152988807393, guid: 69f24deacaa69a54984c8f03743b3668,
+        type: 3}
+      propertyPath: MainDirectionalLight
+      value: 
+      objectReference: {fileID: 56792344617064304}
     m_RemovedComponents:
     - {fileID: 2453170136525879733, guid: 69f24deacaa69a54984c8f03743b3668, type: 3}
     - {fileID: 6703138201918603184, guid: 69f24deacaa69a54984c8f03743b3668, type: 3}

@@ -10,12 +10,12 @@ namespace DaftAppleGames.Editor.AutoEditor
 {
     public class LodGroupAutoEditor : OdinEditorWindow
     {
-        [BoxGroup("LOD Group Editor Settings")] public float[] twoLodWeights = new float[] { 0.9f, 0.0f };
-        [BoxGroup("LOD Group Editor Settings")] public float[] threeLodWeights = new float[] { 0.9f, 0.5f, 0.0f };
-        [BoxGroup("LOD Group Editor Settings")] public float[] fourLodWeights = new float[] {0.9f, 0.5f, 0.3f, 0.0f };
-        [BoxGroup("LOD Group Editor Settings")] public float[] fiveLodWeights = new float[] { 0.9f, 0.5f, 0.3f, 0.2f, 0.1f };
+        [BoxGroup("LOD Group Editor Settings")] public float[] twoLodWeights = new float[] { 0.1f, 0.8f };
+        [BoxGroup("LOD Group Editor Settings")] public float[] threeLodWeights = new float[] { 0.1f, 0.4f, 0.4f };
+        [BoxGroup("LOD Group Editor Settings")] public float[] fourLodWeights = new float[] {0.1f, 0.3f, 0.3f, 0.3f };
+        [BoxGroup("LOD Group Editor Settings")] public float[] fiveLodWeights = new float[] { 0.1f, 0.2f, 0.2f, 0.2f, 0.2f };
         [BoxGroup("LOD Group Editor Settings")] public LODFadeMode fadeMode = LODFadeMode.CrossFade;
-        [BoxGroup("LOD Group Editor Settings")] public float cullRatio = 0.01f;
+        [BoxGroup("LOD Group Editor Settings")] public float cullRatio = 0.1f;
 
         [MenuItem("Window/Scene Tools/LOD Group Fixer")]
         public static void ShowWindow()
