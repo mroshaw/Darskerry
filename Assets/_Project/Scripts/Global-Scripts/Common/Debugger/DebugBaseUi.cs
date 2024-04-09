@@ -29,7 +29,7 @@ namespace DaftAppleGames.Common.Debugger
 
             foreach (DebugBase debugObject in allDebugObjects)
             {
-                if (debugObject.gameObject.name == objectName && debugObject.GetType() == typeof(T))
+                if (debugObject.gameObject.name == objectName && debugObject is T)
                 {
                     return debugObject;
                 }

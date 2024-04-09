@@ -1,15 +1,13 @@
-using DaftAppleGames.Common.GameControllers;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using VisualDesignCafe.Rendering.Nature;
 
 namespace DaftAppleGames.Common.Debugger
 {
-    public class DebugTerrain : DebugBase
+    public abstract class DebugTerrain : DebugBase
     {
         [BoxGroup("Terrain Settings")] public Terrain terrain;
         [BoxGroup("Terrain Settings")] public GameObject vegetationEngineGameObject;
-        [BoxGroup("Terrain Settings")] public NatureRendererDefaultSettings natureRendererDefaultSettings;
 
         private NatureRendererCameraSettings _cameraSettings;
         private NatureRenderer _natureRenderer;
@@ -17,139 +15,174 @@ namespace DaftAppleGames.Common.Debugger
         /// <summary>
         /// Configure terrain before any components start
         /// </summary>
-        private void Awake()
+        public virtual void Awake()
         {
             terrain.drawTreesAndFoliage = false;
-            _natureRenderer = terrain.GetComponent<NatureRenderer>();
-            _cameraSettings = PlayerCameraManager.Instance.MainCamera.GetComponent<NatureRendererCameraSettings>();
         }
         
         /// <summary>
         /// Set up the components
         /// </summary>
-        public void Start()
+        public virtual void Start()
         {
-
-
         }
-
 
         /// <summary>
-        /// Enable Nature Renderer
+        /// Enable Renderer
         /// </summary>
-        public void EnableNatureRenderer(out string logText)
+        public void EnableRenderer(out string logText)
         {
-            _cameraSettings.Render = true;
-            logText = "Nature renderer is ENABLED on MainCamera.";
+            EnableRendererState();
+            logText = "Renderer is ENABLED.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Enable the Renderer
+        /// </summary>
+        protected abstract void EnableRendererState();
 
         /// <summary>
         /// Disable Nature Renderer
         /// </summary>
-        public void DisableNatureRenderer(out string logText)
+        public void DisableRenderer(out string logText)
         {
-            _cameraSettings.Render = false;
-            logText = "Nature renderer is DISABLED on MainCamera.";
-
+            DisableRendererState();
+            logText = "Nature renderer is DISABLED.";
         }
 
         /// <summary>
-        /// Toggle the current state of Nature Renderer
+        /// Abstract method to implement Disable the Renderer
+        /// </summary>
+        protected abstract void DisableRendererState();
+
+        /// <summary>
+        /// Toggle the current state of Renderer
         /// </summary>
         /// <param name="logText"></param>
-        public void ToggleNatureRenderer(out string logText)
+        public void ToggleRenderer(out string logText)
         {
-            _cameraSettings.Render = !_cameraSettings.Render;
-            logText = $"Nature renderer is {GetStateText(_cameraSettings.Render)} on MainCamera.";
+            logText = $"Renderer is {GetStateText(ToggleRendererStateInRenderer())}.";
         }
 
         /// <summary>
-        /// Enable trees in NR (terrain draw should be 'false')
+        /// Abstract method to implement Toggle the Renderer
+        /// </summary>
+        /// <returns></returns>
+        protected abstract bool ToggleRendererStateInRenderer();
+
+        /// <summary>
+        /// Enable trees in Renderer (terrain draw should be 'false')
         /// </summary>
         public void EnableTrees(out string logText)
         {
-            _natureRenderer.RenderTreesWithNatureRenderer = true;
-            _natureRenderer.Restart();
-            terrain.drawTreesAndFoliage = false;
-            logText = "Tree rendering is ENABLED on NatureRenderer";
-
+            EnableTreesInRenderer();
+            logText = "Tree rendering is ENABLED.";
         }
 
         /// <summary>
-        /// Disable trees in NR
+        /// Abstract method to implement Enable the Trees
+        /// </summary>
+        protected abstract void EnableTreesInRenderer();
+
+        /// <summary>
+        /// Disable trees in Renderer
         /// </summary>
         public void DisableTrees(out string logText)
         {
-            _natureRenderer.RenderTreesWithNatureRenderer = false;
-            _natureRenderer.Restart();
-            terrain.drawTreesAndFoliage = false;
-            Debug.Log("NatureRenderer Trees disabled.");
-            logText = "Tree rendering is DISABLED on NatureRenderer";
+            DisableTreesInRenderer();
+            logText = "Tree rendering is DISABLED.";
         }
 
         /// <summary>
-        /// Toggle the current state of trees in NR
+        /// Abstract method to implement Disable the Trees
+        /// </summary>
+        protected abstract void DisableTreesInRenderer();
+
+        /// <summary>
+        /// Toggle the current state of trees in Renderer
         /// </summary>
         /// <param name="logText"></param>
         public void ToggleTrees(out string logText)
         {
-            _natureRenderer.RenderTreesWithNatureRenderer = !_natureRenderer.RenderTreesWithNatureRenderer;
-            _natureRenderer.Restart();
-            terrain.drawTreesAndFoliage = false;
-            logText = $"Tree rendering is {GetStateText(_natureRenderer.RenderTreesWithNatureRenderer)} on NatureRenderer.";
+            logText = $"Tree rendering is {GetStateText(ToggleTreesStateInRenderer())}.";
         }
 
         /// <summary>
-        /// Enable details in NR
+        /// Abstract method to implement Toggle the Trees
+        /// </summary>
+        /// <returns></returns>
+        protected abstract bool ToggleTreesStateInRenderer();
+
+        /// <summary>
+        /// Enable details in Renderer
         /// </summary>
         public void EnableDetails(out string logText)
         {
-            _natureRenderer.RenderDetailsWithNatureRenderer = true;
-            _natureRenderer.Restart();
-            terrain.drawTreesAndFoliage = false;
-            logText = "Detail rendering is ENABLED on NatureRenderer";
+            EnableDetailsInRenderer();
+            logText = "Detail rendering is ENABLED.";
         }
 
         /// <summary>
-        /// Disable details in NR
+        /// Abstract method to implement Enable the Details
+        /// </summary>
+        protected abstract void EnableDetailsInRenderer();
+
+        /// <summary>
+        /// Disable details in Renderer
         /// </summary>
         public void DisableDetails(out string logText)
         {
-            _natureRenderer.RenderDetailsWithNatureRenderer = false;
-            _natureRenderer.Restart();
-            terrain.drawTreesAndFoliage = false;
-            logText = "Detail rendering is DISABLED on NatureRenderer";
+            DisableDetailsInRenderer();
+            logText = "Detail rendering is DISABLED.";
         }
 
         /// <summary>
-        /// Toggle the current state of details in NR
+        /// Abstract method to implement Disable the Details
+        /// </summary>
+        protected abstract void DisableDetailsInRenderer();
+
+        /// <summary>
+        /// Toggle the current state of details in Renderer
         /// </summary>
         /// <param name="logText"></param>
         public void ToggleDetails(out string logText)
         {
-            _natureRenderer.RenderDetailsWithNatureRenderer = !_natureRenderer.RenderDetailsWithNatureRenderer;
-            _natureRenderer.Restart();
-            terrain.drawTreesAndFoliage = false;
-            logText = $"Tree rendering is {GetStateText(_natureRenderer.RenderDetailsWithNatureRenderer)} on NatureRenderer.";
+            logText = $"Tree rendering is {GetStateText(ToggleDetailsStateInRenderer())}.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Toggle the Details
+        /// </summary>
+        /// <returns></returns>
+        protected abstract bool ToggleDetailsStateInRenderer();
 
         /// <summary>
         /// Toggles terrain detail and tree shadows on
         /// </summary>
         public void EnableShadows(out string logText)
         {
-            _cameraSettings.RenderShadows = true;
-            logText = "Shadow rendering is ENABLED on NatureRenderer";
+            EnableShadowsInRenderer();
+            logText = "Shadow rendering is ENABLED.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Enable the Shadows
+        /// </summary>
+        protected abstract void EnableShadowsInRenderer();
 
         /// <summary>
         /// Toggles terrain detail and tree shadows off
         /// </summary>
         public void DisableShadows(out string logText)
         {
-            _cameraSettings.RenderShadows = false;
-            logText = "Shadow rendering is DISABLED on NatureRenderer";
+            DisableShadowsInRenderer();
+            logText = "Shadow rendering is DISABLED.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Disable the Shadows
+        /// </summary>
+        protected abstract void DisableShadowsInRenderer();
 
         /// <summary>
         /// Toggle the current state of shadows in NR
@@ -157,9 +190,14 @@ namespace DaftAppleGames.Common.Debugger
         /// <param name="logText"></param>
         public void ToggleShadows(out string logText)
         {
-            _cameraSettings.RenderShadows = !_cameraSettings.RenderShadows;
-            logText = $"Shadow rendering is {GetStateText(_cameraSettings.RenderShadows)} on MainCamera.";
+            logText = $"Shadow rendering is {GetStateText(ToggleShadowsInRenderer())}.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Toggle the Shadows
+        /// </summary>
+        /// <returns></returns>
+        protected abstract bool ToggleShadowsInRenderer();
 
         /// <summary>
         /// Sets the terrain shadow distance
@@ -168,10 +206,15 @@ namespace DaftAppleGames.Common.Debugger
         /// <param name="logText"></param>
         public void SetShadowDistance(float distance, out string logText)
         {
-            _cameraSettings.ShadowDistance = distance;
-            logText = $"Shadow rendering distance is {distance} on NatureRenderer";
+            SetShadowDistanceInRenderer(distance);
+            logText = $"Shadow rendering distance is {distance}.";
         }
 
+        /// <summary>
+        /// Abstract method to implement Set Shadow Distance
+        /// </summary>
+        /// <param name="distance"></param>
+        protected abstract void SetShadowDistanceInRenderer(float distance);
 
         /// <summary>
         /// Return the Render Shadow Distance
@@ -179,13 +222,14 @@ namespace DaftAppleGames.Common.Debugger
         /// <returns></returns>
         public float GetShadowDistance()
         {
-            if (_cameraSettings.ShadowDistance == null)
-            {
-                return 0.0f;
-            }
-
-            return (float)_cameraSettings.ShadowDistance;
+            return GetShadowDistanceInRenderer();
         }
+
+        /// <summary>
+        /// Abstract method to implement Get Shadow Distance
+        /// </summary>
+        /// <returns></returns>
+        protected abstract float GetShadowDistanceInRenderer();
 
         /// <summary>
         /// Set the render distance
@@ -194,9 +238,15 @@ namespace DaftAppleGames.Common.Debugger
         /// <param name="logText"></param>
         public void SetRenderDistance(float distance, out string logText)
         {
-            _cameraSettings.RenderDistance = distance;
-            logText = $"Detail rendering distance is {distance} on NatureRenderer";
+            SetRenderDistanceInRenderer(distance);
+            logText = $"Rendering distance is {distance}.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Set Render Distance
+        /// </summary>
+        /// <param name="distance"></param>
+        protected abstract void SetRenderDistanceInRenderer(float distance);
 
         /// <summary>
         /// Return the Render Distance
@@ -204,60 +254,10 @@ namespace DaftAppleGames.Common.Debugger
         /// <returns></returns>
         public float GetRenderDistance()
         {
-            if (_cameraSettings.RenderDistance == null)
-            {
-                return 0.0f;
-            }
-            return (float)_cameraSettings.RenderDistance;
+            return GetRenderDistanceInRenderer();
         }
 
-        /// <summary>
-        /// Sets the density in distance
-        /// </summary>
-        /// <param name="density"></param>
-        /// <param name="logText"></param>
-        public void SetDensityInDistance(float density, out string logText)
-        {
-            _cameraSettings.DensityInDistance = density;
-            logText = $"Render distance is {density} on NatureRenderer";
-        }
-
-        /// <summary>
-        /// Return the Density in Distance
-        /// </summary>
-        /// <returns></returns>
-        public float GetDensityInDistance()
-        {
-            if (_cameraSettings.DensityInDistance == null)
-            {
-                return 0.0f;
-            }
-            return (float)_cameraSettings.DensityInDistance;
-        }
-
-        /// <summary>
-        /// Sets the density in distance falloff
-        /// </summary>
-        /// <param name="falloff"></param>
-        /// <param name="logText"></param>
-        public void SetDistanceFalloff(Vector2 falloff, out string logText)
-        {
-            _cameraSettings.DensityInDistanceFalloff = falloff;
-            logText = $"Density in distance falloff is {falloff.x},{falloff.y} on NatureRenderer";
-        }
-
-        /// <summary>
-        /// Return the Density Falloff
-        /// </summary>
-        /// <returns></returns>
-        public Vector2 GetDistanceFalloff()
-        {
-            if (_cameraSettings.DensityInDistanceFalloff == null)
-            {
-                return Vector2.zero;
-            }
-            return (Vector2)_cameraSettings.DensityInDistanceFalloff;
-        }
+        protected abstract float GetRenderDistanceInRenderer();
 
         /// <summary>
         /// Sets the detail render distance on the defaults
@@ -266,9 +266,15 @@ namespace DaftAppleGames.Common.Debugger
         /// <param name="logText"></param>
         public void SetDetailRenderDistance(float distance, out string logText)
         {
-            natureRendererDefaultSettings.DetailRenderDistance = distance;
-            logText = $"Detail render distance is {distance} on NatureRenderer";
+            SetDetailRenderDistanceInRenderer(distance);
+            logText = $"Detail render distance is {distance}.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Set Detail Render Distance
+        /// </summary>
+        /// <param name="distance"></param>
+        protected abstract void SetDetailRenderDistanceInRenderer(float distance);
 
         /// <summary>
         /// Return the default Detail Render Distance
@@ -276,8 +282,14 @@ namespace DaftAppleGames.Common.Debugger
         /// <returns></returns>
         public float GetDetailRenderDistance()
         {
-            return natureRendererDefaultSettings.DetailRenderDistance;
+            return GetDetailRenderDistanceInRenderer();
         }
+
+        /// <summary>
+        /// Abstract method to implement Get Detail Render Distance
+        /// </summary>
+        /// <returns></returns>
+        protected abstract float GetDetailRenderDistanceInRenderer();
 
         /// <summary>
         /// Sets the tree render distance on the defaults
@@ -286,9 +298,15 @@ namespace DaftAppleGames.Common.Debugger
         /// <param name="logText"></param>
         public void SetTreeRenderDistance(float distance, out string logText)
         {
-            natureRendererDefaultSettings.TreeRenderDistance = distance;
-            logText = $"Tree render distance is {distance} on NatureRenderer";
+            SetTreeRenderDistanceInRenderer(distance);
+            logText = $"Tree render distance is {distance}.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Set Tree Render Distance
+        /// </summary>
+        /// <param name="distance"></param>
+        protected abstract void SetTreeRenderDistanceInRenderer(float distance);
 
         /// <summary>
         /// Return the default Tree Render Distance
@@ -296,8 +314,14 @@ namespace DaftAppleGames.Common.Debugger
         /// <returns></returns>
         public float GetTreeRenderDistance()
         {
-            return natureRendererDefaultSettings.TreeRenderDistance;
+            return GetTreeRenderDistanceInRenderer();
         }
+
+        /// <summary>
+        /// Abstract method to implement Set Tree Render Distance
+        /// </summary>
+        protected abstract float GetTreeRenderDistanceInRenderer();
+
 
         /// <summary>
         /// Sets the detail shadow render distance on the defaults
@@ -306,9 +330,15 @@ namespace DaftAppleGames.Common.Debugger
         /// <param name="logText"></param>
         public void SetDetailShadowRenderDistance(float distance, out string logText)
         {
-            natureRendererDefaultSettings.DetailShadowDistance = distance;
-            logText = $"Detail shadow distance is {distance} on NatureRenderer";
+            SetDetailShadowRenderDistanceInRenderer(distance);
+            logText = $"Detail shadow distance is {distance}.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Set Detail Shadow Render Distance
+        /// </summary>
+        /// <param name="distance"></param>
+        protected abstract void SetDetailShadowRenderDistanceInRenderer(float distance);
 
         /// <summary>
         /// Return the default Detail Shadow Render Distance
@@ -316,8 +346,13 @@ namespace DaftAppleGames.Common.Debugger
         /// <returns></returns>
         public float GetDetailShadowRenderDistance()
         {
-            return natureRendererDefaultSettings.DetailShadowDistance;
+            return GetDetailShadowRenderDistanceInRenderer();
         }
+
+        /// <summary>
+        /// Abstract method to implement Get Detail Shadow Render Distance
+        /// </summary>
+        protected abstract float GetDetailShadowRenderDistanceInRenderer();
 
         /// <summary>
         /// Sets the tree shadow render distance on the defaults
@@ -326,9 +361,15 @@ namespace DaftAppleGames.Common.Debugger
         /// <param name="logText"></param>
         public void SetTreeShadowRenderDistance(float distance, out string logText)
         {
-            natureRendererDefaultSettings.TreeShadowDistance = distance;
-            logText = $"Tree shadow distance is {distance} on NatureRenderer";
+            SetTreeShadowRenderDistanceInRenderer(distance);
+            logText = $"Tree shadow distance is {distance}.";
         }
+
+        /// <summary>
+        /// Abstract method to implement Set Tree Shadow Render Distance
+        /// </summary>
+        /// <param name="distance"></param>
+        protected abstract void SetTreeShadowRenderDistanceInRenderer(float distance);
 
         /// <summary>
         /// Return the default Tree Shadow Render Distance
@@ -336,8 +377,13 @@ namespace DaftAppleGames.Common.Debugger
         /// <returns></returns>
         public float GetTreeShadowRenderDistance()
         {
-            return natureRendererDefaultSettings.TreeShadowDistance;
+            return GetTreeShadowRenderDistanceInRenderer();
         }
+
+        /// <summary>
+        /// Abstract method to implement Get Tree Shadow Render Distance
+        /// </summary>
+        protected abstract float GetTreeShadowRenderDistanceInRenderer();
 
         /// <summary>
         /// Toggle the state of TVE

@@ -1,8 +1,9 @@
 using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
-
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
@@ -18,15 +19,17 @@ namespace DaftAppleGames.Scripts.Editor.Buildings
         }
 
         [BoxGroup("Lighting")] public bool isGIEnabled = true;
-        [BoxGroup("Lighting")] public bool isStaticShadowCaster = true;
-        [BoxGroup("Lighting")] public ShadowCastingMode shadowCastingMode = ShadowCastingMode.Off;
-        [BoxGroup("Lighting")] public LightLayerEnum lightLayer;
-        [BoxGroup("Lighting")] public DecalLayerEnum decalLayer;
         [BoxGroup("Lighting")] public ReceiveGI receiveGlobalIllumination = ReceiveGI.LightProbes;
+        [BoxGroup("Shadows")] public bool isStaticShadowCaster = true;
+        [BoxGroup("Shadows")] public ShadowCastingMode shadowCastingMode = ShadowCastingMode.Off;
+        [BoxGroup("Light Layers")] public LightLayerEnum lightLayer;
+        [BoxGroup("Light Layers")] public DecalLayerEnum decalLayer;
         [BoxGroup("Additional")] public MotionVectorGenerationMode motionVectorMode = MotionVectorGenerationMode.Camera;
         [BoxGroup("Additional")] public bool allowDynamicOcclusion = false;
 
         [BoxGroup("Selected Objects")] public GameObject[] selectedObjects;
+
+        private bool _isPrefabDirty = false;
 
         /// <summary>
         /// Refresh the list of GameObjects selected
@@ -36,11 +39,12 @@ namespace DaftAppleGames.Scripts.Editor.Buildings
             selectedObjects = Selection.gameObjects;
         }
 
-        [Button("Contribute GI")]
-        private void ConfigureGI()
+        [Button("Apply Lighting")]
+        private void ApplyLighting()
         {
             foreach (MeshRenderer renderer in GetChildMeshRenderers())
             {
+                renderer.receiveGI = ReceiveGI.LightProbes;
                 StaticEditorFlags flags = GameObjectUtility.GetStaticEditorFlags(renderer.gameObject);
                 StaticEditorFlags newFlags;
                 if (isGIEnabled)
@@ -58,8 +62,27 @@ namespace DaftAppleGames.Scripts.Editor.Buildings
             }
         }
 
-        [Button("Additional")]
-        private void ConfigureAdditionalSettings()
+        [Button("Apply Shadows")]
+        private void ApplyShadows()
+        {
+            foreach (MeshRenderer renderer in GetChildMeshRenderers())
+            {
+                renderer.staticShadowCaster = isStaticShadowCaster;
+                renderer.shadowCastingMode = shadowCastingMode;
+            }
+        }
+
+        [Button("Apply Layers")]
+        private void ApplyLayers()
+        {
+            foreach (MeshRenderer renderer in GetChildMeshRenderers())
+            {
+                renderer.renderingLayerMask = (uint) lightLayer | (uint) decalLayer << 8;
+            }
+        }
+
+        [Button("Apply Additional")]
+        private void ApplyAdditional()
         {
             foreach (MeshRenderer renderer in GetChildMeshRenderers())
             {
@@ -68,57 +91,30 @@ namespace DaftAppleGames.Scripts.Editor.Buildings
             }
         }
 
-        [Button("Light Maps")]
-        private void ConfigureLightMaps()
-        {
-            foreach (MeshRenderer renderer in GetChildMeshRenderers())
-            {
-                renderer.receiveGI = ReceiveGI.Lightmaps;
-            }
-        }
 
-        [Button("Light Probes")]
-        private void ConfigureLightProbes()
+        /// <summary>
+        /// Return all MeshRenderers in selected GameObjects
+        /// </summary>
+        /// <returns></returns>
+        private List<MeshRenderer> GetChildMeshRenderers()
         {
-            foreach (MeshRenderer renderer in GetChildMeshRenderers())
-            {
-                renderer.receiveGI = ReceiveGI.LightProbes;
-            }
-        }
+            List<MeshRenderer> allRenderers = new List<MeshRenderer>();
 
-        [Button("Light and Decal Layers")]
-        private void ConfigureLightAndDecalLayers()
-        {
-            foreach (MeshRenderer renderer in GetChildMeshRenderers())
+            foreach (GameObject gameObject in Selection.gameObjects)
             {
-                renderer.renderingLayerMask = (uint) lightLayer | (uint) decalLayer << 8;
+                // Check if prefab
+                allRenderers.AddRange(gameObject.GetComponentsInChildren<MeshRenderer>(true));
             }
 
+            return allRenderers;
         }
 
-        [Button("Shadow Casting Mode")]
-        private void ConfigureShadowCastingMode()
+        /// <summary>
+        /// Marks any amended prefabs as dirty
+        /// </summary>
+        private void MarkPrefabsAsDirty()
         {
-            foreach (MeshRenderer renderer in GetChildMeshRenderers())
-            {
-                renderer.shadowCastingMode = shadowCastingMode;
-            }
-        }
 
-        [Button("Static Shadow Caster")]
-        private void ConfigureStaticShadowCaster()
-        {
-            foreach (MeshRenderer renderer in GetChildMeshRenderers())
-            {
-                renderer.staticShadowCaster = isStaticShadowCaster;
-            }
-        }
-
-
-
-        private MeshRenderer[] GetChildMeshRenderers()
-        {
-            return Selection.activeGameObject.GetComponentsInChildren<MeshRenderer>(true);
         }
     }
 }

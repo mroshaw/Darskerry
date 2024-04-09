@@ -53,27 +53,27 @@ namespace DaftAppleGames.Common.Debugger
         /// <summary>
         /// Handler for enable NR button
         /// </summary>
-        public void EnableNatureRendererHandler()
+        public void EnableRendererHandler()
         {
-            _debugTerrain.EnableNatureRenderer(out string logText);
+            _debugTerrain.EnableRenderer(out string logText);
             _debuggerUi.ShowLog(logText);
         }
 
         /// <summary>
         /// Handler for disable NR button
         /// </summary>
-        public void DisableNatureRendererHandler()
+        public void DisableRendererHandler()
         {
-            _debugTerrain.DisableNatureRenderer(out string logText);
+            _debugTerrain.DisableRenderer(out string logText);
             _debuggerUi.ShowLog(logText);
         }
 
         /// <summary>
         /// Handler for Toggle NR button
         /// </summary>
-        public void ToggleNatureRendererHandler()
+        public void ToggleRendererHandler()
         {
-            _debugTerrain.ToggleNatureRenderer(out string logText);
+            _debugTerrain.ToggleRenderer(out string logText);
             _debuggerUi.ShowLog(logText);
         }
 

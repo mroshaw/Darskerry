@@ -4099,7 +4099,7 @@ GameObject:
   - component: {fileID: 4167131742521333654}
   - component: {fileID: 4037589339686873522}
   m_Layer: 5
-  m_Name: Toggle NR Button
+  m_Name: Toggle Renderer Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4210,7 +4210,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8227074977567884220}
         m_TargetAssemblyTypeName: DaftAppleGames.Common.Debugger.DebugTerrainUi,
           Assembly-CSharp
-        m_MethodName: ToggleNatureRendererHandler
+        m_MethodName: ToggleRendererHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5640,7 +5640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Toggle NR
+  m_text: Toggle Render
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6185,7 +6185,7 @@ GameObject:
   - component: {fileID: 5956162726128042715}
   - component: {fileID: 3914329976558396898}
   m_Layer: 5
-  m_Name: Disable NR Button
+  m_Name: Disable Renderer Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6296,7 +6296,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8227074977567884220}
         m_TargetAssemblyTypeName: DaftAppleGames.Common.Debugger.DebugTerrainUi,
           Assembly-CSharp
-        m_MethodName: DisableNatureRendererHandler
+        m_MethodName: DisableRendererHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6319,7 +6319,7 @@ GameObject:
   - component: {fileID: 4417471601681528125}
   - component: {fileID: 4544865961159594502}
   m_Layer: 5
-  m_Name: Enable NR Button
+  m_Name: Enable Renderer Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6430,7 +6430,7 @@ MonoBehaviour:
       - m_Target: {fileID: 8227074977567884220}
         m_TargetAssemblyTypeName: DaftAppleGames.Common.Debugger.DebugTerrainUi,
           Assembly-CSharp
-        m_MethodName: EnableNatureRendererHandler
+        m_MethodName: EnableRendererHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

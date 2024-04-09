@@ -648,10 +648,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 55951552581632915, guid: 720659ec2ab637d4ca40bc5116cb51c7,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2027938383}
-    - targetCorrespondingSourceObject: {fileID: 55951552581632915, guid: 720659ec2ab637d4ca40bc5116cb51c7,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2027938388}
     - targetCorrespondingSourceObject: {fileID: 55951552581632915, guid: 720659ec2ab637d4ca40bc5116cb51c7,
         type: 3}
@@ -670,36 +666,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2027938376}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2027938383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978008873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -648461970, guid: b04c77e0938d27643b3f69f2dd39ce77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _supported: 1
-  _overrideSupported: 1
-  _render: 1
-  _overrideRendering: 0
-  _renderDistance: 100
-  _overrideRenderDistance: 0
-  _renderShadows: 1
-  _overrideRenderShadows: 0
-  _shadowDistance: 20
-  _overrideShadowDistance: 0
-  _densityInDistance: 0.1
-  _overrideDensityInDistance: 0
-  _densityInDistanceFalloff: {x: 0.031559348, y: 0}
-  _overrideDensityInDistanceFalloff: 0
-  _lodBias: 1
-  _overrideLodBias: 0
-  _perObjectMotionVectors: 0
-  _overridePerObjectMotionVectors: 0
 --- !u!114 &2027938388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,7 +692,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978008873}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 875db408166627149bafb2231cdcfee2, type: 3}
   m_Name: 
@@ -984,7 +950,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.7151506, g: 0.6494182, b: 0.5556951, a: 1}
+  m_Color: {r: 0.84828293, g: 0.77049726, b: 0.66002476, a: 1}
   m_Intensity: 123000
   m_Range: 10
   m_SpotAngle: 30
@@ -1803,7 +1769,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.51405406, g: 0.46586132, b: 0.36701247, a: 1}
+  m_Color: {r: 0.7253512, g: 0.65799797, b: 0.51932365, a: 1}
   m_Intensity: 25
   m_Range: 10
   m_SpotAngle: 30
@@ -1952,7 +1918,7 @@ GameObject:
   - component: {fileID: 56792345565443030}
   - component: {fileID: 56792345565443031}
   m_Layer: 0
-  m_Name: Fog
+  m_Name: Creative Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1987,11 +1953,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Fog
   m_densityDistribution: 3
-  m_density: 479.2945
-  m_height: 2000
-  m_thickness: 200
+  m_density: 555.55554
+  m_height: 1000
+  m_thickness: 120
   m_extinctionCoefficients: {r: 0.000004, g: 0.000004, b: 0.000004, a: 0.000008}
-  m_scatteringCoefficients: {r: 0.000003028, g: 0.000003028, b: 0.000003028, a: 0.000006056}
+  m_scatteringCoefficients: {r: 0.000003064, g: 0.000003064, b: 0.000003064, a: 0.000006128}
   m_phaseFunction: 2
   m_anisotropy: 0.6992
   m_physicalMiePeak: 0.5152
@@ -2016,10 +1982,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fogBlock: {fileID: 56792345565443030}
   m_color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_visibilityDistance: 521.6
-  m_radius: 2000
-  m_thickness: 200
-  m_smog: 0.243
+  m_visibilityDistance: 450
+  m_radius: 1000
+  m_thickness: 120
+  m_smog: 0.234
   m_glare: 0.736
   m_receiveDensityParticles: 0
 --- !u!1 &56792345961464810
@@ -2643,7 +2609,7 @@ MonoBehaviour:
   m_intensity: 50
   m_tint: {r: 1, g: 1, b: 1, a: 1}
   m_rotation: {x: 0, y: 0, z: 0}
-  m_quality: 4
+  m_quality: 3
   m_showSeeds: 0
   m_highDensityMode: 0
   m_density: 0.25

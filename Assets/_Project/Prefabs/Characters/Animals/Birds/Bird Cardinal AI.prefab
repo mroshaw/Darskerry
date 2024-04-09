@@ -1465,7 +1465,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1b87827ab4dd684d83e0aa78759e0bd, type: 2}
+  - {fileID: 2100000, guid: 01b1f2e0fa48c2346a014e3a761acb87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1490,7 +1490,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: f2f7b64dd5c50f8479d6d1610f8537c1, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 295c1f5f7078618408151a3793f5b49f, type: 3}
   m_Bones:
   - {fileID: 400084}
   - {fileID: 400074}
@@ -1584,11 +1584,11 @@ GameObject:
   m_Component:
   - component: {fileID: 400092}
   - component: {fileID: 9500000}
-  - component: {fileID: 11400000}
   - component: {fileID: 6500000}
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   - component: {fileID: 13500000}
+  - component: {fileID: 3624546651394249744}
   m_Layer: 0
   m_Name: Bird Cardinal AI
   m_TagString: lb_bird
@@ -1622,8 +1622,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100092}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f2f7b64dd5c50f8479d6d1610f8537c1, type: 3}
-  m_Controller: {fileID: 9100000, guid: a24ec9cf4c2103646a47e0497a925d6b, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 295c1f5f7078618408151a3793f5b49f, type: 3}
+  m_Controller: {fileID: 9100000, guid: d4be908c074eb994c93a4f8cf1f8c65d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -1634,23 +1634,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a58512123bcd224eb61112b203e6413, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  song1: {fileID: 8300000, guid: 148e954901f21104a960804e72ae599b, type: 3}
-  song2: {fileID: 8300000, guid: 88cd66932850c6c4fbbb742ec868491b, type: 3}
-  flyAway1: {fileID: 8300000, guid: 9dabaef0cd2ecb241956e3db52d3bc8d, type: 3}
-  flyAway2: {fileID: 8300000, guid: ae13220b2fee67344b8b455414c59ff4, type: 3}
-  fleeCrows: 1
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1816,3 +1799,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.08
   m_Center: {x: 0, y: 0.04, z: 0}
+--- !u!114 &3624546651394249744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4420d480f7c91dc428aa7ccb361c3087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiController: {fileID: 0}
+  song1: {fileID: 8300000, guid: 0f91e8ed7da156145b012ff79f26bac1, type: 3}
+  song2: {fileID: 8300000, guid: 20447fd8f5215ae4c88061ebd1110122, type: 3}
+  flyAway1: {fileID: 8300000, guid: cf70c7b952c9ad84ab7da6b3547d5814, type: 3}
+  flyAway2: {fileID: 8300000, guid: 15e5c6c18893fee4ba68528c4a00a78b, type: 3}
+  fleeCrows: 1

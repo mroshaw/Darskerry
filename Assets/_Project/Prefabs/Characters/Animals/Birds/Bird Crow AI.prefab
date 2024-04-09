@@ -1979,7 +1979,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 167c8145cdced1d43ba5318a1a0c0738, type: 2}
+  - {fileID: 2100000, guid: 10b4526128b7c7f47bb5d0919cf04f56, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2004,7 +2004,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 0646ceebc81f52a4e8a676e94ab46092, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 1808d809f64cdb749932b5cda4ff0932, type: 3}
   m_Bones:
   - {fileID: 400116}
   - {fileID: 400106}
@@ -2098,11 +2098,11 @@ GameObject:
   m_Component:
   - component: {fileID: 400124}
   - component: {fileID: 9500000}
-  - component: {fileID: 11400000}
   - component: {fileID: 6500000}
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   - component: {fileID: 13500002}
+  - component: {fileID: 1554879172123622784}
   m_Layer: 0
   m_Name: Bird Crow AI
   m_TagString: lb_bird
@@ -2137,8 +2137,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100124}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0646ceebc81f52a4e8a676e94ab46092, type: 3}
-  m_Controller: {fileID: 9100000, guid: a24ec9cf4c2103646a47e0497a925d6b, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 1808d809f64cdb749932b5cda4ff0932, type: 3}
+  m_Controller: {fileID: 9100000, guid: d4be908c074eb994c93a4f8cf1f8c65d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -2149,23 +2149,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a58512123bcd224eb61112b203e6413, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  song1: {fileID: 8300000, guid: e2622b95524aab94b9a0448a1a4c6fc8, type: 3}
-  song2: {fileID: 8300000, guid: aa29893140715234fa4c6f0f17bc3d88, type: 3}
-  flyAway1: {fileID: 8300000, guid: 9dabaef0cd2ecb241956e3db52d3bc8d, type: 3}
-  flyAway2: {fileID: 8300000, guid: ae13220b2fee67344b8b455414c59ff4, type: 3}
-  fleeCrows: 0
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2223,7 +2206,8 @@ AudioSource:
   m_GameObject: {fileID: 100124}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8991655405756310492, guid: d4cb3dd8c857cad4599292f12c8e37c2,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2331,6 +2315,24 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.08
   m_Center: {x: 0, y: 0.04, z: 0}
+--- !u!114 &1554879172123622784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4420d480f7c91dc428aa7ccb361c3087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiController: {fileID: 0}
+  song1: {fileID: 8300000, guid: 389d74ba449d92640a019b6c0753e07c, type: 3}
+  song2: {fileID: 8300000, guid: 131223987fc188b4aa86ec3cc46132af, type: 3}
+  flyAway1: {fileID: 8300000, guid: cf70c7b952c9ad84ab7da6b3547d5814, type: 3}
+  flyAway2: {fileID: 8300000, guid: 15e5c6c18893fee4ba68528c4a00a78b, type: 3}
+  fleeCrows: 1
 --- !u!1 &100126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,8 +2343,8 @@ GameObject:
   m_Component:
   - component: {fileID: 400126}
   - component: {fileID: 13500000}
-  - component: {fileID: 11400002}
   - component: {fileID: 5400002}
+  - component: {fileID: 7199460293158287745}
   m_Layer: 0
   m_Name: scareCollider
   m_TagString: Untagged
@@ -2386,18 +2388,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a84cd7d0b8fdd4ea5b7054a6649a37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5400002
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2425,3 +2415,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7199460293158287745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84213f7dd5d26a479e25636005a3026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

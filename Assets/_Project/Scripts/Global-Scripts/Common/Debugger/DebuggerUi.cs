@@ -93,6 +93,8 @@ namespace DaftAppleGames.Common.Debugger
         private IEnumerator FadeLogAsync()
         {
             _logFadeIsRunning = true;
+            debuggerLogText.color = new Color(debuggerLogText.color.r, debuggerLogText.color.g, debuggerLogText.color.b,
+                1.0f);
 
             // Wait while the text is displayed
             float currentTime = 0f;
