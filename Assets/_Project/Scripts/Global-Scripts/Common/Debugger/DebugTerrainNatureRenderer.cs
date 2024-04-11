@@ -1,3 +1,4 @@
+#if NATURE_RENDERER
 using DaftAppleGames.Common.GameControllers;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -314,3 +315,4 @@ namespace DaftAppleGames.Common.Debugger
         }
     }
 }
+#endif

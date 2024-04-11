@@ -1,6 +1,5 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
-using VisualDesignCafe.Rendering.Nature;
 
 namespace DaftAppleGames.Common.Debugger
 {
@@ -8,9 +7,6 @@ namespace DaftAppleGames.Common.Debugger
     {
         [BoxGroup("Terrain Settings")] public Terrain terrain;
         [BoxGroup("Terrain Settings")] public GameObject vegetationEngineGameObject;
-
-        private NatureRendererCameraSettings _cameraSettings;
-        private NatureRenderer _natureRenderer;
 
         /// <summary>
         /// Configure terrain before any components start

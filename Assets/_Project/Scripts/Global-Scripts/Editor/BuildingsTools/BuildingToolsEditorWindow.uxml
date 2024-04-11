@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/DaftAppleGames/BuildingAndStructureTools/Scripts/Editor/BuildingToolsEditorWindow.uss?fileID=7433441132597879392&amp;guid=86bdb5f798431a34cb2325076e6c357e&amp;type=3#BuildingToolsEditorWindow" />
+    <ui:Label tabindex="-1" text="Building Tools" parse-escape-sequences="true" display-tooltip-when-elided="true" name="headingLabel" class="heading-label" />
+    <ui:Label text="1. Select a setings file for your chosen asset" name="selectConfigLabel" class="instruction-label" />
+    <ui:IntegerField label="Settings:" value="42" class="property-label" />
+    <ui:Label text="2. Select one or more buildings in the hierarchy" name="selectObjectsLabel" class="instruction-label" />
+    <ui:ListView name="selectedObjectsListView" binding-path="_selectedGameObjects" />
+    <ui:Label tabindex="-1" text="Selected Objects:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="selectedObjectsLabel" class="property-label" />
+    <ui:ListView class="listview-main" style="border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(128, 128, 128); border-right-color: rgb(128, 128, 128); border-top-color: rgb(128, 128, 128); border-bottom-color: rgb(128, 128, 128); border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px;" />
+    <ui:Label tabindex="-1" text="3. Use the buttons below to configure." parse-escape-sequences="true" display-tooltip-when-elided="true" name="configureLabel" class="instruction-label" />
+    <ui:Button text="Initialise Building" parse-escape-sequences="true" display-tooltip-when-elided="true" name="initBuildingButton" tooltip="Adds compnents to the selected Game Object and sets up some properties" class="function-button" />
+    <ui:ScrollView class="log-scroll-view">
+        <ui:TextField value="This is a large, multiline text field. With lots of stuff in it. asd asd g rtg hd jhtdyi fkj m" multiline="true" style="justify-content: flex-end; height: auto;" />
+    </ui:ScrollView>
+</ui:UXML>

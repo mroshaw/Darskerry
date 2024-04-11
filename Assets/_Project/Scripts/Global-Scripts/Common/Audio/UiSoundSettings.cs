@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 namespace DaftAppleGames.Common.Audio
 {
-    [CreateAssetMenu(fileName = "UiSoundSettings", menuName = "Settings/Custom Audio/UiSoundSettings")]
+    [CreateAssetMenu(fileName = "UiSoundSettings", menuName = "Daft Apples Games/Audio/UI sound settings")]
     public class UiSoundSettings : ScriptableObject
     {
         [BoxGroup("UI Sound Clips")]

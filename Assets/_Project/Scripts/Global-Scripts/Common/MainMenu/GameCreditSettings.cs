@@ -10,7 +10,7 @@ namespace DaftAppleGames.Common.MainMenu
     /// <summary>
     /// Game Credit Settings
     /// </summary>
-    [CreateAssetMenu(fileName = "GameCreditSettings", menuName = "Settings/Game/GameCredits", order = 1)]
+    [CreateAssetMenu(fileName = "GameCreditSettings", menuName = "Daft Apple Games/Game/Game credits", order = 1)]
     public class GameCreditSettings : ScriptableObject
     {
         // Public fields

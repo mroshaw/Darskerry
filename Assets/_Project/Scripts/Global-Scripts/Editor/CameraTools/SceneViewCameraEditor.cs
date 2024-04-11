@@ -8,7 +8,7 @@ namespace DaftAppleGames.Editor.CameraTools
     public class SceneViewCameraEditor : OdinEditorWindow
     {
         
-        [MenuItem("Window/Camera/Scene View Camera Tools")]
+        [MenuItem("Daft Apple Games/Tools/Camera/Scene view camera tools")]
         public static void ShowWindow()
         {
             GetWindow(typeof(SceneViewCameraEditor));
