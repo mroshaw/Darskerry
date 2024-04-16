@@ -14,18 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixerGroup: {fileID: -8991655405756310492, guid: d4cb3dd8c857cad4599292f12c8e37c2,
     type: 2}
-  TextureOrMaterialNames: []
+  TextureOrMaterialNames:
+  - Water
   audioClips:
   - {fileID: 8300000, guid: cb80d9202277dda469ef3e4fe56afb57, type: 3}
   - {fileID: 8300000, guid: b553308e428666d468f8edb30c057047, type: 3}
   - {fileID: 8300000, guid: 8b1bc21b6ee3c674091784f2589b60f7, type: 3}
   - {fileID: 8300000, guid: c648b4261c1cc0e48bae45411ad713f9, type: 3}
   - {fileID: 8300000, guid: 2eaaaf5ec6fcaf44583afd6588bf2067, type: 3}
-  audioSourcePrefab: {fileID: 3493597096861683015, guid: 65cadb885fef1b840b868c1bc25dadd6,
-    type: 3}
-  particleFxPrefab: {fileID: 0}
-  stepHumanPrefab: {fileID: 0}
-  stepHorsePrefab: {fileID: 0}
+  spawnParticle: 0
+  spawnHumanStep: 0
+  spawnHorseStep: 0
   stepLayer:
     serializedVersion: 2
     m_Bits: 0

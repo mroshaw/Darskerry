@@ -15,13 +15,13 @@ MonoBehaviour:
   audioMixerGroup: {fileID: -8991655405756310492, guid: d4cb3dd8c857cad4599292f12c8e37c2,
     type: 2}
   TextureOrMaterialNames:
+  - T_Ground_20_Rock_BC_SM
+  - T_Ground_21_Rock_BC_SM
+  - T_ground_stones_01_BC_SM
+  - T_ground_beech_forest_stones_01_BC_SM
   - fe_village_base
-  - M_Floor
-  - T_Concrete_paving_tiles_02_BC_G
-  - PW_Stone_Grey_01_Cliff_D
+  - fe_village_castles_base01
   - fe_village_bridgefloor
-  - river_rock1_albedo
-  - T_Ground_Pebbles_01_A_Sm
   audioClips:
   - {fileID: 8300000, guid: 66fcf612794b70744a11108abd1e48d6, type: 3}
   - {fileID: 8300000, guid: d4669c5b11d5e79478f8882535bb2822, type: 3}
@@ -31,11 +31,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 469107ad00520874c8de4d83488bb814, type: 3}
   - {fileID: 8300000, guid: acf9089818937304fa9996c47c9cb7a1, type: 3}
   - {fileID: 8300000, guid: 18f5fc0e629c66b4d80896a2567338fb, type: 3}
-  audioSourcePrefab: {fileID: 3493597096861683015, guid: 65cadb885fef1b840b868c1bc25dadd6,
-    type: 3}
-  particleFxPrefab: {fileID: 0}
-  stepHumanPrefab: {fileID: 0}
-  stepHorsePrefab: {fileID: 0}
+  spawnParticle: 0
+  spawnHumanStep: 0
+  spawnHorseStep: 0
   stepLayer:
     serializedVersion: 2
     m_Bits: 0
