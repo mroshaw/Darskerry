@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
+using UnityEngine.Serialization;
 
 #if UNITY_POST_PROCESSING_STACK_V2
 using UnityEngine.Rendering.PostProcessing;
@@ -22,72 +23,46 @@ namespace DaftAppleGames.Common.Settings
 {
     public class PerformanceSettingsManager : BaseSettingsManager, ISettings
     {
-        [BoxGroup("Performance Defaults")] public int defaultTextureResolutionIndex = 0;
-        [BoxGroup("Performance Defaults")] public int defaultAntiAliasingResolutionIndex = 0;
-        [BoxGroup("Performance Defaults")] public string defaultQualityPresetName = "Low";
-        [BoxGroup("Performance Defaults")] public float defaultTerrainDetailLevel = 2.0f;
-        [BoxGroup("Performance Defaults")] public bool defaultEnableShadows = true;
-        [BoxGroup("Performance Defaults")] public int defaultAntiAliasingModeIndex = 1;
-        [BoxGroup("Performance Defaults")] public bool defaultVSync = true;
-        [BoxGroup("Performance Defaults")] public int defaultResolutionConfiguration = 1;
-        [BoxGroup("Performance Defaults")] public int defaultDlssQualityIndex = 0;
-        [BoxGroup("Performance Defaults")] public int defaultFsrQualityIndex = 0;
-        [BoxGroup("Performance Defaults")] public int defaultTargetFps = 1;
-
+        [BoxGroup("Defaults")] public int defaultTextureResolutionIndex = 0;
+        [BoxGroup("Defaults")] public int defaultAntiAliasingResolutionIndex = 0;
+        [BoxGroup("Defaults")] public float defaultTerrainDetailLevel = 2.0f;
+        [BoxGroup("Defaults")] public bool defaultEnableShadows = true;
+        [BoxGroup("Defaults")] public int defaultAntiAliasingModeIndex = 1;
+        [BoxGroup("Defaults")] public int defaultTargetFps = 1;
+        [BoxGroup("Defaults")] public bool defaultEnableSSR = true;
+        [BoxGroup("Defaults")] public bool defaultEnableSSRTransparent = true;
+        [BoxGroup("Defaults")] public bool defaultEnableSSGI = true;
+        [BoxGroup("Defaults")] public bool defaultEnableSSAO = true;
+        [BoxGroup("Defaults")] public bool defaultEnableOverrides = false;
         [BoxGroup("Setting Keys")] private const string TextureResolutionIndexKey = "TextureResolution";
         [BoxGroup("Setting Keys")] private const string AntiAliasingResolutionIndexKey = "AntiAliasingResolution";
-        [BoxGroup("Setting Keys")] private const string QualityPresetNameKey = "QualityPreset";
         [BoxGroup("Setting Keys")] private const string TerrainDetailLevelKey = "TerrainDetail";
         [BoxGroup("Setting Keys")] private const string EnableShadowsKey = "EnableShadows";
         [BoxGroup("Setting Keys")] private const string AntiAliasingModeKey = "AntiAliasingMode";
-        [BoxGroup("Setting Keys")] private const string VSyncKey = "VSync";
-        [BoxGroup("Setting Keys")] private const string ResolutionConfigurationKey = "EnableDLSS";
-        [BoxGroup("Setting Keys")] private const string DlssQualityIndexKey = "DlssQuality";
-        [BoxGroup("Setting Keys")] private const string FsrQualityIndexKey = "FsrQuality";
         [BoxGroup("Setting Keys")] private const string TargetFpsIndexKey = "TargetFps";
+        [BoxGroup("Setting Keys")] private const string EnableSSRKey = "EnableSSR";
+        [BoxGroup("Setting Keys")] private const string EnableSSRTransparentKey = "EnableSSRTransparent";
+        [BoxGroup("Setting Keys")] private const string EnableSSGIKey = "EnableSSRTransparent";
+        [BoxGroup("Setting Keys")] private const string EnableSSAOKey = "EnableSSAO";
+        [BoxGroup("Setting Keys")] private const string EnableOverridesKey = "EnableOverrides";
 
         [BoxGroup("Core Game Objects")] public Light mainDirectionalLight;
         [BoxGroup("Core Game Objects")] public Camera mainCamera;
+
+        private HDAdditionalCameraData _mainCameraSettings;
+
         public int TextureResolutionIndex { get; set; }
         public int AntiAliasingResolutionIndex { get; set; }
-        public string QualityPresetName { get; set; }
         public float TerrainDetailLevel { get; set; }
         public bool EnableShadows { get; set; }
         public int AntiAliasingModeIndex { get; set; }
-        public bool VSync { get; set; }
-        public int ResolutionConfigurationIndex {get; set; }
-        public int DlssQualityIndex { get; set; }
-        public int FsrQualityIndex { get; set; }
         public int TargetFpsIndex { get; set; }
-
-        public ResolutionConfiguration[] Configurations = new ResolutionConfiguration[]
-        {
-            new ResolutionConfiguration
-            {
-                name = "Native",
-                AntialiasingMode = HDAdditionalCameraData.AntialiasingMode.TemporalAntialiasing,
-                TAAQualityLevel = HDAdditionalCameraData.TAAQualityLevel.High,
-                DynamicResolutionScale = 1,
-            },
-            new ResolutionConfiguration
-            {
-                name = "Dlss",
-                dLSSQuality = DLSSQuality.MaximumQuality,
-                QualityMode = 2,
-                AntialiasingMode = HDAdditionalCameraData.AntialiasingMode.None,
-                DynamicResolutionScale = 1
-            },
-            new ResolutionConfiguration
-            {
-                name = "FSR",
-                fsrQuality = FSRQuality.UltraQuality,
-                AntialiasingMode = HDAdditionalCameraData.AntialiasingMode.TemporalAntialiasing,
-                TAAQualityLevel = HDAdditionalCameraData.TAAQualityLevel.Low,
-                DynamicResolutionScale = 1
-            }
-        };
-
-        public int[] TargetFpsOptions = { 30, 60, 90, 120, 144 };
+        public bool EnableSSR { get; set; }
+        public bool EnableSSRTransparent { get; set; }
+        public bool EnableSSGI { get; set; }
+        public bool EnableSSAO { get; set; }
+        public bool EnableOverrides { get; set; }
+        public int[] TargetFpsOptions = { 30, 60 };
 
         /// <summary>
         /// Set up the component
@@ -103,6 +78,8 @@ namespace DaftAppleGames.Common.Settings
             if (!mainCamera)
             {
                 mainCamera = PlayerCameraManager.Instance.MainCamera;
+                _mainCameraSettings = mainCamera.GetComponent<HDAdditionalCameraData>();
+                _mainCameraSettings.customRenderingSettings = true;
             }
 
             if (!mainDirectionalLight)
@@ -114,21 +91,29 @@ namespace DaftAppleGames.Common.Settings
         }
 
         /// <summary>
+        /// Setup any lists or arrays
+        /// </summary>
+        public override void InitSettings()
+        {
+            // Populate the "Screen Resolution" list
+        }
+
+        /// <summary>
         /// Save settings to PlayerPrefs
         /// </summary>
         public override void SaveSettings()
         {
             SettingsUtils.SaveIntSetting(TextureResolutionIndexKey, TextureResolutionIndex);
             SettingsUtils.SaveIntSetting(AntiAliasingResolutionIndexKey, AntiAliasingResolutionIndex);
-            SettingsUtils.SaveStringSetting(QualityPresetNameKey, QualityPresetName);
             SettingsUtils.SaveFloatSetting(TerrainDetailLevelKey, TerrainDetailLevel);
             SettingsUtils.SaveBoolSetting(EnableShadowsKey, EnableShadows);
             SettingsUtils.SaveIntSetting(AntiAliasingModeKey, AntiAliasingModeIndex);
-            SettingsUtils.SaveBoolSetting(VSyncKey, VSync);
-            SettingsUtils.SaveIntSetting(ResolutionConfigurationKey, ResolutionConfigurationIndex);
-            SettingsUtils.SaveIntSetting(DlssQualityIndexKey, DlssQualityIndex);
-            SettingsUtils.SaveIntSetting(FsrQualityIndexKey, FsrQualityIndex);
             SettingsUtils.SaveIntSetting(TargetFpsIndexKey, TargetFpsIndex);
+            SettingsUtils.SaveBoolSetting(EnableSSRKey, EnableSSR);
+            SettingsUtils.SaveBoolSetting(EnableSSRTransparentKey, EnableSSRTransparent);
+            SettingsUtils.SaveBoolSetting(EnableSSGIKey, EnableSSGI);
+            SettingsUtils.SaveBoolSetting(EnableSSAOKey, EnableSSAO);
+            SettingsUtils.SaveBoolSetting(EnableOverridesKey, EnableOverrides);
             base.SaveSettings();
         }
 
@@ -137,18 +122,20 @@ namespace DaftAppleGames.Common.Settings
         /// </summary>
         public override void LoadSettings()
         {
-            TextureResolutionIndex = SettingsUtils.LoadIntSetting(TextureResolutionIndexKey, defaultTextureResolutionIndex);
-            AntiAliasingResolutionIndex = SettingsUtils.LoadIntSetting(AntiAliasingResolutionIndexKey, defaultAntiAliasingResolutionIndex);
-            QualityPresetName = SettingsUtils.LoadStringSetting(QualityPresetNameKey, defaultQualityPresetName);
+            TextureResolutionIndex =
+                SettingsUtils.LoadIntSetting(TextureResolutionIndexKey, defaultTextureResolutionIndex);
+            AntiAliasingResolutionIndex =
+                SettingsUtils.LoadIntSetting(AntiAliasingResolutionIndexKey, defaultAntiAliasingResolutionIndex);
+
             TerrainDetailLevel = SettingsUtils.LoadFloatSetting(TerrainDetailLevelKey, defaultTerrainDetailLevel);
             EnableShadows = SettingsUtils.LoadBoolSetting(EnableShadowsKey, defaultEnableShadows);
             AntiAliasingModeIndex = SettingsUtils.LoadIntSetting(AntiAliasingModeKey, defaultAntiAliasingModeIndex);
-            VSync = SettingsUtils.LoadBoolSetting(VSyncKey, defaultVSync);
-            ResolutionConfigurationIndex =
-                SettingsUtils.LoadIntSetting(ResolutionConfigurationKey, defaultResolutionConfiguration);
-            DlssQualityIndex = SettingsUtils.LoadIntSetting(DlssQualityIndexKey, defaultDlssQualityIndex);
-            FsrQualityIndex = SettingsUtils.LoadIntSetting(FsrQualityIndexKey, defaultFsrQualityIndex);
             TargetFpsIndex = SettingsUtils.LoadIntSetting(TargetFpsIndexKey, defaultTargetFps);
+            EnableSSR = SettingsUtils.LoadBoolSetting(EnableSSRKey, defaultEnableSSR);
+            EnableSSRTransparent = SettingsUtils.LoadBoolSetting(EnableSSRTransparentKey, defaultEnableSSRTransparent);
+            EnableSSGI = SettingsUtils.LoadBoolSetting(EnableSSGIKey, defaultEnableSSGI);
+            EnableSSAO = SettingsUtils.LoadBoolSetting(EnableSSAOKey, defaultEnableSSAO);
+            EnableOverrides = SettingsUtils.LoadBoolSetting(EnableOverridesKey, defaultEnableOverrides);
             base.LoadSettings();
         }
 
@@ -157,19 +144,31 @@ namespace DaftAppleGames.Common.Settings
         /// </summary>
         public override void ApplySettings()
         {
-            ApplyQualityPresets();
-            ApplyTerrainDetailLevel();
-            ApplyAntiAliasingMode();
-            ApplyAntiAliasingResolution();
-            ApplyTextureResolution();
-            ApplyVSync();
-            ApplyResolutionConfiguration();
-            ApplyTargetFps();
-            ApplyDlssQuality();
-            ApplyFsrQuality();
+            if (EnableOverrides)
+            {
+                ApplyTerrainDetailLevel();
+                ApplyAntiAliasingMode();
+                ApplyAntiAliasingResolution();
+                ApplyTextureResolution();
+                ApplyTargetFps();
+                ApplySSR();
+                ApplySSRTransparent();
+                ApplySSGI();
+                ApplySSAO();
+            }
             base.ApplySettings();
         }
-        
+
+        /// <summary>
+        /// Set the advanced overrides
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetOverrides(bool value)
+        {
+            EnableOverrides = value;
+            ApplySettings();
+        }
+
         /// <summary>
         /// Update and apply changes to shadow enabled
         /// </summary>
@@ -209,16 +208,6 @@ namespace DaftAppleGames.Common.Settings
             AntiAliasingModeIndex = value;
             ApplyAntiAliasingMode();
         }
-        
-        /// <summary>
-        /// Updates and applies Quality Preset
-        /// </summary>
-        /// <param name="value"></param>
-        public void SetQualityPreset(string value)
-        {
-            QualityPresetName = value;
-            ApplyQualityPresets();
-        }
 
         /// <summary>
         /// Sets the Terrain Details
@@ -230,46 +219,36 @@ namespace DaftAppleGames.Common.Settings
             ApplyTerrainDetailLevel();
         }
 
+
         /// <summary>
-        /// Sets the VSync value
+        /// Set the SSR Transparent state
         /// </summary>
         /// <param name="value"></param>
-        public void SetVSync(bool value)
+        public void SetSSRTransparent(bool value)
         {
-            VSync = value;
-            ApplyVSync();
+            EnableSSRTransparent = value;
+            ApplySSRTransparent();
         }
 
         /// <summary>
-        /// Set the Resolution configuration
+        /// Set the SSGI state
         /// </summary>
         /// <param name="value"></param>
-        public void SetResolutionConfiguration(int value)
+        public void SetSSGI(bool value)
         {
-            ResolutionConfigurationIndex = value;
-            ApplyResolutionConfiguration();
+            EnableSSGI = value;
+            ApplySSGI();
         }
 
         /// <summary>
-        /// Set the DLSS Quality
+        /// Set the SSAO state
         /// </summary>
         /// <param name="value"></param>
-        public void SetDlssQuality(int value)
+        public void SetSSAO(bool value)
         {
-            DlssQualityIndex = value;
-            ApplyDlssQuality();
+            EnableSSAO = value;
+            ApplySSAO();
         }
-
-        /// <summary>
-        /// Set the FSE Quality
-        /// </summary>
-        /// <param name="value"></param>
-        public void SetFsrQuality(int value)
-        {
-            FsrQualityIndex = value;
-            ApplyFsrQuality();
-        }
-
 
         /// <summary>
         /// Set the target FPS
@@ -288,6 +267,64 @@ namespace DaftAppleGames.Common.Settings
         {
             QualitySettings.globalTextureMipmapLimit = TextureResolutionIndex;
             onSettingsAppliedEvent.Invoke();
+        }
+
+        /// <summary>
+        /// Set the SSR state
+        /// </summary>
+        private void ApplySSR()
+        {
+            SetFrameSettingState(FrameSettingsField.SSR, EnableSSR);
+            SetFrameSettingState(FrameSettingsField.TransparentSSR, EnableSSRTransparent);
+
+            onSettingsAppliedEvent.Invoke();
+        }
+
+        /// <summary>
+        /// Set the SSR Transparent state
+        /// </summary>
+        private void ApplySSRTransparent()
+        {
+            SetFrameSettingState(FrameSettingsField.TransparentSSR, EnableSSRTransparent);
+            onSettingsAppliedEvent.Invoke();
+        }
+
+        /// <summary>
+        /// Set the Global GI state
+        /// </summary>
+        private void ApplySSGI()
+        {
+            SetFrameSettingState(FrameSettingsField.SSGI, EnableSSGI);
+            onSettingsAppliedEvent.Invoke();
+        }
+
+        /// <summary>
+        /// Set the SAO state
+        /// </summary>
+        private void ApplySSAO()
+        {
+            SetFrameSettingState(FrameSettingsField.SSAO, EnableSSAO);
+            onSettingsAppliedEvent.Invoke();
+        }
+
+        /// <summary>
+        /// Sets the given boolean custom frame setting to the given state
+        /// </summary>
+        /// <param name="field"></param>
+        /// <param name="state"></param>
+        private void SetFrameSettingState(FrameSettingsField field, bool state)
+        {
+            // Enable custom frame settings
+            HDAdditionalCameraData cameraData = mainCamera.GetComponent<HDAdditionalCameraData>();
+            cameraData.customRenderingSettings = true;
+
+            // Toggle SSGI in frame settings
+            FrameSettings customFrameSettings;
+            customFrameSettings = cameraData.renderingPathCustomFrameSettings;
+            customFrameSettings.SetEnabled(field, state);
+
+            // Apply frame settings to Main Camera
+            cameraData.renderingPathCustomFrameSettings = customFrameSettings;
         }
 
         /// <summary>
@@ -349,33 +386,15 @@ namespace DaftAppleGames.Common.Settings
             Debug.Log($"PerformanceSettings: AntiAliasingMode is now {additionalCameraData.antialiasing}");
 #endif
         }
-        
-        /// <summary>
-        /// Apply the Quality Presets
-        /// </summary>
-        private void ApplyQualityPresets()
-        {
-            // Lookup quality settings
-            string[] qualityNames = QualitySettings.names;
-            int qualityIndex = Array.IndexOf(qualityNames, QualityPresetName);
 
-            if (qualityIndex >= 0)
-            {
-                QualitySettings.SetQualityLevel(qualityIndex, true);
-            }
-            else
-            {
-                Debug.Log($"Quality Setting not found! {QualityPresetName}. Resetting to {defaultQualityPresetName}");
-                QualityPresetName = defaultQualityPresetName;
-                ApplyQualityPresets();
-            }
-            
-            // Override presets with what's selected
-            // Quality presets change the anti-aliasing and texture resolution. Update those settings appropriately
-            ApplyTextureResolution();
-            ApplyAntiAliasingResolution();
-            
-            onSettingsAppliedEvent.Invoke();
+        /// <summary>
+        /// Set the SSR state
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetSSR(bool value)
+        {
+            EnableSSR = value;
+            ApplySSR();
         }
 
         /// <summary>
@@ -388,28 +407,7 @@ namespace DaftAppleGames.Common.Settings
             {
                 currTerrain.detailObjectDensity = TerrainDetailLevel;
             }
-            onSettingsAppliedEvent.Invoke();
         }
-
-        #if GPU_INSTANCER
-        /// <summary>
-        /// Used to set the state (true or false) of Occlussion culling in GPU Instancer, if in use.
-        /// Required when using DLSS, as it's not supported with Occlussion Culling
-        /// </summary>
-        /// <param name="state"></param>
-        private void SetGPUIOcclusionCullingState(bool state)
-        {
-            List<GPUInstancerManager> allManagers = GPUInstancerAPI.GetActiveManagers();
-            if (allManagers == null || allManagers.Count == 0)
-            {
-                return;
-            }
-            foreach (GPUInstancerManager manager in allManagers)
-            {
-                manager.isOcclusionCulling = state;
-            }
-        }
-        #endif
 
         /// <summary>
         /// Apply the shadow enable settings
@@ -443,26 +441,6 @@ namespace DaftAppleGames.Common.Settings
                 }
             }
 #endif
-            onSettingsAppliedEvent.Invoke();      
-        }
-
-        /// <summary>
-        /// Apply VSync
-        /// </summary>
-        private void ApplyVSync()
-        {
-            if (VSync)
-            {
-                Debug.Log("VSync Enabled");
-                QualitySettings.vSyncCount = 1;
-            }
-            else
-            {
-                Debug.Log("VSync Disabled");
-                QualitySettings.vSyncCount = 0;
-            }
-
-            onSettingsAppliedEvent.Invoke();
         }
 
         /// <summary>
@@ -471,210 +449,6 @@ namespace DaftAppleGames.Common.Settings
         private void ApplyTargetFps()
         {
             Application.targetFrameRate = TargetFpsOptions[TargetFpsIndex];
-            onSettingsAppliedEvent.Invoke();
-        }
-
-        /// <summary>
-        /// Applies dynamic resolution settings
-        /// </summary>
-        private void ApplyResolutionConfigurationToCamera()
-        {
-            if (!mainCamera)
-                return;
-
-            ResolutionConfiguration mode = Configurations[ResolutionConfigurationIndex];
-
-            HDAdditionalCameraData HDCam = mainCamera.gameObject.GetComponent<HDAdditionalCameraData>();
-            HDCam.antialiasing = mode.AntialiasingMode;
-            HDCam.TAAQuality = mode.TAAQualityLevel;
-
-            switch ((DynamicResolutionType)ResolutionConfigurationIndex)
-            {
-                case DynamicResolutionType.None:
-                    HDCam.allowDeepLearningSuperSampling = false;
-                    HDCam.allowDynamicResolution = false;
-                    ApplyAntiAliasingMode();
-                    ApplyAntiAliasingResolution();
-                    #if GPU_INSTANCER
-                    SetGPUIOcclusionCullingState(true);
-                    #endif
-                    break;
-                case DynamicResolutionType.DLSS:
-                    HDCam.allowDynamicResolution = true;
-                    HDCam.allowDeepLearningSuperSampling = true;
-                    HDCam.deepLearningSuperSamplingUseCustomQualitySettings = true;
-                    HDCam.deepLearningSuperSamplingQuality = mode.QualityMode;
-                    #if GPU_INSTANCER
-                    SetGPUIOcclusionCullingState(false);
-                    #endif
-                    break;
-                case DynamicResolutionType.FSR:
-                    HDCam.allowDynamicResolution = true;
-                    HDCam.allowDeepLearningSuperSampling = false;
-                    #if GPU_INSTANCER
-                    SetGPUIOcclusionCullingState(false);
-                    #endif
-                    break;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void ApplyResolutionConfiguration()
-        {
-            switch ((DynamicResolutionType)ResolutionConfigurationIndex)
-            {
-                case DynamicResolutionType.None:
-                    SwitchToDLSSAndNativeMode();
-                    break;
-                case DynamicResolutionType.DLSS:
-                    SwitchToDLSSAndNativeMode();
-                    break;
-                case DynamicResolutionType.FSR:
-                    SwitchToFSRMode();
-                    break;
-            }
-            onSettingsAppliedEvent.Invoke();
-        }
-
-        /// <summary>
-        /// Apply DLSS quality settings
-        /// </summary>
-        public void ApplyDlssQuality()
-        {
-            DLSSQuality dLSSQuality = (DLSSQuality)DlssQualityIndex;
-            uint QVal = 2;
-            switch (dLSSQuality)
-            {
-                case DLSSQuality.MaximumPerformance:
-                    QVal = 0;
-                    break;
-                case DLSSQuality.Balanced:
-                    QVal = 1;
-                    break;
-                case DLSSQuality.MaximumQuality:
-                    QVal = 2;
-                    break;
-                case DLSSQuality.UltraPerformance:
-                    QVal = 3;
-                    break;
-            }
-            Configurations[ResolutionConfigurationIndex].QualityMode = QVal;
-            ApplyResolutionConfigurationToCamera();
-            onSettingsAppliedEvent.Invoke();
-        }
-
-        /// <summary>
-        /// Apply FSR quality settings
-        /// </summary>
-        public void ApplyFsrQuality()
-        {
-            FSRQuality Q = (FSRQuality)FsrQualityIndex;
-            Configurations[ResolutionConfigurationIndex].fsrQuality = Q;
-            Configurations[ResolutionConfigurationIndex].DynamicResolutionScale = GetFSRDynamicScale(Q);
-            ApplyResolution();
-            onSettingsAppliedEvent.Invoke();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private void SwitchToDLSSAndNativeMode()
-        {
-            ApplyResolution();
-            ApplyResolutionConfigurationToCamera();
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        private void SwitchToFSRMode()
-        {
-            Configurations[ResolutionConfigurationIndex].DynamicResolutionScale = GetFSRDynamicScale(Configurations[ResolutionConfigurationIndex].fsrQuality);
-            ApplyResolution();
-            ApplyResolutionConfigurationToCamera();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="quality"></param>
-        /// <returns></returns>
-        float GetFSRDynamicScale(FSRQuality quality)
-        {
-            float newScale = 1;
-
-            switch (quality)
-            {
-                case FSRQuality.UltraQuality:
-                    newScale = .76953125F;
-                    break;
-                case FSRQuality.HighQuality:
-                    newScale = .73F;
-                    break;
-                case FSRQuality.Quality:
-                    newScale = .66640625F;
-                    break;
-                case FSRQuality.Balanced:
-                    newScale = .58828125F;
-                    break;
-                case FSRQuality.Performance:
-                    newScale = .5f;
-                    break;
-            }
-            return newScale;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        void ApplyResolution()
-        {
-            DynamicResolutionHandler.SetDynamicResScaler(SetDynamicResolutionScale, DynamicResScalePolicyType.ReturnsMinMaxLerpFactor);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        float SetDynamicResolutionScale()
-        {
-            return Configurations[ResolutionConfigurationIndex].DynamicResolutionScale;
-        }
-
-        public class ResolutionConfiguration
-        {
-            public string name;
-            public DLSSQuality dLSSQuality;
-            public uint QualityMode;
-            public FSRQuality fsrQuality;
-            public float DynamicResolutionScale;
-            public HDAdditionalCameraData.AntialiasingMode AntialiasingMode;
-            public HDAdditionalCameraData.TAAQualityLevel TAAQualityLevel;
-        }
-
-        public enum DynamicResolutionType
-        {
-            None,
-            DLSS,
-            FSR
-        }
-
-        public enum DLSSQuality
-        {
-            MaximumQuality,
-            Balanced,
-            MaximumPerformance,
-            UltraPerformance
-        }
-        public enum FSRQuality
-        {
-            UltraQuality,
-            HighQuality,
-            Quality,
-            Balanced,
-            Performance
         }
     }
 }

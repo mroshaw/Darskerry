@@ -20,7 +20,7 @@ namespace DaftAppleGames.Editor.CharacterTools
         [SerializeField] [BoxGroup("Animal Object")] private GameObject _animalGameObject;
         [BoxGroup("Animal Object")] public Transform skeleton;
 
-        [MenuItem("Daft Apple Games/Characters/Malbers AI editor")]
+        [MenuItem("Daft Apple Games/Tools/Characters/Malbers AI editor")]
         public static void ShowWindow()
         {
             GetWindow(typeof(MalbersAIEditorWindow));
@@ -171,7 +171,7 @@ namespace DaftAppleGames.Editor.CharacterTools
                 return;
             }
             GetAnimalReferences(_animalGameObject);
-            
+
             ConfigureIdleAnimations();
             ConfigureDeathAnimations();
             ConfigureLocoAnimations();

@@ -1,13 +1,29 @@
 using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace DaftAppleGames.Editor.ProjectTools
 {
     public class HiddenObjectEditor : UnityEditor.Editor
     {
+        /// <summary>
+        /// Go through all open scenes and show any hidden Game Objects
+        /// </summary>
         [MenuItem("Daft Apple Games/Tools/Project/Show hidden objects")]
-        private static void RevealHiddenGameObject(GameObject gameObject)
+        private static void ShowHiddenGameObjects()
+        {
+            var scene = SceneManager.GetActiveScene();
+            foreach(var gameObject in scene.GetRootGameObjects())
+            {
+                ShowHiddenGameObject(gameObject);
+            }
+        }
+
+        /// <summary>
+        /// Finds and shows hidden game objects in the scene
+        /// </summary>
+        /// <param name="gameObject"></param>
+        private static void ShowHiddenGameObject(GameObject gameObject)
         {
             if (gameObject.hideFlags.HasFlag(HideFlags.HideInHierarchy))
             {
@@ -17,7 +33,7 @@ namespace DaftAppleGames.Editor.ProjectTools
 
             foreach (Transform child in gameObject.transform)
             {
-                RevealHiddenGameObject(child.gameObject);
+                ShowHiddenGameObject(child.gameObject);
             }
         }
     }

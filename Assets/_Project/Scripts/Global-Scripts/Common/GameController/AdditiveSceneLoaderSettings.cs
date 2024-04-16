@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 namespace DaftAppleGames.Common.GameControllers
 {
@@ -13,7 +14,22 @@ namespace DaftAppleGames.Common.GameControllers
         [BoxGroup("General")] public string scenePath;
         [BoxGroup("Scenes")] [TableList] public List<AdditiveScene> additiveScenes;
         [BoxGroup("Scenes")] [TableList] public List<FixedScene> fixedScenes;
+#if UNITY_EDITOR
+        /// <summary>
+        /// Get a list of Unity scenes from the Additive scenes
+        /// </summary>
+        /// <returns></returns>
+        public List<Scene> GetScenes()
+        {
+            List<Scene> listOfScenes = new List<Scene>();
+            foreach (AdditiveScene additiveScene in additiveScenes)
+            {
+                // listOfScenes.Add(additiveScene.sceneAsset);
+            }
 
+            return listOfScenes;
+        }
+#endif
         /// <summary>
         /// Returns the Game scene name
         /// </summary>

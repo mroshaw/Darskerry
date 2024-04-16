@@ -40,6 +40,15 @@ namespace DaftAppleGames.Common.Ui
         }
 
         /// <summary>
+        /// Set initial UI state
+        /// </summary>
+        public virtual void Awake()
+        {
+            // Start with UI in specified state
+            SetUiState(startWithUiOpen);
+        }
+
+        /// <summary>
         /// Init the UI
         /// </summary>
         public virtual void Start()
@@ -49,9 +58,6 @@ namespace DaftAppleGames.Common.Ui
             {
                 UiController.Instance.RegisterUiWindow(this);
             }
-
-            // Start with UI in specified state
-            SetUiState(startWithUiOpen);
 #if INVECTOR_SHOOTER
             _pausePlayer = GetComponent<PausePlayerHelper>();
 #endif

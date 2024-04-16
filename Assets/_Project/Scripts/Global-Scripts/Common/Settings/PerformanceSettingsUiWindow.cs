@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MalbersAnimations;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -11,14 +12,13 @@ namespace DaftAppleGames.Common.Settings
         [BoxGroup("UI Configuration")] public TMP_Dropdown textureResDropdown;
         [BoxGroup("UI Configuration")] public TMP_Dropdown antiAliasingDropdown;
         [BoxGroup("UI Configuration")] public TMP_Dropdown antiAliasingModeDropdown;
-        [BoxGroup("UI Configuration")] public TMP_Dropdown qualityPresetDropdown;
         [BoxGroup("UI Configuration")] public Slider terrainDetailLevelSlider;
         [BoxGroup("UI Configuration")] public Toggle enableShadowsToggle;
-        [BoxGroup("UI Configuration")] public Toggle enableVSyncToggle;
-        [BoxGroup("UI Configuration")] public TMP_Dropdown resolutionConfigurationDropdown;
-        [BoxGroup("UI Configuration")] public TMP_Dropdown dlssQualityDropdown;
-        [BoxGroup("UI Configuration")] public TMP_Dropdown fsrQualityDropdown;
         [BoxGroup("UI Configuration")] public TMP_Dropdown targetFpsDropdown;
+        [BoxGroup("UI Configuration")] public Toggle enableSSRToggle;
+        [BoxGroup("UI Configuration")] public Toggle enableSSGIToggle;
+        [BoxGroup("UI Configuration")] public Toggle enableSSAOToggle;
+        [BoxGroup("UI Configuration")] public Toggle enableOverridesToggle;
 
         [BoxGroup("Settings Model")] public PerformanceSettingsManager performanceSettingsManager;
         
@@ -28,45 +28,31 @@ namespace DaftAppleGames.Common.Settings
         public override void InitControls()
         {
             // Remove all listeners, to prevent doubling up.
-            textureResDropdown.onValueChanged.RemoveAllListeners();
-            antiAliasingDropdown.onValueChanged.RemoveAllListeners();
-            antiAliasingModeDropdown.onValueChanged.RemoveAllListeners();
-            qualityPresetDropdown.onValueChanged.RemoveAllListeners();
-            terrainDetailLevelSlider.onValueChanged.RemoveAllListeners();
-            enableShadowsToggle.onValueChanged.RemoveAllListeners();
-            enableVSyncToggle.onValueChanged.RemoveAllListeners();
-            resolutionConfigurationDropdown.onValueChanged.RemoveAllListeners();
-            dlssQualityDropdown.onValueChanged.RemoveAllListeners();
-            fsrQualityDropdown.onValueChanged.RemoveAllListeners();
-            targetFpsDropdown.onValueChanged.RemoveAllListeners();
+            textureResDropdown.onValueChanged.RemoveListener(UpdateTextureResolution);
+            antiAliasingDropdown.onValueChanged.RemoveListener(UpdateAntiAliasing);
+            antiAliasingModeDropdown.onValueChanged.RemoveListener(UpdateAntiAliasingMode);
+            terrainDetailLevelSlider.onValueChanged.RemoveListener(UpdateTerrainDetailLevel);
+            enableShadowsToggle.onValueChanged.RemoveListener(UpdateEnableShadows);
+            targetFpsDropdown.onValueChanged.RemoveListener(UpdateTargetFps);
+            enableSSRToggle.onValueChanged.RemoveListener(UpdateSSR);
+            enableSSGIToggle.onValueChanged.RemoveListener(UpdateSSGI);
+            enableSSAOToggle.onValueChanged.RemoveListener(UpdateSSAO);
+            enableOverridesToggle.onValueChanged.RemoveListener(UpdateEnableOverrides);
 
             // Configure the UI component listeners
             textureResDropdown.onValueChanged.AddListener(UpdateTextureResolution);
             antiAliasingDropdown.onValueChanged.AddListener(UpdateAntiAliasing);
             antiAliasingModeDropdown.onValueChanged.AddListener(UpdateAntiAliasingMode);
-            qualityPresetDropdown.onValueChanged.AddListener(UpdateQualityPreset);
             terrainDetailLevelSlider.onValueChanged.AddListener(UpdateTerrainDetailLevel);
             enableShadowsToggle.onValueChanged.AddListener(UpdateEnableShadows);
-            enableVSyncToggle.onValueChanged.AddListener(UpdateVSync);
-            resolutionConfigurationDropdown.onValueChanged.AddListener(UpdateResolutionConfiguration);
-            dlssQualityDropdown.onValueChanged.AddListener(UpdateDlssQuality);
-            fsrQualityDropdown.onValueChanged.AddListener(UpdateFsrQuality);
             targetFpsDropdown.onValueChanged.AddListener(UpdateTargetFps);
-
-            // Init dynamic drop downs
-            InitQualitySettings();
+            enableSSRToggle.onValueChanged.AddListener(UpdateSSR);
+            enableSSGIToggle.onValueChanged.AddListener(UpdateSSGI);
+            enableSSAOToggle.onValueChanged.AddListener(UpdateSSAO);
+            enableOverridesToggle.onValueChanged.AddListener(UpdateEnableOverrides);
         }
 
-        /// <summary>
-        /// Populate Quality Drop Down from Quality Settings
-        /// </summary>
-        private void InitQualitySettings()
-        {
-            qualityPresetDropdown.ClearOptions();
-            List<string> qualityOptions = new List<string>(QualitySettings.names);
-            qualityPresetDropdown.AddOptions(qualityOptions);
-        }
-        
+
         /// <summary>
         /// Initialise the controls with current settings
         /// </summary>
@@ -78,43 +64,40 @@ namespace DaftAppleGames.Common.Settings
             antiAliasingModeDropdown.SetValueWithoutNotify(performanceSettingsManager.AntiAliasingModeIndex);
             terrainDetailLevelSlider.SetValueWithoutNotify(performanceSettingsManager.TerrainDetailLevel);
             enableShadowsToggle.SetIsOnWithoutNotify(performanceSettingsManager.EnableShadows);
-            enableVSyncToggle.SetIsOnWithoutNotify(performanceSettingsManager.VSync);
-            resolutionConfigurationDropdown.SetValueWithoutNotify(performanceSettingsManager.ResolutionConfigurationIndex);
-            dlssQualityDropdown.SetValueWithoutNotify(performanceSettingsManager.DlssQualityIndex);
-            fsrQualityDropdown.SetValueWithoutNotify(performanceSettingsManager.FsrQualityIndex);
             targetFpsDropdown.SetValueWithoutNotify(performanceSettingsManager.TargetFpsIndex);
-            UpdateResConfigControlState();
-            int qualityIndex = qualityPresetDropdown.options.FindIndex(i => i.text == performanceSettingsManager.QualityPresetName);
-            qualityPresetDropdown.SetValueWithoutNotify(qualityIndex);
+
+            enableSSRToggle.SetIsOnWithoutNotify(performanceSettingsManager.EnableSSR);
+            enableSSGIToggle.SetIsOnWithoutNotify(performanceSettingsManager.EnableSSGI);
+            enableSSAOToggle.SetIsOnWithoutNotify(performanceSettingsManager.EnableSSAO);
+            enableOverridesToggle.SetIsOnWithoutNotify(performanceSettingsManager.EnableOverrides);
+            SetAdvancedControlState(performanceSettingsManager.EnableOverrides);
         }
 
         /// <summary>
-        /// Sets the dynamic resolution quality control states
+        /// Handle toggling the override toggle
         /// </summary>
-        private void UpdateResConfigControlState()
+        /// <param name="isEnabled"></param>
+        public void UpdateEnableOverrides(bool isEnabled)
         {
-            switch ((PerformanceSettingsManager.DynamicResolutionType)performanceSettingsManager.ResolutionConfigurationIndex)
-            {
-                case PerformanceSettingsManager.DynamicResolutionType.None:
-                    dlssQualityDropdown.interactable = false;
-                    fsrQualityDropdown.interactable = false;
-                    antiAliasingDropdown.interactable = true;
-                    antiAliasingModeDropdown.interactable = true;
-                    break;
-                case PerformanceSettingsManager.DynamicResolutionType.DLSS:
-                    dlssQualityDropdown.interactable = true;
-                    fsrQualityDropdown.interactable = false;
-                    antiAliasingDropdown.interactable = false;
-                    antiAliasingModeDropdown.interactable = false;
-                    break;
-                case PerformanceSettingsManager.DynamicResolutionType.FSR:
-                    dlssQualityDropdown.interactable = false;
-                    fsrQualityDropdown.interactable = true;
-                    antiAliasingDropdown.interactable = false;
-                    antiAliasingModeDropdown.interactable = false;
+            performanceSettingsManager.EnableOverrides = isEnabled;
+            SetAdvancedControlState(isEnabled);
+        }
 
-                    break;
-            }
+        /// <summary>
+        /// Set override control state
+        /// </summary>
+        /// <param name="isEnabled"></param>
+        public void SetAdvancedControlState(bool isEnabled)
+        {
+            textureResDropdown.interactable = isEnabled;
+            antiAliasingDropdown.interactable = isEnabled;
+            antiAliasingModeDropdown.interactable = isEnabled;
+            terrainDetailLevelSlider.interactable = isEnabled;
+            enableShadowsToggle.interactable = isEnabled;
+            targetFpsDropdown.interactable = isEnabled;
+            enableSSRToggle.interactable = isEnabled;
+            enableSSGIToggle.interactable = isEnabled;
+            enableSSAOToggle.interactable = isEnabled;
         }
 
         /// <summary>
@@ -152,16 +135,34 @@ namespace DaftAppleGames.Common.Settings
         {
             performanceSettingsManager.SetAntiAliasingMode(antiAliasingModeIndex);
         }
-        
+
         /// <summary>
-        /// Handle Quality Preset value changed
+        /// Handles SSR toggle change
         /// </summary>
-        /// <param name="qualityPresetIndex"></param>
-        public void UpdateQualityPreset(int qualityPresetIndex)
+        /// <param name="isEnabled"></param>
+        public void UpdateSSR(bool isEnabled)
         {
-            string qualityName = qualityPresetDropdown.options[qualityPresetIndex].text;
-            performanceSettingsManager.SetQualityPreset(qualityName);
+            performanceSettingsManager.SetSSR(isEnabled);
         }
+
+        /// <summary>
+        /// Handles SSGI toggle change
+        /// </summary>
+        /// <param name="isEnabled"></param>
+        public void UpdateSSGI(bool isEnabled)
+        {
+            performanceSettingsManager.SetSSGI(isEnabled);
+        }
+
+        /// <summary>
+        /// Handles the SSAO toggle change
+        /// </summary>
+        /// <param name="isEnabled"></param>
+        public void UpdateSSAO(bool isEnabled)
+        {
+            performanceSettingsManager.SetSSAO(isEnabled);
+        }
+
 
         /// <summary>
         /// Handle Terrain Detail value changed
@@ -170,31 +171,6 @@ namespace DaftAppleGames.Common.Settings
         public void UpdateTerrainDetailLevel(float terrainDetailLevel)
         {
             performanceSettingsManager.SetTerrainDetailLevel(terrainDetailLevel);
-        }
-
-        /// <summary>
-        /// Handle VSync toggle changed
-        /// </summary>
-        /// <param name="isEnabled"></param>
-        public void UpdateVSync(bool isEnabled)
-        {
-            performanceSettingsManager.SetVSync(isEnabled);
-        }
-
-        public void UpdateResolutionConfiguration(int indexValue)
-        {
-            performanceSettingsManager.SetResolutionConfiguration(indexValue);
-            UpdateResConfigControlState();
-        }
-
-        public void UpdateDlssQuality(int indexValue)
-        {
-            performanceSettingsManager.SetDlssQuality(indexValue);
-        }
-
-        public void UpdateFsrQuality(int indexValue)
-        {
-            performanceSettingsManager.SetFsrQuality(indexValue);
         }
 
         public void UpdateTargetFps(int indexValue)

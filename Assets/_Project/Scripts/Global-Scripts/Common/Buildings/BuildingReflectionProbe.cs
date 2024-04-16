@@ -18,7 +18,10 @@ namespace DaftAppleGames.Common.Buildings
         [Button("Refresh")]
         public void Refresh()
         {
-            ReflectionProbe.RenderProbe();
+            if (ReflectionProbe.gameObject.activeSelf && ReflectionProbe.enabled)
+            {
+                ReflectionProbe.RenderProbe();
+            }
         }
     }
 }

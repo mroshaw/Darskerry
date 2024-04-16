@@ -61,6 +61,8 @@ namespace DaftAppleGames.Common.Quests
                         switch (args.values[1].ToString())
                         {
                             case nameof(QuestState.Active):
+                                Debug.Log(
+                                    $"Quest {args.parameter.ToString()} went active on {this.transform.parent.gameObject.name}");
                                 questActiveEvent.Invoke();
                                 break;
                             case nameof(QuestState.Successful):

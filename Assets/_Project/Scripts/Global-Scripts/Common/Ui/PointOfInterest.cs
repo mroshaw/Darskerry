@@ -1,4 +1,5 @@
 using System.Collections;
+using Invector.vShooter;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,19 +13,35 @@ namespace DaftAppleGames.Common.Ui
     {
         // Public serializable properties
         [BoxGroup("General Settings")] public InfoPanelContent infoPanelContent;
-        
+        [BoxGroup("General Settings")] public float fadeDuration = 2.0f;
         [SerializeField]
         [BoxGroup("Debug")] private bool _isRead = false;
 
-        [BoxGroup("Events")]  public UnityEvent onOpenEvent;
-        [BoxGroup("Events")] public UnityEvent onCloseEvent;
-        
+        [BoxGroup("Settings")] public GameObject pointMarkerGameObject;
+        [BoxGroup("Settings")] public GameObject undiscoveredMinimapMarker;
+        [BoxGroup("Settings")] public GameObject discoveredMinimapMarker;
+
+        [BoxGroup("Events")]  public UnityEvent onStartReadingEvent;
+        [BoxGroup("Events")] public UnityEvent onFinishedReadingEvent;
+
+        private AudioSource _markerAudioSource;
+        private ParticleSystem[] _markerParticleSystems;
+
         public bool IsRead
         {
-            set => _isRead = value;
+            set
+            {
+                _isRead = value;
+                if (_isRead)
+                {
+                    pointMarkerGameObject.SetActive(false);
+                    undiscoveredMinimapMarker.SetActive(false);
+                    discoveredMinimapMarker.SetActive(true);
+                }
+            }
             get => _isRead;
         }
-        
+
         // Private fields
         private InfoPanel _infoPanel;
 
@@ -34,13 +51,14 @@ namespace DaftAppleGames.Common.Ui
         private void Start()
         {
             _infoPanel = GetComponentInChildren<InfoPanel>();
+            _markerAudioSource = pointMarkerGameObject.GetComponent<AudioSource>();
+            _markerParticleSystems = pointMarkerGameObject.GetComponentsInChildren<ParticleSystem>();
         }
 
         /// <summary>
         /// Displays the specified tutorial.
         /// </summary>
-        /// <param name="force"></param>
-        public void ShowInfoPanel()
+        public void Read()
         {
             // Populate and show the InfoPanel
             _infoPanel.headingText.text = infoPanelContent.heading;
@@ -50,18 +68,45 @@ namespace DaftAppleGames.Common.Ui
                 _infoPanel.image.sprite = infoPanelContent.image;
             }
             _infoPanel.ShowUi();
-
-            _isRead = true;
-            onOpenEvent.Invoke();
+            onStartReadingEvent.Invoke();
         }
 
         /// <summary>
-        /// Public method to show tutorial is complete
+        /// Public method to close panel
         /// </summary>
-        public void CloseTutorial()
+        public void FinishedReading()
         {
-            _infoPanel.HideUi();
-            onCloseEvent.Invoke();
+            onFinishedReadingEvent.Invoke();
+            // If first time reading, fade out the Fade Marker audio
+            if (!IsRead)
+            {
+                StartCoroutine(FadeMarker());
+            }
+        }
+
+        /// <summary>
+        /// Fades the attached marker audio
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator FadeMarker()
+        {
+            // Fade the particle systems
+            foreach (ParticleSystem currParticleSystem in _markerParticleSystems)
+            {
+                ParticleSystem.MainModule main = currParticleSystem.main;
+                main.loop = false;
+            }
+
+            // Fade the Audio
+            float timeElapsed = 0.0f;
+            float startVolume = _markerAudioSource.volume;
+            while (timeElapsed < fadeDuration)
+            {
+                _markerAudioSource.volume = Mathf.Lerp(startVolume, 0, timeElapsed / fadeDuration);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+            IsRead = true;
         }
     }
 }

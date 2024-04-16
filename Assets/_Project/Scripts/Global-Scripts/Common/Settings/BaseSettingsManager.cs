@@ -10,13 +10,11 @@ namespace DaftAppleGames.Common.Settings
         [BoxGroup("General Settings")] public bool applyOnStart = false;
         [BoxGroup("General Settings")] public bool applyOnAwake = true;
 
-        [FoldoutGroup("Events")]
-        public UnityEvent onSettingsAppliedEvent;
-        [FoldoutGroup("Events")]
-        public UnityEvent onSettingsLoadedEvent;
-        [FoldoutGroup("Events")]
-        public UnityEvent onSettingsSavedEvent;
-        
+        [BoxGroup("Events")] public UnityEvent onSettingsAppliedEvent;
+        [BoxGroup("Events")] public UnityEvent onSettingsLoadedEvent;
+        [BoxGroup("Events")] public UnityEvent onSettingsSavedEvent;
+        [BoxGroup("Events")] public UnityEvent onSettingsInitialised;
+
         /// <summary>
         /// Awake event
         /// </summary>
@@ -47,9 +45,9 @@ namespace DaftAppleGames.Common.Settings
         /// </summary>
         public virtual void InitSettings()
         {
-            
+            onSettingsInitialised.Invoke();
         }
-        
+
         /// <summary>
         /// Apply all settings
         /// </summary>

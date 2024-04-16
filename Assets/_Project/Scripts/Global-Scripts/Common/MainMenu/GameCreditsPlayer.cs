@@ -50,12 +50,13 @@ namespace DaftAppleGames.Common.MainMenu
         /// <summary>
         /// Set the UI state appropriately on awake
         /// </summary>
-        private void Awake()
+        public override void Awake()
         {
             _fitter = creditsPanel.GetComponent<ContentSizeFitter>();
             _isScrolling = false;
             ConstructUi();
             _startingPosition = new Vector3(0, -600, 0);
+            base.Awake();
         }
         
         /// <summary>

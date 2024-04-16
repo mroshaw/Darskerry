@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -5,27 +6,24 @@ namespace DaftAppleGames.Common.Settings
 {
     public class AudioSettingsManager : BaseSettingsManager, ISettings
     {
-        [Header("Audio Mixer Configuration")]
-        public AudioMixer audioMixer;
-        public string masterVolumeName = "MasterVolume";
-        public string musicVolumeName = "MusicVolume";
-        public string soundFxVolumeName = "SoundFxVolume";
-        public string ambientFxVolumeName = "AmbientVolume";
-        public string uiFxVolumeName = "UiFxVolume";
+        [BoxGroup("Audio Mixer Configuration")] public AudioMixer audioMixer;
+        [BoxGroup("Audio Mixer Configuration")] public string masterVolumeName = "MasterVolume";
+        [BoxGroup("Audio Mixer Configuration")] public string musicVolumeName = "MusicVolume";
+        [BoxGroup("Audio Mixer Configuration")] public string soundFxVolumeName = "SoundFxVolume";
+        [BoxGroup("Audio Mixer Configuration")] public string ambientFxVolumeName = "AmbientVolume";
+        [BoxGroup("Audio Mixer Configuration")] public string uiFxVolumeName = "UiFxVolume";
 
-        [Header("Audio Volume Defaults")]
-        public float defaultMasterVolume = 1.0f;
-        public float defaultMusicVolume = 1.0f;
-        public float defaultSoundFxVolume = 1.0f;
-        public float defaultAmbientVolume = 1.0f;
-        public float defaultUiFxVolume = 1.0f;
+        [BoxGroup("Defaults")] public float defaultMasterVolume = 1.0f;
+        [BoxGroup("Defaults")] public float defaultMusicVolume = 1.0f;
+        [BoxGroup("Defaults")] public float defaultSoundFxVolume = 1.0f;
+        [BoxGroup("Defaults")] public float defaultAmbientVolume = 1.0f;
+        [BoxGroup("Defaults")] public float defaultUiFxVolume = 1.0f;
 
-        [Header("Setting Keys")]
-        public string masterVolumeKey = "MasterVolume";
-        public string musicVolumeKey = "MusicVolume";
-        public string soundFxVolumeKey = "SoundFxVolume";
-        public string ambientVolumeKey = "AmbientVolume";
-        public string uiFxVolumeKey = "UiFxVolume";
+        [BoxGroup("Setting Keys")] public string masterVolumeKey = "MasterVolume";
+        [BoxGroup("Setting Keys")] public string musicVolumeKey = "MusicVolume";
+        [BoxGroup("Setting Keys")] public string soundFxVolumeKey = "SoundFxVolume";
+        [BoxGroup("Setting Keys")] public string ambientVolumeKey = "AmbientVolume";
+        [BoxGroup("Setting Keys")] public string uiFxVolumeKey = "UiFxVolume";
 
         public float MasterVolume {get; set;}
         public float MusicVolume { get; set; }
@@ -101,7 +99,6 @@ namespace DaftAppleGames.Common.Settings
         /// </summary>
         public override void InitSettings()
         {
-            base.InitSettings();
         }
         
         /// <summary>

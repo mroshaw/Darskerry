@@ -35,7 +35,6 @@ namespace DaftApplesGames.Editor.ObjectTools
             swapperSettings.GetMaterials(out Material[] sourceMaterials, out Material[] targetMaterials,
                 out string[] sourceMeshNames, out string[] targetMeshNames);
 
-            int counter = 0;
             foreach (GameObject meshGameObject in selectedGameObjects)
             {
                 MeshRenderer[] allMeshRenderers = meshGameObject.GetComponentsInChildren<MeshRenderer>(true);

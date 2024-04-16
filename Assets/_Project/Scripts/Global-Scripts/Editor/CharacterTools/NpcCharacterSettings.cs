@@ -8,7 +8,7 @@ namespace DaftAppleGames.Editor.CharacterTools
         /// <summary>
     /// Scriptable Object to store Editor usable instances of the Player Character Configuration
     /// </summary>
-    [CreateAssetMenu(fileName = "NpcCharacterSettings", menuName = "Daft Apples Games/Characters/NPC settings", order = 1)]
+    [CreateAssetMenu(fileName = "NpcCharacterSettings", menuName = "Daft Apple Games/Characters/NPC settings", order = 1)]
     public class NpcCharacterSettings : BaseCharacterSettings
     {
         [BoxGroup("Detection")] public LayerMask detectLayer;

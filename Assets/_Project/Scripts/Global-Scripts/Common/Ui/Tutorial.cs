@@ -67,11 +67,11 @@ namespace DaftAppleGames.Common.Ui
             if (!IsDone || force)
             {
                 // Populate and show the InfoPanel
-                _infoPanel.headingText.text = infoPanelContent.heading;
-                _infoPanel.contentText.text = infoPanelContent.content;
+                _infoPanel.SetHeadingText(infoPanelContent.heading);
+                _infoPanel.SetContentText(infoPanelContent.content);
                 if (infoPanelContent.image != null)
                 {
-                    _infoPanel.image.sprite = infoPanelContent.image;
+                    _infoPanel.SetImage(infoPanelContent.image);
                 }
                 _infoPanel.ShowUi();
                 IsDone = true;

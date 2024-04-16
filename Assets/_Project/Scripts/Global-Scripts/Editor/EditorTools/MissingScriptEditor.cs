@@ -1,109 +1,109 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using System.Linq;
 using UnityEngine.SceneManagement;
 
 namespace DaftAppleGames.Editor.ProjectTools
-{    public class MissingScriptEditor : UnityEditor.Editor
+{
+    public class MissingScriptEditor : UnityEditor.Editor
     {
+
+        [MenuItem("Daft Apple Games/Tools/Editor/List objects with missing scripts")]
+        static void ListGameObjectsWithMissingScripts()
+        {
+            FindMissingScriptsInAllScenes(false, false);
+        }
+
         [MenuItem("Daft Apple Games/Tools/Editor/Select objects with missing scripts")]
         static void SelectGameObjectsWithMissingScripts()
         {
-            //Get the current scene and all top-level GameObjects in the scene hierarchy
-            Scene currentScene = SceneManager.GetActiveScene();
-            GameObject[] rootObjects = currentScene.GetRootGameObjects();
+            FindMissingScriptsInAllScenes(false, true);
+        }
 
-            List<Object> objectsWithDeadLinks = new List<Object>();
-            foreach (GameObject g in rootObjects)
+        [MenuItem("Daft Apple Games/Tools/Editor/Delete missing scripts")]
+        static void DeleteMissingScripts()
+        {
+            FindMissingScriptsInAllScenes(true, false);
+        }
+
+        /// <summary>
+        /// Process all open scenes
+        /// </summary>
+        /// <param name="delete"></param>
+        /// <param name="select"></param>
+        static void FindMissingScriptsInAllScenes(bool delete = false, bool select = false)
+        {
+            List<GameObject> objectsMissingScripts = new List<GameObject>();
+
+            for (int currSceneIndex = 0; currSceneIndex < SceneManager.loadedSceneCount; currSceneIndex++)
             {
-                //Get all components on the GameObject, then loop through them
-                Component[] components = g.GetComponents<Component>();
-                for (int i = 0; i < components.Length; i++)
-                {
-                    Component currentComponent = components[i];
+                // Debug.Log($"... searching in {SceneManager.GetSceneAt(currSceneIndex).name}");
+                objectsMissingScripts.AddRange(FindMissingScriptsInScene(SceneManager.GetSceneAt(currSceneIndex)));
+            }
 
-                    //If the component is null, that means it's a missing script!
-                    if (currentComponent == null)
-                    {
-                        //Add the sinner to our naughty-list
-                        objectsWithDeadLinks.Add(g);
-                        Selection.activeGameObject = g;
-                        Debug.Log(g + " has a missing script!");
-                        break;
-                    }
+            // Process the results
+            if (objectsMissingScripts.Count == 0)
+            {
+                Debug.Log("No GameObjects in currently open scenes have missing scripts!");
+                return;
+            }
+
+            foreach (GameObject currObject in objectsMissingScripts)
+            {
+                Debug.Log($"Missing script found on: {currObject.name}");
+                if (delete)
+                {
+                    GameObjectUtility.RemoveMonoBehavioursWithMissingScript(currObject);
+                    Debug.Log($"Missing script deleted from: {currObject.name}");
                 }
             }
 
-            if (objectsWithDeadLinks.Count > 0)
+            if (select)
             {
-                //Set the selection in the editor
-                Selection.objects = objectsWithDeadLinks.ToArray();
-            }
-            else
-            {
-                Debug.Log("No GameObjects in '" + currentScene.name + "' have missing scripts! Yay!");
+                Selection.objects = objectsMissingScripts.ToArray();
             }
         }
 
-        [MenuItem("Daft Apple Games/Tools/Editor/Remove Missing Scripts", true, 0)]
-        private static bool RemoveMissingScripts_OnPrefabs_Validate()
+        /// <summary>
+        /// Select GameObjects with missing scripts within the given scene
+        /// </summary>
+        /// <param name="scene"></param>
+        static List<GameObject> FindMissingScriptsInScene(Scene scene)
         {
-            return Selection.objects != null && Selection.objects.All(x => x.GetType() == typeof(GameObject));
-        }
+            //Get the current scene and all top-level GameObjects in the scene hierarchy
+            GameObject[] rootObjects = scene.GetRootGameObjects();
 
-        [MenuItem("Daft Apple Games/Tools/Editor/Remove Missing Scripts", false, 0)]
-        private static void RemoveMissingScripts_OnPrefabs()
-        {
-            foreach (var obj in Selection.gameObjects)
+            List<GameObject> objectsWithMissingScripts = new List<GameObject>();
+            foreach (GameObject currGameObject in rootObjects)
             {
-                RemoveMissingScripts_OnPrefabs_Recursive(obj);
+                objectsWithMissingScripts.AddRange(FindMissingScriptsRecursive(currGameObject));
             }
+
+            return objectsWithMissingScripts;
         }
 
-        private static void RemoveMissingScripts_OnPrefabs_Recursive(GameObject obj)
+        /// <summary>
+        /// Find all missing scripts on given root object
+        /// </summary>
+        /// <param name="rootObject"></param>
+        /// <returns></returns>
+        private static List<GameObject> FindMissingScriptsRecursive(GameObject rootObject)
         {
+            // Debug.Log($"... searching in {rootObject.name}");
+            List<GameObject> currResults = new List<GameObject>();
             // list missing on this object
-            if (GameObjectUtility.RemoveMonoBehavioursWithMissingScript(obj) != 0)
+            if (GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(rootObject) != 0)
             {
-                Debug.Log($"REMOVED: Missing Scripts on object '{obj.name}'");
+                currResults.Add(rootObject);
             }
 
-            // scan childeren
-            foreach (Transform transform in obj.transform)
+            // Scan children
+            foreach (Transform transform in rootObject.transform)
             {
-                RemoveMissingScripts_OnPrefabs_Recursive(transform.gameObject);
-            }
-        }
-
-        [MenuItem("Daft Apple Games/Tools/Editor/List Missing Scripts", true, 0)]
-        private static bool ListMissingScripts_OnPrefabs_Validate()
-        {
-            return Selection.objects != null && Selection.objects.All(x => x.GetType() == typeof(GameObject));
-        }
-
-        [MenuItem("Daft Apple Games/Tools/Editor/List Missing Scripts", false, 0)]
-        private static void ListMissingScripts_OnPrefabs()
-        {
-            foreach (var obj in Selection.gameObjects)
-            {
-                ListMissingScripts_OnPrefabs_Recursive(obj);
-            }
-        }
-
-        private static void ListMissingScripts_OnPrefabs_Recursive(GameObject obj)
-        {
-            // list missing on this object
-            if (GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(obj) != 0)
-            {
-                Debug.Log($"Missing Script on object '{obj.name}'");
+                currResults.AddRange(FindMissingScriptsRecursive(transform.gameObject));
             }
 
-            // scan childeren
-            foreach (Transform transform in obj.transform)
-            {
-                ListMissingScripts_OnPrefabs_Recursive(transform.gameObject);
-            }
+            return currResults;
         }
     }
 }

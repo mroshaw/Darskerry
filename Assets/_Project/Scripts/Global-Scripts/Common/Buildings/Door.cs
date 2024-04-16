@@ -1,23 +1,28 @@
 using System.Collections;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DaftAppleGames.Common.Buildings
 {
     public enum DoorPivotSide { Left, Right };
     public class Door : MonoBehaviour
     {
-        [Header("Open and Close Config")]
-        public DoorPivotSide pivotSide;
-        public float openAngle = 130.0f;
-        public float openDuration = 3.0f;
-        public float stayOpenDuration = 5.0f;
-        public float closeDuration = 3.0f;
-        public bool autoOpen = false;
+        [BoxGroup("Open and Close Config")] public DoorPivotSide pivotSide;
+        [BoxGroup("Open and Close Config")] public float openAngle = 130.0f;
+        [BoxGroup("Open and Close Config")] public float openDuration = 3.0f;
+        [BoxGroup("Open and Close Config")] public float stayOpenDuration = 5.0f;
+        [BoxGroup("Open and Close Config")] public float closeDuration = 3.0f;
+        [BoxGroup("Open and Close Config")] public bool autoOpen = false;
 
-        [Header("Door Audio")]
-        public AudioClip openAudioClip;
-        public AudioClip closingAudioClip;
-        public AudioClip closedAudioClip;
+        [BoxGroup("Door Audio")] public AudioClip openAudioClip;
+        [BoxGroup("Door Audio")] public AudioClip closingAudioClip;
+        [BoxGroup("Door Audio")] public AudioClip closedAudioClip;
+
+        [BoxGroup("Events")] public UnityEvent onDoorOpeningEvent;
+        [BoxGroup("Events")] public UnityEvent onDoorOpenEvent;
+        [BoxGroup("Events")] public UnityEvent onDoorClosingEvent;
+        [BoxGroup("Events")] public UnityEvent onDoorClosedEvent;
 
         private bool _isMoving = false;
         private AudioSource _audioSource;
@@ -62,6 +67,7 @@ namespace DaftAppleGames.Common.Buildings
         /// <returns></returns>
         private IEnumerator OpenAndCloseDoorAsync(float angle)
         {
+            onDoorOpeningEvent.Invoke();
             // Stop anything else from effecting the door until we're done
             _isMoving = true;
             float currTime = 0;
@@ -91,6 +97,7 @@ namespace DaftAppleGames.Common.Buildings
                 yield return null;
             }
             transform.localRotation = targetRotation;
+            onDoorOpenEvent.Invoke();
 
             // Hold the door open
             currTime = 0;
@@ -101,6 +108,7 @@ namespace DaftAppleGames.Common.Buildings
             }
 
             // Close the door
+            onDoorClosingEvent.Invoke();
             currTime = 0;
 
             // Play the closing door sound
@@ -124,6 +132,7 @@ namespace DaftAppleGames.Common.Buildings
             }
             // Allow interaction with the door once again
             _isMoving = false;
+            onDoorClosedEvent.Invoke();
         }
     }
 }

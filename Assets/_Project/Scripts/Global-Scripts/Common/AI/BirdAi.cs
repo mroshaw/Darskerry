@@ -177,7 +177,7 @@ namespace DaftAppleGames.Common.AI
             _anim.SetBool(_landingBoolHash, false);
 
             // Wait to apply velocity until the bird is entering the flying animation
-            while (_anim.GetCurrentAnimatorStateInfo(0).nameHash != _flyAnimationHash)
+            while (_anim.GetCurrentAnimatorStateInfo(0).fullPathHash != _flyAnimationHash)
             {
                 yield return 0;
             }
@@ -481,7 +481,7 @@ namespace DaftAppleGames.Common.AI
         /// </summary>
         private void OnGroundBehaviors()
         {
-            _idle = _anim.GetCurrentAnimatorStateInfo(0).nameHash == _idleAnimationHash;
+            _idle = _anim.GetCurrentAnimatorStateInfo(0).fullPathHash == _idleAnimationHash;
             if (!GetComponent<Rigidbody>().isKinematic)
             {
                 GetComponent<Rigidbody>().isKinematic = true;

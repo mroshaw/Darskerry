@@ -321,7 +321,10 @@ namespace DaftAppleGames.Common.Buildings
         {
             foreach (BuildingReflectionProbe probe in intReflectionProbes)
             {
-                probe.Refresh();
+                if (probe.gameObject.activeSelf && probe.enabled)
+                {
+                    // probe.Refresh();
+                }
             }
         }
 

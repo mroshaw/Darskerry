@@ -52,6 +52,8 @@ namespace DaftAppleGames.Common.AI
                 idealNumberOfBirds = maximumNumberOfBirds - 1;
             }
 
+            UpdatePerchTargets();
+
             // Instantiate birds based on amounts and bird types
             _myBirds = new GameObject[maximumNumberOfBirds];
             GameObject bird;

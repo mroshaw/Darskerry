@@ -19,7 +19,7 @@ namespace DaftAppleGames.Editor.CharacterTools
             _playerCharacterSettings = characterSettings as PlayerCharacterSettings;
         }
         
-        [MenuItem("Daft Apple Games/Characters/Player character editor")]
+        [MenuItem("Daft Apple Games/Tools/Characters/Player character editor")]
         public static void ShowWindow()
         {
             GetWindow(typeof(PlayerCharacterEditorWindow));

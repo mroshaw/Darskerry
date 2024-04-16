@@ -1,7 +1,6 @@
 #if GPU_INSTANCER
 using System.Collections.Generic;
 using GPUInstancer;
-using Sirenix.OdinInspector;
 
 namespace DaftAppleGames.Common.Debugger
 {
@@ -17,8 +16,6 @@ namespace DaftAppleGames.Common.Debugger
         private bool _shadowState = true;
         private bool _detailState = true;
         private bool _treeState = true;
-        private bool _detailShadowState = true;
-        private bool _treeShadowState = true;
 
         /// <summary>
         /// Configure terrain before any components start

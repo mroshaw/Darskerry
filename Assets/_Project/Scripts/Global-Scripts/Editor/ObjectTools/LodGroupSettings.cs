@@ -6,7 +6,7 @@ namespace DaftAppleGames.Editor.ObjectTools
     /// <summary>
     /// Scriptable Object to store Editor usable instances of the Player Character Configuration
     /// </summary>
-    [CreateAssetMenu(fileName = "LodGroupSettings", menuName = "Daft Apple Games/Settings/Object/Lod Group", order = 1)]
+    [CreateAssetMenu(fileName = "LodGroupSettings", menuName = "Daft Apple Games/Objects/LOD group settings", order = 1)]
     public class LodGroupSettings : ScriptableObject
     {
         [Header("Lod Group Editor Settings")]

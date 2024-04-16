@@ -33,6 +33,7 @@ namespace DaftAppleGames.Editor.BuildingTools
         /// <param name="function"></param>
         /// <param name="buildingAssetSettings"></param>
         /// <param name="customBuildingSettings"></param>
+        /// <param name="activityLog"></param>
         /// <returns></returns>
         public static bool IsValidFunctionSettings(BuildingToolsEditorWindow.ConfigurationFunction function, BuildingAssetSettings buildingAssetSettings, CustomBuildingSettings customBuildingSettings, out List<string> activityLog)
         {
@@ -40,14 +41,14 @@ namespace DaftAppleGames.Editor.BuildingTools
             switch (function)
             {
                 case BuildingToolsEditorWindow.ConfigurationFunction.Layers:
-                    if (false)
+                    if (!customBuildingSettings.interiorCandleSettings)
                     {
                         activityLog.Add($"No LayerSettings found in CustomBuildingSettings named: {customBuildingSettings.name}!");
                         return false;
                     }
                     break;
                 case BuildingToolsEditorWindow.ConfigurationFunction.Lighting:
-                    if (false)
+                    if (!customBuildingSettings.interiorCandleSettings)
                     {
                         activityLog.Add($"No LightsSettings found in CustomBuildingSettings named: {customBuildingSettings.name}!");
                         return false;
