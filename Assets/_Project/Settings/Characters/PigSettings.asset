@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978ac1a3482510549a170a1ebba54387, type: 3}
+  m_Name: PigSettings
+  m_EditorClassIdentifier: 
+  animationAvatar: {fileID: 9000000, guid: 7cce7c32a6f9b2b4181f2ea08d2a469d, type: 3}
+  animatorController: {fileID: 9100000, guid: f9026c644414a0647a0f6517fe272804, type: 2}
+  animationsRootFolder: Assets/_Project/Animations/Animals/Pig
+  idle1: {fileID: 7400000, guid: 6303b1747167e9c43ad41b0d4153688a, type: 2}
+  idle2: {fileID: 7400000, guid: a4a124a5976e6ca4db76e0a6a7f1e4de, type: 2}
+  idle3: {fileID: 0}
+  death1: {fileID: 7400000, guid: c4a02e60e16c967409da60724077b629, type: 2}
+  death2: {fileID: 0}
+  death3: {fileID: 0}
+  rotateLeft: {fileID: 7400000, guid: 9f6eb2232a6b1ce489ed3c1b8f108274, type: 2}
+  locoIdle: {fileID: 7400000, guid: 6303b1747167e9c43ad41b0d4153688a, type: 2}
+  rotateRight: {fileID: 7400000, guid: 867890796e20eea49a5bf431915e6bdb, type: 2}
+  walkLeft: {fileID: 7400000, guid: 9f6eb2232a6b1ce489ed3c1b8f108274, type: 2}
+  walkForward: {fileID: 7400000, guid: 85a76e053f09d6f469275088e3007622, type: 2}
+  walkRight: {fileID: 7400000, guid: 867890796e20eea49a5bf431915e6bdb, type: 2}
+  trotLeft: {fileID: 7400000, guid: 42abd46fd817cd94aa5ee5f04c1347da, type: 2}
+  trotForward: {fileID: 7400000, guid: cbf2d5974239acd468c9f78ebf0d62c6, type: 2}
+  trotRight: {fileID: 7400000, guid: 858537efac28c5243925e05311fac283, type: 2}
+  runLeft: {fileID: 7400000, guid: 42abd46fd817cd94aa5ee5f04c1347da, type: 2}
+  runForward: {fileID: 7400000, guid: cbf2d5974239acd468c9f78ebf0d62c6, type: 2}
+  runRight: {fileID: 7400000, guid: 858537efac28c5243925e05311fac283, type: 2}
+  eyesYModifier: 0.001
+  eyesZModifier: 0.0008
+  neckLookAtOffset: {x: 0, y: -90, z: -90}
+  headLookAtOffset: {x: 0, y: -90, z: -90}

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978ac1a3482510549a170a1ebba54387, type: 3}
+  m_Name: HareCubSettings
+  m_EditorClassIdentifier: 
+  animationAvatar: {fileID: 9000000, guid: cffe37831b4dd2e49bcefe651890a20b, type: 3}
+  animatorController: {fileID: 9100000, guid: 1a1860a918630914ca2edb6938dbb9e6, type: 2}
+  animationsRootFolder: Assets/_Project/Animations/Animals/Hare-Cub
+  idle1: {fileID: 7400000, guid: 93b400c1e89b2474bb79d7e2427f0d05, type: 2}
+  idle2: {fileID: 7400000, guid: 3b5409d4ed0890a4d99846878aabd5b5, type: 2}
+  idle3: {fileID: 7400000, guid: 232098bcd5f2df24ca677b375dbb9a1d, type: 2}
+  death1: {fileID: 7400000, guid: 7dfe39d9e9b78c244ba4509b45699d5d, type: 2}
+  death2: {fileID: 7400000, guid: 33552cc2b63cdb1418ee343848369595, type: 2}
+  death3: {fileID: 0}
+  rotateLeft: {fileID: 7400000, guid: d41b80c589e947f4286b34edc1fec4ff, type: 2}
+  locoIdle: {fileID: 7400000, guid: 93b400c1e89b2474bb79d7e2427f0d05, type: 2}
+  rotateRight: {fileID: 7400000, guid: c2314e2bdb2cfd04e8e96ecc3270a145, type: 2}
+  walkLeft: {fileID: 7400000, guid: 6323c0e1e83c54f4b96de9cd491a1c1f, type: 2}
+  walkForward: {fileID: 7400000, guid: 7cb7a2974551ebc47ad8c590ca641e08, type: 2}
+  walkRight: {fileID: 7400000, guid: b4c16b24cb9253543a0d36930f7370b6, type: 2}
+  trotLeft: {fileID: 7400000, guid: 2150758b10328a54b8c58831057d8255, type: 2}
+  trotForward: {fileID: 7400000, guid: 82c672cb7f21ef248997d436ca834429, type: 2}
+  trotRight: {fileID: 7400000, guid: ac7ecf0a1b6e84f4eb301ab57e0d9db7, type: 2}
+  runLeft: {fileID: 7400000, guid: 4d33721bb0cbc4f43a48e0b6b22045f9, type: 2}
+  runForward: {fileID: 7400000, guid: b1abb5aed7f08b54eb7af590c8d264b5, type: 2}
+  runRight: {fileID: 7400000, guid: 0daf871c841baea458340b5adacd2c87, type: 2}
+  eyesYModifier: 0.001
+  eyesZModifier: 0.0008
+  neckLookAtOffset: {x: 0, y: -90, z: -90}
+  headLookAtOffset: {x: 0, y: -90, z: -90}

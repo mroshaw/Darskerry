@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978ac1a3482510549a170a1ebba54387, type: 3}
+  m_Name: ArackSettings
+  m_EditorClassIdentifier: 
+  animationAvatar: {fileID: 9000000, guid: 9edbcaf172ed4fe42a3c523ab930094d, type: 3}
+  animatorController: {fileID: 9100000, guid: 19d86cf57fa7998489283f53a66ff931, type: 2}
+  animationsRootFolder: Assets/_Project/Animations/Creatures/Arack
+  idle1: {fileID: 7400000, guid: 43cadeb24b158e7429940e3cdb98ad56, type: 2}
+  idle2: {fileID: 7400000, guid: 57b4d25a03ab4d549902e5dc5c4ca3c1, type: 2}
+  idle3: {fileID: 7400000, guid: 43cadeb24b158e7429940e3cdb98ad56, type: 2}
+  death1: {fileID: 7400000, guid: b9dd70d014cd15d4baf559b5246228ed, type: 2}
+  death2: {fileID: 7400000, guid: b9dd70d014cd15d4baf559b5246228ed, type: 2}
+  death3: {fileID: 7400000, guid: b9dd70d014cd15d4baf559b5246228ed, type: 2}
+  rotateLeft: {fileID: 7400000, guid: 1c285cc43ee0c0e43bb3cebc45274b19, type: 2}
+  locoIdle: {fileID: 7400000, guid: 43cadeb24b158e7429940e3cdb98ad56, type: 2}
+  rotateRight: {fileID: 7400000, guid: 65f3e099c9451264b93e1a45c942fcd5, type: 2}
+  walkLeft: {fileID: 7400000, guid: 04bf265fb07f2064cbafbc8ff1af8b1b, type: 2}
+  walkForward: {fileID: 7400000, guid: 04bf265fb07f2064cbafbc8ff1af8b1b, type: 2}
+  walkRight: {fileID: 7400000, guid: 04bf265fb07f2064cbafbc8ff1af8b1b, type: 2}
+  trotLeft: {fileID: 7400000, guid: 04bf265fb07f2064cbafbc8ff1af8b1b, type: 2}
+  trotForward: {fileID: 7400000, guid: 04bf265fb07f2064cbafbc8ff1af8b1b, type: 2}
+  trotRight: {fileID: 7400000, guid: 04bf265fb07f2064cbafbc8ff1af8b1b, type: 2}
+  runLeft: {fileID: 7400000, guid: 26e962d7599ee57499582be5380ba6a2, type: 2}
+  runForward: {fileID: 7400000, guid: 26e962d7599ee57499582be5380ba6a2, type: 2}
+  runRight: {fileID: 7400000, guid: 26e962d7599ee57499582be5380ba6a2, type: 2}
+  eyesYModifier: 0.001
+  eyesZModifier: 0.0008
+  neckLookAtOffset: {x: 0, y: -90, z: -90}
+  headLookAtOffset: {x: 0, y: -90, z: -90}

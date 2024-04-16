@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978ac1a3482510549a170a1ebba54387, type: 3}
+  m_Name: HareMaleSettings
+  m_EditorClassIdentifier: 
+  animationAvatar: {fileID: 9000000, guid: 0f2f02b8b68b80247904e5ecbb84bd45, type: 3}
+  animatorController: {fileID: 9100000, guid: 9f75e006a3c45344fa0a85577546d597, type: 2}
+  animationsRootFolder: Assets/_Project/Animations/Animals/Hare-Male
+  idle1: {fileID: 7400000, guid: 0c42d75149cab6e49a3443d3e4b8be8a, type: 2}
+  idle2: {fileID: 7400000, guid: b92e640970f1d90468cc2f2169112429, type: 2}
+  idle3: {fileID: 7400000, guid: 83f827106b1683d4793477693a728e80, type: 2}
+  death1: {fileID: 7400000, guid: 636454299560e374b971ddca54daf47e, type: 2}
+  death2: {fileID: 7400000, guid: 5193c54fb51888f43a01875d0beb8816, type: 2}
+  death3: {fileID: 0}
+  rotateLeft: {fileID: 7400000, guid: 28f28c5d537f4154aa3c3b469616f6c5, type: 2}
+  locoIdle: {fileID: 7400000, guid: 0c42d75149cab6e49a3443d3e4b8be8a, type: 2}
+  rotateRight: {fileID: 7400000, guid: 8bca09ab10e8f394abace1b443712d6b, type: 2}
+  walkLeft: {fileID: 7400000, guid: b8c3a866a4aa6854e8bf430df88264ad, type: 2}
+  walkForward: {fileID: 7400000, guid: 243a544bdd98e62438089c2f0d8cda14, type: 2}
+  walkRight: {fileID: 7400000, guid: d6b8ba155947c04439c317a516bc4b79, type: 2}
+  trotLeft: {fileID: 7400000, guid: 65f55cf77ad229741b8acfbe580cb322, type: 2}
+  trotForward: {fileID: 7400000, guid: b0197aa8fd2ce9b43880f54efd061419, type: 2}
+  trotRight: {fileID: 7400000, guid: 207245e42e9ada04c9725e0b02410c5d, type: 2}
+  runLeft: {fileID: 7400000, guid: b4b1720f39371964f86fc6e30f651702, type: 2}
+  runForward: {fileID: 7400000, guid: 098979a0b3bd8de449ac6b91df597a66, type: 2}
+  runRight: {fileID: 7400000, guid: e4d18e73f2e2f454db6b83b1facb8fa3, type: 2}
+  eyesYModifier: 0.001
+  eyesZModifier: 0.0008
+  neckLookAtOffset: {x: 0, y: -90, z: -90}
+  headLookAtOffset: {x: 0, y: -90, z: -90}

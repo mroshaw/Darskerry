@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5449.321, g: 4988.852, b: 4740.2817, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,8 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000006, guid: 247f5fb58a7a8bd4592cbca8867c20d8,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: f1ca1322cf953e14bbd1397ff644e3e6,
     type: 2}
 --- !u!196 &4
@@ -284,11 +283,61 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1875557355}
+  - {fileID: 1530111808}
   - {fileID: 1683985634}
   - {fileID: 56792345236580801}
   - {fileID: 46887293}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1530111807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1530111808}
+  - component: {fileID: 1530111810}
+  m_Layer: 31
+  m_Name: Global Fog Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1530111808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530111807}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1347515126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1530111810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530111807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 9999
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 26e8088b523f60940a383662870724f0, type: 2}
 --- !u!1 &1593285593
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 275856087733672185, guid: 720659ec2ab637d4ca40bc5116cb51c7,
         type: 3}
       propertyPath: allowDynamicResolution
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 275856087733672185, guid: 720659ec2ab637d4ca40bc5116cb51c7,
         type: 3}
@@ -553,7 +602,7 @@ PrefabInstance:
     - target: {fileID: 275856087733672185, guid: 720659ec2ab637d4ca40bc5116cb51c7,
         type: 3}
       propertyPath: customRenderingSettings
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 275856087733672185, guid: 720659ec2ab637d4ca40bc5116cb51c7,
         type: 3}
@@ -569,6 +618,11 @@ PrefabInstance:
         type: 3}
       propertyPath: deepLearningSuperSamplingUseCustomQualitySettings
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 275856087733672185, guid: 720659ec2ab637d4ca40bc5116cb51c7,
+        type: 3}
+      propertyPath: renderingPathCustomFrameSettingsOverrideMask.mask.data2
+      value: 3221225472
       objectReference: {fileID: 0}
     - target: {fileID: 7555591987066105036, guid: 720659ec2ab637d4ca40bc5116cb51c7,
         type: 3}
@@ -639,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 8996279135486828284, guid: 720659ec2ab637d4ca40bc5116cb51c7,
         type: 3}
       propertyPath: m_AllowDynamicResolution
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -931,7 +985,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56792344600529774}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.08429925, y: 0.8058812, z: -0.11836045, w: -0.5739686}
+  m_LocalRotation: {x: 0.059603408, y: 0.6873674, z: 0.05677344, w: -0.72163033}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -950,7 +1004,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.8274257, g: 0.75167406, b: 0.6433903, a: 1}
+  m_Color: {r: 0.41875735, g: 0.33906195, b: 0.21942864, a: 1}
   m_Intensity: 123000
   m_Range: 10
   m_SpotAngle: 30
@@ -1060,7 +1114,7 @@ MonoBehaviour:
   m_castCloudShadows: 1
   m_volumetricShadows: 1
   m_shadowmapVolumetrics: 1
-  m_direction: {x: 36.827152, y: 248.98332, z: 0}
+  m_direction: {x: 9.674014, y: 272.78778, z: 0}
   m_position: {x: 0, y: 0, z: 0}
   m_range: 10
   m_lightType: 1
@@ -1200,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LensFlareData: {fileID: 11400000, guid: 3d8d1368dd637fd419e7bc0932005be6, type: 2}
-  intensity: 1
+  intensity: 0.15
   maxAttenuationDistance: 100
   maxAttenuationScale: 100
   distanceAttenuationCurve:
@@ -1276,7 +1330,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  useOcclusion: 0
+  useOcclusion: 1
   occlusionRadius: 0.1
   useBackgroundCloudOcclusion: 0
   sampleCount: 32
@@ -1338,7 +1392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56792344654242225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.17887501, y: 0.78201014, z: -0.26034594, w: -0.5372931}
+  m_LocalRotation: {x: -0.06105702, y: 0.6872405, z: -0.058156226, w: -0.72151953}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1631,7 +1685,7 @@ MonoBehaviour:
   m_castCloudShadows: 1
   m_volumetricShadows: 1
   m_shadowmapVolumetrics: 0
-  m_direction: {x: 16.710688, y: 250.91882, z: 0}
+  m_direction: {x: 350.5567, y: 272.786, z: 0.00000043275125}
   m_position: {x: 0, y: 0, z: 0}
   m_range: 10
   m_lightType: 1
@@ -1769,7 +1823,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.69179475, g: 0.6272478, b: 0.49462578, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 25
   m_Range: 10
   m_SpotAngle: 30
@@ -1898,7 +1952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770f707dd48304f41b6cffaf1e734e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotation: {x: 232.5, y: 116.25, z: 253.41965}
+  m_rotation: {x: 250, y: 125, z: 277.91965}
   m_intensity: 1
   m_tint: {r: 1, g: 1, b: 1, a: 1}
   m_lightPollutionIntensity: 0
@@ -1953,7 +2007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Fog
   m_densityDistribution: 3
-  m_density: 555.55554
+  m_density: 1250
   m_height: 1000
   m_thickness: 120
   m_extinctionCoefficients: {r: 0.000004, g: 0.000004, b: 0.000004, a: 0.000008}
@@ -1982,7 +2036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fogBlock: {fileID: 56792345565443030}
   m_color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_visibilityDistance: 450
+  m_visibilityDistance: 200
   m_radius: 1000
   m_thickness: 120
   m_smog: 0.234
@@ -2027,8 +2081,8 @@ MonoBehaviour:
     year: 2021
     month: 4
     day: 8
-    hour: 14
-    minute: 0
+    hour: 16
+    minute: 20
     second: 0
     millisecond: 0
   m_skyOffset: 0

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9184116020002741589}
   - component: {fileID: 9184116020002741586}
-  - component: {fileID: -5303049683456407107}
   m_Layer: 5
   m_Name: Nav Element - Quest Target
   m_TagString: Untagged
@@ -47,15 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Settings: {fileID: 0}
   Prefabs:
-    RadarPrefab: {fileID: 1746837895218826941, guid: 1632d302c1eeae04cb373a4f326a6e5e,
+    RadarPrefab: {fileID: 1746837895218826941, guid: 51cc5f1eeff7abd47aac99e1ee4ddfb5,
       type: 3}
-    CompassBarPrefab: {fileID: 8988655735398507188, guid: 618e196498ea9d14a8f6d88728522146,
+    CompassBarPrefab: {fileID: 8988655735398507188, guid: cef1db2a8916bbe4ab29f2cd918dd410,
       type: 3}
-    IndicatorPrefab: {fileID: 6808427626813180879, guid: 55fe3395f4d6d1d4597363ae08382444,
+    IndicatorPrefab: {fileID: 6808427626813180879, guid: ad97513bf9404374299080ca61a44807,
       type: 3}
-    MinimapPrefab: {fileID: 8201669073015480775, guid: a1ed398e3c3794648a9df186eabc796d,
+    MinimapPrefab: {fileID: 8201669073015480775, guid: 1b381a8aaeb3c134ab1362211a532df8,
       type: 3}
-    MainMapPrefab: {fileID: 1369510659368193220, guid: c2ccb6e3fea4b6942ac09dc27db785a0,
+    MainMapPrefab: {fileID: 1369510659368193220, guid: b0735977a2005a7468245086ce37ffb7,
       type: 3}
   hideInRadar: 0
   ignoreRadarRadius: 0
@@ -118,19 +117,3 @@ MonoBehaviour:
   IsInIndicatorRadius: 0
   IsInMinimapRadius: 0
   IsInMainMapRadius: 0
---- !u!114 &-5303049683456407107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9184116020002741588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7ffcf7274c869f4db92ef1abd26a3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainIcon: {fileID: 21300000, guid: d731b795e44184447a52bb58d4fdb66a, type: 3}
-  upArrowIcon: {fileID: 21300000, guid: ccbc6c8edc5bc4b488806b3e827cdec7, type: 3}
-  downArrowIcon: {fileID: 21300000, guid: 44f974273327c1c44834f71948d11250, type: 3}
-  pointerArrowIcon: {fileID: 21300000, guid: d397b7704bb46224d96dc8035273c378, type: 3}

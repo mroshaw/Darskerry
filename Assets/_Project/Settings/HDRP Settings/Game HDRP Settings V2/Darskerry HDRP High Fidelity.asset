@@ -15,19 +15,19 @@ MonoBehaviour:
   m_RenderPipelineSettings:
     supportShadowMask: 0
     supportSSR: 1
-    supportSSRTransparent: 1
+    supportSSRTransparent: 0
     supportSSAO: 1
-    supportSSGI: 1
+    supportSSGI: 0
     supportSubsurfaceScattering: 1
     sssSampleBudget:
       m_Values: 140000002800000050000000
       m_SchemaId:
         m_Id: With3Levels
     supportVolumetrics: 1
-    supportVolumetricClouds: 1
+    supportVolumetricClouds: 0
     supportLightLayers: 1
     supportWater: 1
-    waterSimulationResolution: 128
+    waterSimulationResolution: 64
     waterCPUSimulation: 0
     supportDistortion: 1
     supportTransparentBackface: 1
@@ -82,7 +82,7 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 0
       supportFabricConvolution: 0
-      maxDirectionalLightsOnScreen: 16
+      maxDirectionalLightsOnScreen: 4
       maxPunctualLightsOnScreen: 512
       maxAreaLightsOnScreen: 64
       maxCubeReflectionOnScreen: 32
@@ -108,7 +108,7 @@ MonoBehaviour:
       cachedAreaLightShadowAtlas: 4096
       allowDirectionalMixedCachedShadows: 0
       shadowResolutionDirectional:
-        m_Values: 00020000000400000008000000100000
+        m_Values: 00010000000200000004000000080000
         m_SchemaId:
           m_Id: With4Levels
       shadowResolutionPunctual:
@@ -116,12 +116,12 @@ MonoBehaviour:
         m_SchemaId:
           m_Id: With4Levels
       shadowResolutionArea:
-        m_Values: 00020000000400000008000000100000
+        m_Values: 00010000000200000004000000080000
         m_SchemaId:
           m_Id: With4Levels
-      maxDirectionalShadowMapResolution: 4096
+      maxDirectionalShadowMapResolution: 2048
       maxPunctualShadowMapResolution: 4096
-      maxAreaShadowMapResolution: 4096
+      maxAreaShadowMapResolution: 2048
       supportScreenSpaceShadows: 0
       maxScreenSpaceShadowSlots: 4
       screenSpaceShadowBufferFormat: 48
@@ -138,15 +138,15 @@ MonoBehaviour:
       enabled: 1
       useMipBias: 0
       enableDLSS: 1
-      DLSSPerfQualitySetting: 2
+      DLSSPerfQualitySetting: 1
       DLSSInjectionPoint: 0
       DLSSUseOptimalSettings: 1
       DLSSSharpness: 0
-      fsrOverrideSharpness: 1
-      fsrSharpness: 0.326
+      fsrOverrideSharpness: 0
+      fsrSharpness: 0.3
       maxPercentage: 100
       minPercentage: 100
-      dynResType: 1
+      dynResType: 0
       upsampleFilter: 4
       forceResolution: 0
       forcedPercentage: 100

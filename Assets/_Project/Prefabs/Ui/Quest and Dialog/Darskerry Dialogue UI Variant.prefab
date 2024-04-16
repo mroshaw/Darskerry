@@ -169,6 +169,7 @@ MonoBehaviour:
     defaultNPCSubtitlePanel: {fileID: 1082269318262851036}
     defaultPCSubtitlePanel: {fileID: 1082269318262851036}
     allowOpenSubtitlePanelsOnStartConversation: 1
+    allowDialogueActorCustomPanels: 1
     menuPanels:
     - {fileID: 1082269318262848886}
     defaultMenuPanel: {fileID: 1082269318262848886}
@@ -2184,8 +2185,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 74, y: -15.699997}
-  m_SizeDelta: {x: -180, y: -39.4}
+  m_AnchoredPosition: {x: 74, y: 4.800003}
+  m_SizeDelta: {x: -180, y: -80.399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1082269318284141696
 CanvasRenderer:
@@ -3193,8 +3194,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3484,8 +3485,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3577,7 +3578,7 @@ PrefabInstance:
     - target: {fileID: 6549939138610975348, guid: 16676cff394688048a3b61678dcd9639,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6549939138610975348, guid: 16676cff394688048a3b61678dcd9639,
         type: 3}
@@ -3617,12 +3618,12 @@ PrefabInstance:
     - target: {fileID: 6549939138610975348, guid: 16676cff394688048a3b61678dcd9639,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -39.19995
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 6549939138610975348, guid: 16676cff394688048a3b61678dcd9639,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 13.1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6549939138610975348, guid: 16676cff394688048a3b61678dcd9639,
         type: 3}
@@ -3682,12 +3683,12 @@ PrefabInstance:
     - target: {fileID: 6549939139011028987, guid: 16676cff394688048a3b61678dcd9639,
         type: 3}
       propertyPath: m_fontSize
-      value: 28
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 6549939139011028987, guid: 16676cff394688048a3b61678dcd9639,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 28
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8835184089049858821, guid: 16676cff394688048a3b61678dcd9639,
         type: 3}

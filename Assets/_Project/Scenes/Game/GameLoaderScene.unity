@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 3864.9185, g: 3612.3599, b: 3478.059, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,8 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000008, guid: 247f5fb58a7a8bd4592cbca8867c20d8,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: f1ca1322cf953e14bbd1397ff644e3e6,
     type: 2}
 --- !u!196 &4
@@ -231,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1057336cb7c23cd46bda6ee345cc151f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedCharacter: 1
+  _selectedCharacter: 0
   _isLoadingFromSave: 0
   _loadSlot: 0
 --- !u!4 &231912920

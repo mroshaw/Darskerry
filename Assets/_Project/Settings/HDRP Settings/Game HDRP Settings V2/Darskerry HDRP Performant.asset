@@ -82,7 +82,7 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 0
       supportFabricConvolution: 0
-      maxDirectionalLightsOnScreen: 16
+      maxDirectionalLightsOnScreen: 2
       maxPunctualLightsOnScreen: 512
       maxAreaLightsOnScreen: 64
       maxCubeReflectionOnScreen: 32
@@ -145,9 +145,9 @@ MonoBehaviour:
       fsrOverrideSharpness: 0
       fsrSharpness: 0.92
       maxPercentage: 100
-      minPercentage: 100
-      dynResType: 1
-      upsampleFilter: 1
+      minPercentage: 25
+      dynResType: 0
+      upsampleFilter: 4
       forceResolution: 0
       forcedPercentage: 100
       lowResTransparencyMinimumThreshold: 0

@@ -9,7 +9,7 @@ OcclusionCullingSettings:
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: a3b415e0c18958141bb7cc8f4df20d5e
-  m_OcclusionCullingData: {fileID: 36300000, guid: 503081543d9acf94494878d8631667cf,
+  m_OcclusionCullingData: {fileID: 36300000, guid: 5bf9329eb7a6c3844970c54c92650c5e,
     type: 2}
 --- !u!104 &2
 RenderSettings:
@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28936794, g: 0.29827788, b: 0.289665, a: 1}
+  m_IndirectSpecularColor: {r: 0.2929161, g: 0.30140904, b: 0.29230717, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: 47e7e53d9bee8884987fc23b3d42673a,
+  m_LightingDataAsset: {fileID: 112000002, guid: ce9e17e141b9d414288800e95eeec7c9,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 8852d0db60463fd49b92983aa36a5db4,
     type: 2}
@@ -1078,6 +1078,7 @@ GameObject:
   - component: {fileID: 325458975}
   - component: {fileID: 325458974}
   - component: {fileID: 325458977}
+  - component: {fileID: 325458978}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1307,6 +1308,25 @@ MonoBehaviour:
   hiZDepthTexture: {fileID: 0}
   unityDepthTexture: {fileID: 0}
   hiZTextureSize: {x: 0, y: 0}
+--- !u!114 &325458978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325458972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52937dbad44b4ff4db4117f0056ae245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultTargetFrameRate: 60
+  EvaluationFrameCount: 15
+  ScaleUpDuration: 8
+  ScaleDownDuration: 4
+  ScaleUpStepCount: 5
+  ScaleDownStepCount: 2
+  EnableDebugView: 1
 --- !u!1 &688762755
 GameObject:
   m_ObjectHideFlags: 0
@@ -10073,10 +10093,10 @@ MonoBehaviour:
   m_detailVelocity: {x: 0.01, y: 0.01, z: 0}
   m_baseWarpVelocity: {x: 0, y: 0, z: 0}
   m_detailWarpVelocity: {x: 0, y: 0, z: 0}
-  m_coverageOffset: {x: 1.6496643, y: -0.07745067}
-  m_baseOffset: {x: 14.729928, y: 6.928828, z: -0.6614623}
-  m_structureOffset: {x: 69.28917, y: 69.288666, z: -0.0005}
-  m_detailOffset: {x: 69.289665, y: 69.288666, z: -0.001}
+  m_coverageOffset: {x: 1.9304818, y: -0.07745067}
+  m_baseOffset: {x: 15.853557, y: 8.052042, z: -0.6614623}
+  m_structureOffset: {x: 80.52174, y: 80.52124, z: -0.0005}
+  m_detailOffset: {x: 80.52224, y: 80.52124, z: -0.001}
   m_baseWarpOffset: {x: 0, y: 0, z: 0}
   m_detailWarpOffset: {x: 0, y: 0, z: 0}
   m_customPostProcessPasses: []
@@ -11689,7 +11709,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.2912576, g: 0.24306908, b: 0.1564568, a: 1}
+  m_Color: {r: 0.29440668, g: 0.24562764, b: 0.15817995, a: 1}
   m_Intensity: 25
   m_Range: 10
   m_SpotAngle: 30
