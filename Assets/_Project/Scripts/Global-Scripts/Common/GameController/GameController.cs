@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace DaftAppleGames.Common.GameControllers
@@ -6,15 +7,9 @@ namespace DaftAppleGames.Common.GameControllers
 
     public class GameController : MonoBehaviour
     {
-        [Header("Character Settings")]
-        [SerializeField]
-        private CharSelection _selectedCharacter;
-
-        [SerializeField]
-        private bool _isLoadingFromSave;
-
-        [SerializeField]
-        private int _loadSlot;
+        [BoxGroup("Character Settings")] [SerializeField] private CharSelection _selectedCharacter;
+        [BoxGroup("Save Settings")] [SerializeField] private bool _isLoadingFromSave;
+        [BoxGroup("Save Settings")] [SerializeField] private int _loadSlot;
         
         // Public properties
         public CharSelection SelectedCharacter { get => _selectedCharacter; set => _selectedCharacter = value; }

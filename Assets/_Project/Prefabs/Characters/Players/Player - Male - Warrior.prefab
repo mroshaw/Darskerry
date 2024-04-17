@@ -8830,6 +8830,7 @@ GameObject:
   - component: {fileID: 1878878403068111472}
   - component: {fileID: 6283428246365823095}
   - component: {fileID: 4321390330510065332}
+  - component: {fileID: 2041398728143437709}
   - component: {fileID: 3451579096771795673}
   - component: {fileID: 875417972398643823}
   - component: {fileID: 4743960387312862551}
@@ -8866,6 +8867,7 @@ Transform:
   - {fileID: 4051359199312519335}
   - {fileID: 5598956674429919537}
   - {fileID: 5230883083845573209}
+  - {fileID: 4386279580878837669}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4051359201189805707
@@ -9068,6 +9070,7 @@ MonoBehaviour:
       m_Calls: []
   _maxStamina: 200
   _staminaRecovery: 1.2
+  currentStamina: 0
   _sprintStamina: 30
   _jumpStamina: 30
   _rollStamina: 25
@@ -10999,7 +11002,7 @@ MonoBehaviour:
   animator: {fileID: 4051359201189805700}
   m_rigidBody: {fileID: 4051359201189805701}
   m_root: {fileID: 4051359201189805706}
-  Editor_Tabs1: 0
+  Editor_Tabs1: 1
 --- !u!114 &1878878403068111472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11238,7 +11241,7 @@ MonoBehaviour:
       ConstantValue: New Map
       Variable: {fileID: 0}
     inputs: []
-    selectedIndex: 0
+    selectedIndex: 1
   ActiveMap:
     name:
       UseConstant: 1
@@ -11707,6 +11710,39 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 0}
   EditorTab1: 1
+--- !u!114 &2041398728143437709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051359201189805812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e36b3ea7666a0a42829398aa8c8570b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ride: Ride
+  Default: Default
+  isTrigger: 1
+  debug: 0
+  AllowWeaponsRiding: 1
+  DontHitMount: 1
+  m_crouchInput: 0
+  m_strafeInput: 0
+  m_jumpInput: 0
+  m_rollInput: 0
+  m_sprintInput: 0
+  crouchInput: 1
+  strafeInput: 1
+  jumpInput: 1
+  rollInput: 1
+  sprintInput: 1
+  OnMountWithWeapon:
+    m_PersistentCalls:
+      m_Calls: []
+  AimRight: RideAimRight
+  AimLeft: RideAimLeft
 --- !u!114 &3451579096771795673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12914,6 +12950,337 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 0, y: 0}
   m_UseGraphicAlpha: 1
+--- !u!1 &4533836574565466370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4386279580878837669}
+  - component: {fileID: 7654232453083036040}
+  - component: {fileID: 9209231942988504011}
+  - component: {fileID: 8702446229558882709}
+  m_Layer: 0
+  m_Name: TVE Motion Element
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4386279580878837669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533836574565466370}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4051359201189805706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7654232453083036040
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533836574565466370}
+  m_Mesh: {fileID: 4300000, guid: bd3c4cc11cf625340a7d1c0d21eed312, type: 3}
+--- !u!23 &9209231942988504011
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533836574565466370}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 0
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 2
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d6042983ec83d8e4f94a4a702bdcd802, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8702446229558882709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533836574565466370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d447c3f2fda29f41a5b7e81398c0ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  styledBanner: 0
+  customVisibility: -1
+  customMaterial: {fileID: 0}
+  terrainData: {fileID: 0}
+  terrainMask: 10
+  debugData: <size=10><color=#e1f043>The element is inside the global volume</color></size>
+  materialData:
+    shader: {fileID: 4800000, guid: 853be43322d350648a82ec17b27de5cf, type: 3}
+    shaderName: BOXOPHOBIC/The Vegetation Engine/Elements/Colors Tint
+    props:
+    - type: 2
+      prop: _ElementMessage
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _IsVersion
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 1000
+    - type: 2
+      prop: _IsElementShader
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 1
+    - type: 2
+      prop: _IsColorsElement
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 1
+    - type: 2
+      prop: _CategoryRender
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _ElementIntensity
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 1
+    - type: 2
+      prop: _ElementLayerMessage
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _ElementLayerWarning
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _ElementLayerMask
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 1
+    - type: 1
+      prop: _ElementParams
+      texture: {fileID: 0}
+      vector: {x: 1, y: 1, z: 1, w: 1}
+      value: 0
+    - type: 2
+      prop: _ElementMode
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _ElementDirectionMode
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 20
+    - type: 2
+      prop: _CategoryElement
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 0
+      prop: _MainTex
+      texture: {fileID: 2800000, guid: 5a48fe1c6a0db614d8f1824bc51404cd, type: 3}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _SpaceTexture
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _ElementUVsMode
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 1
+      prop: _MainUVs
+      texture: {fileID: 0}
+      vector: {x: 1, y: 1, z: 0, w: 0}
+      value: 0
+    - type: 1
+      prop: _MainTexColorRemap
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _MainTexColorMinValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _MainTexColorMaxValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 1
+    - type: 1
+      prop: _MainTexAlphaRemap
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _MainTexAlphaMinValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _MainTexAlphaMaxValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 1
+    - type: 1
+      prop: _MainTexFallofRemap
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _MainTexFallofMinValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _MainTexFallofMaxValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 1
+      prop: _MainColor
+      texture: {fileID: 0}
+      vector: {x: 1, y: 0, z: 0, w: 1}
+      value: 0
+    - type: 1
+      prop: _AdditionalColor1
+      texture: {fileID: 0}
+      vector: {x: 0.5019608, y: 0.5019608, z: 0.5019608, w: 1}
+      value: 0
+    - type: 1
+      prop: _AdditionalColor2
+      texture: {fileID: 0}
+      vector: {x: 0.5019608, y: 0.5019608, z: 0.5019608, w: 1}
+      value: 0
+    - type: 1
+      prop: _AdditionalColor3
+      texture: {fileID: 0}
+      vector: {x: 0.5019608, y: 0.5019608, z: 0.5019608, w: 1}
+      value: 0
+    - type: 1
+      prop: _AdditionalColor4
+      texture: {fileID: 0}
+      vector: {x: 0.5019608, y: 0.5019608, z: 0.5019608, w: 1}
+      value: 0
+    - type: 1
+      prop: _SeasonRemap
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _SeasonMinValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _SeasonMaxValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 1
+    - type: 1
+      prop: _NoiseRemap
+      texture: {fileID: 0}
+      vector: {x: 0, y: 1, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _SpeedTresholdValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 10
+    - type: 2
+      prop: _CategoryFade
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _ElementVolumeFadeMode
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _ElementRaycastMode
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _RaycastLayerMask
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 1
+    - type: 2
+      prop: _RaycastDistanceEndValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 2
+    - type: 2
+      prop: _ElementLayerValue
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: -1
+    - type: 2
+      prop: _InvertX
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _ElementFadeSupport
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 0
+    - type: 2
+      prop: _render_colormask
+      texture: {fileID: 0}
+      vector: {x: 0, y: 0, z: 0, w: 0}
+      value: 15
 --- !u!1 &4566792237271931817
 GameObject:
   m_ObjectHideFlags: 0

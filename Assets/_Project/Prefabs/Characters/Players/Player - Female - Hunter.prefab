@@ -9723,10 +9723,7 @@ GameObject:
   - component: {fileID: 4382087284382174640}
   - component: {fileID: 4382087284382174641}
   - component: {fileID: 710030740}
-  - component: {fileID: 1657673926}
-  - component: {fileID: 2744835682073188025}
   - component: {fileID: 6251852257268211963}
-  - component: {fileID: 1657673931}
   - component: {fileID: 1657673929}
   - component: {fileID: 1657673928}
   - component: {fileID: 1613440999062502174}
@@ -9740,7 +9737,9 @@ GameObject:
   - component: {fileID: 2946273449102081778}
   - component: {fileID: 6324322975782616193}
   - component: {fileID: 8533553753269464472}
-  - component: {fileID: 2881072519579352750}
+  - component: {fileID: 6051267817324868627}
+  - component: {fileID: 428721135393617240}
+  - component: {fileID: 3674929108589063741}
   m_Layer: 8
   m_Name: Player - Female - Hunter
   m_TagString: Player
@@ -9951,6 +9950,7 @@ MonoBehaviour:
       m_Calls: []
   _maxStamina: 200
   _staminaRecovery: 1.2
+  currentStamina: 0
   _sprintStamina: 30
   _jumpStamina: 30
   _rollStamina: 25
@@ -11739,272 +11739,6 @@ MonoBehaviour:
   m_maxIkCorrectionOffset: 0
   m_upwardsVelocity: 0
   m_maxUpwardsVelocity: 0
---- !u!114 &1657673926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4382087284382174636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ced0ef3d825bf46baedd6a5bf7447a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Parent:
-    UseConstant: 1
-    ConstantValue: 1
-    Variable: {fileID: 0}
-  m_MountStored:
-    UseConstant: 0
-    ConstantValue: {fileID: 0}
-    Variable: {fileID: 11400000, guid: 4e88917be0126ae4691d6a6ce248fba8, type: 2}
-  StartMounted:
-    UseConstant: 1
-    ConstantValue: 0
-    Variable: {fileID: 0}
-  ReSync: 1
-  Gravity:
-    UseConstant: 1
-    ConstantValue: {x: 0, y: -1, z: 0}
-    Variable: {fileID: 0}
-  m_CanMount:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 9c5a83571f2ebf346b6e6fe49efddaa6, type: 2}
-  m_CanDismount:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: e44ea26080b5a4348908b0711d43b082, type: 2}
-  m_CanCallAnimal:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 3aef9340e54e43a4fa761e527cb230ac, type: 2}
-  DismountType: 0
-  LayerPath: Layers/Mount v2
-  MountLayer: Mounted
-  RightHand: {fileID: 7862877815464139997}
-  LeftHand: {fileID: 2064805671923332047}
-  LeftReinOffset:
-    UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
-    Variable: {fileID: 0}
-  RightReinOffset:
-    UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
-    Variable: {fileID: 0}
-  LinkUpdate: 3
-  AlingMountTrigger:
-    UseConstant: 1
-    ConstantValue: 0.2
-    Variable: {fileID: 0}
-  debug: 0
-  Ground:
-    UseConstant: 1
-    ConstantValue:
-      serializedVersion: 2
-      m_Bits: 1
-    Variable: {fileID: 0}
-  CallRadius:
-    UseConstant: 1
-    ConstantValue: 30
-    Variable: {fileID: 0}
-  TeleportDistance:
-    UseConstant: 1
-    ConstantValue: 7
-    Variable: {fileID: 0}
-  TeleportHeight:
-    UseConstant: 1
-    ConstantValue: 3
-    Variable: {fileID: 0}
-  CallAnimalA: {fileID: 8300000, guid: 4f653b9fc2cb91147a978d604fb85f55, type: 3}
-  StopAnimalA: {fileID: 8300000, guid: 258aaf4f43d57a242840132c874abc59, type: 3}
-  RiderAudio: {fileID: 4382087284382174643}
-  MainCollider: {fileID: 4382087284382174650}
-  MountCollider: {fileID: 11400000, guid: 2c259b2d172a70b41a9c00fa4ef2e05a, type: 2}
-  colliders: []
-  OnFindMount:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCanMount:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: eca55a3f01c7eba4d9306cec134e7918, type: 2}
-        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-        m_MethodName: Invoke
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnCanDismount:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: a152bd8dcf0ba4f46b2c000bd857a592, type: 2}
-        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-        m_MethodName: Invoke
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  CanCallMount:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 0e16f11981e702145af9c46dedfcd955, type: 2}
-        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-        m_MethodName: Invoke
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnStartMounting:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 6ed281c2bd473cb498c896cd0466278c, type: 2}
-        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-        m_MethodName: Invoke
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1657673931}
-        m_TargetAssemblyTypeName: MalbersAnimations.MInput, Assembly-CSharp
-        m_MethodName: DisableInput
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Mount
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnEndMounting:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 0611e7ab2a064c74d94f68af51e22016, type: 2}
-        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-        m_MethodName: Invoke
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1657673931}
-        m_TargetAssemblyTypeName: MalbersAnimations.MInput, Assembly-CSharp
-        m_MethodName: EnableInput
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Dismount
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnStartDismounting:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 0611e7ab2a064c74d94f68af51e22016, type: 2}
-        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-        m_MethodName: Invoke
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 774c7acaf3bb1304fb314cd4bd618fcb, type: 2}
-        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-        m_MethodName: Invoke
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 4382087284382174654}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1657673931}
-        m_TargetAssemblyTypeName: MalbersAnimations.MInput, Assembly-CSharp
-        m_MethodName: DisableInput
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Dismount
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnEndDismounting:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1657673931}
-        m_TargetAssemblyTypeName: MalbersAnimations.MInput, Assembly-CSharp
-        m_MethodName: EnableInput
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Mount
-          m_BoolArgument: 0
-        m_CallState: 2
-  DisableComponents:
-    UseConstant: 1
-    ConstantValue: 1
-    Variable: {fileID: 0}
-  DisableList:
-  - {fileID: 4382087284382174626}
-  - {fileID: 4382087284382174627}
-  - {fileID: 4382087284382174628}
-  - {fileID: 710030740}
-  ResyncThreshold: 0.1
-  animator: {fileID: 4382087284382174652}
-  m_rigidBody: {fileID: 4382087284382174653}
-  m_root: {fileID: 4382087284382174654}
-  Editor_Tabs1: 0
---- !u!114 &2744835682073188025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4382087284382174636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5d2c7f2de52bb4d8e056024459c973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6251852257268211963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12026,7 +11760,7 @@ MonoBehaviour:
   OnTargetArrived:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2744835682073188025}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DaftAppleGames.Common.Characters.RiderHelper, DaftAppleGames.Common
         m_MethodName: SetCallState
         m_Mode: 6
@@ -12038,458 +11772,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1657673931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4382087284382174636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8097927ca26ab4343a884532eb8eb442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputs:
-  - name: Mount
-    active:
-      UseConstant: 1
-      ConstantValue: 1
-      Variable: {fileID: 0}
-    ignoreOnPause:
-      UseConstant: 1
-      ConstantValue: 0
-      Variable: {fileID: 0}
-    type: 0
-    input: MountDismount
-    key: 101
-    debug: 0
-    GetPressed: 1
-    ResetOnDisable: 1
-    OnInputDown:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1657673926}
-          m_TargetAssemblyTypeName: MalbersAnimations.HAP.MRider, Assembly-CSharp
-          m_MethodName: MountAnimal
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    OnInputUp:
-      m_PersistentCalls:
-        m_Calls: []
-    OnLongPress:
-      m_PersistentCalls:
-        m_Calls: []
-    OnLongPressReleased:
-      m_PersistentCalls:
-        m_Calls: []
-    OnDoubleTap:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputEnable:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputDisable:
-      m_PersistentCalls:
-        m_Calls: []
-    DoubleTapTime: 0.3
-    LongPressTime: 0.5
-    SmoothDecrease: 0
-    OnInputPressed:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputFloat:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: Dismount
-    active:
-      UseConstant: 1
-      ConstantValue: 0
-      Variable: {fileID: 0}
-    ignoreOnPause:
-      UseConstant: 1
-      ConstantValue: 0
-      Variable: {fileID: 0}
-    type: 0
-    input: MountDismount
-    key: 101
-    debug: 0
-    GetPressed: 3
-    ResetOnDisable: 1
-    OnInputDown:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: cbaa2d46705d1ba4a990c281739206ea, type: 2}
-          m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-          m_MethodName: Invoke
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    OnInputUp:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: cbaa2d46705d1ba4a990c281739206ea, type: 2}
-          m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-          m_MethodName: Invoke
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    OnLongPress:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1657673926}
-          m_TargetAssemblyTypeName: MalbersAnimations.HAP.MRider, Assembly-CSharp
-          m_MethodName: DismountAnimal
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000, guid: cbaa2d46705d1ba4a990c281739206ea, type: 2}
-          m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Assembly-CSharp
-          m_MethodName: Invoke
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    OnLongPressReleased:
-      m_PersistentCalls:
-        m_Calls: []
-    OnDoubleTap:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputEnable:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputDisable:
-      m_PersistentCalls:
-        m_Calls: []
-    DoubleTapTime: 0.3
-    LongPressTime: 0.2
-    SmoothDecrease: 0
-    OnInputPressed:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputFloat:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: Call Mount
-    active:
-      UseConstant: 1
-      ConstantValue: 1
-      Variable: {fileID: 0}
-    ignoreOnPause:
-      UseConstant: 1
-      ConstantValue: 0
-      Variable: {fileID: 0}
-    type: 0
-    input: CallMount
-    key: 101
-    debug: 0
-    GetPressed: 3
-    ResetOnDisable: 1
-    OnInputDown:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputUp:
-      m_PersistentCalls:
-        m_Calls: []
-    OnLongPress:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1657673926}
-          m_TargetAssemblyTypeName: MalbersAnimations.HAP.MRider, Auto-asmdef-SecondPass
-          m_MethodName: CallAnimalToggle
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    OnLongPressReleased:
-      m_PersistentCalls:
-        m_Calls: []
-    OnDoubleTap:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputEnable:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputDisable:
-      m_PersistentCalls:
-        m_Calls: []
-    DoubleTapTime: 0.3
-    LongPressTime: 0.5
-    SmoothDecrease: 0
-    OnInputPressed:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputFloat:
-      m_PersistentCalls:
-        m_Calls: []
-  AllInputs: []
-  actionMaps: []
-  ActiveMapIndex: 0
-  DefaultMap:
-    name:
-      UseConstant: 1
-      ConstantValue: New Map
-      Variable: {fileID: 0}
-    inputs: []
-    selectedIndex: 0
-  ActiveMap:
-    name:
-      UseConstant: 1
-      ConstantValue: New Map
-      Variable: {fileID: 0}
-    inputs:
-    - name: MainAttack
-      active:
-        UseConstant: 1
-        ConstantValue: 1
-        Variable: {fileID: 0}
-      ignoreOnPause:
-        UseConstant: 1
-        ConstantValue: 0
-        Variable: {fileID: 0}
-      type: 1
-      input: MainAttack
-      key: 323
-      debug: 0
-      GetPressed: 0
-      ResetOnDisable: 1
-      OnInputDown:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputUp:
-        m_PersistentCalls:
-          m_Calls: []
-      OnLongPress:
-        m_PersistentCalls:
-          m_Calls: []
-      OnLongPressReleased:
-        m_PersistentCalls:
-          m_Calls: []
-      OnDoubleTap:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputChanged:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputEnable:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputDisable:
-        m_PersistentCalls:
-          m_Calls: []
-      DoubleTapTime: 0.3
-      LongPressTime: 0.5
-      SmoothDecrease: 0
-      OnInputPressed:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputFloat:
-        m_PersistentCalls:
-          m_Calls: []
-    - name: SecondAttack
-      active:
-        UseConstant: 1
-        ConstantValue: 1
-        Variable: {fileID: 0}
-      ignoreOnPause:
-        UseConstant: 1
-        ConstantValue: 0
-        Variable: {fileID: 0}
-      type: 1
-      input: SecondAttack
-      key: 324
-      debug: 0
-      GetPressed: 0
-      ResetOnDisable: 1
-      OnInputDown:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputUp:
-        m_PersistentCalls:
-          m_Calls: []
-      OnLongPress:
-        m_PersistentCalls:
-          m_Calls: []
-      OnLongPressReleased:
-        m_PersistentCalls:
-          m_Calls: []
-      OnDoubleTap:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputChanged:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputEnable:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputDisable:
-        m_PersistentCalls:
-          m_Calls: []
-      DoubleTapTime: 0.3
-      LongPressTime: 0.5
-      SmoothDecrease: 0
-      OnInputPressed:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputFloat:
-        m_PersistentCalls:
-          m_Calls: []
-    - name: Reload
-      active:
-        UseConstant: 1
-        ConstantValue: 1
-        Variable: {fileID: 0}
-      ignoreOnPause:
-        UseConstant: 1
-        ConstantValue: 0
-        Variable: {fileID: 0}
-      type: 1
-      input: Reload
-      key: 114
-      debug: 0
-      GetPressed: 1
-      ResetOnDisable: 1
-      OnInputDown:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputUp:
-        m_PersistentCalls:
-          m_Calls: []
-      OnLongPress:
-        m_PersistentCalls:
-          m_Calls: []
-      OnLongPressReleased:
-        m_PersistentCalls:
-          m_Calls: []
-      OnDoubleTap:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputChanged:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputEnable:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputDisable:
-        m_PersistentCalls:
-          m_Calls: []
-      DoubleTapTime: 0.3
-      LongPressTime: 0.5
-      SmoothDecrease: 0
-      OnInputPressed:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputFloat:
-        m_PersistentCalls:
-          m_Calls: []
-    - name: Aim
-      active:
-        UseConstant: 1
-        ConstantValue: 1
-        Variable: {fileID: 0}
-      ignoreOnPause:
-        UseConstant: 1
-        ConstantValue: 0
-        Variable: {fileID: 0}
-      type: 1
-      input: Aim
-      key: 324
-      debug: 0
-      GetPressed: 0
-      ResetOnDisable: 1
-      OnInputDown:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputUp:
-        m_PersistentCalls:
-          m_Calls: []
-      OnLongPress:
-        m_PersistentCalls:
-          m_Calls: []
-      OnLongPressReleased:
-        m_PersistentCalls:
-          m_Calls: []
-      OnDoubleTap:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputChanged:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputEnable:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputDisable:
-        m_PersistentCalls:
-          m_Calls: []
-      DoubleTapTime: 0.3
-      LongPressTime: 0.5
-      SmoothDecrease: 0
-      OnInputPressed:
-        m_PersistentCalls:
-          m_Calls: []
-      OnInputFloat:
-        m_PersistentCalls:
-          m_Calls: []
-    selectedIndex: 0
-  ResetAllInputsOnDisable: 1
-  showInputEvents: 0
-  ResetOnFocusLost: 0
-  OnInputEnabled:
-    m_PersistentCalls:
-      m_Calls: []
-  OnInputDisabled:
-    m_PersistentCalls:
-      m_Calls: []
-  IgnoreOnPause:
-    UseConstant: 1
-    ConstantValue: 1
-    Variable: {fileID: 0}
-  PlayerID: Player0
 --- !u!114 &1657673929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13320,7 +12602,7 @@ MonoBehaviour:
   OnFalse:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2881072519579352750
+--- !u!114 &6051267817324868627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13329,10 +12611,715 @@ MonoBehaviour:
   m_GameObject: {fileID: 4382087284382174636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e50ca93f167400b4fa78d87763288a82, type: 3}
+  m_Script: {fileID: 11500000, guid: 80ced0ef3d825bf46baedd6a5bf7447a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canCallAnimal: 0
+  Parent:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  m_MountStored:
+    UseConstant: 1
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 4e88917be0126ae4691d6a6ce248fba8, type: 2}
+  StartMounted:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  ReSync: 1
+  Gravity:
+    UseConstant: 1
+    ConstantValue: {x: 0, y: -1, z: 0}
+    Variable: {fileID: 0}
+  m_CanMount:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 9c5a83571f2ebf346b6e6fe49efddaa6, type: 2}
+  m_CanDismount:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: e44ea26080b5a4348908b0711d43b082, type: 2}
+  m_CanCallAnimal:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 3aef9340e54e43a4fa761e527cb230ac, type: 2}
+  DismountType: 0
+  LayerPath: Layers/Mount v2
+  MountLayer: Mounted
+  RightHand: {fileID: 0}
+  LeftHand: {fileID: 0}
+  LeftReinOffset:
+    UseConstant: 1
+    ConstantValue: {x: 0, y: 0, z: 0}
+    Variable: {fileID: 0}
+  RightReinOffset:
+    UseConstant: 1
+    ConstantValue: {x: 0, y: 0, z: 0}
+    Variable: {fileID: 0}
+  LinkUpdate: 3
+  AlingMountTrigger:
+    UseConstant: 1
+    ConstantValue: 0.2
+    Variable: {fileID: 0}
+  debug: 0
+  Ground:
+    UseConstant: 1
+    ConstantValue:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    Variable: {fileID: 0}
+  CallRadius:
+    UseConstant: 1
+    ConstantValue: 30
+    Variable: {fileID: 0}
+  TeleportDistance:
+    UseConstant: 1
+    ConstantValue: 7
+    Variable: {fileID: 0}
+  TeleportHeight:
+    UseConstant: 1
+    ConstantValue: 3
+    Variable: {fileID: 0}
+  CallAnimalA: {fileID: 8300000, guid: 3fb6719edfcc17844adc57d626ac64a6, type: 3}
+  StopAnimalA: {fileID: 8300000, guid: b7656b7a8996c42429c82e659e36433e, type: 3}
+  RiderAudio: {fileID: 4382087284382174643}
+  MainCollider: {fileID: 4382087284382174650}
+  MountCollider: {fileID: 11400000, guid: 2c259b2d172a70b41a9c00fa4ef2e05a, type: 2}
+  colliders: []
+  OnFindMount:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCanMount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: eca55a3f01c7eba4d9306cec134e7918, type: 2}
+        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, MalbersAnimations
+        m_MethodName: Invoke
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnCanDismount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a152bd8dcf0ba4f46b2c000bd857a592, type: 2}
+        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, MalbersAnimations
+        m_MethodName: Invoke
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CanCallMount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0e16f11981e702145af9c46dedfcd955, type: 2}
+        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, MalbersAnimations
+        m_MethodName: Invoke
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStartMounting:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 6ed281c2bd473cb498c896cd0466278c, type: 2}
+        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, MalbersAnimations
+        m_MethodName: Invoke
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3674929108589063741}
+        m_TargetAssemblyTypeName: MalbersAnimations.MInput, MalbersAnimations
+        m_MethodName: DisableInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mount
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEndMounting:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0611e7ab2a064c74d94f68af51e22016, type: 2}
+        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, MalbersAnimations
+        m_MethodName: Invoke
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 3674929108589063741}
+        m_TargetAssemblyTypeName: MalbersAnimations.MInput, MalbersAnimations
+        m_MethodName: EnableInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dismount
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStartDismounting:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0611e7ab2a064c74d94f68af51e22016, type: 2}
+        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, MalbersAnimations
+        m_MethodName: Invoke
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 774c7acaf3bb1304fb314cd4bd618fcb, type: 2}
+        m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, MalbersAnimations
+        m_MethodName: Invoke
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4382087284382174654}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3674929108589063741}
+        m_TargetAssemblyTypeName: MalbersAnimations.MInput, MalbersAnimations
+        m_MethodName: DisableInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dismount
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEndDismounting:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3674929108589063741}
+        m_TargetAssemblyTypeName: MalbersAnimations.MInput, MalbersAnimations
+        m_MethodName: EnableInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mount
+          m_BoolArgument: 0
+        m_CallState: 2
+  DisableComponents:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  DisableList: []
+  ResyncThreshold: 0.1
+  animator: {fileID: 4382087284382174652}
+  m_rigidBody: {fileID: 4382087284382174653}
+  m_root: {fileID: 4382087284382174654}
+  Editor_Tabs1: 1
+--- !u!114 &428721135393617240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382087284382174636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708e83eb6e7a34d43b7b4cc3edb5f348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ride: Ride
+  Default: Default
+  isTrigger: 1
+  debug: 0
+--- !u!114 &3674929108589063741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382087284382174636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8097927ca26ab4343a884532eb8eb442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputs:
+  - name: Mount
+    active:
+      UseConstant: 1
+      ConstantValue: 1
+      Variable: {fileID: 0}
+    ignoreOnPause:
+      UseConstant: 1
+      ConstantValue: 0
+      Variable: {fileID: 0}
+    type: 0
+    input: MountDismount
+    key: 101
+    debug: 0
+    GetPressed: 1
+    ResetOnDisable: 1
+    OnInputDown:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6051267817324868627}
+          m_TargetAssemblyTypeName: MalbersAnimations.HAP.MRider, MalbersAnimations
+          m_MethodName: MountAnimal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnInputUp:
+      m_PersistentCalls:
+        m_Calls: []
+    OnLongPress:
+      m_PersistentCalls:
+        m_Calls: []
+    OnLongPressReleased:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDoubleTap:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputEnable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputDisable:
+      m_PersistentCalls:
+        m_Calls: []
+    DoubleTapTime: 0.3
+    LongPressTime: 0.5
+    SmoothDecrease: 0
+    OnInputPressed:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputFloat:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Dismount
+    active:
+      UseConstant: 1
+      ConstantValue: 0
+      Variable: {fileID: 0}
+    ignoreOnPause:
+      UseConstant: 1
+      ConstantValue: 0
+      Variable: {fileID: 0}
+    type: 0
+    input: MountDismount
+    key: 101
+    debug: 0
+    GetPressed: 3
+    ResetOnDisable: 1
+    OnInputDown:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: cbaa2d46705d1ba4a990c281739206ea, type: 2}
+          m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Auto-asmdef-SecondPass
+          m_MethodName: Invoke
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnInputUp:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: cbaa2d46705d1ba4a990c281739206ea, type: 2}
+          m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Auto-asmdef-SecondPass
+          m_MethodName: Invoke
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnLongPress:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6051267817324868627}
+          m_TargetAssemblyTypeName: MalbersAnimations.HAP.MRider, MalbersAnimations
+          m_MethodName: DismountAnimal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: cbaa2d46705d1ba4a990c281739206ea, type: 2}
+          m_TargetAssemblyTypeName: MalbersAnimations.Events.MEvent, Auto-asmdef-SecondPass
+          m_MethodName: Invoke
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnLongPressReleased:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDoubleTap:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputEnable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputDisable:
+      m_PersistentCalls:
+        m_Calls: []
+    DoubleTapTime: 0.3
+    LongPressTime: 0.2
+    SmoothDecrease: 0
+    OnInputPressed:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputFloat:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Call Mount
+    active:
+      UseConstant: 1
+      ConstantValue: 1
+      Variable: {fileID: 0}
+    ignoreOnPause:
+      UseConstant: 1
+      ConstantValue: 0
+      Variable: {fileID: 0}
+    type: 0
+    input: CallMount
+    key: 101
+    debug: 0
+    GetPressed: 3
+    ResetOnDisable: 1
+    OnInputDown:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputUp:
+      m_PersistentCalls:
+        m_Calls: []
+    OnLongPress:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6051267817324868627}
+          m_TargetAssemblyTypeName: MalbersAnimations.HAP.MRider, MalbersAnimations
+          m_MethodName: CallAnimalToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnLongPressReleased:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDoubleTap:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputEnable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputDisable:
+      m_PersistentCalls:
+        m_Calls: []
+    DoubleTapTime: 0.3
+    LongPressTime: 0.5
+    SmoothDecrease: 0
+    OnInputPressed:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputFloat:
+      m_PersistentCalls:
+        m_Calls: []
+  AllInputs: []
+  actionMaps: []
+  ActiveMapIndex: 0
+  DefaultMap:
+    name:
+      UseConstant: 1
+      ConstantValue: New Map
+      Variable: {fileID: 0}
+    inputs: []
+    selectedIndex: 2
+  ActiveMap:
+    name:
+      UseConstant: 1
+      ConstantValue: New Map
+      Variable: {fileID: 0}
+    inputs:
+    - name: MainAttack
+      active:
+        UseConstant: 1
+        ConstantValue: 1
+        Variable: {fileID: 0}
+      ignoreOnPause:
+        UseConstant: 1
+        ConstantValue: 0
+        Variable: {fileID: 0}
+      type: 1
+      input: MainAttack
+      key: 323
+      debug: 0
+      GetPressed: 0
+      ResetOnDisable: 1
+      OnInputDown:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputUp:
+        m_PersistentCalls:
+          m_Calls: []
+      OnLongPress:
+        m_PersistentCalls:
+          m_Calls: []
+      OnLongPressReleased:
+        m_PersistentCalls:
+          m_Calls: []
+      OnDoubleTap:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputChanged:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputEnable:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputDisable:
+        m_PersistentCalls:
+          m_Calls: []
+      DoubleTapTime: 0.3
+      LongPressTime: 0.5
+      SmoothDecrease: 0
+      OnInputPressed:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputFloat:
+        m_PersistentCalls:
+          m_Calls: []
+    - name: SecondAttack
+      active:
+        UseConstant: 1
+        ConstantValue: 1
+        Variable: {fileID: 0}
+      ignoreOnPause:
+        UseConstant: 1
+        ConstantValue: 0
+        Variable: {fileID: 0}
+      type: 1
+      input: SecondAttack
+      key: 324
+      debug: 0
+      GetPressed: 0
+      ResetOnDisable: 1
+      OnInputDown:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputUp:
+        m_PersistentCalls:
+          m_Calls: []
+      OnLongPress:
+        m_PersistentCalls:
+          m_Calls: []
+      OnLongPressReleased:
+        m_PersistentCalls:
+          m_Calls: []
+      OnDoubleTap:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputChanged:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputEnable:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputDisable:
+        m_PersistentCalls:
+          m_Calls: []
+      DoubleTapTime: 0.3
+      LongPressTime: 0.5
+      SmoothDecrease: 0
+      OnInputPressed:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputFloat:
+        m_PersistentCalls:
+          m_Calls: []
+    - name: Reload
+      active:
+        UseConstant: 1
+        ConstantValue: 1
+        Variable: {fileID: 0}
+      ignoreOnPause:
+        UseConstant: 1
+        ConstantValue: 0
+        Variable: {fileID: 0}
+      type: 1
+      input: Reload
+      key: 114
+      debug: 0
+      GetPressed: 1
+      ResetOnDisable: 1
+      OnInputDown:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputUp:
+        m_PersistentCalls:
+          m_Calls: []
+      OnLongPress:
+        m_PersistentCalls:
+          m_Calls: []
+      OnLongPressReleased:
+        m_PersistentCalls:
+          m_Calls: []
+      OnDoubleTap:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputChanged:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputEnable:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputDisable:
+        m_PersistentCalls:
+          m_Calls: []
+      DoubleTapTime: 0.3
+      LongPressTime: 0.5
+      SmoothDecrease: 0
+      OnInputPressed:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputFloat:
+        m_PersistentCalls:
+          m_Calls: []
+    - name: Aim
+      active:
+        UseConstant: 1
+        ConstantValue: 1
+        Variable: {fileID: 0}
+      ignoreOnPause:
+        UseConstant: 1
+        ConstantValue: 0
+        Variable: {fileID: 0}
+      type: 1
+      input: Aim
+      key: 324
+      debug: 0
+      GetPressed: 0
+      ResetOnDisable: 1
+      OnInputDown:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputUp:
+        m_PersistentCalls:
+          m_Calls: []
+      OnLongPress:
+        m_PersistentCalls:
+          m_Calls: []
+      OnLongPressReleased:
+        m_PersistentCalls:
+          m_Calls: []
+      OnDoubleTap:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputChanged:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputEnable:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputDisable:
+        m_PersistentCalls:
+          m_Calls: []
+      DoubleTapTime: 0.3
+      LongPressTime: 0.5
+      SmoothDecrease: 0
+      OnInputPressed:
+        m_PersistentCalls:
+          m_Calls: []
+      OnInputFloat:
+        m_PersistentCalls:
+          m_Calls: []
+    selectedIndex: 0
+  ResetAllInputsOnDisable: 1
+  showInputEvents: 1
+  ResetOnFocusLost: 0
+  OnInputEnabled:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInputDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  IgnoreOnPause:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  PlayerID: Player0
 --- !u!1 &4382087284387263169
 GameObject:
   m_ObjectHideFlags: 0
@@ -18122,7 +18109,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4382087284382174654}
@@ -18194,8 +18181,7 @@ MonoBehaviour:
   customMaterial: {fileID: 0}
   terrainData: {fileID: 0}
   terrainMask: 10
-  debugData: <size=10><color=#ffdb78>The element is only partially inside the global
-    volume</color></size>
+  debugData: <size=10><color=#e1f043>The element is inside the global volume</color></size>
   materialData:
     shader: {fileID: 4800000, guid: 853be43322d350648a82ec17b27de5cf, type: 3}
     shaderName: BOXOPHOBIC/The Vegetation Engine/Elements/Colors Tint

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7300f3dfbed17e442ba7fdd45ae174cc, type: 3}
+  m_Name: SampleBuildingSettings
+  m_EditorClassIdentifier: 
+  settingName: Sample Building Settings
+  TriggerLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  TriggerTags:
+  - Player
+  triggerLayerName: Triggers
+  exteriorLayerName: ExteriorStructure
+  exteriorPropsLayerName: ExteriorProps
+  interiorLayerName: InteriorStructure
+  interiorPropsLayerName: InteriorProps
+  interiorCandleSettings: {fileID: 11400000, guid: 062d19be7811cbf46a0eab569e18bd9e,
+    type: 2}
+  interiorFireplaceSettings: {fileID: 11400000, guid: 9d852a92a636dc0418a1947059ac833e,
+    type: 2}
+  interiorCookingFireSettings: {fileID: 11400000, guid: 93a7f5bc64339ae49ac2ba9788274ebb,
+    type: 2}
+  interiorTorchSettings: {fileID: 11400000, guid: 9d3986d9c1628fd45904d9a4fed4d9c1,
+    type: 2}
+  exteriorCandleSettings: {fileID: 11400000, guid: 9353d95e582ce9e4aa9da935b4c0491e,
+    type: 2}
+  exteriorTorchSettings: {fileID: 11400000, guid: 93f5e2ac954977b4ca710a26f20fee7a,
+    type: 2}
+  exteriorStreetLightSettings: {fileID: 11400000, guid: 878ad2e5531e95640b5479258fc4e54e,
+    type: 2}

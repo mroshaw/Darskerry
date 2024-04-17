@@ -16,7 +16,9 @@ namespace DaftAppleGames.Common.Spawning
         public Transform horseSpawnTarget;
         [BoxGroup("Debug")]
         public GameObject horseGameObject;
-        
+
+        private MRider _horseRider;
+
         /// <summary>
         /// Spawn the selected player game object in the the given transform location
         /// </summary>
@@ -33,14 +35,9 @@ namespace DaftAppleGames.Common.Spawning
             horseGameObject.SetActive(true);
             
             // Set the Store Mount, to allow the player to call the horse straight away
-            /*
-            MRider horseRider = horseRiderGameObject.GetComponent<MRider>();
-            horseRider.Set_StoredMount(horseGameObject);
-            */
-            // !
-            // horseRider.CanCallAnimal = true;
-            // horseRider.Montura = _horseSpawnObject.GetComponentInChildren<Mount>();
+            _horseRider = horseRiderGameObject.GetComponent<MRider>();
 
+            // horseRider.UpdateCanMountDismount();
             // Tell the horse what spawned it
             Horse horse = horseGameObject.GetComponent<Horse>();
             horse.spawner = this;
@@ -51,6 +48,14 @@ namespace DaftAppleGames.Common.Spawning
                 ApplySaveData();
             }
             
+        }
+
+        /// <summary>
+        /// Sets the horse as the players mount
+        /// </summary>
+        public void SetHorseAsMount()
+        {
+            _horseRider.Set_StoredMount(horseGameObject);
         }
 
         /// <summary>
