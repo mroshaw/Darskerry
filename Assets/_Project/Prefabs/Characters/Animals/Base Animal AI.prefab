@@ -20751,7 +20751,7 @@ MonoBehaviour:
   SelectedState: 2
   SelectedStance: 0
   ShowStateInInspector: 0
-  Editor_Tabs1: 1
+  Editor_Tabs1: 0
   Editor_Tabs2: 4
   SelectedMode: 0
   Mode_Tabs1: 0
@@ -20916,7 +20916,7 @@ MonoBehaviour:
   TerrainSlopeLimit:
     minValue: -50
     maxValue: 45
-  SlopeLimit: 50
+  SlopeLimit: 70
   slideThreshold: 10
   slideAmount: 0.5
   slideDamp: 15
@@ -21669,6 +21669,9 @@ MonoBehaviour:
     OnElementDamage:
       m_PersistentCalls:
         m_Calls: []
+    OnStatEmpty:
+      m_PersistentCalls:
+        m_Calls: []
   elements: []
   profiles: []
   Editor_Tabs1: 0
@@ -22344,6 +22347,7 @@ MonoBehaviour:
   UpdateAI: 0.2
   stoppingDistance: 0.6
   PointStoppingDistance: 0.6
+  additiveStopDistance: 0
   slowingDistance: 1
   UseScale: 1
   targetHeight: 5
