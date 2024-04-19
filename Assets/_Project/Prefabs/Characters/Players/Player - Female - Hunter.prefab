@@ -9732,7 +9732,6 @@ GameObject:
   - component: {fileID: 5454802063133718672}
   - component: {fileID: 4082555319218490692}
   - component: {fileID: 7254988511357643785}
-  - component: {fileID: 6723837802819247895}
   - component: {fileID: 3130298896730049526}
   - component: {fileID: 2946273449102081778}
   - component: {fileID: 6324322975782616193}
@@ -11760,10 +11759,10 @@ MonoBehaviour:
   OnTargetArrived:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DaftAppleGames.Common.Characters.RiderHelper, DaftAppleGames.Common
-        m_MethodName: SetCallState
-        m_Mode: 6
+      - m_Target: {fileID: 6051267817324868627}
+        m_TargetAssemblyTypeName: MalbersAnimations.HAP.MRider, MalbersAnimations
+        m_MethodName: CancelCallAnimal
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12513,18 +12512,6 @@ MonoBehaviour:
   originalLeftEyeLocalQ: {x: 1.6132928e-16, y: 1.110423e-16, z: 4.022367e-17, w: 1}
   originalRightEyeLocalQ: {x: 1, y: 4.022367e-17, z: -1.110423e-16, w: -6.123234e-17}
   areRotationOffsetsSet: 1
---- !u!114 &6723837802819247895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4382087284382174636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a864256c378b0f14cb2f3907937fabea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3130298896730049526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18181,7 +18168,8 @@ MonoBehaviour:
   customMaterial: {fileID: 0}
   terrainData: {fileID: 0}
   terrainMask: 10
-  debugData: <size=10><color=#e1f043>The element is inside the global volume</color></size>
+  debugData: <size=10><color=#ffdb78>The element is only partially inside the global
+    volume</color></size>
   materialData:
     shader: {fileID: 4800000, guid: 853be43322d350648a82ec17b27de5cf, type: 3}
     shaderName: BOXOPHOBIC/The Vegetation Engine/Elements/Colors Tint
