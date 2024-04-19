@@ -17,7 +17,24 @@ namespace DaftAppleGames.Common.Spawning
         [BoxGroup("Debug")]
         public GameObject horseGameObject;
 
+        public bool IsHorseCompanion { get; private set; }
+
         private MRider _horseRider;
+
+        /// <summary>
+        /// If the horse is companion, then allow it to be called
+        /// </summary>
+        public void SetHorseIsCompanion(bool isCompanion)
+        {
+            Debug.Log($"HorseSpawner.SetHorseIsCompanion: Setting IsCompanion to: {isCompanion}");
+            IsHorseCompanion = isCompanion;
+
+            // If the horse has already been spawned, set as mount here.
+            if (_horseRider)
+            {
+                _horseRider.Set_StoredMount(horseGameObject);
+            }
+        }
 
         /// <summary>
         /// Spawn the selected player game object in the the given transform location
@@ -33,9 +50,15 @@ namespace DaftAppleGames.Common.Spawning
             
             horseGameObject = Instantiate(horsePrefab, horseSpawnTarget.position, horseSpawnTarget.rotation);
             horseGameObject.SetActive(true);
-            
+
             // Set the Store Mount, to allow the player to call the horse straight away
             _horseRider = horseRiderGameObject.GetComponent<MRider>();
+            Debug.Log($"HorseSpawner.SpawnHorse: IsHorseCompanion is {IsHorseCompanion}");
+
+            if (IsHorseCompanion)
+            {
+                _horseRider.Set_StoredMount(horseGameObject);
+            }
 
             // horseRider.UpdateCanMountDismount();
             // Tell the horse what spawned it
@@ -48,14 +71,6 @@ namespace DaftAppleGames.Common.Spawning
                 ApplySaveData();
             }
             
-        }
-
-        /// <summary>
-        /// Sets the horse as the players mount
-        /// </summary>
-        public void SetHorseAsMount()
-        {
-            _horseRider.Set_StoredMount(horseGameObject);
         }
 
         /// <summary>

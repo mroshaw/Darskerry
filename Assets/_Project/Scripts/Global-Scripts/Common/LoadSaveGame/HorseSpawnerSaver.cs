@@ -1,5 +1,6 @@
 #if HAP
 using System;
+using DaftAppleGames.Common.Characters;
 using DaftAppleGames.Common.Spawning;
 using MalbersAnimations.HAP;
 using PixelCrushers;
@@ -17,14 +18,18 @@ namespace DaftAppleGames.Common.LoadSaveGame
         {
             public Vector3 spawnPosition;
             public Quaternion spawnRotation;
+            public bool isHorseCompanion;
         }
 
+        private HorseSpawner _horseSpawner;
         private Transform _spawnTarget;
+        private Horse _spawnedHorse;
 
-        public override void Start()
+        public override void Awake()
         {
-            _spawnTarget = GetComponent<HorseSpawner>().horseSpawnTarget;
-            base.Start();
+            _horseSpawner = GetComponent<HorseSpawner>();
+            _spawnTarget = _horseSpawner.horseSpawnTarget;
+            base.Awake();
         }
         
         /// <summary>
@@ -42,7 +47,8 @@ namespace DaftAppleGames.Common.LoadSaveGame
             SpawnerData spawnerData = new SpawnerData
             {
                 spawnPosition = _spawnTarget.position,
-                spawnRotation = _spawnTarget.rotation
+                spawnRotation = _spawnTarget.rotation,
+                isHorseCompanion = _horseSpawner.IsHorseCompanion
             };
             return SaveSystem.Serialize(spawnerData);
         }
@@ -70,6 +76,10 @@ namespace DaftAppleGames.Common.LoadSaveGame
             // Update selected character
             _spawnTarget.position = spawnerData.spawnPosition;
             _spawnTarget.transform.rotation = spawnerData.spawnRotation;
+
+            // Update IsHorseCompanion
+            _horseSpawner.SetHorseIsCompanion(spawnerData.isHorseCompanion);
+            Debug.Log($"HorseSpawnSaver.ApplyData: HorseIsCompanion is: {spawnerData.isHorseCompanion}");
             Debug.Log($"Spawner: Applied position game save data to {gameObject.name} ... ({spawnerData.spawnPosition})");
         }
 
