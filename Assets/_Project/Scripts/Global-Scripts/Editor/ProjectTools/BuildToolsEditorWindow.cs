@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Threading;
 using DaftAppleGames.Common.GameControllers;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
@@ -11,6 +14,7 @@ using Unity.EditorCoroutines.Editor;
 using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 namespace DaftAppleGames.Editor.ProjectTools
 {
@@ -27,6 +31,8 @@ namespace DaftAppleGames.Editor.ProjectTools
         [BoxGroup("Build Details")] [ReadOnly] public string lastSuccessfulBuild;
         [BoxGroup("Build Details")] [ReadOnly] public string lastBuildAttempt;
         [BoxGroup("Build Details")] [ReadOnly] public BuildState lastBuildResult;
+        [BoxGroup("Deploy Details")] [ReadOnly] public string lastSuccessfulDeploy;
+        [BoxGroup("Deploy Details")] [ReadOnly] public DeployState lastDeployState;
         [BoxGroup("Build Components")] [ReadOnly] public string lightingLastBake;
         [BoxGroup("Build Components")] [ReadOnly] public string navMeshLastBake;
         [BoxGroup("Build Components")] [ReadOnly] public string occlusionCullingLastBake;
@@ -70,9 +76,12 @@ namespace DaftAppleGames.Editor.ProjectTools
             lightingLastBake = _buildStatus.lightingLastBake.ToString();
             navMeshLastBake = _buildStatus.navMeshLastBake.ToString();
             occlusionCullingLastBake = _buildStatus.occlusionCullingLastBake.ToString();
+
+            lastSuccessfulDeploy = _buildStatus.lastSuccessfulDeploy.ToString();
+            lastDeployState = _buildStatus.lastDeployState;
         }
 
-        [Button("BUILD ONLY", ButtonSizes.Large), GUIColor(0, 1, 0)]
+        [BoxGroup("BUILD")] [Button("BUILD ONLY", ButtonSizes.Large), GUIColor(0, 1, 0)]
         private void BuildOnlyButton()
         {
             LoadBuildStatus();
@@ -80,7 +89,7 @@ namespace DaftAppleGames.Editor.ProjectTools
             BuildPlayer();
         }
 
-        [Button("BAKE AND BUILD", ButtonSizes.Large), GUIColor(1, 1, 0)]
+        [BoxGroup("BUILD")] [Button("BAKE AND BUILD", ButtonSizes.Large), GUIColor(1, 1, 0)]
         private void BakeAndBuildButton()
         {
             LoadBuildStatus();
@@ -91,19 +100,84 @@ namespace DaftAppleGames.Editor.ProjectTools
             BuildPlayer();
         }
 
-        [Button("Bake Lighting")]
+        /// <summary>
+        /// Start the deployment process on a new thread, to prevent lock up of the Unity UI
+        /// </summary>
+        [BoxGroup("DEPLOY")] [Button("DEPLOY TO ITCH", ButtonSizes.Large), GUIColor(1, 1, 0)]
+        private void DeployToItch()
+        {
+            Thread newThread = new Thread(DeployToItchInThread);
+            newThread.Start();
+        }
+
+        /// <summary>
+        /// Deploy the build to itch.io
+        /// </summary>
+        private void DeployToItchInThread()
+        {
+            Process process = new Process();
+
+            // Redirect the output stream of the child process.
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.FileName = _buildStatus.itchDeployBatchFullPath;
+            process.StartInfo.Arguments = $"{_buildStatus.itchDeployAppName}  {_buildStatus.itchDeployAppStage}";
+            process.StartInfo.WorkingDirectory = Path.GetDirectoryName(_buildStatus.itchDeployBatchFullPath);
+
+            int exitCode = -1;
+            string output = null;
+
+            try {
+                process.Start();
+
+                // do not wait for the child process to exit before
+                // reading to the end of its redirected stream.
+                // process.WaitForExit();
+
+                // read the output stream first and then wait.
+                output = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+            }
+            catch (Exception e) {
+                Debug.LogError("Run error" + e.ToString()); // or throw new Exception
+            }
+            finally {
+                exitCode = process.ExitCode;
+
+                process.Dispose();
+                process = null;
+            }
+
+            Debug.Log($"Process completed with code: {exitCode}");
+            Debug.Log($"Process output: {output}");
+
+            _buildStatus.lastDeployState = exitCode == 0 ? DeployState.Success : DeployState.Failed;
+            if (exitCode == 0)
+            {
+                _buildStatus.lastDeployState = DeployState.Success;
+                _buildStatus.lastSuccessfulDeploy.SetNow();
+
+            }
+            else
+            {
+                _buildStatus.lastDeployState = DeployState.Failed;
+            }
+        }
+
+        [BoxGroup("COMPONENTS")] [Button("Bake Lighting")]
         private void BakeLightsButton()
         {
             BakeLighting();
         }
 
-        [Button("Bake NavMesh")]
+        [BoxGroup("COMPONENTS")] [Button("Bake NavMesh")]
         private void BakeNavmeshButton()
         {
             BakeNavMesh();
         }
 
-        [Button("Bake Occlusion")]
+        [BoxGroup("COMPONENTS")] [Button("Bake Occlusion")]
         private void BakeOcclusionButton()
         {
             BakeOcclusion();

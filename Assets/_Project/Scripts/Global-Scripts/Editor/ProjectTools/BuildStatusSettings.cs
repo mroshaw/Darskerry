@@ -8,6 +8,8 @@ namespace DaftAppleGames.Editor.ProjectTools
 {
     public enum BuildStage { Prototype, Alpha, Beta, EarlyAccess, Live }
     public enum BuildState { Success, SuccessWithWarnings, SuccessWithErrors, Failed }
+    public enum DeployState { Success, Failed }
+
     /// <summary>
     /// Scriptable Object: TODO Purpose and Summary
     /// </summary>
@@ -23,10 +25,17 @@ namespace DaftAppleGames.Editor.ProjectTools
         [BoxGroup("Build Settings")] public string gameTerrainScene = "GameWorldTerrainScene";
         [BoxGroup("Build Settings")] public string menuTerrainScene = "MainMenuTerrainScene";
 
+        [BoxGroup("Deploy Settings")] public string itchDeployBatchFullPath;
+        [BoxGroup("Deploy Settings")] public string itchDeployAppName;
+        [BoxGroup("Deploy Settings")] public string itchDeployAppStage;
+
         [BoxGroup("Build Status")] public CustomVersion buildVersion;
         [BoxGroup("Build Status")] public CustomDateTime lastSuccessfulBuild;
         [BoxGroup("Build Status")] public CustomDateTime lastBuildAttempt;
         [BoxGroup("Build Status")] public BuildState lastBuildState;
+
+        [BoxGroup("Deploy Status")] public CustomDateTime lastSuccessfulDeploy;
+        [BoxGroup("Deploy Status")] public DeployState lastDeployState;
 
         [BoxGroup("Build Components")] public CustomDateTime lightingLastBake;
         [BoxGroup("Build Components")] public CustomDateTime navMeshLastBake;
