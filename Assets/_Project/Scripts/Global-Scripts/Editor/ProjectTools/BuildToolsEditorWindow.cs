@@ -101,13 +101,57 @@ namespace DaftAppleGames.Editor.ProjectTools
         }
 
         /// <summary>
+        /// Run the built game executable, to test prior to deployment to itch.io
+        /// </summary>
+        [BoxGroup("DEPLOY")] [Button("RUN GAME", ButtonSizes.Large), GUIColor(0, 1, 0)]
+        private void RunGame()
+        {            Thread newThread = new Thread(RunGameInThread);
+            newThread.Start();
+
+        }
+
+        /// <summary>
         /// Start the deployment process on a new thread, to prevent lock up of the Unity UI
         /// </summary>
-        [BoxGroup("DEPLOY")] [Button("DEPLOY TO ITCH", ButtonSizes.Large), GUIColor(1, 1, 0)]
+        [BoxGroup("DEPLOY")] [Button("DEPLOY TO ITCH", ButtonSizes.Large), GUIColor(1, 0, 0)]
         private void DeployToItch()
         {
             Thread newThread = new Thread(DeployToItchInThread);
             newThread.Start();
+        }
+
+        private void RunGameInThread()
+        {
+            Process process = new Process();
+
+            // Redirect the output stream of the child process.
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.FileName = _buildStatus.buildOutputPath;
+            int exitCode = -1;
+            string output = null;
+
+            try {
+                process.Start();
+
+                // do not wait for the child process to exit before
+                // reading to the end of its redirected stream.
+                // process.WaitForExit();
+
+                // read the output stream first and then wait.
+                output = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+            }
+            catch (Exception e) {
+                Debug.LogError("Run error" + e.ToString()); // or throw new Exception
+            }
+            finally {
+                exitCode = process.ExitCode;
+
+                process.Dispose();
+                process = null;
+            }
         }
 
         /// <summary>
