@@ -11,6 +11,10 @@ namespace DaftAppleGames.Common.Weather
     public class ExpanseWeatherPresetSettings : WeatherPresetSettingsBase
     {
         [BoxGroup("Sky Settings")] public UniversalCloudLayer expanseCloudLayer;
-        [BoxGroup("Sky Settings")] public float fogDensity;
-        [BoxGroup("Sky Settings")] public float fogHeight;    }
+        [BoxGroup("Sky Settings")] public float skyInterpolateDuration = 5.0f;
+        [BoxGroup("Sky Settings")] public float fogInterpolateDuration = 5.0f;
+        [BoxGroup("Sky Settings")] public float fogVisibilityDistance;
+        [BoxGroup("Sky Settings")] public float fogRadius;
+        [BoxGroup("Sky Settings")] public float fogThickness;
+    }
 }
