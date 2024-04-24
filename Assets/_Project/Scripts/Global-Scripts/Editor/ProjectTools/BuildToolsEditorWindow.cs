@@ -31,8 +31,12 @@ namespace DaftAppleGames.Editor.ProjectTools
         [BoxGroup("Build Details")] [ReadOnly] public string lastSuccessfulBuild;
         [BoxGroup("Build Details")] [ReadOnly] public string lastBuildAttempt;
         [BoxGroup("Build Details")] [ReadOnly] public BuildState lastBuildResult;
+        [BoxGroup("Build Details")] [TextArea(2,4)] public string lastBuildLog;
+
         [BoxGroup("Deploy Details")] [ReadOnly] public string lastSuccessfulDeploy;
         [BoxGroup("Deploy Details")] [ReadOnly] public DeployState lastDeployState;
+        [BoxGroup("Deploy Details")] [TextArea(2,4)] public string lastDeployLog;
+
         [BoxGroup("Build Components")] [ReadOnly] public string lightingLastBake;
         [BoxGroup("Build Components")] [ReadOnly] public string navMeshLastBake;
         [BoxGroup("Build Components")] [ReadOnly] public string occlusionCullingLastBake;
@@ -73,12 +77,15 @@ namespace DaftAppleGames.Editor.ProjectTools
             lastSuccessfulBuild = _buildStatus.lastSuccessfulBuild.ToString();
             lastBuildAttempt = _buildStatus.lastBuildAttempt.ToString();
             lastBuildResult = _buildStatus.lastBuildState;
-            lightingLastBake = _buildStatus.lightingLastBake.ToString();
-            navMeshLastBake = _buildStatus.navMeshLastBake.ToString();
-            occlusionCullingLastBake = _buildStatus.occlusionCullingLastBake.ToString();
+            lastBuildLog = _buildStatus.lastBuildLog;
 
             lastSuccessfulDeploy = _buildStatus.lastSuccessfulDeploy.ToString();
             lastDeployState = _buildStatus.lastDeployState;
+            lastDeployLog = _buildStatus.lastDeployLog;
+
+            lightingLastBake = _buildStatus.lightingLastBake.ToString();
+            navMeshLastBake = _buildStatus.navMeshLastBake.ToString();
+            occlusionCullingLastBake = _buildStatus.occlusionCullingLastBake.ToString();
         }
 
         [BoxGroup("BUILD")] [Button("BUILD ONLY", ButtonSizes.Large), GUIColor(0, 1, 0)]
@@ -120,6 +127,9 @@ namespace DaftAppleGames.Editor.ProjectTools
             newThread.Start();
         }
 
+        /// <summary>
+        /// Runs the built game exe
+        /// </summary>
         private void RunGameInThread()
         {
             Process process = new Process();
@@ -159,6 +169,7 @@ namespace DaftAppleGames.Editor.ProjectTools
         /// </summary>
         private void DeployToItchInThread()
         {
+            Debug.Log("Starting deployment process. Please wait...");
             Process process = new Process();
 
             // Redirect the output stream of the child process.
@@ -196,7 +207,8 @@ namespace DaftAppleGames.Editor.ProjectTools
             Debug.Log($"Process completed with code: {exitCode}");
             Debug.Log($"Process output: {output}");
 
-            _buildStatus.lastDeployState = exitCode == 0 ? DeployState.Success : DeployState.Failed;
+            _buildStatus.lastDeployLog = output;
+
             if (exitCode == 0)
             {
                 _buildStatus.lastDeployState = DeployState.Success;
@@ -207,6 +219,8 @@ namespace DaftAppleGames.Editor.ProjectTools
             {
                 _buildStatus.lastDeployState = DeployState.Failed;
             }
+
+            RefreshBuildStatus();
         }
 
         [BoxGroup("COMPONENTS")] [Button("Bake Lighting")]
@@ -287,6 +301,14 @@ namespace DaftAppleGames.Editor.ProjectTools
             {
                 _buildStatus.lastBuildState = BuildState.Failed;
             }
+
+            string logEntries = "";
+            foreach (BuildStepMessage stepMessage in buildReport.steps[0].messages)
+            {
+                logEntries += $"{stepMessage.content}\n";
+            }
+
+            _buildStatus.lastBuildLog = logEntries.Trim();
 
             RefreshBuildStatus();
         }

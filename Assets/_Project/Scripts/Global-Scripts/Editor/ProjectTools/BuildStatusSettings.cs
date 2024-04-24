@@ -33,10 +33,11 @@ namespace DaftAppleGames.Editor.ProjectTools
         [BoxGroup("Build Status")] public CustomDateTime lastSuccessfulBuild;
         [BoxGroup("Build Status")] public CustomDateTime lastBuildAttempt;
         [BoxGroup("Build Status")] public BuildState lastBuildState;
+        [BoxGroup("Build Status")] public string lastBuildLog;
 
         [BoxGroup("Deploy Status")] public CustomDateTime lastSuccessfulDeploy;
         [BoxGroup("Deploy Status")] public DeployState lastDeployState;
-
+        [BoxGroup("Deploy Status")] public string lastDeployLog;
         [BoxGroup("Build Components")] public CustomDateTime lightingLastBake;
         [BoxGroup("Build Components")] public CustomDateTime navMeshLastBake;
         [BoxGroup("Build Components")] public CustomDateTime occlusionCullingLastBake;
