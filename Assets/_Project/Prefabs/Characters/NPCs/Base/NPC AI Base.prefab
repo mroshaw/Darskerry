@@ -6882,7 +6882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8041466863625511903}
   - component: {fileID: 4786401847421916769}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trails Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7057,7 +7057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1833039348404013372}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Glider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12308,7 +12308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 150965213801714805}
-  m_Layer: 20
+  m_Layer: 11
   m_Name: Quest and Dialog Components
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12347,7 +12347,7 @@ GameObject:
   - component: {fileID: 1524923808183901653}
   - component: {fileID: 3742402322890389911}
   - component: {fileID: 9185885429247283438}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Glider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14404,7 +14404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1720454627664496044}
   - component: {fileID: 1530859368965345628}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trails Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14549,7 +14549,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7296903438768207251}
   - component: {fileID: 6290662011258564011}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Umbrella
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14731,7 +14731,7 @@ GameObject:
   - component: {fileID: 2698960606525091598}
   - component: {fileID: 8360556939898995633}
   - component: {fileID: 2269088909023226793}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wind Effect Thick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25375,9 +25375,9 @@ GameObject:
   - component: {fileID: 1372071264605784617}
   - component: {fileID: 6154645368459838437}
   - component: {fileID: 4320465843955142657}
-  m_Layer: 20
+  m_Layer: 11
   m_Name: NPC AI Base
-  m_TagString: Animal
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35014,6 +35014,9 @@ MonoBehaviour:
     OnElementDamage:
       m_PersistentCalls:
         m_Calls: []
+    OnStatEmpty:
+      m_PersistentCalls:
+        m_Calls: []
   elements:
   - element: {fileID: 11400000, guid: 951aaa6113759be4f86dbc0c288e7a04, type: 2}
     multiplier:
@@ -35989,6 +35992,7 @@ MonoBehaviour:
   UpdateAI: 0.2
   stoppingDistance: 1.5
   PointStoppingDistance: 0.6
+  additiveStopDistance: 0
   slowingDistance: 0
   UseScale: 1
   targetHeight: 5
@@ -36576,7 +36580,7 @@ GameObject:
   - component: {fileID: 6866759340956515914}
   - component: {fileID: 2505929055852107616}
   - component: {fileID: 334705464984313512}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Umbrella
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36660,7 +36664,7 @@ GameObject:
   - component: {fileID: 4622192934397329955}
   - component: {fileID: 7906410484440027278}
   - component: {fileID: 9162814709185846642}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wind Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41597,7 +41601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4766416736483023818}
-  m_Layer: 20
+  m_Layer: 11
   m_Name: Gliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41987,7 +41991,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7770237282271813077}
   - component: {fileID: 8479855515167904974}
-  m_Layer: 20
+  m_Layer: 11
   m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42037,10 +42041,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 150965213801714805}
     m_Modifications:
+    - target: {fileID: 2283156814469072499, guid: b200cd17654ad1c48aa28024d7527ed6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283156814469073405, guid: b200cd17654ad1c48aa28024d7527ed6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2283156814469075307, guid: b200cd17654ad1c48aa28024d7527ed6,
         type: 3}
       propertyPath: m_Name
       value: Darskerry Quest Indicator UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283156814469075307, guid: b200cd17654ad1c48aa28024d7527ed6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283156814469091893, guid: b200cd17654ad1c48aa28024d7527ed6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283156814469098253, guid: b200cd17654ad1c48aa28024d7527ed6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283156814469106161, guid: b200cd17654ad1c48aa28024d7527ed6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283156814469114577, guid: b200cd17654ad1c48aa28024d7527ed6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2283156814469378789, guid: b200cd17654ad1c48aa28024d7527ed6,
         type: 3}
@@ -42325,9 +42364,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 150965213801714805}
     m_Modifications:
+    - target: {fileID: 120746, guid: 9ce4dedb516e4be45a4c11e7f1cc7d95, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 135794, guid: 9ce4dedb516e4be45a4c11e7f1cc7d95, type: 3}
       propertyPath: m_Name
       value: Darskerry Dialog Bark UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 135794, guid: 9ce4dedb516e4be45a4c11e7f1cc7d95, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 135938, guid: 9ce4dedb516e4be45a4c11e7f1cc7d95, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 144376, guid: 9ce4dedb516e4be45a4c11e7f1cc7d95, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11475372, guid: 9ce4dedb516e4be45a4c11e7f1cc7d95, type: 3}
       propertyPath: m_BlockingMask.m_Bits
@@ -42471,6 +42526,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2447580207814842003, guid: 9ce4dedb516e4be45a4c11e7f1cc7d95,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42506,6 +42566,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Quest Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868914934707406481, guid: 37a1b0a153b7c8b44b425517a227f830,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868914934707406481, guid: 37a1b0a153b7c8b44b425517a227f830,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4814460247861090273, guid: 37a1b0a153b7c8b44b425517a227f830,
         type: 3}
@@ -42555,6 +42625,16 @@ PrefabInstance:
     - target: {fileID: 4814460247861090273, guid: 37a1b0a153b7c8b44b425517a227f830,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547338584639128238, guid: 37a1b0a153b7c8b44b425517a227f830,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547338584639128238, guid: 37a1b0a153b7c8b44b425517a227f830,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
