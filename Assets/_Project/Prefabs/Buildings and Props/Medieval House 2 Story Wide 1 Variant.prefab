@@ -133,8 +133,8 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
-    realtimeMode: 0
+    mode: 1
+    realtimeMode: 2
     timeSlicing: 0
     lighting:
       multiplier: 1
@@ -1255,8 +1255,8 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
-    realtimeMode: 0
+    mode: 1
+    realtimeMode: 2
     timeSlicing: 0
     lighting:
       multiplier: 1
@@ -1864,8 +1864,8 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
-    realtimeMode: 0
+    mode: 1
+    realtimeMode: 2
     timeSlicing: 0
     lighting:
       multiplier: 1
@@ -19285,7 +19285,7 @@ MonoBehaviour:
   firstCollisionLayer: 0
   useMultithreading: 1
   previousSelection: {fileID: 0}
-  unloaded: 1
+  unloaded: 0
   sceneChanging: 0
   waitForPrevious: 0
   previousVolume: {fileID: 0}
@@ -19314,7 +19314,6 @@ MonoBehaviour:
   forceSaveProbesOnShadingBorders: 1
   combinedVolumeComponent: {fileID: 0}
   allVolumes:
-  - {fileID: 454074432513877704}
   - {fileID: 0}
   - {fileID: 0}
   prefabStage: {fileID: 0}
@@ -23867,8 +23866,8 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
-    realtimeMode: 0
+    mode: 1
+    realtimeMode: 2
     timeSlicing: 0
     lighting:
       multiplier: 1
@@ -39025,8 +39024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366f092b527cac94f8147dec9161e059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Player - Medieval House 2 Story Wide 1 Variant
-  uid: 447174
+  name: Medieval House 2 Story Wide 1 Variant
+  uid: 329222
 --- !u!1 &8723592467388559561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1387943625132100, guid: 4ceb7f6f63409634a9e3db11b8b636b3,
@@ -43344,6 +43343,18 @@ MonoBehaviour:
   openAudioClip: {fileID: 8300000, guid: 60c475a6d5bffdb43bb4b71eb69b9132, type: 3}
   closingAudioClip: {fileID: 0}
   closedAudioClip: {fileID: 8300000, guid: 80f85f7c9156d914890d35c6b2be956f, type: 3}
+  onDoorOpeningEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDoorOpenEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDoorClosingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDoorClosedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &59384934819806566
 AudioSource:
   m_ObjectHideFlags: 0
