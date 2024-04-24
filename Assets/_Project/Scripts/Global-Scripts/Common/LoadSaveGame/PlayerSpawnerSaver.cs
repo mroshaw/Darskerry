@@ -70,7 +70,7 @@ namespace DaftAppleGames.Common.LoadSaveGame
 
             // Update selected character
             _spawnTarget.position = spawnerData.spawnPosition;
-            _spawnTarget.transform.rotation = spawnerData.spawnRotation;
+            // _spawnTarget.transform.rotation = spawnerData.spawnRotation;
             Debug.Log($"Spawner: Applied position game save data to {gameObject.name} ... ({spawnerData.spawnPosition})");
         }
 

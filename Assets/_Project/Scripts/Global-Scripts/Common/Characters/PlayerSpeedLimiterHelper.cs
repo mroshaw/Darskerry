@@ -16,6 +16,7 @@ namespace DaftAppleGames.Common.Characters
         /// <param name="other"></param>
         public void EnableWalkingOnly(Collider other)
         {
+            Debug.Log("Walking only enabled...");
             SetWalkingOnlyState(other, true);
         }
 
@@ -25,6 +26,7 @@ namespace DaftAppleGames.Common.Characters
         /// <param name="other"></param>
         public void DisableWalkingOnly(Collider other)
         {
+            Debug.Log("Walking only disabled...");
             SetWalkingOnlyState(other, false);
         }
 

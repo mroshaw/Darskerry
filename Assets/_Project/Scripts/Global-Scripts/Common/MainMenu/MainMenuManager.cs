@@ -1,4 +1,5 @@
 using DaftAppleGames.Common.GameControllers;
+using PixelCrushers;
 using UnityEngine;
 
 namespace DaftAppleGames.Common.MainMenu
@@ -20,7 +21,8 @@ namespace DaftAppleGames.Common.MainMenu
         /// </summary>
         public void StartNewGame()
         {
-            // sceneLoadManager.LoadScene(GameScenes.MasterGame);
+            SaveSystem.ClearSavedGameData();
+            GameController.Instance.IsLoadingFromSave = false;
             AdditiveSceneLoadManager.Instance.LoadGame();
         }
 

@@ -302,6 +302,7 @@ namespace DaftAppleGames.Common.Buildings
         /// </summary>
         public void RefreshInteriorProbes()
         {
+            Debug.Log("Refreshing Interior Reflection Probes...");
             RefreshProbes(intReflectionProbes);
         }
 
@@ -310,6 +311,7 @@ namespace DaftAppleGames.Common.Buildings
         /// </summary>
         public void RefreshExteriorProbes()
         {
+            Debug.Log("Refreshing Exterior Reflection Probes...");
             RefreshProbes(extReflectionProbes);
         }
 

@@ -25,6 +25,11 @@ namespace DaftAppleGames.Common.Characters
         /// </summary>
         public void PausePlayer()
         {
+            if (!PlayerCameraManager.Instance)
+            {
+                return;
+            }
+
             GameObject playerGameObject = PlayerCameraManager.Instance.PlayerGameObject;
 
             PlayerCameraManager.Instance.InvectorMainCamera.FreezeCamera();
@@ -43,6 +48,11 @@ namespace DaftAppleGames.Common.Characters
         /// </summary>
         public void UnpausePlayer()
         {
+            if (!PlayerCameraManager.Instance)
+            {
+                return;
+            }
+
             if (_isPlayerPaused)
             {
                 GameObject playerGameObject = PlayerCameraManager.Instance.PlayerGameObject;

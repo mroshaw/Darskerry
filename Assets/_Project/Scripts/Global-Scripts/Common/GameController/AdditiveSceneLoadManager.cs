@@ -44,7 +44,6 @@ namespace DaftAppleGames.Common.GameControllers
         [BoxGroup("Behaviour")] public bool useLoadingScene = true;
         [BoxGroup("Behaviour")] public bool showProgress = true;
         [BoxGroup("Behaviour")] public bool showRotatingLogo = true;
-
         [BoxGroup("Scenes")][InlineEditor()][SerializeField] public AdditiveSceneLoaderSettings additiveSceneSettings;
 
         [FoldoutGroup("UI Settings")] public Canvas loadingUiCanvas;
@@ -76,6 +75,8 @@ namespace DaftAppleGames.Common.GameControllers
         private bool _isLoadingFromSave = false;
         private int _loadSlot;
 
+        private Camera _sceneLoaderCamera;
+
         private SceneFader _sceneFader;
         
         // Singleton static instance
@@ -96,6 +97,9 @@ namespace DaftAppleGames.Common.GameControllers
             {
                 _instance = this;
             }
+
+            _sceneLoaderCamera = GetComponentInChildren<Camera>();
+            _sceneLoaderCamera.gameObject.SetActive(false);
 
             _sceneFader = GetComponent<SceneFader>();
 
@@ -241,6 +245,7 @@ namespace DaftAppleGames.Common.GameControllers
             if (useLoadingScene)
             {
                 loadingUiCanvas.gameObject.SetActive(showLoadingScreen);
+                _sceneLoaderCamera.gameObject.SetActive(true);
             }
             _isLoading = true;
             Debug.Log("Main Scene Loaded...");
@@ -489,6 +494,7 @@ namespace DaftAppleGames.Common.GameControllers
             LightProbes.Tetrahedralize();
         
             Debug.Log("All Scenes Activated!");
+            _sceneLoaderCamera.gameObject.SetActive(false);
             loadingUiCanvas.gameObject.SetActive(false);
             _isLoading = false;
             

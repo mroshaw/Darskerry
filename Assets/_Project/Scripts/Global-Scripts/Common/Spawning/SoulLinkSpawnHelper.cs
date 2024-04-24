@@ -9,14 +9,14 @@ namespace DaftAppleGames.Common.Spawning
     public class SoulLinkSpawnHelper : MonoBehaviour
     {
 
-        private SoulLinkSpawner spawner;
+        private SoulLinkSpawner _spawner;
 
         /// <summary>
         /// Init Soul Link spawner
         /// </summary>
         private void Start()
         {
-            spawner = GetComponent<SoulLinkSpawner>();
+            _spawner = GetComponent<SoulLinkSpawner>();
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace DaftAppleGames.Common.Spawning
         /// <param name="playerGameObject"></param>
         public void SetPlayer(GameObject playerGameObject)
         {
-            spawner.PlayerTransform = playerGameObject.transform;
+            SoulLinkSpawner.Instance.RegisterPlayer(playerGameObject.transform);
         }
 
     }
