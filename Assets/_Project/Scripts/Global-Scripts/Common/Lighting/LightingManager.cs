@@ -30,6 +30,7 @@ namespace DaftAppleGames.Common.Lighting
         /// <summary>
         /// Updates the list of building lights. Should be called when all scenes are loaded
         /// </summary>
+        [Button("Refresh Now")]
         public void InitBuildingLightList()
         {
             // Init the list of BuildingLightControllers
@@ -44,6 +45,28 @@ namespace DaftAppleGames.Common.Lighting
             foreach (BuildingLights buildingLightController in _buildingLightControllers)
             {
                 buildingLightController.RefreshInteriorProbes();
+            }
+        }
+
+        /// <summary>
+        /// Turn on all building lights. Can be called from an Event Handler
+        /// </summary>
+        public void TurnOnAllLights()
+        {
+            foreach (BuildingLights buildingLightController in _buildingLightControllers)
+            {
+                buildingLightController.TurnOnAllLights();
+            }
+        }
+
+        /// <summary>
+        /// Turn off all building lights. Can be called from an Event Handler
+        /// </summary>
+        public void TurnOffAllLights()
+        {
+            foreach (BuildingLights buildingLightController in _buildingLightControllers)
+            {
+                buildingLightController.TurnOffAllLights();
             }
         }
     }

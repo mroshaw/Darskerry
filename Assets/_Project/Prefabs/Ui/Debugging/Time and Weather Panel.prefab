@@ -634,7 +634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1394021263309537917
 RectTransform:
   m_ObjectHideFlags: 0
@@ -650,9 +650,9 @@ RectTransform:
   - {fileID: 732136620889200582}
   m_Father: {fileID: 4569308199322559798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -85.78571}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4811674993095842106
@@ -2926,12 +2926,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f041eeec2c9a0f44b33780f63ef596d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelHeadingText: Time / Weather
-  panelHeading: {fileID: 3856642720252036482}
+  debugManagerUi: {fileID: 0}
   timePresetDropdown: {fileID: 944200547555568913}
   weatherPresetDropdown: {fileID: 1451640096636359219}
-  timeTransitionDurationText: {fileID: 6012197762174754588}
-  weatherTransitionDurationText: {fileID: 3043802117469651612}
   debugTimeAndWeatherObjectName: Time And Weather Debug
 --- !u!1 &6953435459450816368
 GameObject:
@@ -3920,7 +3917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2774887105416365700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3936,9 +3933,9 @@ RectTransform:
   - {fileID: 7868309061030194943}
   m_Father: {fileID: 4569308199322559798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -191.96428}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7997489723664709594

@@ -522,12 +522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugToggleModifierKey: 306
   debugToggleKey: 100
-  pausePlayer: 1
+  showOnStart: 0
   debugCanvas: {fileID: 708586485}
-  controlPanel: {fileID: 239178395}
-  mainPanel: {fileID: 811208248}
-  transparencySlider: {fileID: 358389027}
-  defaultTransparency: 1
   debuggerLogText: {fileID: 997704579}
   logShowDuration: 3
   logFadeDuration: 5
@@ -2079,6 +2075,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8227074977567884220, guid: fdc1a736a5087934d8cbbcb64cd2a0d6,
+        type: 3}
+      propertyPath: debugManagerUi
+      value: 
+      objectReference: {fileID: 355764527}
     - target: {fileID: 8254369157588461519, guid: fdc1a736a5087934d8cbbcb64cd2a0d6,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2348,6 +2349,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819326347538145478, guid: b0241d038af234148b3d2ebcbbe48804,
+        type: 3}
+      propertyPath: debugManagerUi
+      value: 
+      objectReference: {fileID: 355764527}
     - target: {fileID: 7819326347538145478, guid: b0241d038af234148b3d2ebcbbe48804,
         type: 3}
       propertyPath: panelHeadingText
@@ -2938,6 +2944,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128377225943044469, guid: e326a4e3546c8014580a89719fa088a9,
         type: 3}
+      propertyPath: debugManagerUi
+      value: 
+      objectReference: {fileID: 355764527}
+    - target: {fileID: 5128377225943044469, guid: e326a4e3546c8014580a89719fa088a9,
+        type: 3}
       propertyPath: debugTimeAndWeatherObjectName
       value: Time and Weather Debug
       objectReference: {fileID: 0}
@@ -3005,6 +3016,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 811208249}
     m_Modifications:
+    - target: {fileID: 751535841518904583, guid: 84d04cfea9b96ba43ad880d82f456c67,
+        type: 3}
+      propertyPath: debugManagerUi
+      value: 
+      objectReference: {fileID: 355764527}
     - target: {fileID: 751535841518904583, guid: 84d04cfea9b96ba43ad880d82f456c67,
         type: 3}
       propertyPath: debugTeleporter
