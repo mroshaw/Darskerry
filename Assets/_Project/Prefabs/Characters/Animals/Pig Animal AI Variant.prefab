@@ -1703,6 +1703,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3135191233537119014, guid: 7cf4ac099b32aa04e959a28bcb877554,
+        type: 3}
+      propertyPath: sharedBehaviourTree
+      value: 
+      objectReference: {fileID: 11400000, guid: b93de96a114a7984ab1f3430dbbde136,
+        type: 2}
     - target: {fileID: 3889167046818676404, guid: 7cf4ac099b32aa04e959a28bcb877554,
         type: 3}
       propertyPath: skeleton
@@ -1740,6 +1746,12 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f9026c644414a0647a0f6517fe272804, type: 2}
+    - target: {fileID: 5977819292473437346, guid: 7cf4ac099b32aa04e959a28bcb877554,
+        type: 3}
+      propertyPath: key
+      value: 
+      objectReference: {fileID: 8112509940290662776, guid: eb3a5b86e1d5e484495f19d780d7adae,
+        type: 2}
     - target: {fileID: 6197498401249266251, guid: 7cf4ac099b32aa04e959a28bcb877554,
         type: 3}
       propertyPath: RootBone
@@ -1805,7 +1817,8 @@ PrefabInstance:
       propertyPath: Eyes
       value: 
       objectReference: {fileID: 171228633774432200}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects:
     - {fileID: 1799414099454102507, guid: 7cf4ac099b32aa04e959a28bcb877554, type: 3}
     m_AddedGameObjects:

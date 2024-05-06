@@ -21188,7 +21188,7 @@ MonoBehaviour:
       Variable: {fileID: 0}
     position:
       UseConstant: 1
-      ConstantValue: 0
+      ConstantValue: 4.908939
       Variable: {fileID: 0}
     lerpPosition:
       UseConstant: 1
@@ -21212,7 +21212,7 @@ MonoBehaviour:
       Variable: {fileID: 0}
     lerpAnimator:
       UseConstant: 1
-      ConstantValue: 4
+      ConstantValue: 5
       Variable: {fileID: 0}
     strafeSpeed:
       UseConstant: 1
@@ -22299,8 +22299,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1911603482147743368}
   - component: {fileID: 3262262406109385823}
-  - component: {fileID: 7596951226074695136}
   - component: {fileID: 4968543931547325580}
+  - component: {fileID: 3135191233537119014}
+  - component: {fileID: 6627428162809722000}
+  - component: {fileID: 5977819292473437346}
+  - component: {fileID: 1091028006366527791}
   m_Layer: 20
   m_Name: AI
   m_TagString: Untagged
@@ -22376,43 +22379,6 @@ MonoBehaviour:
       m_Calls: []
   AgentTransform: {fileID: 1911603482147743368}
   Editor_Tabs1: 0
---- !u!114 &7596951226074695136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8259304694060222953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c8f4f5fdbe96840982ce61b3fbc8fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Eyes: {fileID: 0}
-  TransitionCoolDown:
-    UseConstant: 1
-    ConstantValue: 0.2
-    Variable: {fileID: 0}
-  currentState: {fileID: 11400000, guid: 90d83ca78741d5d40a2456a15c07a08f, type: 2}
-  DisableAIOnDeath: 1
-  debug: 0
-  debugAIStates: 0
-  OnTaskStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTaskDone:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDecisionSucceeded:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAIStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  TasksVars: []
-  DecisionsVars: []
-  DecisionsTime: []
-  Editor_Tabs1: 0
 --- !u!195 &4968543931547325580
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -22435,6 +22401,95 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 2
+--- !u!114 &3135191233537119014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259304694060222953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581266756febbf447a9cc1da85c40584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedBehaviourTree: {fileID: 11400000, guid: 450e18de82935924a86dce33430df569,
+    type: 2}
+--- !u!114 &6627428162809722000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259304694060222953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d86e61161b12b408d5c5417b210d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  startColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &5977819292473437346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259304694060222953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cf82f4fb573464c85752f0af3df097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replaceable: 0
+  configs:
+  - rid: 3891334527058444293
+  key: {fileID: 8112509940290662776, guid: b2f63cd1cea26df42afcdc12a8821439, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3891334527058444293
+      type: {class: AIPerceptionSightConfig, ns: RenownedGames.AITree.PerceptionSystem,
+        asm: AITree.PerceptionSystem}
+      data:
+        heightOffset: 1.635
+        fov: 90
+        range: {x: 2, y: 10}
+        maxQuery: 10
+        cullingLayer:
+          serializedVersion: 2
+          m_Bits: 768
+        obstacleLayer:
+          serializedVersion: 2
+          m_Bits: 133169161
+--- !u!114 &1091028006366527791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259304694060222953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee2100ab7654d34fbb2c0e87f7b439a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionCoolDown:
+    UseConstant: 1
+    ConstantValue: 0.2
+    Variable: {fileID: 0}
+  disableAIOnDeath: 1
+  debug: 0
+  tasksVars:
+    intValue: 0
+    floatValue: 0
+    boolValue: 0
+    vector3: {x: 0, y: 0, z: 0}
+    Components: []
+    mono: {fileID: 0}
+    gameobjects: []
+  DecisionsTime: []
 --- !u!1 &8422271196213379014
 GameObject:
   m_ObjectHideFlags: 0
