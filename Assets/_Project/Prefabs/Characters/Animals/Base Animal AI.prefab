@@ -22445,7 +22445,8 @@ MonoBehaviour:
   replaceable: 0
   configs:
   - rid: 3891334527058444293
-  key: {fileID: 8112509940290662776, guid: b2f63cd1cea26df42afcdc12a8821439, type: 2}
+  - rid: 3891334550559653889
+  key: {fileID: 8112509940290662776, guid: fecdc7445d6f7664fa41abd21912da6b, type: 2}
   references:
     version: 2
     RefIds:
@@ -22463,6 +22464,19 @@ MonoBehaviour:
         obstacleLayer:
           serializedVersion: 2
           m_Bits: 133169161
+    - rid: 3891334550559653889
+      type: {class: AIPerceptionHearingConfig, ns: RenownedGames.AITree.PerceptionSystem,
+        asm: AITree.PerceptionSystem}
+      data:
+        range: 10
+        noiseThreshold: 5
+        maxQuery: 10
+        cullingLayer:
+          serializedVersion: 2
+          m_Bits: 768
+        obstacleLayer:
+          serializedVersion: 2
+          m_Bits: 0
 --- !u!114 &1091028006366527791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22475,21 +22489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee2100ab7654d34fbb2c0e87f7b439a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionCoolDown:
-    UseConstant: 1
-    ConstantValue: 0.2
-    Variable: {fileID: 0}
   disableAIOnDeath: 1
-  debug: 0
-  tasksVars:
-    intValue: 0
-    floatValue: 0
-    boolValue: 0
-    vector3: {x: 0, y: 0, z: 0}
-    Components: []
-    mono: {fileID: 0}
-    gameobjects: []
-  DecisionsTime: []
 --- !u!1 &8422271196213379014
 GameObject:
   m_ObjectHideFlags: 0

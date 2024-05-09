@@ -21570,6 +21570,9 @@ MonoBehaviour:
     OnElementDamage:
       m_PersistentCalls:
         m_Calls: []
+    OnStatEmpty:
+      m_PersistentCalls:
+        m_Calls: []
   elements: []
   profiles: []
   Editor_Tabs1: 0
@@ -22168,8 +22171,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1911603482147743368}
   - component: {fileID: 3262262406109385823}
-  - component: {fileID: 7596951226074695136}
   - component: {fileID: 4968543931547325580}
+  - component: {fileID: 8884146294962679719}
+  - component: {fileID: 6949987862491290158}
+  - component: {fileID: 4965554780907162030}
   m_Layer: 20
   m_Name: AI
   m_TagString: Untagged
@@ -22216,6 +22221,7 @@ MonoBehaviour:
   UpdateAI: 0.2
   stoppingDistance: 0.6
   PointStoppingDistance: 0.6
+  additiveStopDistance: 0
   slowingDistance: 1
   UseScale: 1
   targetHeight: 5
@@ -22244,43 +22250,6 @@ MonoBehaviour:
       m_Calls: []
   AgentTransform: {fileID: 1911603482147743368}
   Editor_Tabs1: 0
---- !u!114 &7596951226074695136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8259304694060222953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c8f4f5fdbe96840982ce61b3fbc8fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Eyes: {fileID: 0}
-  TransitionCoolDown:
-    UseConstant: 1
-    ConstantValue: 0.2
-    Variable: {fileID: 0}
-  currentState: {fileID: 11400000, guid: 7f622ad6d623c6a4fb734d5a440a9d76, type: 2}
-  DisableAIOnDeath: 1
-  debug: 0
-  debugAIStates: 0
-  OnTaskStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTaskDone:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDecisionSucceeded:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAIStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  TasksVars: []
-  DecisionsVars: []
-  DecisionsTime: []
-  Editor_Tabs1: 0
 --- !u!195 &4968543931547325580
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -22303,6 +22272,68 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 2
+--- !u!114 &8884146294962679719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259304694060222953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581266756febbf447a9cc1da85c40584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedBehaviourTree: {fileID: 11400000, guid: f2c2ee14552eac243bb22a144d765660,
+    type: 2}
+--- !u!114 &6949987862491290158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259304694060222953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d86e61161b12b408d5c5417b210d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  startColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &4965554780907162030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259304694060222953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cf82f4fb573464c85752f0af3df097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replaceable: 0
+  configs:
+  - rid: 3891334550559653888
+  key: {fileID: 8112509940290662776, guid: fecdc7445d6f7664fa41abd21912da6b, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3891334550559653888
+      type: {class: AIPerceptionSightConfig, ns: RenownedGames.AITree.PerceptionSystem,
+        asm: AITree.PerceptionSystem}
+      data:
+        heightOffset: 1.635
+        fov: 90
+        range: {x: 2, y: 10}
+        maxQuery: 10
+        cullingLayer:
+          serializedVersion: 2
+          m_Bits: 1280
+        obstacleLayer:
+          serializedVersion: 2
+          m_Bits: 133169161
 --- !u!1 &8422271196213379014
 GameObject:
   m_ObjectHideFlags: 0

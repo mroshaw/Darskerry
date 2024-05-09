@@ -1,4 +1,5 @@
 using RenownedGames.AITree;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Malbers.Integration.AITree.Core.Decisions
@@ -7,11 +8,10 @@ namespace Malbers.Integration.AITree.Core.Decisions
     /// AI Tree decision that returns true if the AI Animal has arrived at its target destination and false if it
     /// has not.
     /// </summary>
-    [NodeContent("Arrive Decision", "Animal Controller/Arrive Decision", IconPath = "Icons/AIDecision_Icon.png")]
+    [NodeContent("Arrive Decision", "Animal Controller/Movement/Arrive Decision", IconPath = "Icons/AIDecision_Icon.png")]
     public class MArriveDecision : MDecisionNode
     {
-        [Header("Node")]
-        [Tooltip("(OPTIONAL)Use this if you want to know if we have arrived to a specific Target")]
+        [BoxGroup("Node")] [Tooltip("(OPTIONAL) Use this if you want to know if we have arrived to a specific Target")]
         public string targetName = string.Empty;
 
         private bool _hasArrived;
@@ -26,7 +26,7 @@ namespace Malbers.Integration.AITree.Core.Decisions
         {
             _remainingDistance = AIBrain.AIControl.RemainingDistance;
             _hasArrived = string.IsNullOrEmpty(targetName) ? AIBrain.AIControl.HasArrived :
-                AIBrain.AIControl.HasArrived && (AIBrain.Target.name == targetName || AIBrain.Target.root.name == targetName);
+                AIBrain.AIControl.HasArrived && (AIBrain.AIControl.Target.name == targetName || AIBrain.AIControl.Target.root.name == targetName);
             return _hasArrived;
         }
 

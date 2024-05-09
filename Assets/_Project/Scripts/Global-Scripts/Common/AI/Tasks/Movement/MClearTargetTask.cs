@@ -2,7 +2,7 @@ using RenownedGames.AITree;
 
 namespace Malbers.Integration.AITree.Core.Tasks
 {
-    [NodeContent("Clear Target", "Animal Controller/Clear Target", IconPath = "Icons/AnimalAI_Icon.png")]
+    [NodeContent("Clear Target", "Animal Controller/Movement/Clear Target", IconPath = "Icons/AnimalAI_Icon.png")]
     public class MClearTargetTask : MTaskNode
     {
         /// <summary>

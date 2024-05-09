@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Malbers.Integration.AITree.Core.Tasks
 {
-    [NodeContent("Flee From Target", "Animal Controller/Flee From Target", IconPath = "Icons/AnimalAI_Icon.png")]
+    [NodeContent("Flee From Target", "Animal Controller/Movement/Flee From Target", IconPath = "Icons/AnimalAI_Icon.png")]
     public class MFleeFromTargetTask : MTaskNode
     {
         [Tooltip("Distance to flee from the target")]
@@ -16,7 +16,7 @@ namespace Malbers.Integration.AITree.Core.Tasks
             base.OnEntry();
 
             // Get the direction
-            Vector3 direction = (GetOwner().transform.position - AIBrain.Target.position);
+            Vector3 direction = (GetOwner().transform.position - AIBrain.AIControl.Target.position);
             direction.Normalize();
             Vector3 fleePosition = GetOwner().transform.position + (direction * fleeDistance);
 

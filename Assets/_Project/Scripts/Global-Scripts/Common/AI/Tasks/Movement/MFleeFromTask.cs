@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Malbers.Integration.AITree.Core.Tasks
 {
-    [NodeContent("Flee From", "Animal Controller/Flee From", IconPath = "Icons/AnimalAI_Icon.png")]
+    [NodeContent("Flee From", "Animal Controller/Movement/Flee From", IconPath = "Icons/AnimalAI_Icon.png")]
     public class MFleeFromTask : MTaskNode
     {
         [RequiredField] public TransformKey fleeTargetKey;
         [Tooltip("Distance to flee from the target")]
         public float fleeDistance;
-        private bool _taskDone;
+        private bool _isMoving;
 
         protected override void OnEntry()
         {
@@ -24,24 +24,37 @@ namespace Malbers.Integration.AITree.Core.Tasks
             Debug.Log($"Fleeing to: {fleePosition.x}, {fleePosition.y}, {fleePosition.z}");
 
             AIBrain.AIControl.SetDestination(fleePosition, true);
-            _taskDone = true;
+            _isMoving = true;
         }
 
+        /// <summary>
+        /// Wait for the Animal to start moving, then check each frame until the AI Control
+        /// reports that the Animal has reached it's destination.
+        /// </summary>
+        /// <returns></returns>
         protected override State OnUpdate()
         {
-            if (!_taskDone || !AIBrain.AIControl.HasArrived)
+            if (_isMoving && AIBrain.AIControl.HasArrived)
             {
-                return State.Running;
+                return State.Success;
             }
-            return State.Success;
+            return State.Running;
         }
 
+        /// <summary>
+        /// Clear the AI Target and set IsMoving to false
+        /// </summary>
         protected override void OnExit()
         {
             base.OnExit();
             AIBrain.AIControl.ClearTarget();
+            _isMoving = false;
         }
 
+        /// <summary>
+        /// Return a description to display in the AI Tree UI when the task is run
+        /// </summary>
+        /// <returns></returns>
         public override string GetDescription()
         {
             string description = base.GetDescription();

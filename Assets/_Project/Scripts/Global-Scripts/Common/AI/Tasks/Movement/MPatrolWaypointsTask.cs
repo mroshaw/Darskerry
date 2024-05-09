@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace Malbers.Integration.AITree.Core.Tasks
 {
-    [NodeContent("Set Target", "Animal Controller/Movement/Set Target", IconPath = "Icons/AnimalAI_Icon.png")]
-    public class MSetTargetNode : MTaskNode
+    [NodeContent("Patrol Waypoints", "Animal Controller/Movement/Patrol Waypoints", IconPath = "Icons/AnimalAI_Icon.png")]
+    public class MPatrolWaypointsTask : MTaskNode
     {
         [Space]
         public TaskTargetType targetType = TaskTargetType.TransformKey;
@@ -22,40 +22,35 @@ namespace Malbers.Integration.AITree.Core.Tasks
         [ShowIf("targetType",TaskTargetType.RuntimeGameObjects)] public StringReference rtStringRef = new();
 
         private string _description;
+        private bool _isMoveStarted;
 
-        [Tooltip("Animal should move to that target")]
-        public bool moveToTarget = true;
-
-        private bool _taskDone;
+        private Transform _firstWaypoint;
 
         protected override void OnEntry()
         {
             base.OnEntry();
 
-            if (moveToTarget)
+            AIBrain.AIControl.UpdateDestinationPosition = true;
+
+            // Stop if the animal is already moving
+            if (AIBrain.AIControl.IsMoving)
             {
-                AIBrain.AIControl.UpdateDestinationPosition = true;          //Check if the target has moved
+                AIBrain.AIControl.Stop();
             }
-            else
-            {
-                // Stop if the animal is already moving
-                if (AIBrain.AIControl.IsMoving)
-                {
-                    AIBrain.AIControl.Stop();
-                }
-            }
+
+            Transform targetTransform;
 
             if (targetType == TaskTargetType.RuntimeGameObjects)
             {
-                AIBrain.AIControl.SetTarget(
-                    GetRuntimeGameObject(targetRuntimeGameObject, runTimeSetType, rtIntRef, rtStringRef, out _description).transform, moveToTarget);
+                targetTransform = GetRuntimeGameObject(targetRuntimeGameObject, runTimeSetType, rtIntRef, rtStringRef, out _description).transform;
             }
             else
             {
-                AIBrain.AIControl.SetTarget(GetTargetTransform(targetType, targetTransformVar,
-                    targetTransformKey, targetGameObjectVar, targetGameObjectName, out _description), moveToTarget);
+                targetTransform = GetTargetTransform(targetType, targetTransformVar, targetTransformKey, targetGameObjectVar, targetGameObjectName, out _description);
             }
-            _taskDone = true;
+            AIBrain.AIControl.SetTarget(targetTransform, true);
+            _firstWaypoint = targetTransform;
+            _isMoveStarted = true;
         }
 
         /// <summary>
@@ -64,10 +59,20 @@ namespace Malbers.Integration.AITree.Core.Tasks
         /// <returns></returns>
         protected override State OnUpdate()
         {
-            if (!_taskDone || !AIBrain.AIControl.HasArrived)
+            // If we've not yet started moving, or we're moving and not arrived, or we still have waypoints to go,
+            // we're still running the task
+            if (!_isMoveStarted || !AIBrain.AIControl.HasArrived || AIBrain.AIControl.NextTarget)
             {
                 return State.Running;
             }
+
+            // If we're at the end of our patrol and bool is set, restart the patrol
+            if (!AIBrain.AIControl.NextTarget && AIBrain.isLoopPatrol)
+            {
+                AIBrain.AIControl.SetTarget(_firstWaypoint, true);
+                return State.Running;
+            }
+
             return State.Success;
         }
 
@@ -77,10 +82,7 @@ namespace Malbers.Integration.AITree.Core.Tasks
         protected override void OnExit()
         {
             base.OnExit();
-            if (!moveToTarget)
-            {
-                AIBrain.AIControl.Stop();
-            }
+            AIBrain.AIControl.Stop();
         }
 
         /// <summary>

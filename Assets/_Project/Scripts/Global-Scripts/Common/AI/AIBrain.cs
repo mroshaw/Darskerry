@@ -1,10 +1,10 @@
 using MalbersAnimations;
 using MalbersAnimations.Controller;
-using MalbersAnimations.Controller.AI;
-using MalbersAnimations.Scriptables;
 using RenownedGames.AITree;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 namespace Malbers.Integration.AITree.Core
 {
@@ -13,114 +13,80 @@ namespace Malbers.Integration.AITree.Core
 
     public class AIBrain : MonoBehaviour, IAnimatorListener
     {
+        private const string MoveTargetBlackboardKeyName = "MoveTarget";
+        private const string FreeToWanderKeyName = "FreeToWander";
+        private const string LoopPatrolKeyName = "LoopPatrol";
+        private const string PatrolTransformBlackboardKeyName = "PatrolTransform";
+
+        [BoxGroup("Movement")] public Transform defaultPatrolTransform;
+        [BoxGroup("Movement")] public bool isFreeToWander = false;
+        [BoxGroup("Movement")] public bool isLoopPatrol = true;
+
+        [BoxGroup("Other Settings")] [Tooltip("Removes all AI Components when the Animal Dies. (Brain, AiControl, Agent)")]
+        bool disableAIOnDeath = true;
+
         /// <summary>
-        /// Reference for the Ai Control Movement
+        /// AI Control is used to direct the AI and integrate with the NavMesh
         /// </summary>
-        public IAIControl AIControl { get; set; }
+        public IAIControl AIControl { get; private set; }
 
-        // Time needed to make a new transition. Necesary to avoid Changing to multiple States in the same frame
-        public FloatReference transitionCoolDown = new FloatReference(0.2f);
-
-        [Tooltip("Removes all AI Components when the Animal Dies. (Brain, AiControl, Agent)")]
-        public bool disableAIOnDeath = true;
-        public bool debug = false;       
-
-        // Last Time the Animal  started a transition
-        public float StateLastTime { get; set; }
-
-        // Tasks Local Vars (1 Int,1 Bool,1 Float)
-        public BrainVars tasksVars;
-        // Saves on the a Task that it has finish is stuff
-        internal bool TasksDone;
-
-        /// <summary>Reference for the Animal</summary>
+        /// <summary>
+        /// MAnimal is used to change state, change speed groups, etc.
+        /// </summary>
         public MAnimal Animal { get; private set; }
 
-        /// <summary>Reference for the AnimalStats</summary>
-        public Dictionary<int, Stat> AnimalStats { get; private set; }
+        /// <summary>
+        /// Animal Stats, to be exposed via the Blackboard
+        /// </summary>
+        public Stats AnimalStats { get; private set; }
 
-        #region Target References
-        // Reference for the Current Target the Animal is using
-        public Transform Target { get; private set; }
-
-        // Reference for the Target the Animal Component
-        public MAnimal TargetAnimal { get; private set; }
-
-        // Current Animal AI position
-        public Vector3 Position => AIControl.Transform.position;
-
-        // Current Animal AI height
-        public float AIHeight => Animal.transform.lossyScale.y * AIControl.StoppingDistance;
-
-        // True if the Current Target has Stats
-        public bool TargetHasStats { get; private set; }
-
-        // Reference for the Target the Stats Component
-        public Dictionary<int, Stat> TargetStats { get; private set; }
-        #endregion
-
-        // Reference for the Last WayPoint the Animal used
-        public IWayPoint LastWayPoint { get; set; }
-
-        // Time Elapsed for the State Decisions
-        [HideInInspector] public float[] DecisionsTime;// { get; set; }
-        BehaviourRunner behaviourRunner;
-
-        #region Unity Callbakcs
+        // Saves on the a Task that it has finish is stuff
+        internal bool TasksDone;
+        private BehaviourRunner _behaviourRunner;
+        private Blackboard _blackboard;
 
         /// <summary>
         /// Find the Malbers AI components and set up the AI Brain properties
         /// </summary>
         private void Awake()
         {
-            if (Animal == null)
-            {
-                Animal = gameObject.FindComponent<MAnimal>();
-            }
-            behaviourRunner = GetComponent<BehaviourRunner>();
-            AIControl ??= gameObject.FindInterface<IAIControl>();
+            // Get references to key Malbers components
+            Animal = gameObject.FindComponent<MAnimal>();
+            AIControl = gameObject.FindInterface<IAIControl>();
+            AnimalStats = Animal.FindComponent<Stats>();
 
-            Stats animalStatscomponent = Animal.FindComponent<Stats>();
-            if (animalStatscomponent)
+            // Get a reference to the AI Tree runner and Blackboard, so we can sync and manage Malbers
+            // specific keys and values
+            _behaviourRunner = GetComponent<BehaviourRunner>();
+            _blackboard = _behaviourRunner.GetBlackboard();
+
+            // If a default target is set, update the blackboard
+            if (defaultPatrolTransform)
             {
-                AnimalStats = animalStatscomponent.Stats_Dictionary();
+                SetBlackboardKey(PatrolTransformBlackboardKeyName, defaultPatrolTransform);
             }
 
-            Animal.isPlayer.Value = false; //If is using a brain... disable that he is the main player
+            SetBlackboardKey(FreeToWanderKeyName, isFreeToWander);
+            SetBlackboardKey(LoopPatrolKeyName, isLoopPatrol);
         }
 
         /// <summary>
-        /// Add Event listeners
+        /// Add Event listeners to the Malbers animal.
+        /// OnStateChange - capture the "Death" state, so we can update and disable the AI Tree components.
         /// </summary>
         public void OnEnable()
         {
-            AIControl.TargetSet.AddListener(OnTargetSet);
             Animal.OnStateChange.AddListener(OnAnimalStateChange);
         }
 
         /// <summary>
-        /// Remove Event Listeners
+        /// Remove Event Listeners and stop the AI
         /// </summary>
         public void OnDisable()
         {
-            AIControl.TargetSet.RemoveListener(OnTargetSet);
             Animal.OnStateChange.RemoveListener(OnAnimalStateChange);
             AIControl.Stop();
             StopAllCoroutines();                      
-        }
-        #endregion
-
-        /// <summary>
-        /// Writes a line to the console
-        /// </summary>
-        /// <param name="log"></param>
-        /// <param name="val"></param>
-        protected virtual void Debugging(string log, UnityEngine.Object val)
-        {
-            if (debug)
-            {
-                Debug.Log($"<B><color=green>[{Animal.name}]</color> - </B> " + log, val);
-            }
         }
 
         /// <summary>
@@ -131,18 +97,16 @@ namespace Malbers.Integration.AITree.Core
         /// <returns></returns>
         public virtual bool OnAnimatorBehaviourMessage(string message, object value) => this.InvokeWithParams(message, value);
 
-        #region SelfAnimal Event Listeners
-
         /// <summary>
         /// Handle OnAnimalStateChange event from the Animal AI.
         /// </summary>
         /// <param name="state"></param>
         private void OnAnimalStateChange(int state)
         {
-            if (state == StateEnum.Death) //meaning this animal has died
+            if (state == StateEnum.Death)
             {
                 StopAllCoroutines();
-                behaviourRunner.SetEnable(false);
+                _behaviourRunner.SetEnable(false);
                 AIControl.ClearTarget();
                 
                 enabled = false;
@@ -154,41 +118,57 @@ namespace Malbers.Integration.AITree.Core
                 }
             }
         }
-        #endregion
 
-        /// <summary>
-        /// Stores if the Current Target is an Animal and if it has the Stats component
-        /// </summary>
-        /// <param name="target"></param>
-        private void OnTargetSet(Transform target)
+        private void SetBlackboardKey(string keyName, Transform keyValue)
         {
-            Target = target;
-            if (target)
+            if (_blackboard.TryGetKey(keyName, out TransformKey transformKey))
             {
-
-                TargetAnimal = target.FindComponent<MAnimal>();// ?? target.GetComponentInChildren<MAnimal>();
-                TargetStats = null;
-                Stats targetStats = target.FindComponent<Stats>();// ?? target.GetComponentInChildren<Stats>();
-
-                TargetHasStats = targetStats != null;
-                if (TargetHasStats)
-                {
-                    TargetStats = targetStats.Stats_Dictionary();
-                }
+                transformKey.SetValue(keyValue);
             }
         }
 
-        /// <summary>
-        /// Sets the last waypoint to the given transform
-        /// </summary>
-        /// <param name="target"></param>
-        public void SetLastWayPoint(Transform target)
+        private void SetBlackboardKey(string keyName, bool keyValue)
         {
-            IWayPoint newLastWay = target.gameObject.FindInterface<IWayPoint>();
-            if (newLastWay != null)
+            if (_blackboard.TryGetKey(keyName, out BoolKey boolKey))
             {
-                LastWayPoint = target?.gameObject.FindInterface<IWayPoint>(); //If not is a waypoint save the last one
+                boolKey.SetValue(keyValue);
             }
+        }
+
+        private void SetBlackboardKey(string keyName, int keyValue)
+        {
+            if (_blackboard.TryGetKey(keyName, out IntKey intKey))
+            {
+                intKey.SetValue(keyValue);
+            }
+        }
+
+        private void SetBlackboardKey(string keyName, float keyValue)
+        {
+            if (_blackboard.TryGetKey(keyName, out FloatKey floatKey))
+            {
+                floatKey.SetValue(keyValue);
+            }
+        }
+
+        private Transform GetBlackboardTransformKey(string keyName)
+        {
+            return _blackboard.TryGetKey(keyName, out TransformKey transformKey) ? transformKey.GetValue() : null;
+        }
+
+        private bool GetBlackboardBoolKey(string keyName)
+        {
+            return _blackboard.TryGetKey(keyName, out BoolKey boolKey) && boolKey.GetValue();
+        }
+
+        private int GetBlackboardIntKey(string keyName)
+        {
+            return _blackboard.TryGetKey(keyName, out IntKey intKey) ? intKey.GetValue() : 0;
+        }
+
+        private float GetBlackboardFloatKey(string keyName)
+        {
+            return _blackboard.TryGetKey(keyName, out FloatKey floatKey) ? floatKey.GetValue() : 0.0f;
         }
     }
 }

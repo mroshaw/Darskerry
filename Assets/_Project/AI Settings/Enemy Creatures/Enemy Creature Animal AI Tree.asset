@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 1523, y: 343}
+  nodePosition: {x: 1527, y: 343}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -21,6 +21,27 @@ MonoBehaviour:
   ignoreAbortSelf: 0
   waitTime: {fileID: 4907223709154705703}
   randomDeviation: {fileID: 0}
+--- !u!114 &-3077581198136637761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282e7a00d0e085f43a93a75fecba6979, type: 3}
+  m_Name: Group
+  m_EditorClassIdentifier: 
+  position: {x: 1317.4287, y: 223.2291}
+  title: Wander
+  nodes:
+  - {fileID: 5965323894435822913}
+  - {fileID: 6624171619394926839}
+  - {fileID: 8729448964649226392}
+  - {fileID: -4065397211197732023}
+  - {fileID: 980336165023739906}
+  - {fileID: 8632891929327609254}
 --- !u!114 &-2750019407480386014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,7 +55,7 @@ MonoBehaviour:
   m_Name: MChangeSpeedNode
   m_EditorClassIdentifier: 
   nodeName: Running
-  nodePosition: {x: 420, y: 394}
+  nodePosition: {x: 428, y: 406}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -60,20 +81,20 @@ MonoBehaviour:
   m_Name: SetKeyTask
   m_EditorClassIdentifier: 
   nodeName: Is Not Fleeing
-  nodePosition: {x: 781, y: 394}
+  nodePosition: {x: 779, y: 406}
   breakpoint: 0
   arrangeable: 1
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  blackboardKey: {fileID: -88245533594211764, guid: b2f63cd1cea26df42afcdc12a8821439,
+  blackboardKey: {fileID: -88245533594211764, guid: fecdc7445d6f7664fa41abd21912da6b,
     type: 2}
   keyReceiver:
-    rid: 3891334436680630274
+    rid: 3891334529327038467
   references:
     version: 2
     RefIds:
-    - rid: 3891334436680630274
+    - rid: 3891334529327038467
       type: {class: BoolReceiver, ns: RenownedGames.AITree, asm: AITree}
       data:
         value: 0
@@ -90,7 +111,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 982, y: 0}
+  nodePosition: {x: 983, y: 0}
   breakpoint: 0
   arrangeable: 1
   child: {fileID: -779482260643670089}
@@ -107,7 +128,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 998, y: 107}
+  nodePosition: {x: 995, y: 107}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -125,9 +146,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f7a65a64ca895842abc0e2c774d054e, type: 3}
-  m_Name: Forest Animal AI Tree
+  m_Name: Enemy Creature Animal AI Tree
   m_EditorClassIdentifier: 
-  blackboard: {fileID: 11400000, guid: b2f63cd1cea26df42afcdc12a8821439, type: 2}
+  blackboard: {fileID: 11400000, guid: 327ac0f72839fe44e88f4743e83903d5, type: 2}
   updateMode: 0
   tickRate: 30
   rootNode: {fileID: -1906609909263560835}
@@ -148,9 +169,33 @@ MonoBehaviour:
   - {fileID: 2888901628761092120}
   - {fileID: -2548520708387834448}
   - {fileID: 980336165023739906}
-  groups: []
+  groups:
+  - {fileID: -3077581198136637761}
+  - {fileID: 721841826469939446}
   notes: []
-  selectedNode: {fileID: 6624171619394926839}
+  selectedNode: {fileID: 0}
+--- !u!114 &721841826469939446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282e7a00d0e085f43a93a75fecba6979, type: 3}
+  m_Name: Group
+  m_EditorClassIdentifier: 
+  position: {x: -18.697952, y: 450.34372}
+  title: Flee
+  nodes:
+  - {fileID: 1792658148987284952}
+  - {fileID: 2888901628761092120}
+  - {fileID: -2750019407480386014}
+  - {fileID: 6631628178290391864}
+  - {fileID: -2548520708387834448}
+  - {fileID: 6164431888767289721}
+  - {fileID: 7036152224229673711}
 --- !u!114 &980336165023739906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,13 +209,13 @@ MonoBehaviour:
   m_Name: RunEQSQueryTask
   m_EditorClassIdentifier: 
   nodeName: Find Position
-  nodePosition: {x: 1653, y: 343}
+  nodePosition: {x: 1657, y: 343}
   breakpoint: 0
   arrangeable: 1
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  key: {fileID: -6688291487054288347, guid: b2f63cd1cea26df42afcdc12a8821439, type: 2}
+  key: {fileID: -6688291487054288347, guid: fecdc7445d6f7664fa41abd21912da6b, type: 2}
   environmentQuery: {fileID: 11400000, guid: 46ef00c13225872469e99f9c6c19da76, type: 2}
   sampling: 0
 --- !u!114 &1792658148987284952
@@ -186,7 +231,7 @@ MonoBehaviour:
   m_Name: DetectionSignalTask
   m_EditorClassIdentifier: 
   nodeName: Detection Signal
-  nodePosition: {x: 0, y: 394}
+  nodePosition: {x: 0, y: 406}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -195,8 +240,7 @@ MonoBehaviour:
   signalType: 0
   detectionTime: 0.1
   lossTime: 1
-  lookTarget: {fileID: 8112509940290662776, guid: b2f63cd1cea26df42afcdc12a8821439,
-    type: 2}
+  lookTarget: {fileID: 0}
 --- !u!114 &2464298819506107901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,14 +259,14 @@ MonoBehaviour:
   arrangeable: 1
   child: {fileID: 0}
   notifyObserver: 1
-  observerAbort: 0
-  key: {fileID: 8112509940290662776, guid: b2f63cd1cea26df42afcdc12a8821439, type: 2}
+  observerAbort: 3
+  key: {fileID: 8112509940290662776, guid: fecdc7445d6f7664fa41abd21912da6b, type: 2}
   keyQuery:
-    rid: 3891334436680630272
+    rid: 3891334529327038465
   references:
     version: 2
     RefIds:
-    - rid: 3891334436680630272
+    - rid: 3891334529327038465
       type: {class: TransformQuery, ns: RenownedGames.AITree, asm: AITree}
       data:
         comparer: 0
@@ -239,20 +283,20 @@ MonoBehaviour:
   m_Name: SetKeyTask
   m_EditorClassIdentifier: 
   nodeName: Set Is Fleeing
-  nodePosition: {x: 222, y: 394}
+  nodePosition: {x: 222, y: 406}
   breakpoint: 0
   arrangeable: 1
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  blackboardKey: {fileID: -88245533594211764, guid: b2f63cd1cea26df42afcdc12a8821439,
+  blackboardKey: {fileID: -88245533594211764, guid: fecdc7445d6f7664fa41abd21912da6b,
     type: 2}
   keyReceiver:
-    rid: 3891334436680630273
+    rid: 3891334529327038466
   references:
     version: 2
     RefIds:
-    - rid: 3891334436680630273
+    - rid: 3891334529327038466
       type: {class: BoolReceiver, ns: RenownedGames.AITree, asm: AITree}
       data:
         value: 0
@@ -286,7 +330,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Wander
-  nodePosition: {x: 1555.5, y: 225}
+  nodePosition: {x: 1554.5, y: 225}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -310,7 +354,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 981, y: 394}
+  nodePosition: {x: 985, y: 406}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -331,7 +375,7 @@ MonoBehaviour:
   m_Name: DetectionSignalTask
   m_EditorClassIdentifier: 
   nodeName: Detection Signal
-  nodePosition: {x: 1111, y: 343}
+  nodePosition: {x: 1115, y: 343}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -354,13 +398,13 @@ MonoBehaviour:
   m_Name: MFleeFromTask
   m_EditorClassIdentifier: 
   nodeName: Flee From
-  nodePosition: {x: 610, y: 394}
+  nodePosition: {x: 618, y: 406}
   breakpoint: 0
   arrangeable: 1
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  fleeTargetKey: {fileID: 8112509940290662776, guid: b2f63cd1cea26df42afcdc12a8821439,
+  fleeTargetKey: {fileID: 8112509940290662776, guid: fecdc7445d6f7664fa41abd21912da6b,
     type: 2}
   fleeDistance: 15
 --- !u!114 &7036152224229673711
@@ -376,7 +420,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Sees player?
-  nodePosition: {x: 424.5, y: 225}
+  nodePosition: {x: 426.5, y: 225}
   breakpoint: 0
   arrangeable: 1
   decorators:
@@ -419,7 +463,7 @@ MonoBehaviour:
   m_Name: MSetDestinationNode
   m_EditorClassIdentifier: 
   nodeName: Set Destination
-  nodePosition: {x: 1942, y: 343}
+  nodePosition: {x: 1946, y: 343}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -430,7 +474,7 @@ MonoBehaviour:
   positionTransformVar: {fileID: 0}
   positionVector3Var: {fileID: 0}
   positionTransformKey: {fileID: 0}
-  positionVector3Key: {fileID: -6688291487054288347, guid: b2f63cd1cea26df42afcdc12a8821439,
+  positionVector3Key: {fileID: -6688291487054288347, guid: fecdc7445d6f7664fa41abd21912da6b,
     type: 2}
   positionGameObjectVar: {fileID: 0}
   positionGameObjectName: 
@@ -458,7 +502,7 @@ MonoBehaviour:
   m_Name: MChangeSpeedNode
   m_EditorClassIdentifier: 
   nodeName: Trotting
-  nodePosition: {x: 1333, y: 343}
+  nodePosition: {x: 1337, y: 343}
   breakpoint: 0
   arrangeable: 1
   decorators: []

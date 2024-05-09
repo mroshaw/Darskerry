@@ -6,7 +6,7 @@ using State = RenownedGames.AITree.State;
 
 namespace Malbers.Integration.AITree.Core.Tasks
 {
-    [NodeContent("Change Speed", "Animal Controller/Change Speed", IconPath = "Icons/AnimalAI_Icon.png")]
+    [NodeContent("Change Speed", "Animal Controller/Movement/Change Speed", IconPath = "Icons/AnimalAI_Icon.png")]
     public class MChangeSpeedNode : MTaskNode
     {
         [Header("Node")]
@@ -17,29 +17,57 @@ namespace Malbers.Integration.AITree.Core.Tasks
         public IntReference speedIndex = new(3);
         public bool matchTargetSpeed;
 
-        private MAnimal targetAnimal;
+        private MAnimal _targetAnimal;
 
+        /// <summary>
+        /// Identify the target animal component, if the target has one
+        /// Decide whether to match the speed, and set the appropriate self animal speed
+        /// </summary>
+        protected override void OnEntry()
+        {
+            base.OnEntry();
+            _targetAnimal = AIBrain.AIControl.Target.GetComponent<MAnimal>();
+        }
+
+        /// <summary>
+        /// Set the new speed on the first tick
+        /// </summary>
+        /// <returns></returns>
         protected override State OnUpdate()
         {
-            if (matchTargetSpeed)
+            if (matchTargetSpeed && _targetAnimal)
             {
-                AIBrain.Animal.SetSprint(targetAnimal.Sprint);
-                speedSet = targetAnimal.CurrentSpeedSet.name;
-                speedIndex = targetAnimal.CurrentSpeedIndex;
+                AIBrain.Animal.SetSprint(_targetAnimal.Sprint);
+                speedSet = _targetAnimal.CurrentSpeedSet.name;
+                speedIndex = _targetAnimal.CurrentSpeedIndex;
                 ChangeSpeed(AIBrain.Animal);
             }
             else
             {
                 switch (affect)
                 {
-                    case EffectedTarget.Self: ChangeSpeed(AIBrain.Animal); break;
-                    case EffectedTarget.Target: ChangeSpeed(AIBrain.TargetAnimal); break;
+                    case EffectedTarget.Self:
+                        ChangeSpeed(AIBrain.Animal);
+                        break;
+                    case EffectedTarget.Target:
+                        if (_targetAnimal)
+                        {
+                            ChangeSpeed(_targetAnimal);
+                        }
+                        break;
                 }
             }
             return State.Success;
         }
 
-        private void ChangeSpeed(MAnimal animal) => animal?.SpeedSet_Set_Active(speedSet, speedIndex);
+        /// <summary>
+        /// Sets the speed of the given AI Animal
+        /// </summary>
+        /// <param name="animal"></param>
+        private void ChangeSpeed(MAnimal animal)
+        {
+            animal?.SpeedSet_Set_Active(speedSet, speedIndex);
+        }
 
         /// <summary>
         /// Return the task description

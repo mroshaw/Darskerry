@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Malbers.Integration.AITree.Core.Tasks
 {
 
-    [NodeContent("Set Destination", "Animal Controller/Set Destination", IconPath = "Icons/AnimalAI_Icon.png")]
+    [NodeContent("Set Destination", "Animal Controller/Movement/Set Destination", IconPath = "Icons/AnimalAI_Icon.png")]
     public class MSetDestinationNode : MTaskNode
     {
 
@@ -32,7 +32,7 @@ namespace Malbers.Integration.AITree.Core.Tasks
         [Tooltip("When a new target is assigned it also sets that the Animal should move to that target")]
         public bool moveToTarget = true;
 
-        private string _description;
+        private string _description = "";
 
         /// <summary>
         /// Utility method to support showing properties based on the selected Position Type

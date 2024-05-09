@@ -13,15 +13,35 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 626.68585, y: 226.35388}
+  nodePosition: {x: 388, y: 225}
   breakpoint: 0
   arrangeable: 1
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  waitTime: {fileID: -8582695013746951353, guid: eb3a5b86e1d5e484495f19d780d7adae,
-    type: 2}
+  waitTime: {fileID: 0}
   randomDeviation: {fileID: 0}
+--- !u!114 &-1976752569244562247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282e7a00d0e085f43a93a75fecba6979, type: 3}
+  m_Name: Group
+  m_EditorClassIdentifier: 
+  position: {x: 388.28604, y: 425.58047}
+  title: Forage
+  nodes:
+  - {fileID: 5965323894435822913}
+  - {fileID: 8729448964649226392}
+  - {fileID: 4015905215799092209}
+  - {fileID: -4065397211197732023}
+  - {fileID: 3922753961155701186}
+  - {fileID: 8632891929327609254}
 --- !u!114 &-1906609909263560835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +55,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 428.5, y: 0}
+  nodePosition: {x: 384.5, y: 0}
   breakpoint: 0
   arrangeable: 1
   child: {fileID: 5965323894435822913}
@@ -63,7 +83,8 @@ MonoBehaviour:
   - {fileID: 8729448964649226392}
   - {fileID: 3922753961155701186}
   - {fileID: 4015905215799092209}
-  groups: []
+  groups:
+  - {fileID: -1976752569244562247}
   notes: []
   selectedNode: {fileID: 8632891929327609254}
 --- !u!114 &32369726229175595
@@ -113,14 +134,14 @@ MonoBehaviour:
   m_Name: RandomPositionTask
   m_EditorClassIdentifier: 
   nodeName: Random Position
-  nodePosition: {x: 765.54675, y: 222.833}
+  nodePosition: {x: 518, y: 225}
   breakpoint: 0
   arrangeable: 1
   decorators: []
   services: []
   ignoreAbortSelf: 0
-  key: {fileID: -6688291487054288347, guid: eb3a5b86e1d5e484495f19d780d7adae, type: 2}
-  origin: {fileID: 8377885326777477815, guid: eb3a5b86e1d5e484495f19d780d7adae, type: 2}
+  key: {fileID: -6688291487054288347, guid: fecdc7445d6f7664fa41abd21912da6b, type: 2}
+  origin: {fileID: 0}
   radius: {fileID: 2309065324757517449}
 --- !u!114 &4015905215799092209
 MonoBehaviour:
@@ -135,7 +156,7 @@ MonoBehaviour:
   m_Name: RandomFloatTask
   m_EditorClassIdentifier: 
   nodeName: Random Wait
-  nodePosition: {x: 414.12125, y: 225.9165}
+  nodePosition: {x: 190, y: 225}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -143,8 +164,7 @@ MonoBehaviour:
   ignoreAbortSelf: 0
   min: {fileID: 8257342547423149349}
   max: {fileID: 32369726229175595}
-  storeResult: {fileID: -8582695013746951353, guid: eb3a5b86e1d5e484495f19d780d7adae,
-    type: 2}
+  storeResult: {fileID: 0}
 --- !u!114 &5965323894435822913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +178,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Forage
-  nodePosition: {x: 497.79324, y: 73.54074}
+  nodePosition: {x: 398.5, y: 107}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -199,7 +219,7 @@ MonoBehaviour:
   m_Name: MSetDestinationNode
   m_EditorClassIdentifier: 
   nodeName: Set Destination
-  nodePosition: {x: 993.7654, y: 229.833}
+  nodePosition: {x: 743, y: 225}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -210,7 +230,7 @@ MonoBehaviour:
   positionTransformVar: {fileID: 0}
   positionVector3Var: {fileID: 0}
   positionTransformKey: {fileID: 0}
-  positionVector3Key: {fileID: -6688291487054288347, guid: eb3a5b86e1d5e484495f19d780d7adae,
+  positionVector3Key: {fileID: -6688291487054288347, guid: fecdc7445d6f7664fa41abd21912da6b,
     type: 2}
   positionGameObjectVar: {fileID: 0}
   positionGameObjectName: 
@@ -238,7 +258,7 @@ MonoBehaviour:
   m_Name: MChangeSpeedNode
   m_EditorClassIdentifier: 
   nodeName: Walking
-  nodePosition: {x: 222, y: 225}
+  nodePosition: {x: 0, y: 225}
   breakpoint: 0
   arrangeable: 1
   decorators: []
