@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SequencerNode
   m_EditorClassIdentifier: 
   nodeName: Patrol Route
-  nodePosition: {x: 1073, y: 225}
+  nodePosition: {x: 1124, y: 225}
   breakpoint: 0
   arrangeable: 1
   decorators:
@@ -21,7 +21,6 @@ MonoBehaviour:
   services: []
   children:
   - {fileID: 305151831930718051}
-  - {fileID: 2429446846523865831}
 --- !u!114 &-7663330576751577036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,6 +42,35 @@ MonoBehaviour:
   - {fileID: -4065397211197732023}
   - {fileID: 980336165023739906}
   - {fileID: 8632891929327609254}
+--- !u!114 &-5562187856108043754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188f33bd97f999943bfba3bc98458f77, type: 3}
+  m_Name: BlackboardConditionDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Not Free to Wander
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  arrangeable: 1
+  child: {fileID: 0}
+  notifyObserver: 1
+  observerAbort: 0
+  key: {fileID: 7051102747172478132, guid: 40046399669086d47bb6c778277a8593, type: 2}
+  keyQuery:
+    rid: 3891334595818029058
+  references:
+    version: 2
+    RefIds:
+    - rid: 3891334595818029058
+      type: {class: BoolQuery, ns: RenownedGames.AITree, asm: AITree}
+      data:
+        comparer: 0
 --- !u!114 &-4065397211197732023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +84,7 @@ MonoBehaviour:
   m_Name: WaitTask
   m_EditorClassIdentifier: 
   nodeName: Wait
-  nodePosition: {x: 431, y: 394}
+  nodePosition: {x: 431, y: 445}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -64,6 +92,57 @@ MonoBehaviour:
   ignoreAbortSelf: 0
   waitTime: {fileID: 4907223709154705703}
   randomDeviation: {fileID: 0}
+--- !u!114 &-3802850070460452517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188f33bd97f999943bfba3bc98458f77, type: 3}
+  m_Name: BlackboardConditionDecorator
+  m_EditorClassIdentifier: 
+  nodeName: Free to Wander
+  nodePosition: {x: 0, y: 0}
+  breakpoint: 0
+  arrangeable: 1
+  child: {fileID: 0}
+  notifyObserver: 1
+  observerAbort: 0
+  key: {fileID: 7051102747172478132, guid: 40046399669086d47bb6c778277a8593, type: 2}
+  keyQuery:
+    rid: 3891334595818029056
+  references:
+    version: 2
+    RefIds:
+    - rid: 3891334595818029056
+      type: {class: BoolQuery, ns: RenownedGames.AITree, asm: AITree}
+      data:
+        comparer: 1
+--- !u!114 &-2631223073499978834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ecbd642284b504ca1789fb521bbe87, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  nodeName: Sequencer
+  nodePosition: {x: 1420, y: 225}
+  breakpoint: 0
+  arrangeable: 1
+  decorators:
+  - {fileID: 1921935066559447290}
+  - {fileID: -5562187856108043754}
+  services: []
+  children:
+  - {fileID: 496252489250936418}
 --- !u!114 &-1906609909263560835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +156,7 @@ MonoBehaviour:
   m_Name: RootNode
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePosition: {x: 571, y: 0}
+  nodePosition: {x: 748, y: 0}
   breakpoint: 0
   arrangeable: 1
   child: {fileID: -779482260643670089}
@@ -94,7 +173,7 @@ MonoBehaviour:
   m_Name: SelectorNode
   m_EditorClassIdentifier: 
   nodeName: Selector
-  nodePosition: {x: 579.5, y: 107}
+  nodePosition: {x: 756.5, y: 107}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -102,6 +181,7 @@ MonoBehaviour:
   children:
   - {fileID: 5965323894435822913}
   - {fileID: -8199566581370421177}
+  - {fileID: -2631223073499978834}
 --- !u!114 &-497084176544917380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +198,6 @@ MonoBehaviour:
   title: Patrol Route
   nodes:
   - {fileID: -8199566581370421177}
-  - {fileID: 2429446846523865831}
   - {fileID: 305151831930718051}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -148,11 +227,16 @@ MonoBehaviour:
   - {fileID: -8199566581370421177}
   - {fileID: 9219851270853197314}
   - {fileID: 9101351236739060009}
-  - {fileID: 2429446846523865831}
   - {fileID: 305151831930718051}
+  - {fileID: -3802850070460452517}
+  - {fileID: -2631223073499978834}
+  - {fileID: 1921935066559447290}
+  - {fileID: -5562187856108043754}
+  - {fileID: 496252489250936418}
   groups:
   - {fileID: -7663330576751577036}
   - {fileID: -497084176544917380}
+  - {fileID: 4898854081370259717}
   notes: []
   selectedNode: {fileID: 0}
 --- !u!114 &305151831930718051
@@ -168,7 +252,7 @@ MonoBehaviour:
   m_Name: MPatrolWaypointsTask
   m_EditorClassIdentifier: 
   nodeName: Patrol Waypoints
-  nodePosition: {x: 1076.9669, y: 401.42203}
+  nodePosition: {x: 1127, y: 404}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -189,6 +273,27 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 
     Variable: {fileID: 0}
+--- !u!114 &496252489250936418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85263108a8bd9e0469feac3580755ae9, type: 3}
+  m_Name: WaitTask
+  m_EditorClassIdentifier: 
+  nodeName: Wait
+  nodePosition: {x: 1479.875, y: 462.02927}
+  breakpoint: 0
+  arrangeable: 1
+  decorators: []
+  services: []
+  ignoreAbortSelf: 0
+  waitTime: {fileID: 7861598937420256097}
+  randomDeviation: {fileID: 0}
 --- !u!114 &980336165023739906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +307,7 @@ MonoBehaviour:
   m_Name: RunEQSQueryTask
   m_EditorClassIdentifier: 
   nodeName: Find Position
-  nodePosition: {x: 561, y: 394}
+  nodePosition: {x: 561, y: 445}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -211,7 +316,7 @@ MonoBehaviour:
   key: {fileID: -6688291487054288347, guid: fecdc7445d6f7664fa41abd21912da6b, type: 2}
   environmentQuery: {fileID: 11400000, guid: 46ef00c13225872469e99f9c6c19da76, type: 2}
   sampling: 0
---- !u!114 &1882108115696881424
+--- !u!114 &1921935066559447290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,35 +325,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd402de4eb7669046830c326d89b03b4, type: 3}
-  m_Name: waitTime
+  m_Script: {fileID: 11500000, guid: 188f33bd97f999943bfba3bc98458f77, type: 3}
+  m_Name: BlackboardConditionDecorator
   m_EditorClassIdentifier: 
-  category: 
-  description: 
-  sync: 0
-  isLocal: 1
-  value: 9000
---- !u!114 &2429446846523865831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85263108a8bd9e0469feac3580755ae9, type: 3}
-  m_Name: WaitTask
-  m_EditorClassIdentifier: 
-  nodeName: Wait
-  nodePosition: {x: 1357.6018, y: 404.36343}
+  nodeName: No Patrol Route
+  nodePosition: {x: 0, y: 0}
   breakpoint: 0
   arrangeable: 1
-  decorators: []
-  services: []
-  ignoreAbortSelf: 0
-  waitTime: {fileID: 1882108115696881424}
-  randomDeviation: {fileID: 0}
+  child: {fileID: 0}
+  notifyObserver: 1
+  observerAbort: 0
+  key: {fileID: 7693580038478391739, guid: 40046399669086d47bb6c778277a8593, type: 2}
+  keyQuery:
+    rid: 3891334595818029057
+  references:
+    version: 2
+    RefIds:
+    - rid: 3891334595818029057
+      type: {class: TransformQuery, ns: RenownedGames.AITree, asm: AITree}
+      data:
+        comparer: 1
+--- !u!114 &4898854081370259717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282e7a00d0e085f43a93a75fecba6979, type: 3}
+  m_Name: Group
+  m_EditorClassIdentifier: 
+  position: {x: 1496.5677, y: 166.3325}
+  title: Idle
+  nodes:
+  - {fileID: -2631223073499978834}
+  - {fileID: 496252489250936418}
 --- !u!114 &4907223709154705703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +397,7 @@ MonoBehaviour:
   arrangeable: 1
   decorators:
   - {fileID: 9101351236739060009}
+  - {fileID: -3802850070460452517}
   services: []
   children:
   - {fileID: 6624171619394926839}
@@ -304,7 +418,7 @@ MonoBehaviour:
   m_Name: DetectionSignalTask
   m_EditorClassIdentifier: 
   nodeName: Detection Signal
-  nodePosition: {x: 0, y: 394}
+  nodePosition: {x: 0, y: 445}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -314,6 +428,23 @@ MonoBehaviour:
   detectionTime: 1
   lossTime: 2
   lookTarget: {fileID: 0}
+--- !u!114 &7861598937420256097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd402de4eb7669046830c326d89b03b4, type: 3}
+  m_Name: waitTime
+  m_EditorClassIdentifier: 
+  category: 
+  description: 
+  sync: 0
+  isLocal: 1
+  value: 60
 --- !u!114 &8632891929327609254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +458,7 @@ MonoBehaviour:
   m_Name: MSetDestinationNode
   m_EditorClassIdentifier: 
   nodeName: Set Destination
-  nodePosition: {x: 850, y: 394}
+  nodePosition: {x: 850, y: 445}
   breakpoint: 0
   arrangeable: 1
   decorators: []
@@ -366,7 +497,7 @@ MonoBehaviour:
   m_Name: MSetGroundSpeedTask
   m_EditorClassIdentifier: 
   nodeName: Wander Speed
-  nodePosition: {x: 222, y: 394}
+  nodePosition: {x: 222, y: 445}
   breakpoint: 0
   arrangeable: 1
   decorators: []

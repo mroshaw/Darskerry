@@ -67,12 +67,13 @@ namespace Malbers.Integration.AITree.Core.Tasks
             }
 
             // If we're at the end of our patrol and bool is set, restart the patrol
-            if (!AIBrain.AIControl.NextTarget && AIBrain.isLoopPatrol)
+            if ((!AIBrain.AIControl.NextTarget || AIBrain.AIControl.NextTarget == _firstWaypoint) && AIBrain.isLoopPatrol)
             {
                 AIBrain.AIControl.SetTarget(_firstWaypoint, true);
                 return State.Running;
             }
 
+            AIBrain.PatrolTransform = null;
             return State.Success;
         }
 

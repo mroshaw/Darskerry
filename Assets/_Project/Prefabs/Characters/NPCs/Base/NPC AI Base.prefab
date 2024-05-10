@@ -25375,6 +25375,8 @@ GameObject:
   - component: {fileID: 1372071264605784617}
   - component: {fileID: 6154645368459838437}
   - component: {fileID: 4320465843955142657}
+  - component: {fileID: 3134283299990235847}
+  - component: {fileID: 4619349529653180522}
   m_Layer: 11
   m_Name: NPC AI Base
   m_TagString: NPC
@@ -35701,6 +35703,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1159cfd6100129b4c9752a64a8ca63db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3134283299990235847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650761171170094531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c69efdbb65f7904095111e0e69c5006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  observable: 1
+  noiseLevel: 0
+--- !u!114 &4619349529653180522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650761171170094531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ce6a4d1f67f494f8e871355031f21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSurface: {fileID: 11400000, guid: 7e511ca4a93b47b478f5220a12788847, type: 2}
+  customSurfaces:
+  - {fileID: 11400000, guid: 28101c9650b2d5e429f27091672ebeb0, type: 2}
+  - {fileID: 11400000, guid: e53adeb973b2a30439a2553a13c4d4c4, type: 2}
+  - {fileID: 11400000, guid: d393d6c98c8265b43bd677b7a9198ea5, type: 2}
+  - {fileID: 11400000, guid: 0870caeb9a62bb54d9eb4c5305003078, type: 2}
+  - {fileID: 11400000, guid: 015601c4ffd2d074fad4b8b56da1baae, type: 2}
+  - {fileID: 11400000, guid: 46007424ac9fcca4b9c712cbcde69cd2, type: 2}
+  - {fileID: 11400000, guid: 58834114cc5a40046bc4325394a4ef12, type: 2}
+  - {fileID: 11400000, guid: 343ed616152d3cb41bfe076b7e390ba8, type: 2}
+  - {fileID: 11400000, guid: 635be0ecafce3e14880344da1feaf828, type: 2}
+  animationType: 0
+  debugTextureName: 0
+  _volume: 1
+  _spawnParticle: 1
+  _spawnStepMark: 1
+  _useTriggerEnter: 1
+  leftFootTrigger: {fileID: 0}
+  rightFootTrigger: {fileID: 0}
+  currentStep: {fileID: 0}
+  footStepTriggers: []
 --- !u!1 &6749743973544957105
 GameObject:
   m_ObjectHideFlags: 0
@@ -35943,8 +35992,10 @@ GameObject:
   - component: {fileID: 2873039372199899916}
   - component: {fileID: 1580701298892306810}
   - component: {fileID: 525139697371340787}
-  - component: {fileID: 6087172384351644244}
   - component: {fileID: 938286840479291773}
+  - component: {fileID: 1316732422321255668}
+  - component: {fileID: 8214341795541653802}
+  - component: {fileID: 5752973514034295540}
   m_Layer: 2
   m_Name: AI
   m_TagString: Untagged
@@ -36043,43 +36094,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6087172384351644244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6895543336600688580}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c8f4f5fdbe96840982ce61b3fbc8fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Eyes: {fileID: 2793632910622810337}
-  TransitionCoolDown:
-    UseConstant: 1
-    ConstantValue: 0.2
-    Variable: {fileID: 0}
-  currentState: {fileID: 11400000, guid: 55b6da81c38fa584a8deccd18c57d9ff, type: 2}
-  DisableAIOnDeath: 1
-  debug: 0
-  debugAIStates: 0
-  OnTaskStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTaskDone:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDecisionSucceeded:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAIStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  TasksVars: []
-  DecisionsVars: []
-  DecisionsTime: []
-  Editor_Tabs1: 0
 --- !u!114 &938286840479291773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36127,6 +36141,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1316732422321255668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895543336600688580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee2100ab7654d34fbb2c0e87f7b439a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPatrolTransform: {fileID: 0}
+  isFreeToWander: 0
+  isLoopPatrol: 0
+--- !u!114 &8214341795541653802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895543336600688580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581266756febbf447a9cc1da85c40584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedBehaviourTree: {fileID: 11400000, guid: 3f4b18b93cfb5ca4aaa4849771bc7f72,
+    type: 2}
+--- !u!114 &5752973514034295540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895543336600688580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d86e61161b12b408d5c5417b210d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  startColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &7512079577041378695
 GameObject:
   m_ObjectHideFlags: 0

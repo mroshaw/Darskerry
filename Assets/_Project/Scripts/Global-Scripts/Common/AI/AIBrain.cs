@@ -40,6 +40,11 @@ namespace Malbers.Integration.AITree.Core
         /// </summary>
         public Stats AnimalStats { get; private set; }
 
+        public Transform PatrolTransform
+        {
+            set => SetBlackboardKey(PatrolTransformBlackboardKeyName, value);
+        }
+
         // Saves on the a Task that it has finish is stuff
         internal bool TasksDone;
         private BehaviourRunner _behaviourRunner;
