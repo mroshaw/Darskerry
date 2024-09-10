@@ -388,7 +388,7 @@ MonoBehaviour:
   m_textureB: {fileID: 6895173780211888932}
   m_staticTextureB: {fileID: 0}
   m_textureBStatic: 0
-  m_blend: 0.756359
+  m_blend: 0.96552473
   m_tileA: 1
   m_tileB: 1
   m_amortize: 1
@@ -423,9 +423,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fogBlock: {fileID: 1908884225713961266}
   m_color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  m_visibilityDistance: 3.0091626e-26
-  m_radius: 4.0935462e-26
-  m_thickness: 2.0793046e-24
+  m_visibilityDistance: 3.2175e-40
+  m_radius: 4.37694e-40
+  m_thickness: 2.2232556e-38
   m_smog: 0
   m_glare: 0
   m_receiveDensityParticles: 0
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_textureB: {fileID: 7112228122910234317}
   m_staticTextureB: {fileID: 0}
   m_textureBStatic: 0
-  m_blend: 0.756359
+  m_blend: 0.96552473
   m_tileA: 1
   m_tileB: 1
   m_amortize: 1
@@ -889,9 +889,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Fog
   m_densityDistribution: 3
-  m_density: 8.275506e+30
-  m_height: 4.0935462e-26
-  m_thickness: 2.0793046e-24
+  m_density: Infinity
+  m_height: 4.37694e-40
+  m_thickness: 2.2232556e-38
   m_extinctionCoefficients: {r: 0.0000040156865, g: 0.0000040156865, b: 0.0000040156865, a: 0.000008}
   m_scatteringCoefficients: {r: 0.0000040156865, g: 0.0000040156865, b: 0.0000040156865, a: 0.000008}
   m_phaseFunction: 4
@@ -1380,7 +1380,7 @@ MonoBehaviour:
   m_textureB: {fileID: 6295659510408568635}
   m_staticTextureB: {fileID: 0}
   m_textureBStatic: 0
-  m_blend: 0.756359
+  m_blend: 0.96552473
   m_tileA: 1
   m_tileB: 1
   m_amortize: 1
@@ -2285,9 +2285,9 @@ MonoBehaviour:
   m_baseWarpVelocity: {x: 0, y: 0, z: 0}
   m_detailWarpVelocity: {x: 0, y: 0, z: 0}
   m_coverageOffset: {x: 0.24344315, y: 0.32876483}
-  m_baseOffset: {x: 7.6935296, y: -26.707201, z: 0}
-  m_structureOffset: {x: 0, y: -70.60509, z: 0}
-  m_detailOffset: {x: 0, y: -70.32108, z: 0}
+  m_baseOffset: {x: 7.6935296, y: -27.396235, z: 0}
+  m_structureOffset: {x: 0, y: -74.050285, z: 0}
+  m_detailOffset: {x: 0, y: -73.76628, z: 0}
   m_baseWarpOffset: {x: 0, y: 0, z: 0}
   m_detailWarpOffset: {x: 0, y: 0, z: 0}
   m_customPostProcessPasses: []
@@ -2358,7 +2358,7 @@ MonoBehaviour:
   m_textureB: {fileID: 5018955764619464591}
   m_staticTextureB: {fileID: 0}
   m_textureBStatic: 0
-  m_blend: 0.756359
+  m_blend: 0.96552473
   m_tileA: 1
   m_tileB: 1
   m_amortize: 1
@@ -2579,6 +2579,7 @@ GameObject:
   - component: {fileID: 735423843441507254}
   - component: {fileID: 8047300032507978079}
   - component: {fileID: 8047300032507978080}
+  - component: {fileID: 8047300032507978081}
   m_Layer: 0
   m_Name: Global Settings
   m_TagString: Untagged
@@ -2903,6 +2904,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f26b9246d6dd8943b0420750dad1747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8047300032507978081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6271792346608151722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea20239b453622648af2bccfad97f1e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8074519837863452298
 Transform:
   m_ObjectHideFlags: 0
@@ -3037,7 +3050,7 @@ MonoBehaviour:
   m_textureB: {fileID: 6120855077119151107}
   m_staticTextureB: {fileID: 0}
   m_textureBStatic: 0
-  m_blend: 0.756359
+  m_blend: 0.96552473
   m_tileA: 1
   m_tileB: 1
   m_amortize: 1
@@ -3128,7 +3141,7 @@ MonoBehaviour:
   m_textureB: {fileID: 3933349040507497513}
   m_staticTextureB: {fileID: 0}
   m_textureBStatic: 0
-  m_blend: 0.756359
+  m_blend: 0.96552473
   m_tileA: 1
   m_tileB: 1
   m_amortize: 1

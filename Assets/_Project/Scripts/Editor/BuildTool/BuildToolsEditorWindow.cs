@@ -50,7 +50,6 @@ namespace DaftAppleGames.Editor.BuildTool
         private void BuildAll()
         {
             BuildWinGame();
-            BuildAndroidGame();
             BuildLinuxGame();
         }
 
@@ -58,41 +57,12 @@ namespace DaftAppleGames.Editor.BuildTool
         private void BuildWinGame()
         {
             BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus);
-            // CopyLevels(_buildSettings.winBuildTargetSettings);
         }
 
         [BoxGroup("Build Control")] [Button("Build Linux Game")]
         private void BuildLinuxGame()
         {
             BuildPlayer(_buildSettings.linuxBuildTargetSettings, _buildSettings.linuxBuildStatus);
-            // CopyLevels(_buildSettings.linuxBuildTargetSettings);
-        }
-
-        [BoxGroup("Build Control")] [Button("Build Android Game")]
-        private void BuildAndroidGame()
-        {
-            BuildPlayer(_buildSettings.androidBuildTargetSettings, _buildSettings.androidBuildStatus);
-            // CopyLevels(_buildSettings.androidBuildTargetSettings);
-        }
-
-
-        [BoxGroup("Deploy Control")] [Button("Deploy Windows to Itch", ButtonSizes.Large), GUIColor(1, 0, 0)]
-        private void DeployWindowsToItch()
-        {
-            Thread newThead = DeployToItchInThread(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus);
-        }
-
-
-        [BoxGroup("Deploy Control")] [Button("Deploy Linux to Itch", ButtonSizes.Large), GUIColor(1, 0, 0)]
-        private void DeployLinuxToItch()
-        {
-            Thread newThead = DeployToItchInThread(_buildSettings.linuxBuildTargetSettings, _buildSettings.linuxBuildStatus);
-        }
-
-        [BoxGroup("Deploy Control")] [Button("Deploy Linux to Itch", ButtonSizes.Large), GUIColor(1, 0, 0)]
-        private void DeployAndroidToItch()
-        {
-            Thread newThead = DeployToItchInThread(_buildSettings.androidBuildTargetSettings, _buildSettings.androidBuildStatus);
         }
 
         /// <summary>
@@ -105,12 +75,17 @@ namespace DaftAppleGames.Editor.BuildTool
 
         }
 
-        [BoxGroup("Other Control")] [Button("Update Levels")]
-        private void UpdateLevels()
+        [BoxGroup("Deploy Control")] [Button("Deploy Windows to Itch", ButtonSizes.Large), GUIColor(1, 0, 0)]
+        private void DeployWindowsToItch()
         {
-            // CopyLevels(_buildSettings.winBuildTargetSettings);
-            // CopyLevels(_buildSettings.linuxBuildTargetSettings);
-            // CopyLevels(_buildSettings.androidBuildTargetSettings);
+            Thread newThead = DeployToItchInThread(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus);
+        }
+
+
+        [BoxGroup("Deploy Control")] [Button("Deploy Linux to Itch", ButtonSizes.Large), GUIColor(1, 0, 0)]
+        private void DeployLinuxToItch()
+        {
+            Thread newThead = DeployToItchInThread(_buildSettings.linuxBuildTargetSettings, _buildSettings.linuxBuildStatus);
         }
 
         [BoxGroup("Other Control")] [Button("Refresh Build Settings")]
@@ -157,7 +132,7 @@ namespace DaftAppleGames.Editor.BuildTool
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.FileName = _buildSettings.winBuildTargetSettings.fileName;
+            process.StartInfo.FileName = _buildSettings.winBuildTargetSettings.FullPath;
             int exitCode = -1;
             string output = null;
 
