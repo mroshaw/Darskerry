@@ -30,5 +30,17 @@ namespace DaftAppleGames.Darskerry.Core.DagCharacterController.Input
         {
             PlayerControls.Disable();
         }
+
+        public void PauseInput()
+        {
+            PlayerControls.PlayerLocomotionMap.Disable();
+            PlayerControls.PlayerActionsMap.Disable();
+        }
+
+        public void UnpauseInput()
+        {
+            PlayerControls.PlayerLocomotionMap.Enable();
+            PlayerControls.PlayerActionsMap.Enable();
+        }
     }
 }

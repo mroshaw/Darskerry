@@ -47,10 +47,12 @@ namespace DaftAppleGames.Darskerry.TimeAndWeather.Weather
             if (expanseCloudLayerInterpolator.m_targetPreset == null)
             {
                 expanseCloudLayerInterpolator.m_transitionTime = 0.1f;
+                Debug.Log($"Weather: Setting 'primer' preset: {interpolatorPrimerPreset.presetName}");
                 expanseCloudLayerInterpolator.LoadPreset(interpolatorPrimerPreset.expanseCloudLayer);
             }
 
             // Interpolate to the target settings
+            Debug.Log($"Weather: Setting weather preset: {expanseWeatherPreset.presetName}");
             StartCoroutine(ApplyWeatherPresetAsync(expanseWeatherPreset, transitionCompleteCallback));
 
             // Apply fog settings
@@ -67,7 +69,8 @@ namespace DaftAppleGames.Darskerry.TimeAndWeather.Weather
         /// <returns></returns>
         private IEnumerator ApplyWeatherPresetAsync(ExpanseWeatherPresetSettings expansePreset, Action transitionCompleteCallback)
         {
-            // yield return new WaitForSeconds(0.5f);
+            // Wait a frame, to allow previous transition to register
+            yield return new WaitForSeconds(0.5f);
             while (expanseCloudLayerInterpolator.IsInterpolating())
             {
                 yield return null;

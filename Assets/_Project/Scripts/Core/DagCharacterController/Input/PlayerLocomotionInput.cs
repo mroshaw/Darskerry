@@ -23,6 +23,8 @@ namespace DaftAppleGames.Darskerry.Core.DagCharacterController.Input
 
         #endregion
 
+        private bool _isPaused = false;
+
         #region Startup
         private void OnEnable()
         {
@@ -58,6 +60,16 @@ namespace DaftAppleGames.Darskerry.Core.DagCharacterController.Input
             JumpPressed = false;
  }
         #endregion
+
+        public void PauseInput()
+        {
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.Disable();
+        }
+
+        public void UnpauseInput()
+        {
+            PlayerInputManager.Instance.PlayerControls.PlayerLocomotionMap.Enable();
+        }
 
         #region Input Callbacks
         public void OnMovement(InputAction.CallbackContext context)

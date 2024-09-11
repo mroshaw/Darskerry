@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -58,7 +59,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
 
             if (loadScenesOnAwake)
             {
-                LoadAllScenes(LoadSceneMode.Additive);
+                LoadAllScenes();
             }
         }
 
@@ -66,7 +67,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         {
             if (loadScenesOnStart)
             {
-                LoadAllScenes(LoadSceneMode.Additive);
+                LoadAllScenes();
             }
         }
 
@@ -93,17 +94,42 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
             }
         }
 
+        #if UNITY_EDITOR
+        [Button("Unload Scenes")]
+        private void UnloadScenes()
+        {
+            int sceneLoadedCount = EditorSceneManager.sceneCount;
+
+            Scene[] loadedScenes = new Scene[sceneLoadedCount];
+
+            for (int currSceneIndex = 0; currSceneIndex < sceneLoadedCount; currSceneIndex++)
+            {
+                loadedScenes[currSceneIndex] = EditorSceneManager.GetSceneAt(currSceneIndex);
+            }
+
+            foreach (Scene currScene in loadedScenes)
+            {
+                if (currScene.name != gameObject.scene.name)
+                {
+                    Debug.Log($"Closing... {currScene.name}");
+                    EditorSceneManager.CloseScene(currScene, true);
+                }
+            }
+        }
+        #endif
+
         /// <summary>
         /// Top level process orchestration
         /// </summary>
-        private void LoadAllScenes(LoadSceneMode loadSceneMode)
+        [Button("Load Scenes")]
+        private void LoadAllScenes()
         {
             allScenesLoadStartedEvent.Invoke();
             InitLoadStatus();
 
             Debug.Log($"Total Additive Scenes:{additiveScenes.Count}");
 
-            StartCoroutine(LoadAllScenesAsync(loadSceneMode));
+            StartCoroutine(LoadAllScenesAsync());
             
         }
         
@@ -118,12 +144,12 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
             }
         }
 
-        private IEnumerator LoadAllScenesAsync(LoadSceneMode loadSceneMode=LoadSceneMode.Additive)
+        private IEnumerator LoadAllScenesAsync()
         {
             _isLoading = true;
 
             // Load scenes
-            LoadScenes(loadSceneMode);
+            LoadScenes(LoadSceneMode.Additive);
 
             // Wait for all scenes to load
             while (!AllScenesInState(SceneLoadStatus.Loaded))
@@ -170,11 +196,19 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
             foreach (AdditiveScene additiveScene in additiveScenes)
             {
 #if UNITY_EDITOR
-                Debug.Log($"Starting Editor async load of scene: {additiveScene.sceneName}...");
+                Debug.Log($"Starting Editor load of scene: {additiveScene.sceneName}...");
                 Scene currentScene = EditorSceneManager.GetSceneByName(additiveScene.sceneName);
                 if (!currentScene.IsValid())
                 {
-                    StartCoroutine(LoadSceneAsync(additiveScene, loadSceneMode));
+                    if (!Application.isPlaying)
+                    {
+                        EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(additiveScene.sceneAsset), OpenSceneMode.Additive);
+                        additiveScene.LoadStatus = SceneLoadStatus.Loaded;
+                    }
+                    else
+                    {
+                        StartCoroutine(LoadSceneAsync(additiveScene, loadSceneMode));
+                    }
                 }
                 else
                 {
@@ -210,14 +244,16 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
 
             Debug.Log($"Async Load Scene: {additiveScene.sceneName}");
             //Begin to load the Scene
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
             AsyncOperation asyncOperation =
                 EditorSceneManager.LoadSceneAsync(additiveScene.sceneName, loadSceneMode);
-#else
+            asyncOperation.allowSceneActivation = false;
+
+            #else
             AsyncOperation asyncOperation =
                 SceneManager.LoadSceneAsync(additiveScene.sceneName, loadSceneMode);
-#endif
             asyncOperation.allowSceneActivation = false;
+            #endif
             additiveScene.SceneOp = asyncOperation;
 
             // When the load is still in progress, output the Text and progress bar
