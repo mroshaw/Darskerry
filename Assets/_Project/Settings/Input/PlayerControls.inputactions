@@ -1060,6 +1060,194 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "FlyCamMap",
+            "id": "6a5017ee-e64b-488b-9899-58045839155e",
+            "actions": [
+                {
+                    "name": "FlyForward",
+                    "type": "Button",
+                    "id": "194228cd-8828-4c54-901a-10759d30f0fe",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FlyBackward",
+                    "type": "Button",
+                    "id": "b8ac533d-353f-47a9-9708-5dc968edce33",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FlyLeft",
+                    "type": "Button",
+                    "id": "d17b6fd8-bcb9-45c4-a5a2-97547a77b19a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FlyRight",
+                    "type": "Button",
+                    "id": "3a734f3a-cb8f-493b-a6e5-fa42d8f724ae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FlyUp",
+                    "type": "Button",
+                    "id": "d270a362-7ffd-4d88-9c7e-9cb662b36948",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FlyDown",
+                    "type": "Button",
+                    "id": "349566de-e902-4082-a91c-863358f5f529",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FlyToggleFocus",
+                    "type": "Button",
+                    "id": "17c74ff5-e3ac-493b-be1f-f136a87ab560",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FlySpeedUp",
+                    "type": "Button",
+                    "id": "88c3ce09-9751-45be-91b5-fa2c02e65fb6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FlyLook",
+                    "type": "Value",
+                    "id": "ecff1f80-76d3-4939-b9e6-2ad35bd99ec6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dcf0d25d-0f30-4dc5-9dcb-7f9d2d02e6bf",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Gamepad",
+                    "action": "FlyForward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1154fdd9-e645-42da-b3c1-41d29f756b5c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Gamepad",
+                    "action": "FlyBackward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7b670d5-5a7b-460a-9570-bced3fc93108",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Gamepad",
+                    "action": "FlyLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aec08497-528a-4f8e-93d1-5d2c64fecf3e",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Gamepad",
+                    "action": "FlyRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69963fb4-1b31-4b67-86d0-30c035f2c433",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Gamepad",
+                    "action": "FlyUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4c91f17-be24-4f17-8a06-5b1f1d1c1166",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Gamepad",
+                    "action": "FlyDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ce1e20f-d0b3-4118-9257-021a258ee199",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad;Keyboard and Mouse",
+                    "action": "FlyToggleFocus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "58c9c645-9498-43f0-85ce-1c1c693eea1c",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad;Keyboard and Mouse",
+                    "action": "FlySpeedUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f382c00d-6f7e-46d9-94eb-f409893fbc19",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Gamepad",
+                    "action": "FlyLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
