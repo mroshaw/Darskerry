@@ -291,7 +291,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
             sceneActivatedEvent.Invoke();
             Debug.Log($"Async Activate Scene DONE: {additiveScene.sceneName}");
             
-            if (additiveScene.isMainScene)
+            if (additiveScene.isMain)
             {
                 Debug.Log($"Setting Main Scene: {additiveScene.sceneName}");
 #if UNITY_EDITOR                
