@@ -16,10 +16,12 @@ namespace DaftAppleGames.Editor.ObjectTools
         [SerializeField]
         [BoxGroup("Selected Objects")] private GameObject[] _selectedGameObjects;
 
-        [MenuItem("Daft Apple Games/Tools/Objects/Terrain aligner")]
+        [MenuItem("Daft Apple Games/Terrains/Object Aligner")]
         public static void ShowWindow()
         {
-            GetWindow(typeof(TerrainAlignEditorWindow));
+            EditorWindow editorWindow = GetWindow(typeof(TerrainAlignEditorWindow));
+            editorWindow.titleContent = new GUIContent("Terrain Aligner");
+            editorWindow.Show();
         }
 
         /// <summary>

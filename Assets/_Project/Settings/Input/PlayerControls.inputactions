@@ -1145,6 +1145,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "FlyLookEnabled",
+                    "type": "Button",
+                    "id": "abda10f3-36b3-49e7-9149-a22ed15dce1d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1244,6 +1253,17 @@
                     "processors": "",
                     "groups": ";Keyboard and Mouse;Gamepad",
                     "action": "FlyLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c3bfe75-7fc7-4725-a64e-924cf5761944",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard and Mouse;Gamepad",
+                    "action": "FlyLookEnabled",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

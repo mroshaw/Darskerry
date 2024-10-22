@@ -7,7 +7,7 @@ namespace DaftAppleGames.Darskerry.Core.DagCamera
     {
         public float acceleration = 50; // how fast you accelerate
         public float accSprintMultiplier = 4; // how much faster you go when "sprinting"
-        public float lookSensitivity = 1; // mouse look sensitivity
+        public float lookSensitivity = 0.6f; // mouse look sensitivity
         public float dampingCoefficient = 5; // how quickly you break to a halt after you stop your input
         public bool focusOnEnable = true; // whether or not to focus and lock cursor immediately on enable
 

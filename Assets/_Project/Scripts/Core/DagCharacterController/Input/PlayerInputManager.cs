@@ -22,8 +22,17 @@ namespace DaftAppleGames.Darskerry.Core.DagCharacterController.Input
 
         private void OnEnable()
         {
-            PlayerControls = new PlayerControls();
-            PlayerControls.Enable();
+            InitPlayerControls();
+        }
+
+        private void InitPlayerControls()
+        {
+            if (PlayerControls == null)
+            {
+                PlayerControls = new PlayerControls();
+                PlayerControls.Enable();
+            }
+
         }
 
         private void OnDisable()
@@ -33,13 +42,19 @@ namespace DaftAppleGames.Darskerry.Core.DagCharacterController.Input
 
         public void PauseInput()
         {
+            Debug.Log("Pausing input...");
+            InitPlayerControls();
             PlayerControls.PlayerLocomotionMap.Disable();
+            PlayerControls.ThirdPersonMap.Disable();
             PlayerControls.PlayerActionsMap.Disable();
         }
 
         public void UnpauseInput()
         {
+            Debug.Log("Unpausing input...");
+            InitPlayerControls();
             PlayerControls.PlayerLocomotionMap.Enable();
+            PlayerControls.ThirdPersonMap.Enable();
             PlayerControls.PlayerActionsMap.Enable();
         }
     }

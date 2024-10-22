@@ -10,9 +10,14 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
     [Serializable]
     public class AdditiveScene
     {
-        [TableColumnWidth(100, Resizable = false)] public string sceneName;
+        [TableColumnWidth(120, Resizable = true)] public string sceneName;
 #if UNITY_EDITOR
         [TableColumnWidth(180, Resizable = true)] public SceneAsset sceneAsset;
+        [TableColumnWidth(20, Resizable = true)] [Button("U")] [LabelText("U")]
+        private void UpdateName()
+        {
+            sceneName = sceneAsset.name;
+        }
 #endif
         [Tooltip("Is this is the main scene in the list?")][TableColumnWidth(90, Resizable = false)] public bool isMain;
 

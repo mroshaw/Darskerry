@@ -16,6 +16,8 @@ namespace DaftAppleGames.Darskerry.Core.DagCamera
         public bool ToggleFocusPressed { get; private set; }
         public bool SpeedUpPressed { get; private set; }
 
+        public bool FlyLookEnabledPressed { get; private set; }
+
         public Vector2 MouseDelta { get; private set; }
 
         private void OnEnable()
@@ -130,7 +132,28 @@ namespace DaftAppleGames.Darskerry.Core.DagCamera
 
         public void OnFlyLook(InputAction.CallbackContext context)
         {
-            MouseDelta = context.ReadValue<Vector2>();
+            if (FlyLookEnabledPressed)
+            {
+                MouseDelta = context.ReadValue<Vector2>();
+            }
+            else
+            {
+                MouseDelta = new Vector2(0, 0);
+            }
+        }
+
+        public void OnFlyLookEnabled(InputAction.CallbackContext context)
+        {
+
+            if (context.phase == InputActionPhase.Started)
+            {
+                FlyLookEnabledPressed = true;
+            }
+
+            if (context.phase == InputActionPhase.Canceled)
+            {
+                FlyLookEnabledPressed = false;
+            }
         }
     }
 }

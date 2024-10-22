@@ -1,28 +1,25 @@
+using DaftAppleGames.Darskerry.Core.UserInterface;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace DaftAppleGames.Darskerry.Core.UserInterface.Settings
 {
-    public abstract class SettingsUiWindow : MonoBehaviour
+    public class SettingsUiWindow : BaseUiWindow
     {
-        private bool _controlsInitialised = false;
+        [BoxGroup("UI Settings")] [SerializeField] private Button backButton;
+        
+        [BoxGroup("Proxy UI Events")] [SerializeField] private UnityEvent backButtonClickEvent;
 
-        public bool ControlsInitialised
+        public override void Start()
         {
-            get => _controlsInitialised;
-            set => _controlsInitialised = value;
+            base.Start();
         }
 
-        public virtual void InitControls()
+        public void BackButtonProxy()
         {
-            _controlsInitialised = true;
-        }
-
-        public virtual void RefreshControlState()
-        {
-            if (!_controlsInitialised)
-            {
-                InitControls();
-            }
+            backButtonClickEvent.Invoke();
         }
     }
 }

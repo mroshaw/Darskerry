@@ -25,11 +25,6 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface.PauseGame
         [BoxGroup("Proxy UI Events")] [SerializeField] private UnityEvent onBackButtonClickEvent;
         [BoxGroup("Proxy UI Events")] [SerializeField] private UnityEvent onDebugButtonClickEvent;
 
-        public override void Start()
-        {
-            base.Start();
-        }
-
         public void ContinueButtonProxy()
         {
             onContinueButtonClickEvent.Invoke();

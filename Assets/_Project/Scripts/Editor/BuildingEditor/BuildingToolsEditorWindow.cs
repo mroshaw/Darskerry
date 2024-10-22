@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildingTools
     /// <summary>
     /// Editor window class for the main Building Tools Editor functions
     /// </summary>
-    public class BuildingToolsEditorWindow : EditorWindow
+    public class BuildingToolsEditorWindow : OdinEditorWindow
     {
         public enum ConfigurationFunction {Init, Layers, PropColliders, Lighting, Doors, InteriorVolumes} 
         #region CSS_STYLES
@@ -47,11 +48,12 @@ namespace DaftAppleGames.Darskerry.Editor.BuildingTools
         /// <summary>
         /// Show the Editor window
         /// </summary>
-        [MenuItem("Daft Apple Games/Tools/Buildings/Building editor")]
+        [MenuItem("Daft Apple Games/Buildings/Building Editor")]
         public static void ShowWindow()
         {
-            BuildingToolsEditorWindow wnd = GetWindow<BuildingToolsEditorWindow>();
-            wnd.titleContent = new GUIContent("Building Tools Editor");
+            EditorWindow editorWindow = GetWindow(typeof(BuildingToolsEditorWindow));
+            editorWindow.titleContent = new GUIContent("Building Editor");
+            editorWindow.Show();
         }
 
         /// <summary>

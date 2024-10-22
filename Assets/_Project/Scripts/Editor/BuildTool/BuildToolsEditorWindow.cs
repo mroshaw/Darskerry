@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
+using DaftAppleGames.Darskerry.Core;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
@@ -12,6 +15,7 @@ using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
+using Object = UnityEngine.Object;
 
 namespace DaftAppleGames.Editor.BuildTool
 {
@@ -20,7 +24,7 @@ namespace DaftAppleGames.Editor.BuildTool
         private const string BuildConfig = "Assets/_Project/Settings/BuildTool/DarskerryBuildSettings.asset";
 
         // Display Editor Window
-        [MenuItem("Daft Apple Games/Build tool")]
+        [MenuItem("Daft Apple Games/Build and Deploy/Build Tool")]
         public static void ShowWindow()
         {
             GetWindow(typeof(BuildToolsEditorWindow));
@@ -46,29 +50,45 @@ namespace DaftAppleGames.Editor.BuildTool
             LoadBuildSettings();
         }
 
+        /*
         [BoxGroup("Build Control")] [Button("Build All", ButtonSizes.Large), GUIColor(0, 1, 0)]
         private void BuildAll()
         {
             BuildWinGame();
             BuildLinuxGame();
         }
+        */
 
-        [BoxGroup("Build Control")] [Button("Build Windows Game")]
-        private void BuildWinGame()
+        [BoxGroup("Build Control")] [Button("Build Windows Game (Incr)", ButtonSizes.Large), GUIColor(0, 1, 0)]
+        private void BuildIncrementalWinGame()
         {
-            BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus);
+            BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus, false);
         }
 
+        [BoxGroup("Build Control")] [Button("Build Windows Game (Full)")]
+        private void BuildFullWinGame()
+        {
+            BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus, true);
+        }
+
+        [BoxGroup("Build Control")] [Button("Show in Explorer")]
+        private void OpenWindowsBuildInExplorer()
+        {
+            EditorUtility.RevealInFinder(Path.Join(_buildSettings.winBuildTargetSettings.gameFolder, "/."));
+        }
+
+        /*
         [BoxGroup("Build Control")] [Button("Build Linux Game")]
         private void BuildLinuxGame()
         {
             BuildPlayer(_buildSettings.linuxBuildTargetSettings, _buildSettings.linuxBuildStatus);
         }
+        */
 
         /// <summary>
         /// Run the built game executable, to test prior to deployment to itch.io
         /// </summary>
-        [BoxGroup("Run Control")] [Button("Run Windows Game"), GUIColor(0, 1, 0)]
+        [BoxGroup("Run Control")] [Button("Run Windows Game", ButtonSizes.Large), GUIColor(0, 1, 0)]
         private void RunGame()
         {            Thread newThread = new Thread(RunGameInThread);
             newThread.Start();
@@ -81,12 +101,13 @@ namespace DaftAppleGames.Editor.BuildTool
             Thread newThead = DeployToItchInThread(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus);
         }
 
-
-        [BoxGroup("Deploy Control")] [Button("Deploy Linux to Itch", ButtonSizes.Large), GUIColor(1, 0, 0)]
+        /*
+        [BoxGroup("Deploy Control")] [Button("Deploy Linux to Itch")]
         private void DeployLinuxToItch()
         {
             Thread newThead = DeployToItchInThread(_buildSettings.linuxBuildTargetSettings, _buildSettings.linuxBuildStatus);
         }
+        */
 
         [BoxGroup("Other Control")] [Button("Refresh Build Settings")]
         private void RefreshBuildSettings()
@@ -221,6 +242,7 @@ namespace DaftAppleGames.Editor.BuildTool
                 buildStatus.lastDeployState = DeployState.Failed;
             }
 
+            FlushBuildStats();
             RefreshBuildStatus();
         }
 
@@ -239,22 +261,33 @@ namespace DaftAppleGames.Editor.BuildTool
         /// <summary>
         /// Call the aSync build player co-coroutine
         /// </summary>
-        private void BuildPlayer(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus)
+        private void BuildPlayer(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus, bool cleanBuild)
         {
-            EditorCoroutineUtility.StartCoroutine(BuildPlayerAsync(buildTargetSettings, buildStatus), this);
+            BuildApplierStart();
+            EditorCoroutineUtility.StartCoroutine(BuildPlayerAsync(buildTargetSettings, buildStatus, cleanBuild), this);
+            BuildApplierEnd();
         }
 
         /// <summary>
         /// Async build player method, so we can monitor progress and update status
         /// </summary>
         /// <returns></returns>
-        private IEnumerator BuildPlayerAsync(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus)
+        private IEnumerator BuildPlayerAsync(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus, bool cleanBuild)
         {
+            // Save all open scenes
+            EditorSceneManager.SaveOpenScenes();
+
             PlayerSettings.bundleVersion = buildStatus.buildVersion.ToString();
 
             buildStatus.lastBuildAttempt.SetNow();
 
-            BuildReport buildReport = BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, buildTargetSettings.FullPath, buildTargetSettings.buildTarget, buildTargetSettings.buildOptions);
+            if (cleanBuild)
+            {
+                CleanFolder(buildTargetSettings.gameFolder);
+            }
+
+            BuildOptions newBuildOptions = cleanBuild ? _buildSettings.winBuildTargetSettings.buildOptions | BuildOptions.CleanBuildCache : _buildSettings.winBuildTargetSettings.buildOptions & ~BuildOptions.CleanBuildCache;
+            BuildReport buildReport = BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, buildTargetSettings.FullPath, buildTargetSettings.buildTarget, newBuildOptions);
             while (BuildPipeline.isBuildingPlayer)
             {
                 yield return null;
@@ -296,7 +329,32 @@ namespace DaftAppleGames.Editor.BuildTool
             _buildSettings.latestBuildTarget = buildTargetSettings.buildTarget;
             _buildSettings.latestBuildDateTime = buildStatus.lastBuildAttempt.ToString();
 
+            FlushBuildStats();
             RefreshBuildStatus();
+        }
+
+        private void CleanFolder(string installFolderPath)
+        {
+            System.IO.DirectoryInfo directory = new DirectoryInfo(installFolderPath);
+
+            foreach (FileInfo file in directory.GetFiles())
+            {
+                file.Delete();
+            }
+            foreach (DirectoryInfo dir in directory.GetDirectories())
+            {
+                dir.Delete(true);
+            }
+        }
+
+        /// <summary>
+        /// Pushes any updates to the local build stats instance back to the asset
+        /// </summary>
+        private void FlushBuildStats()
+        {
+            AssetDatabase.Refresh();
+            EditorUtility.SetDirty(_buildSettings);
+            AssetDatabase.SaveAssets();
         }
 
         /// <summary>
@@ -317,51 +375,23 @@ namespace DaftAppleGames.Editor.BuildTool
             }
         }
 
-        /// <summary>
-        /// Copy levels to target
-        /// </summary>
-        private void CopyLevels(BuildTargetSettings buildTargetSettings)
+        private void BuildApplierStart()
         {
-            // Copy level files, if not mobile platform
-            if (buildTargetSettings.buildTarget == BuildTarget.StandaloneWindows64 || buildTargetSettings.buildTarget == BuildTarget.StandaloneLinux64)
+            IEnumerable<IBuildApplier> allBuildAppliers =
+                Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IBuildApplier>();
+            foreach (IBuildApplier buildApplier in allBuildAppliers)
             {
-                string levelPath = buildTargetSettings.gameFolder;
+                buildApplier.BuildStart();
+            }
+        }
 
-                string levelDataPath = Path.Join(levelPath, "LevelData");
-                string customLevelDataPath = Path.Join(levelPath, "CustomLevelData");
-
-                Debug.Log($"Copying level data to {levelDataPath}");
-
-                // Create target directories, if it doesn't exist
-                if (!Directory.Exists(levelDataPath))
-                {
-                    Debug.Log($"Creating directory: {levelDataPath}");
-                    Directory.CreateDirectory(levelDataPath);
-                }
-
-                if (!Directory.Exists(customLevelDataPath))
-                {
-                    Debug.Log($"Creating directory: {customLevelDataPath}");
-                    Directory.CreateDirectory(customLevelDataPath);
-                }
-
-                // Copy main game levels
-                foreach (string currFile in Directory.GetFiles("E:\\Dev\\DAG\\Retro Racket Revolution\\Assets\\_Project\\Resources\\LevelData", "*.json"))
-                {
-                    string destFilePath = $"{levelDataPath}\\{Path.GetFileName(currFile)}";
-                    Debug.Log($"Copying {currFile} level data to {destFilePath}");
-
-                    FileUtil.ReplaceFile(currFile, destFilePath);
-                }
-
-                // Copy example custom levels
-                foreach (string currFile in Directory.GetFiles("E:\\Dev\\DAG\\Retro Racket Revolution\\Assets\\_Project\\Resources\\CustomLevelData", "*.json"))
-                {
-                    string destFilePath = $"{customLevelDataPath}\\{Path.GetFileName(currFile)}";
-                    Debug.Log($"Copying {currFile} level data to {destFilePath}");
-
-                    FileUtil.ReplaceFile(currFile, destFilePath);
-                }
+        private void BuildApplierEnd()
+        {
+            IEnumerable<IBuildApplier> allBuildAppliers =
+                Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IBuildApplier>();
+            foreach (IBuildApplier buildApplier in allBuildAppliers)
+            {
+                buildApplier.BuildFinished();
             }
         }
 

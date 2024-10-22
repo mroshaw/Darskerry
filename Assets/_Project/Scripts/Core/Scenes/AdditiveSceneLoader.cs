@@ -35,6 +35,8 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         [FoldoutGroup("Additive Scene Events")] public UnityEvent allScenesLoadedEvent;
         [FoldoutGroup("Additive Scene Events")] public UnityEvent allScenesActivatedEvent;
         [FoldoutGroup("Additive Scene Events")] public UnityEvent<float> allScenesLoadProgressUpdateEvent;
+        [FoldoutGroup("Fader Events")] public UnityEvent faderStartedEvent;
+        [FoldoutGroup("Fader Events")] public UnityEvent faderFinishedEvent;
         [FoldoutGroup("This Scene Events")] public UnityEvent thisSceneLoadedEvent;
 
         private bool _isLoading;
@@ -96,7 +98,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
 
         #if UNITY_EDITOR
         [Button("Unload Scenes")]
-        private void UnloadScenes()
+        public void UnloadScenes()
         {
             int sceneLoadedCount = EditorSceneManager.sceneCount;
 
@@ -122,7 +124,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         /// Top level process orchestration
         /// </summary>
         [Button("Load Scenes")]
-        private void LoadAllScenes()
+        public void LoadAllScenes()
         {
             allScenesLoadStartedEvent.Invoke();
             InitLoadStatus();
@@ -327,6 +329,16 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
             _isLoading = false;
             
             allScenesActivatedEvent.Invoke();
+        }
+
+        public void FaderStartedProxy()
+        {
+            faderStartedEvent.Invoke();
+        }
+
+        public void FaderFinishedProxy()
+        {
+            faderFinishedEvent.Invoke();
         }
     }
 }

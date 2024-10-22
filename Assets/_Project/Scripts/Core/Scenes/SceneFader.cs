@@ -116,6 +116,9 @@ namespace DaftAppleGames.Darskerry.Scenes
                 endScreenAlpha = 1.0f;
             }
 
+            fadeCanvasGroup.gameObject.SetActive(true);
+            fadeCanvasGroup.alpha = startScreenAlpha;
+
             // Wait for the delay period
             yield return new WaitForSecondsRealtime(delayBeforeFade);
             float currTime = 0.0f;
@@ -136,12 +139,13 @@ namespace DaftAppleGames.Darskerry.Scenes
                 yield return null;
             }
 
+            fadeCanvasGroup.alpha = endScreenAlpha;
+
             // Set final values
             if (fadeAudio)
             {
                 audioMixer.SetFloat("MasterVolume", endAudioVolume);
             }
-            fadeCanvasGroup.alpha = endScreenAlpha;
 
             // Call event listeners
             fadeEndEvent.Invoke();
