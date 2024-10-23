@@ -6,17 +6,17 @@ using Unity.EditorCoroutines.Editor;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DaftAppleGames.Editor.BuildTool
 {
     public class SceneLoaderWindow : OdinEditorWindow
     {
-        [HideIf("@mainMenuSceneAsset != null")] [SerializeField] private SceneAsset mainMenuSceneAsset;
-        [SerializeField] private Vector3 mainMenuSceneCameraPosition;
-        [SerializeField] private Quaternion mainMenuSceneCameraRotation;
-        [HideIf("@gameSceneAsset != null")] [SerializeField] private SceneAsset gameSceneAsset;
-        [SerializeField] private Vector3 gameSceneCameraPosition;
-        [SerializeField] private Quaternion gameSceneCameraRotation;
+        [HideIf("@mainMenuSceneAsset != null")] [SerializeField]
+        private SceneAsset mainMenuSceneAsset;
+
+        [HideIf("@gameSceneAsset != null")] [SerializeField]
+        private SceneAsset gameSceneAsset;
 
         // Display Editor Window
         [MenuItem("Daft Apple Games/Editor/Scene Loader")]
@@ -26,18 +26,23 @@ namespace DaftAppleGames.Editor.BuildTool
             editorWindow.titleContent = new GUIContent("Scene Loader");
             editorWindow.Show();
         }
-        [BoxGroup("Game Scenes")] [Button("Main Menu Scene", ButtonSizes.Large), GUIColor(0, 1, 0)]
+
+        [BoxGroup("Game Scenes")]
+        [Button("Main Menu Scene", ButtonSizes.Large), GUIColor(0, 1, 0)]
         private void LoadMainMenuScenes()
         {
+            SaveAllScenes();
             OpenScene(mainMenuSceneAsset);
-            CallAdditiveLoader(true);
+            CallAdditiveLoader();
         }
 
-        [BoxGroup("Game Scenes")] [Button("Game Scene", ButtonSizes.Large), GUIColor(0, 1, 0)]
+        [BoxGroup("Game Scenes")]
+        [Button("Game Scene", ButtonSizes.Large), GUIColor(0, 1, 0)]
         private void LoadGameScenes()
         {
+            SaveAllScenes();
             OpenScene(gameSceneAsset);
-            CallAdditiveLoader(false);
+            CallAdditiveLoader();
         }
 
         private void OpenScene(SceneAsset sceneAsset)
@@ -45,63 +50,27 @@ namespace DaftAppleGames.Editor.BuildTool
             EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(sceneAsset), OpenSceneMode.Single);
         }
 
-        private void CallAdditiveLoader(bool isMainMenu)
+        private void CallAdditiveLoader()
         {
             // Find the additive scene loader and load all scenes
             AdditiveSceneLoader additiveSceneLoader = Object.FindAnyObjectByType<AdditiveSceneLoader>();
 
-
             if (additiveSceneLoader)
             {
-                /*
-                    additiveSceneLoader.allScenesActivatedEvent.RemoveListener(PlaceGameSceneCamera);
-                    additiveSceneLoader.allScenesActivatedEvent.RemoveListener(PlaceMainMenuSceneCamera);
-
-                    if (isMainMenu)
-                    {
-                        additiveSceneLoader.allScenesActivatedEvent.AddListener(PlaceMainMenuSceneCamera);
-                    }
-                    else
-                    {
-                        additiveSceneLoader.allScenesActivatedEvent.AddListener(PlaceGameSceneCamera);
-                    }
-                */
                 additiveSceneLoader.LoadAllScenes();
             }
-
         }
 
-        private void PlaceMainMenuSceneCamera()
+        /// <summary>
+        /// Saves all open scenes
+        /// </summary>
+        private void SaveAllScenes()
         {
-            EditorCoroutineUtility.StartCoroutine(PlaceSceneCameraAsync(mainMenuSceneCameraPosition, mainMenuSceneCameraRotation), this);
-        }
-
-        private void PlaceGameSceneCamera()
-        {
-            EditorCoroutineUtility.StartCoroutine(PlaceSceneCameraAsync(gameSceneCameraPosition, gameSceneCameraRotation), this);
-        }
-
-        private IEnumerator PlaceSceneCameraAsync(Vector3 cameraPosition, Quaternion cameraRotation)
-        {
-            while (SceneView.lastActiveSceneView == null)
+            int numScenes = EditorSceneManager.sceneCount;
+            for (int currSceneIndex = 0; currSceneIndex < numScenes; currSceneIndex++)
             {
-                yield return null;
+                EditorSceneManager.SaveScene(SceneManager.GetSceneAt(currSceneIndex));
             }
-
-            while (SceneView.lastActiveSceneView.camera == null)
-            {
-                yield return null;
-            }
-
-            Camera sceneCamera = SceneView.lastActiveSceneView.camera;
-            if (sceneCamera)
-            {
-                sceneCamera.transform.position = cameraPosition;
-                sceneCamera.transform.rotation = cameraRotation;
-                Debug.Log("Scene View Camera moved!");
-            }
-
         }
-
     }
 }
