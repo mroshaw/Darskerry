@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,12 +7,19 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
     [RequireComponent(typeof(PlayerCamera))]
     public class PlayerCameraInput : MonoBehaviour, PlayerControls.ICameraControlsActions
     {
-        private PlayerCamera _playerCamera;
+        #region Debug values
+        [BoxGroup("DEBUG")] public Vector2 LookDebug;
+        [BoxGroup("DEBUG")] public Vector2 GamepadLookDebug;
+        [BoxGroup("DEBUG")] public float ScrollInputDebug;
+        #endregion
 
-        public Vector2 LookDebug;
+        #region Properties
+        private PlayerCamera _playerCamera;
+        private Vector2 _lookInputValue = Vector2.zero;
+        private Vector2 _gamepadLookInputValue = Vector2.zero;
+        #endregion
 
         #region Startup
-
         private void Awake()
         {
             _playerCamera =GetComponent<PlayerCamera>();
@@ -40,30 +48,36 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             PlayerCharacterInputManager.Instance.PlayerControls.CameraControls.Disable();
             PlayerCharacterInputManager.Instance.PlayerControls.CameraControls.RemoveCallbacks(this);
         }
-  
+
         #endregion
 
+        #region Updates
+        private void Update()
+        {
+            _playerCamera.Look(_lookInputValue);
+            _playerCamera.LookGamePad(_gamepadLookInputValue);
+        }
+        #endregion
 
         #region Input Callbacks
 
         public void OnLookGamepad(InputAction.CallbackContext context)
         {
-            Vector2 lookInput = context.ReadValue<Vector2>();
-            LookDebug = lookInput;
-            _playerCamera.LookGamePad(lookInput);
+            _gamepadLookInputValue = context.ReadValue<Vector2>();
+            GamepadLookDebug = _gamepadLookInputValue;
         }
 
         public void OnZoom(InputAction.CallbackContext context)
         {
             float scrollInput = context.ReadValue<Vector2>().y;
+            ScrollInputDebug = scrollInput;
             _playerCamera.Scroll(scrollInput);
         }
 
         public void OnLook(InputAction.CallbackContext context)
         {
-            Vector2 lookInput = context.ReadValue<Vector2>();
-            LookDebug = lookInput;
-            _playerCamera.Look(lookInput);
+            _lookInputValue = context.ReadValue<Vector2>();
+            LookDebug = _lookInputValue;
         }
         #endregion
     }

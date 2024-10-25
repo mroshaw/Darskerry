@@ -10,7 +10,7 @@ namespace DaftAppleGames.Darskerry.Core.CameraTools
         /// <summary>
         /// Configure the component on awake
         /// </summary>   
-        private void Awake()
+        private void Start()
         {
             GPUInstancerAPI.SetCamera(GetComponent<Camera>());
         }

@@ -291,7 +291,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""name"": ""LookGamepad"",
                     ""type"": ""Value"",
                     ""id"": ""34ccf5d9-707f-47ec-ab41-801590453556"",
-                    ""expectedControlType"": ""Stick"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

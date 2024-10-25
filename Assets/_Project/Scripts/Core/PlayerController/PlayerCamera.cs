@@ -1,4 +1,5 @@
 using ECM2;
+using Sirenix.OdinInspector;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -7,27 +8,34 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
     public class PlayerCamera : MonoBehaviour
     {
         #region Class Variables
-        [Header("Components")]
-        [SerializeField] private CinemachineCamera virtualCamera;
+        [BoxGroup("Components")] [SerializeField] private CinemachineCamera virtualCamera;
 
-        [Header("Camera Settings")] [SerializeField]
-        private Vector2 lookSensitivity = new(0.1f, 0.1f);
-        private Vector2 gamepadlookSensitivity = new(1f, 1f);
-        [SerializeField] private float minPitch = -20.0f;
-        [SerializeField] private float maxPitch = 20.0f;
+        [BoxGroup("Camera Settings")] [SerializeField]
+        [BoxGroup("Camera Settings")] private Vector2 lookSensitivity = new(0.1f, 0.1f);
+        [BoxGroup("Camera Settings")] private Vector2 gamepadlookSensitivity = new(1f, 1f);
+        [BoxGroup("Camera Settings")][SerializeField] private float minPitch = -20.0f;
+        [BoxGroup("Camera Settings")][SerializeField] private float maxPitch = 20.0f;
 
-        [SerializeField] private Transform followTarget;
-        [SerializeField] private float followDistance = 5.0f;
-        [SerializeField] private float followMinDistance = 2.0f;
-        [SerializeField] private float followMaxDistance = 10.0f;
-        [SerializeField] private bool invertLook;
-        [SerializeField] private bool gamepadInvertLook;
+        [BoxGroup("Camera Settings")][SerializeField] private Transform followTarget;
+        [BoxGroup("Camera Settings")][SerializeField] private float followDistance = 5.0f;
+        [BoxGroup("Camera Settings")][SerializeField] private float followMinDistance = 2.0f;
+        [BoxGroup("Camera Settings")][SerializeField] private float followMaxDistance = 10.0f;
+        
+        [BoxGroup("Input Settings")][SerializeField] private bool invertLook;
+        [BoxGroup("Input Settings")][SerializeField] private bool gamepadInvertLook;
 
         private CinemachineThirdPersonFollow _thirdPersonFollow;
 
         private float _cameraTargetYaw;
         private float _cameraTargetPitch;
         private float _followDistanceSmoothVelocity;
+
+        #endregion
+
+        #region Debug values
+        [BoxGroup("DEBUG")] public float CameraTargetYawDebug;
+        [BoxGroup("DEBUG")] public float CameraTargetPitchDebug;
+
         #endregion
 
         #region Startup
@@ -36,6 +44,12 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             _thirdPersonFollow = virtualCamera.GetComponent<CinemachineThirdPersonFollow>();
         }
         #endregion
+
+        private void Update()
+        {
+            CameraTargetYawDebug = _cameraTargetYaw;
+            CameraTargetPitchDebug = _cameraTargetPitch;
+        }
 
         private void LateUpdate()
         {
@@ -102,7 +116,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         {
             followTarget.transform.rotation = Quaternion.Euler(_cameraTargetPitch, _cameraTargetYaw, 0.0f);
 
-            _thirdPersonFollow.CameraDistance =
+            // _thirdPersonFollow.CameraDistance =
                 Mathf.SmoothDamp(_thirdPersonFollow.CameraDistance, followDistance, ref _followDistanceSmoothVelocity, 0.1f);
         }
     }
