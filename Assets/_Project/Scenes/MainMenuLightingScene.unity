@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000004, guid: 224ed2d746b83fe449db8d77e7b8d395, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: bb96c0184c92e8b4182b7c838d191ec8, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -316,67 +316,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &726735834
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809838080511190175, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6220992063172374777, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_Name
-      value: Clear
-      objectReference: {fileID: 0}
-    - target: {fileID: 6220992063172374777, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b3679846edcc58c4b88f2e33a3456c79, type: 3}
 --- !u!1 &987403351
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,12 +435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a28706ef6cb6144795c8d619d38e5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lensFlareData: {fileID: 11400000, guid: 72012a4fc3d5256459a391564bfec40e, type: 2}
-  lensFlareIndexes: 0
-  defaultFlareIntensity: 1
-  attenuateMoonFlareWithDaylight: 0
-  colorSunFlareWithSky: 1
-  killFlareWhenBelowHorizon: 1
 --- !u!114 &1164324171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,10 +447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8668609bb67f2469f072bcd513b74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  celestialBodies:
-  - {fileID: 1164324174}
-  - {fileID: 1330048376}
-  startEndDecreaseAngle: {x: -5, y: -10}
 --- !u!114 &1164324172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LensFlareData: {fileID: 11400000, guid: 72012a4fc3d5256459a391564bfec40e, type: 2}
+  m_LensFlareData: {fileID: 11400000, guid: bd7eaf3bd49c39f4cb77bd809459aa72, type: 2}
   version: 0
   intensity: 1
   maxAttenuationDistance: 100
@@ -1173,12 +1102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a28706ef6cb6144795c8d619d38e5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lensFlareData: {fileID: 11400000, guid: 00b269900b4efe94497e3e1d8a45b6d2, type: 2}
-  lensFlareIndexes: 0
-  defaultFlareIntensity: 0.34
-  attenuateMoonFlareWithDaylight: 1
-  colorSunFlareWithSky: 0
-  killFlareWhenBelowHorizon: 0
 --- !u!114 &1330048378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LensFlareData: {fileID: 11400000, guid: 00b269900b4efe94497e3e1d8a45b6d2, type: 2}
+  m_LensFlareData: {fileID: 11400000, guid: bd7eaf3bd49c39f4cb77bd809459aa72, type: 2}
   version: 0
   intensity: 0.34
   maxAttenuationDistance: 100
@@ -2094,6 +2017,5 @@ SceneRoots:
   - {fileID: 1701702881}
   - {fileID: 1189041753}
   - {fileID: 1164324175}
-  - {fileID: 726735834}
   - {fileID: 2054030746}
   - {fileID: 545666582}

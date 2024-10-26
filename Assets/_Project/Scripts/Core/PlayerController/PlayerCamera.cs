@@ -71,7 +71,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
 
         public void Scroll(float scrollInput)
         {
-            Debug.Log("In Scroll");
             AddControlZoomInput(scrollInput);
         }
 
@@ -116,7 +115,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         {
             followTarget.transform.rotation = Quaternion.Euler(_cameraTargetPitch, _cameraTargetYaw, 0.0f);
 
-            // _thirdPersonFollow.CameraDistance =
+            _thirdPersonFollow.CameraDistance =
                 Mathf.SmoothDamp(_thirdPersonFollow.CameraDistance, followDistance, ref _followDistanceSmoothVelocity, 0.1f);
         }
     }

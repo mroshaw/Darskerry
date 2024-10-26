@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: 224ed2d746b83fe449db8d77e7b8d395, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: bb96c0184c92e8b4182b7c838d191ec8, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -2373,6 +2373,7 @@ GameObject:
   - component: {fileID: 498452828}
   - component: {fileID: 498452827}
   - component: {fileID: 498452826}
+  - component: {fileID: 498452829}
   m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
@@ -2434,7 +2435,7 @@ Terrain:
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 25
-  m_SplatMapDistance: 1000
+  m_SplatMapDistance: 99999
   m_HeightmapMinimumLODSimplification: 0
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
@@ -2444,7 +2445,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 22ff8771d87ef27429e670136399094b, type: 2}
+  m_MaterialTemplate: {fileID: 0}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -2473,6 +2474,38 @@ MonoBehaviour:
   treeManager: {fileID: 0}
   beingDestroyed: 0
   terrainSelectedToolIndex: -1
+--- !u!114 &498452829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498452824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6525fd4a9fb974b7f878dee70144de99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  templateMaterial: {fileID: 2100000, guid: 0ffef386609f15c43947aa8fb22d81d0, type: 2}
+  blendMat: {fileID: 0}
+  blendMatInstance: {fileID: 0}
+  keywordSO: {fileID: 11400000, guid: 6930099f33a6e2a409cb315dcd44b948, type: 2}
+  perPixelNormal: {fileID: 0}
+  streamTexture: {fileID: 0}
+  propData: {fileID: 11400000, guid: dde546b215e41bc4192be134d95db18e, type: 2}
+  terrain: {fileID: 498452827}
+  baseMapShader: {fileID: 4800000, guid: 46ecf9c2969c54e488006d17502b4b16, type: 3}
+  customControl0: {fileID: 0}
+  customControl1: {fileID: 0}
+  customControl2: {fileID: 0}
+  customControl3: {fileID: 0}
+  customControl4: {fileID: 0}
+  customControl5: {fileID: 0}
+  customControl6: {fileID: 0}
+  customControl7: {fileID: 0}
+  patchBoundsMultiplier: {x: 1, y: 1, z: 1}
+  reenabled: 1
+  importSplatMaps: []
 --- !u!1001 &516847682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7557,7 +7590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83d2f7ae04ab6f4f99b0d85377be998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializedBakingSet: {fileID: 11400000, guid: f12ac26dad3b1d64c880499f7b56b6c4, type: 2}
+  serializedBakingSet: {fileID: 0}
   sceneGUID: 51524a99b7908934496629631bc786f7
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
@@ -9109,7 +9142,7 @@ MonoBehaviour:
   options:
     settings:
       terrainSearchMethod: 0
-      keepLayersInSync: 0
+      keepLayersInSync: 1
       maxHeightSaveBackPerFrame: 1
       useSceneCulling: 0
       sceneTerrainCullingDistance: 2500
@@ -9129,7 +9162,9 @@ MonoBehaviour:
       ambientAreaColor: {r: 0, g: 0, b: 1, a: 0.5}
       noisePreviewColor: {r: 1, g: 0, b: 0, a: 0.8}
       filterPreviewColor: {r: 0, g: 0, b: 1, a: 0.8}
+    gizmoVisibility: 1
   explicitTerrains: []
+  msConfig: {fileID: 11400000, guid: b29892ba96925ff4e8331244d60c8b0a, type: 2}
 --- !u!4 &1969198050
 Transform:
   m_ObjectHideFlags: 0
@@ -9470,7 +9505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  size: {x: 503.01, y: 63.76863, z: 503.01}
+  size: {x: 503.01, y: 63.768623, z: 503.01}
   overrideRendererFilters: 0
   minRendererVolumeSize: 0.1
   objectLayerMask:
@@ -9479,7 +9514,7 @@ MonoBehaviour:
   lowestSubdivLevelOverride: 0
   highestSubdivLevelOverride: 3
   overridesSubdivLevels: 0
-  mightNeedRebaking: 0
+  mightNeedRebaking: 1
   cachedTransform:
     e00: 1
     e01: 0
@@ -9510,7 +9545,7 @@ Transform:
   m_GameObject: {fileID: 2022920046}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 250, y: 30.379316, z: 250}
+  m_LocalPosition: {x: 250, y: 30.379313, z: 250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
