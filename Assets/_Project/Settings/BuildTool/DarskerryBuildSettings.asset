@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bc3964142ff4248952c2a3e60394d9, type: 3}
   m_Name: DarskerryBuildSettings
   m_EditorClassIdentifier: 
+  additiveLoaderSetting:
+  - {fileID: 11400000, guid: ca4367078e248f34380372e9b1db2771, type: 2}
+  - {fileID: 11400000, guid: bd682d4821e17b74496427d7aac016d8, type: 2}
+  emptyScene:
+    sceneName: EmptyScene
+    sceneAsset: {fileID: 102900000, guid: 0b548bca5ce539d4b9410688dabe7bd7, type: 3}
+    isMain: 0
   versionIncrementType: 1
   winBuildTargetSettings:
     buildTarget: 19
@@ -25,23 +32,23 @@ MonoBehaviour:
     buildVersion:
       majorVersionNumber: 0
       minorVersionNumber: 0
-      patchVersionNumber: 52
+      patchVersionNumber: 60
       buildStage: 0
     lastSuccessfulBuild:
-      day: 25
+      day: 27
       month: 10
       year: 2024
-      hour: 23
-      minute: 49
-      second: 40
+      hour: 11
+      minute: 29
+      second: 27
     lastBuildAttempt:
-      day: 25
+      day: 27
       month: 10
       year: 2024
-      hour: 23
-      minute: 35
-      second: 44
-    lastBuildState: 2
+      hour: 11
+      minute: 28
+      second: 16
+    lastBuildState: 1
     lastBuildLog: 
     lastSuccessfulDeploy:
       day: 7
@@ -133,6 +140,6 @@ MonoBehaviour:
     lastDeployState: 0
     lastDeployLog: 
   latestBuildTarget: 19
-  latestBuildDateTime: 25/10/2024 23:35:44
-  latestBuildResult: SuccessWithErrors
-  latestBuildVersion: 0.0.51 (Prototype)
+  latestBuildDateTime: 27/10/2024 11:28:16
+  latestBuildResult: SuccessWithWarnings
+  latestBuildVersion: 0.0.59 (Prototype)

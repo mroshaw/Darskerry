@@ -80,6 +80,12 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# Do not include Baking Sets, Reflection Probe Bake results, Occlusion Bake results, Lighting Data
+*Baking*Set*.*
+*ReflectionProbe*.*
+*LightingData*.*
+
+
 # Do not include any 3rd party assets.
 /Assets/*
 !/Assets/_Project/

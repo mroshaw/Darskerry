@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using DaftAppleGames.Darskerry.Core;
+using DaftAppleGames.Darskerry.Core.Scenes;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
@@ -16,6 +17,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
+using UnityEngine.Rendering.HighDefinition;
 
 namespace DaftAppleGames.Editor.BuildTool
 {
@@ -40,6 +42,8 @@ namespace DaftAppleGames.Editor.BuildTool
         [BoxGroup("Platform Build")] [SerializeField] [ReadOnly] private BuildStatus androidBuildStatus;
 
         private BuildSettings _buildSettings;
+
+        private bool _lightmapBaking = false;
 
         /// <summary>
         /// Initialise the build status when window is enabled
@@ -264,6 +268,7 @@ namespace DaftAppleGames.Editor.BuildTool
         private void BuildPlayer(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus, bool cleanBuild)
         {
             BuildApplierStart();
+            LoadEmptyScene();
             EditorCoroutineUtility.StartCoroutine(BuildPlayerAsync(buildTargetSettings, buildStatus, cleanBuild), this);
             BuildApplierEnd();
         }
@@ -417,6 +422,73 @@ namespace DaftAppleGames.Editor.BuildTool
             if (totalWarnings > 0)
             {
                 Debug.LogWarning($"Warning, build for platform {platform} failed with warnings!");
+            }
+        }
+
+        private IEnumerator BuildWithBakingAsync()
+        {
+            // Start light baking
+            EditorCoroutineUtility.StartCoroutine(BakeLightingAsync(), this);
+            yield return null;
+            while (_lightmapBaking)
+            {
+                yield return null;
+            }
+        }
+
+        [BoxGroup("Baking")] [Button("Bake Lighting All Scenes")]
+        private void BakeLighting()
+        {
+            EditorSceneManager.SaveOpenScenes();
+            LoadEmptyScene();
+
+            _lightmapBaking = true;
+
+            foreach (AdditiveSceneLoaderSettings additiveSettings in _buildSettings.additiveLoaderSetting)
+            {
+                Debug.Log($"Baking additive scene set: {additiveSettings.name}");
+                EditorSceneManager.OpenScene(additiveSettings.loaderScene.GetScenePath());
+                AdditiveSceneLoader sceneLoader = Object.FindAnyObjectByType<AdditiveSceneLoader>();
+                sceneLoader.LoadAllScenes();
+                Lightmapping.Bake();
+            }
+
+            LoadEmptyScene();
+
+            _lightmapBaking = false;
+        }
+
+        private IEnumerator BakeLightingAsync()
+        {
+            _lightmapBaking = true;
+
+            // 
+
+            Lightmapping.BakeAsync();
+            while (Lightmapping.isRunning)
+            {
+                yield return null;
+            }
+
+            _lightmapBaking = false;
+        }
+
+        private void LoadEmptyScene()
+        {
+            EditorSceneManager.OpenScene(_buildSettings.emptyScene.GetScenePath());
+        }
+
+        private static void SetShadowMapEnabled(Light light, bool enabled)
+        {
+            // Check if the light is Mixed or Baked
+            if (light.lightmapBakeType == LightmapBakeType.Mixed || light.lightmapBakeType == LightmapBakeType.Baked)
+            {
+                // Enable shadow map
+                HDAdditionalLightData hdLightData = light.GetComponent<HDAdditionalLightData>();
+                if (hdLightData != null)
+                {
+                    hdLightData.EnableShadows(enabled);
+                }
             }
         }
 

@@ -27,7 +27,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         /// </summary>
         [BoxGroup("Behaviour")] public bool loadScenesOnStart = true;
         [BoxGroup("Behaviour")] public bool loadScenesOnAwake ;
-        [BoxGroup("Scenes")] [TableList] public List<AdditiveScene> additiveScenes;
+        [BoxGroup("Scenes")] [SerializeField] private AdditiveSceneLoaderSettings additiveSceneLoaderSettings;
 
         [FoldoutGroup("Additive Scene Events")] public UnityEvent allScenesLoadStartedEvent;
         [FoldoutGroup("Additive Scene Events")] public UnityEvent sceneLoadedEvent;
@@ -89,7 +89,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         /// </summary>
         private void InitLoadStatus()
         {
-            foreach (AdditiveScene additiveScene in additiveScenes)
+            foreach (AdditiveScene additiveScene in additiveSceneLoaderSettings.additiveScenes)
             {
                 additiveScene.LoadStatus = SceneLoadStatus.None;
                 additiveScene.SceneOp = null;
@@ -129,7 +129,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
             allScenesLoadStartedEvent.Invoke();
             InitLoadStatus();
 
-            Debug.Log($"Total Additive Scenes:{additiveScenes.Count}");
+            Debug.Log($"Total Additive Scenes:{additiveSceneLoaderSettings.additiveScenes.Count}");
 
             StartCoroutine(LoadAllScenesAsync());
             
@@ -180,7 +180,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         /// <returns></returns>
         private bool AllScenesInState(SceneLoadStatus status)
         {
-            foreach (AdditiveScene additiveScene in additiveScenes)
+            foreach (AdditiveScene additiveScene in additiveSceneLoaderSettings.additiveScenes)
             {
                 if (additiveScene.LoadStatus != status)
                 {
@@ -195,7 +195,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         /// </summary>
         private void LoadScenes(LoadSceneMode loadSceneMode)
         {
-            foreach (AdditiveScene additiveScene in additiveScenes)
+            foreach (AdditiveScene additiveScene in additiveSceneLoaderSettings.additiveScenes)
             {
 #if UNITY_EDITOR
                 Debug.Log($"Starting Editor load of scene: {additiveScene.sceneName}...");
@@ -228,7 +228,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         /// </summary>
         private void ActivateScenes()
         {
-            foreach (AdditiveScene additiveScene in additiveScenes)
+            foreach (AdditiveScene additiveScene in additiveSceneLoaderSettings.additiveScenes)
             {
                 StartCoroutine(ActivateSceneAsync(additiveScene));
             }
@@ -307,7 +307,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         private void UpdateProgress()
         {
             float totalProgress = 0.0f;
-            foreach (AdditiveScene additiveScene in additiveScenes)
+            foreach (AdditiveScene additiveScene in additiveSceneLoaderSettings.additiveScenes)
             {
                 if (additiveScene.SceneOp != null)
                 {

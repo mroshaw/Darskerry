@@ -12,7 +12,7 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
     {
         [TableColumnWidth(120, Resizable = true)] public string sceneName;
 #if UNITY_EDITOR
-        [TableColumnWidth(180, Resizable = true)] public SceneAsset sceneAsset;
+        [TableColumnWidth(180, Resizable = true)][OnValueChanged("UpdateName")] public SceneAsset sceneAsset;
         [TableColumnWidth(20, Resizable = true)] [Button("U")] [LabelText("U")]
         private void UpdateName()
         {
@@ -41,5 +41,11 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
             get => _loadStatus;
             set => _loadStatus = value;
         }
+#if UNITY_EDITOR
+        public string GetScenePath()
+        {
+            return AssetDatabase.GetAssetPath(sceneAsset);
+        }
+#endif
     }
 }

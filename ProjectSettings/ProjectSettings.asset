@@ -144,8 +144,9 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.1.0
-  preloadedAssets: []
+  bundleVersion: 0.0.60 (Prototype)
+  preloadedAssets:
+  - {fileID: -944628639613478452, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -490,7 +491,7 @@ PlayerSettings:
       m_SubKind: 
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
-    m_StaticBatching: 1
+    m_StaticBatching: 0
     m_DynamicBatching: 0
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs:
@@ -837,7 +838,7 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Standalone: __MICROSPLAT__;GPU_INSTANCER;ODIN_INSPECTOR_EDITOR_ONLY;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_INSPECTOR_3_2;ODIN_INSPECTOR_3_3
+    Standalone: __MICROSPLAT__;GPU_INSTANCER;ODIN_INSPECTOR_EDITOR_ONLY;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_INSPECTOR_3_2;ODIN_INSPECTOR_3_3;__MICROSPLAT_GLOBALTEXTURE__;__MICROSPLAT_DETAILRESAMPLE__;__MICROSPLAT_TERRAINBLEND__;__MICROSPLAT_TRIPLANAR__;__MICROSPLAT_TEXTURECLUSTERS__;__MICROSPLAT_TESSELLATION__;__MICROSPLAT_STREAMS__;__MICROSPLAT_WINDGLITTER__;__MICROSPLAT_SNOW__;__MICROSPLAT_ALPHAHOLE__;__MICROSPLAT_MICROVERSEPREVIEW__;HDPipeline;HDRPTIMEOFDAY
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

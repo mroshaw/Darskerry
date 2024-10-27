@@ -4,7 +4,7 @@
 //
 // Auto-generated shader code, don't hand edit!
 //
-//   Unity Version: 6000.0.23f1
+//   Unity Version: 6000.0.24f1
 //   MicroSplat Version: 3.9
 //   Render Pipeline: HDRP2023
 //   Platform: WindowsEditor

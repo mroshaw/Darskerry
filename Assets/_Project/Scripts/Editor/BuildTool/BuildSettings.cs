@@ -1,12 +1,17 @@
+using DaftAppleGames.Darskerry.Core.Scenes;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEditor;
+using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace DaftAppleGames.Editor.BuildTool
 {
     [CreateAssetMenu(fileName = "BuildSettings", menuName = "Daft Apple Games/Project/Build settings", order = 1)]
     public class BuildSettings : ScriptableObject
     {
+        [BoxGroup("Build Scenes")] public AdditiveSceneLoaderSettings[] additiveLoaderSetting;
+        [BoxGroup("Build Scenes")] public AdditiveScene emptyScene;
         [BoxGroup("Build Settings")] public VersionIncrementType versionIncrementType;
 
         [BoxGroup("Windows Settings")] public BuildTargetSettings winBuildTargetSettings;
@@ -22,5 +27,17 @@ namespace DaftAppleGames.Editor.BuildTool
         [BoxGroup("Latest Build")] [SerializeField] public string latestBuildDateTime;
         [BoxGroup("Latest Build")] [SerializeField] public string latestBuildResult;
         [BoxGroup("Latest Build")] [SerializeField] public string latestBuildVersion;
+
+        public List<string> GetAllScenePaths()
+        {
+            List<string> scenePaths = new();
+
+            foreach (AdditiveSceneLoaderSettings currSceneSettings in additiveLoaderSetting)
+            {
+                scenePaths.AddRange(currSceneSettings.GetAllScenePaths());
+            }
+
+            return scenePaths;
+        }
     }
 }
