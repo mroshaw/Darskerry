@@ -251,18 +251,6 @@ namespace DaftAppleGames.Editor.BuildTool
         }
 
         /// <summary>
-        /// Saves all open scenes
-        /// </summary>
-        private void SaveAllScenes()
-        {
-            int numScenes = EditorSceneManager.sceneCount;
-            for (int currSceneIndex = 0; currSceneIndex < numScenes; currSceneIndex++)
-            {
-                EditorSceneManager.SaveScene(SceneManager.GetSceneAt(currSceneIndex));
-            }
-        }
-
-        /// <summary>
         /// Call the aSync build player co-coroutine
         /// </summary>
         private void BuildPlayer(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus, bool cleanBuild)

@@ -11,7 +11,7 @@ namespace DaftAppleGames.Editor.ObjectTools
 
     public class MeshSettingsEditorWindow : OdinEditorWindow
     {
-        [MenuItem("Daft Apple Games/Buildings/Mesh Tool")]
+        [MenuItem("Daft Apple Games/Meshes/Mesh Tool")]
         public static void ShowWindow()
         {
             GetWindow(typeof(MeshSettingsEditorWindow));
@@ -190,6 +190,25 @@ namespace DaftAppleGames.Editor.ObjectTools
             {
                 AdjustLODShadows(gameObject);
             }
+
+            SavePrefabChanges();
+        }
+
+        /// <summary>
+        /// If any of the Selection is a Prefab, mark as dirty and force a save
+        /// </summary>
+        private void SavePrefabChanges()
+        {
+            foreach (GameObject gameObject in Selection.gameObjects)
+            {
+                if (PrefabUtility.IsPartOfAnyPrefab(gameObject))
+                {
+                    UnityEditor.EditorUtility.SetDirty(gameObject);
+                    AssetDatabase.SaveAssetIfDirty(gameObject);
+                }
+            }
+
+            
         }
 
         // Call this method to adjust shadows on all LODGroups within the target object
@@ -318,7 +337,7 @@ namespace DaftAppleGames.Editor.ObjectTools
             // Recalculate bounds
             lodGroup.RecalculateBounds();
 
-            EditorUtility.SetDirty(prefabGameObject);
+            SavePrefabChanges();
 
         }
     }
