@@ -8,23 +8,24 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
     public class PlayerCamera : MonoBehaviour
     {
         #region Class Variables
-        [BoxGroup("Components")] [SerializeField] private CinemachineCamera virtualCamera;
+        [BoxGroup("Components")][SerializeField] public CinemachineCamera virtualCamera;
 
-        [BoxGroup("Camera Settings")] [SerializeField]
+        [BoxGroup("Camera Settings")]
+        [SerializeField]
         [BoxGroup("Camera Settings")] private Vector2 lookSensitivity = new(0.1f, 0.1f);
         [BoxGroup("Camera Settings")] private Vector2 gamepadlookSensitivity = new(1f, 1f);
         [BoxGroup("Camera Settings")][SerializeField] private float minPitch = -20.0f;
         [BoxGroup("Camera Settings")][SerializeField] private float maxPitch = 20.0f;
 
-        [BoxGroup("Camera Settings")][SerializeField] private Transform followTarget;
+        [BoxGroup("Camera Settings")][SerializeField] public Transform followTarget;
         [BoxGroup("Camera Settings")][SerializeField] private float followDistance = 5.0f;
         [BoxGroup("Camera Settings")][SerializeField] private float followMinDistance = 2.0f;
         [BoxGroup("Camera Settings")][SerializeField] private float followMaxDistance = 10.0f;
-        
+
         [BoxGroup("Input Settings")][SerializeField] private bool invertLook;
         [BoxGroup("Input Settings")][SerializeField] private bool gamepadInvertLook;
 
-        private CinemachineThirdPersonFollow _thirdPersonFollow;
+        public CinemachineThirdPersonFollow ThirdPersonFollow { get; set; }
 
         private float _cameraTargetYaw;
         private float _cameraTargetPitch;
@@ -41,7 +42,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         #region Startup
         private void Awake()
         {
-            _thirdPersonFollow = virtualCamera.GetComponent<CinemachineThirdPersonFollow>();
+            ThirdPersonFollow = virtualCamera.GetComponent<CinemachineThirdPersonFollow>();
         }
         #endregion
 
@@ -115,8 +116,8 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         {
             followTarget.transform.rotation = Quaternion.Euler(_cameraTargetPitch, _cameraTargetYaw, 0.0f);
 
-            _thirdPersonFollow.CameraDistance =
-                Mathf.SmoothDamp(_thirdPersonFollow.CameraDistance, followDistance, ref _followDistanceSmoothVelocity, 0.1f);
+            ThirdPersonFollow.CameraDistance =
+                Mathf.SmoothDamp(ThirdPersonFollow.CameraDistance, followDistance, ref _followDistanceSmoothVelocity, 0.1f);
         }
     }
 }

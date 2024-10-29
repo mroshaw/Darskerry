@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7688342090583350981
 Transform:
   m_ObjectHideFlags: 0
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb7ae41c08c4f48bcd4f07c6de1137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabPoolType: 0
   poolPrefab: {fileID: 184202, guid: 69a41efff35b9e140a4592dcd9a6bb7e, type: 3}
   instanceContainer: {fileID: 3550556198872255438}
   lifeTimeInSeconds: 3
@@ -128,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb7ae41c08c4f48bcd4f07c6de1137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabPoolType: 1
   poolPrefab: {fileID: 135586, guid: 0bdf2df9ac47ba54e83d6273c25c6a59, type: 3}
   instanceContainer: {fileID: 7345121859665831588}
   lifeTimeInSeconds: 0

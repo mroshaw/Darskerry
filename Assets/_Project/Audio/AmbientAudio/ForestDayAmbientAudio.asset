@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6da01fc435f44c5b210b37fe0d42ad, type: 3}
+  m_Name: ForestDayAmbientAudio
+  m_EditorClassIdentifier: 
+  outputGroup: {fileID: 1980601695967843391, guid: 954e221b2888650448cd9413a9c0f832, type: 2}
+  randomSounds:
+  - clips:
+    - {fileID: 8300000, guid: 373b40d9dae6b7b439c05c9ead4cf1f1, type: 3}
+    - {fileID: 8300000, guid: ae17f7f0a10ed6149a9c93c8ad84aa80, type: 3}
+    - {fileID: 8300000, guid: 7f65ad5e67d1dee41a8d32a9149ecc5c, type: 3}
+    - {fileID: 8300000, guid: a884598cdfd0df84198a20c74805e8e5, type: 3}
+    - {fileID: 8300000, guid: 5be248109942ae048a46e01c53acd097, type: 3}
+    playerRadius: 25
+    minimumDistance: 0
+    delay: 4
+    delayVariance: 0
+    volume: 0.4
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    spacialization: 1
+  backgroundLoops:
+  - {fileID: 8300000, guid: b9fd44046a482cb4b8cbeeafc31b3c42, type: 3}
+  backgroundVolume: 1

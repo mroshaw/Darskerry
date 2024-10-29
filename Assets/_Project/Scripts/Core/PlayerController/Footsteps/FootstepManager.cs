@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -19,8 +19,8 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
         [Header("Spawn Settings")] public bool alignToTerrainSlope;
 
         [Header("Pool Settings")]
-        [SerializeField] private PrefabPool particleFxPool;
-        [SerializeField] private PrefabPool decalPool;
+        [SerializeField] public PrefabPool particleFxPool;
+        [SerializeField] public PrefabPool decalPool;
 
         [Header("Debug")][SerializeField] private bool debugTextureName;
 
@@ -162,7 +162,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
             }
 
             // Texture is at index textureMaxIndex
-            textureName = (_terrainData != null && _terrainData.terrainLayers.Length > 0) ? (_terrainData.terrainLayers[textureMaxIndex]).diffuseTexture.name : "";
+            textureName = (_terrainData != null && _terrainData.terrainLayers.Length > 0 && _terrainData.terrainLayers[textureMaxIndex].diffuseTexture) ? (_terrainData.terrainLayers[textureMaxIndex]).diffuseTexture.name : "";
 
             if (debugTextureName)
             {
@@ -214,6 +214,23 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
 
             return newFootStepTrigger;
         }
+
+        public void Enable()
+        {
+            foreach (FootstepTrigger trigger in footstepTriggers)
+            {
+                trigger.gameObject.SetActive(true);
+            }
+        }
+
+        public void Disable()
+        {
+            foreach (FootstepTrigger trigger in footstepTriggers)
+            {
+                trigger.gameObject.SetActive(false);
+            }
+        }
+
         #endregion
     }
 }

@@ -1,23 +1,24 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 
 namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
 {
+    public enum PrefabPoolType { FootstepMarks, FootstepParticles };
+
     public class PrefabPool : MonoBehaviour
     {
         #region Class Variables
-
-        [Header("Prefab Settings")]
-        [SerializeField] private GameObject poolPrefab;
-        [SerializeField] private Transform instanceContainer;
-        [SerializeField] private float lifeTimeInSeconds;
-        [Header("Pool Settings")]
-        [SerializeField] private int poolMaxSize = 5;
-        [SerializeField] private int poolInitialSize = 10;
-        [Header("Debug")]
-        [SerializeField] private int poolActiveCountDebug;
-        [SerializeField] private int poolInactiveCountDebug;
+        [BoxGroup("Prefab Settings")][SerializeField] private PrefabPoolType prefabPoolType;
+        [BoxGroup("Prefab Settings")][SerializeField] private GameObject poolPrefab;
+        [BoxGroup("Prefab Settings")][SerializeField] private Transform instanceContainer;
+        [BoxGroup("Prefab Settings")][SerializeField] private float lifeTimeInSeconds;
+        [BoxGroup("Pool Settings")][SerializeField] private int poolMaxSize = 5;
+        [BoxGroup("Pool Settings")][SerializeField] private int poolInitialSize = 10;
+        [BoxGroup("DEBUG")][SerializeField] private int poolActiveCountDebug;
+        [BoxGroup("DEBUG")][SerializeField] private int poolInactiveCountDebug;
+        public PrefabPoolType PrefabPoolType => prefabPoolType;
 
         private ObjectPool<GameObject> _prefabInstancePool;
         #endregion
