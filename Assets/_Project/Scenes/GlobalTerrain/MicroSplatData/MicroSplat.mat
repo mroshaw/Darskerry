@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MicroSplat
-  m_Shader: {fileID: 4800000, guid: d039615d30d20f242939c7acc6f71b96, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8a111f7f41219ed4d9ff352778b69fce, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -40,11 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse:
-        m_Texture: {fileID: 18700000, guid: d2fd6c33574ef234c9bc11390bafd2a4, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DistanceNoise:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 18700000, guid: be5f011adfeec8648a20b35da74189cc, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -52,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalSAO:
-        m_Texture: {fileID: 18700000, guid: 9e2f8fc81201a454e8d35767f189f759, type: 2}
+        m_Texture: {fileID: 18700000, guid: a447084be9fd6ca4dac9543789093228, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PerPixelNormal:
@@ -60,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PerTexProps:
-        m_Texture: {fileID: 6028479940333860739, guid: c983f6851135935468946cf151595533, type: 2}
+        m_Texture: {fileID: 7094030773481444209, guid: 67ea2937b418e1248b1adbbe931ee932, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TerrainHeightmapTexture:
@@ -141,11 +137,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _DistanceNoiseScaleStrengthFade: {r: 0.25, g: 0.5, b: 100, a: 250}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _TessData1: {r: 12, g: 0.3, b: 4, a: 0}
-    - _TessData2: {r: 20, g: 45, b: 0.2, a: 0.25}
-    - _TriplanarUVScale: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _TriplanarUVScale: {r: 1, g: 1, b: 0, a: 0}
     - _UVScale: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
