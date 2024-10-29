@@ -1,5 +1,3 @@
-using System;
-using System.Runtime.CompilerServices;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -15,7 +13,7 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
     [ExecuteInEditMode]
     public abstract class UiObject : MonoBehaviour, ISelectHandler, IDeselectHandler, ICancelHandler
     {
-        [BoxGroup("UI Settings")] [SerializeField] private GameObject selectFrame;
+        [BoxGroup("UI Settings")][SerializeField] private GameObject selectFrame;
         [BoxGroup("UI Settings")] public string labelText;
 
         [BoxGroup("Events")] public UnityEvent clickedEvent;
@@ -109,7 +107,6 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
         {
             if (_backgroundImage)
             {
-                Debug.Log($"UiObject: Setting background image {imageSprite.name} on {gameObject.name}.");
                 _backgroundImage.sprite = imageSprite;
             }
             else

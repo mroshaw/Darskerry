@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -10,12 +11,14 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
     {
         #region Class Variables
 
-        [BoxGroup("Events")] [SerializeField] public UnityEvent pausePressedEvent;
+        [BoxGroup("Events")][SerializeField] public UnityEvent pausePressedEvent;
         #endregion
 
         #region Startup
         private void OnEnable()
         {
+            StartCoroutine(RegisterWithInputManagerAsync());
+            /*
             if (PlayerCharacterInputManager.Instance?.PlayerControls == null)
             {
                 Debug.LogError("Player controls is not initialized - cannot enable");
@@ -24,6 +27,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
 
             PlayerCharacterInputManager.Instance.PlayerControls.SystemControls.Enable();
             PlayerCharacterInputManager.Instance.PlayerControls.SystemControls.SetCallbacks(this);
+            */
         }
 
         private void OnDisable()
@@ -47,6 +51,18 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                 pausePressedEvent.Invoke();
             }
         }
+
+        private IEnumerator RegisterWithInputManagerAsync()
+        {
+            while (PlayerCharacterInputManager.Instance == null || PlayerCharacterInputManager.Instance.PlayerControls == null)
+            {
+                yield return null;
+            }
+            Debug.Log("SystemActionsInpt: Found PlayerCharacterInputManager!");
+            PlayerCharacterInputManager.Instance.PlayerControls.SystemControls.Enable();
+            PlayerCharacterInputManager.Instance.PlayerControls.SystemControls.SetCallbacks(this);
+        }
+
         #endregion
 
     }

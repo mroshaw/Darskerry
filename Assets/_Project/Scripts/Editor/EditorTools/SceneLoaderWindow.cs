@@ -4,17 +4,16 @@ using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace DaftAppleGames.Editor.BuildTool
 {
     public class SceneLoaderWindow : OdinEditorWindow
     {
-        [HideIf("@mainMenuSceneAsset != null")] [SerializeField] private SceneAsset mainMenuSceneAsset;
+        [HideIf("@mainMenuSceneAsset != null")][SerializeField] private SceneAsset mainMenuSceneAsset;
 
-        [HideIf("@gameSceneAsset != null")] [SerializeField] private SceneAsset gameSceneAsset;
+        [HideIf("@gameSceneAsset != null")][SerializeField] private SceneAsset gameSceneAsset;
 
-        [HideIf("@gameWorldSceneAsset != null")] [SerializeField] private SceneAsset gameWorldSceneAsset;
+        [HideIf("@gameWorldSceneAsset != null")][SerializeField] private SceneAsset gameWorldSceneAsset;
 
         [HideIf("@emptySceneAsset != null")][SerializeField] private SceneAsset emptySceneAsset;
 
@@ -27,7 +26,8 @@ namespace DaftAppleGames.Editor.BuildTool
             editorWindow.Show();
         }
 
-        [BoxGroup("Game Scenes")] [Button("Main Menu Scene", ButtonSizes.Medium), GUIColor(0, 1, 0)]
+        [BoxGroup("Game Scenes")]
+        [Button("Main Menu", ButtonSizes.Medium), GUIColor(0, 1, 0)]
         private void LoadMainMenuScenes()
         {
             EditorSceneManager.SaveOpenScenes();
@@ -35,7 +35,8 @@ namespace DaftAppleGames.Editor.BuildTool
             CallAdditiveLoader();
         }
 
-        [BoxGroup("Game Scenes")] [Button("Game Scene", ButtonSizes.Medium), GUIColor(0, 1, 0)]
+        [BoxGroup("Game Scenes")]
+        [Button("Game", ButtonSizes.Medium), GUIColor(0, 1, 0)]
         private void LoadGameScenes()
         {
             EditorSceneManager.SaveOpenScenes();
@@ -43,7 +44,8 @@ namespace DaftAppleGames.Editor.BuildTool
             CallAdditiveLoader();
         }
 
-        [BoxGroup("Editor Scenes")] [Button("Game World Scene", ButtonSizes.Medium)]
+        [BoxGroup("Editor Scenes")]
+        [Button("World Editor", ButtonSizes.Medium)]
         private void LoadGameWorldScenes()
         {
             EditorSceneManager.SaveOpenScenes();
@@ -51,7 +53,8 @@ namespace DaftAppleGames.Editor.BuildTool
             CallAdditiveLoader();
         }
 
-        [BoxGroup("Editor Scenes")] [Button("Empty Scene", ButtonSizes.Medium)]
+        [BoxGroup("Editor Scenes")]
+        [Button("Empty Scene", ButtonSizes.Medium)]
         private void LoadEmptyScene()
         {
             EditorSceneManager.SaveOpenScenes();

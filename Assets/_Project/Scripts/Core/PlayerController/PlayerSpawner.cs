@@ -91,6 +91,17 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             {
                 mainCamera.gameObject.SetActive(false);
             }
+            /*
+            Camera[] allCameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
+            foreach (Camera currCamera in allCameras)
+            {
+                if (currCamera.CompareTag("MainCamera"))
+                {
+                    currCamera.gameObject.SetActive(false);
+                    return;
+                }
+            }
+            */
         }
 
         protected override void Configure()
