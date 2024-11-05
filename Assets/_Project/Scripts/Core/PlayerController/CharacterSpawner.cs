@@ -2,10 +2,11 @@ using DaftAppleGames.Darskerry.Core.PlayerController.FootSteps;
 using ECM2;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DaftAppleGames.Darskerry.Core.PlayerController
 {
-    public class CharacterSpawner : MonoBehaviour
+    public abstract class CharacterSpawner : MonoBehaviour
     {
         #region Class Variables
         [PropertyOrder(-1)][BoxGroup("Settings")][SerializeField] protected CharacterSpawnerSettings spawnSettings;
@@ -14,6 +15,9 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         [PropertyOrder(3)][BoxGroup("Character")][SerializeField] private string characterInstanceName = "Player Character";
         [PropertyOrder(3)][BoxGroup("Character")][SerializeField] private string footstepPoolsInstanceName = "Footstep Pools";
         [PropertyOrder(3)][BoxGroup("Character")][SerializeField] protected Transform characterParentContainer;
+
+        [PropertyOrder(10)]
+        [FoldoutGroup("Events")] public UnityEvent CharacterSpawnedEvent;
 
         [PropertyOrder(99)][FoldoutGroup("DEBUG")][SerializeField] private GameObject characterGameObjectInstance;
         [PropertyOrder(99)][FoldoutGroup("DEBUG")][SerializeField] private GameObject footstepPoolsGameObjectInstance;
@@ -40,6 +44,29 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             }
         }
 
+        private void OnEnable()
+        {
+            if (CharacterSpawnManager.instance)
+            {
+                CharacterSpawnManager.instance.RegisterNewSpawner(this);
+            }
+            else
+            {
+                if (Application.isPlaying)
+                {
+                    Debug.LogError("CharacterSpawner: There is no CharacterSpawnManager in the scene! Please add one!");
+                }
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (CharacterSpawnManager.instance)
+            {
+                CharacterSpawnManager.instance.DeregisterSpawner(this);
+            }
+        }
+
         /// <summary>
         /// Configure the component on start
         /// </summary>
@@ -58,6 +85,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             {
                 Configure();
                 SetSpawnsActive();
+                CharacterSpawnedEvent.Invoke();
             }
             else
             {
@@ -152,9 +180,12 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
 
         protected virtual void SetSpawnsActive()
         {
+            if (enableFootsteps)
+            {
+                SetSpawnActive(footstepPoolsGameObjectInstance);
+            }
             SetSpawnActive(characterGameObjectInstance);
         }
-
 
         protected void SetSpawnActive(GameObject spawnedGameObject)
         {

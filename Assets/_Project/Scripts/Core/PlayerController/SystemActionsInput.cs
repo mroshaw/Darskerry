@@ -17,8 +17,8 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         #region Startup
         private void OnEnable()
         {
-            StartCoroutine(RegisterWithInputManagerAsync());
-            /*
+            // StartCoroutine(RegisterWithInputManagerAsync());
+
             if (PlayerCharacterInputManager.Instance?.PlayerControls == null)
             {
                 Debug.LogError("Player controls is not initialized - cannot enable");
@@ -27,7 +27,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
 
             PlayerCharacterInputManager.Instance.PlayerControls.SystemControls.Enable();
             PlayerCharacterInputManager.Instance.PlayerControls.SystemControls.SetCallbacks(this);
-            */
         }
 
         private void OnDisable()

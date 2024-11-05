@@ -10,16 +10,13 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         [PropertyOrder(2)][BoxGroup("Behaviour")][SerializeField] protected bool disableExistingMainCamera;
         [PropertyOrder(3)][BoxGroup("Player")][SerializeField] private string cameraInstanceName = "Player Main Camera";
         [PropertyOrder(3)][BoxGroup("Player")][SerializeField] private string cinemachineRigInstanceName = "Player CM Camera Rig";
-        [PropertyOrder(3)][BoxGroup("Player")][SerializeField] private string inputManagerInstanceName = "Player Input Manager";
 
         [PropertyOrder(99)][FoldoutGroup("DEBUG")][SerializeField] private GameObject cameraGameObjectInstance;
-        [PropertyOrder(99)][FoldoutGroup("DEBUG")][SerializeField] private GameObject inputManagerGameObjectInstance;
         [PropertyOrder(99)][FoldoutGroup("DEBUG")][SerializeField] private GameObject cmRigGameObjectInstance;
 
         private PlayerSpawnerSettings _playerSpawnerSettings;
 
         private Camera _camera;
-        private PlayerCharacterInputManager _inputManager;
         private CinemachineCamera _cinemachine;
         private PlayerCamera _playerCamera;
 
@@ -48,22 +45,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             {
                 Debug.LogError($"PlayerSpawner: Failed to find PlayerCCameracomponent on PrefabInstance {_playerSpawnerSettings.characterPrefab.name}");
                 IsValidSpawn = false;
-            }
-
-            _inputManager = FindAnyObjectByType<PlayerCharacterInputManager>();
-            if (_inputManager)
-            {
-                Debug.Log("PlayerInputManager already exists in scene.");
-            }
-            else
-            {
-                inputManagerGameObjectInstance = SpawnPrefab(_playerSpawnerSettings.inputManagerPrefab, Vector3.zero, Quaternion.identity, null, inputManagerInstanceName, false);
-                _inputManager = inputManagerGameObjectInstance.GetComponent<PlayerCharacterInputManager>();
-                if (!_inputManager)
-                {
-                    Debug.LogError($"PlayerSpawner: Failed to find PlayerCharacterInputManager component on PrefabInstance {_playerSpawnerSettings.inputManagerPrefab.name}");
-                    IsValidSpawn = false;
-                }
             }
 
             cameraGameObjectInstance = SpawnPrefab(_playerSpawnerSettings.cameraPrefab, Vector3.zero, Quaternion.identity, null, cameraInstanceName, false);
@@ -116,13 +97,19 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
 
         protected override void SetSpawnsActive()
         {
-            SetSpawnActive(inputManagerGameObjectInstance);
             base.SetSpawnsActive();
             SetSpawnActive(cameraGameObjectInstance);
             SetSpawnActive(cmRigGameObjectInstance);
 
-
         }
         #endregion
+
+#if UNITY_EDITOR
+        [Button("Spawn in Editor Scene")]
+        private void SpawnInScene()
+        {
+            Spawn();
+        }
+#endif
     }
 }

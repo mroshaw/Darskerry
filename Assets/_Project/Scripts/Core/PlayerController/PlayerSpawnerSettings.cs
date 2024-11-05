@@ -11,6 +11,5 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
     {
         [BoxGroup("Prefabs")][AssetsOnly] public GameObject cameraPrefab;
         [BoxGroup("Prefabs")][AssetsOnly] public GameObject cmCameraRigPrefab;
-        [BoxGroup("Prefabs")][AssetsOnly] public GameObject inputManagerPrefab;
     }
 }

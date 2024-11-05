@@ -22,7 +22,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         #region Startup
         private void Awake()
         {
-            _playerCamera =GetComponent<PlayerCamera>();
+            _playerCamera = GetComponent<PlayerCamera>();
         }
 
         private void OnEnable()
@@ -60,7 +60,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         #endregion
 
         #region Input Callbacks
-
         public void OnLookGamepad(InputAction.CallbackContext context)
         {
             _gamepadLookInputValue = context.ReadValue<Vector2>();

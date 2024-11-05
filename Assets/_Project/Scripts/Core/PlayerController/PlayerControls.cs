@@ -60,7 +60,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""name"": ""Sprint"",
                     ""type"": ""Button"",
                     ""id"": ""bb74cef0-abe2-4177-a71e-87ec86011665"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -82,6 +82,15 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveGamepad"",
+                    ""type"": ""Value"",
+                    ""id"": ""dbe463f5-ebb3-4d7f-b859-6029db4123cd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -102,7 +111,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -113,7 +122,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -124,7 +133,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -135,21 +144,10 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6dab7408-043b-47d5-ad90-4b80c27f85af"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -157,7 +155,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -168,7 +166,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -179,7 +177,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -187,7 +185,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                 {
                     ""name"": """",
                     ""id"": ""6101e521-7554-4e9f-8bb4-bf8885559eef"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -198,10 +196,10 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                 {
                     ""name"": """",
                     ""id"": ""2aaa1e2c-9681-4b5c-95df-31a99cbc5133"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -209,7 +207,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                 {
                     ""name"": """",
                     ""id"": ""b989820a-9837-4a86-b288-5d1a61be6f53"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -223,7 +221,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -241,11 +239,22 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                 },
                 {
                     ""name"": """",
+                    ""id"": ""470eea7a-a39e-4735-be09-1611a50321cc"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard and Mouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""fc03d463-b40f-4ca6-8dc7-0fa37c5c2088"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
+                    ""groups"": ""Keyboard And Mouse;Keyboard and Mouse"",
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -264,11 +273,22 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                 {
                     ""name"": """",
                     ""id"": ""dee47e77-80c4-4aa4-81ed-078e04946ccb"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e3cfb3d-1d55-4ac8-b46e-b90e42bdd91c"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MoveGamepad"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -313,7 +333,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard and Mouse;Gamepad"",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -335,7 +355,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -346,7 +366,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -923,7 +943,18 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                     ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard and Mouse;Gamepad"",
+                    ""groups"": "";Keyboard and Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca0f576f-876c-4f4d-bef9-1f831214707e"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1210,6 +1241,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             m_CharacterControls_Sprint = m_CharacterControls.FindAction("Sprint", throwIfNotFound: true);
             m_CharacterControls_Roll = m_CharacterControls.FindAction("Roll", throwIfNotFound: true);
             m_CharacterControls_Attack = m_CharacterControls.FindAction("Attack", throwIfNotFound: true);
+            m_CharacterControls_MoveGamepad = m_CharacterControls.FindAction("MoveGamepad", throwIfNotFound: true);
             // Camera Controls
             m_CameraControls = asset.FindActionMap("Camera Controls", throwIfNotFound: true);
             m_CameraControls_Look = m_CameraControls.FindAction("Look", throwIfNotFound: true);
@@ -1322,6 +1354,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         private readonly InputAction m_CharacterControls_Sprint;
         private readonly InputAction m_CharacterControls_Roll;
         private readonly InputAction m_CharacterControls_Attack;
+        private readonly InputAction m_CharacterControls_MoveGamepad;
         public struct CharacterControlsActions
         {
             private @PlayerControls m_Wrapper;
@@ -1332,6 +1365,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             public InputAction @Sprint => m_Wrapper.m_CharacterControls_Sprint;
             public InputAction @Roll => m_Wrapper.m_CharacterControls_Roll;
             public InputAction @Attack => m_Wrapper.m_CharacterControls_Attack;
+            public InputAction @MoveGamepad => m_Wrapper.m_CharacterControls_MoveGamepad;
             public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1359,6 +1393,9 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @MoveGamepad.started += instance.OnMoveGamepad;
+                @MoveGamepad.performed += instance.OnMoveGamepad;
+                @MoveGamepad.canceled += instance.OnMoveGamepad;
             }
 
             private void UnregisterCallbacks(ICharacterControlsActions instance)
@@ -1381,6 +1418,9 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                 @Attack.started -= instance.OnAttack;
                 @Attack.performed -= instance.OnAttack;
                 @Attack.canceled -= instance.OnAttack;
+                @MoveGamepad.started -= instance.OnMoveGamepad;
+                @MoveGamepad.performed -= instance.OnMoveGamepad;
+                @MoveGamepad.canceled -= instance.OnMoveGamepad;
             }
 
             public void RemoveCallbacks(ICharacterControlsActions instance)
@@ -1814,6 +1854,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             void OnSprint(InputAction.CallbackContext context);
             void OnRoll(InputAction.CallbackContext context);
             void OnAttack(InputAction.CallbackContext context);
+            void OnMoveGamepad(InputAction.CallbackContext context);
         }
         public interface ICameraControlsActions
         {
