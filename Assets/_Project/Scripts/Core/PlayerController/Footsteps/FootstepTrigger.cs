@@ -6,7 +6,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
     {
         #region Class Variables
         private AudioSource _audioSource;
-
+        private float _cooldownCounter = 0.0f;
         public FootstepManager FootstepManager { get; set; }
         #endregion
 
@@ -25,6 +25,11 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
         #region Class methods
         public override void TriggerEnter(Collider other)
         {
+            if (_cooldownCounter > 0.0f)
+            {
+                return;
+            }
+
             FootstepManager.GetSurfaceFromCollision(transform, other, out FootstepSurface footstepSurface,
                 out Vector3 spawnPosition);
 
@@ -46,6 +51,14 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
             AudioClip audioClip = footstepSurface.audioClips[audioIndex];
             _audioSource.Stop();
             _audioSource.PlayOneShot(audioClip);
+
+            _cooldownCounter = 0.5f;
+
+        }
+
+        private void Update()
+        {
+            _cooldownCounter -= Time.deltaTime;
         }
 
         public override void TriggerExit(Collider other)

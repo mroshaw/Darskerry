@@ -108,6 +108,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         [Button("Spawn in Editor Scene")]
         private void SpawnInScene()
         {
+            _playerSpawnerSettings = spawnSettings as PlayerSpawnerSettings;
             Spawn();
         }
 #endif

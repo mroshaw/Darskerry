@@ -1,6 +1,7 @@
 using DaftAppleGames.Darskerry.Core.PlayerController.FootSteps;
 using ECM2;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -46,9 +47,9 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
 
         private void OnEnable()
         {
-            if (CharacterSpawnManager.instance)
+            if (CharacterSpawnManager.Instance)
             {
-                CharacterSpawnManager.instance.RegisterNewSpawner(this);
+                CharacterSpawnManager.Instance.RegisterNewSpawner(this);
             }
             else
             {
@@ -61,9 +62,9 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
 
         private void OnDisable()
         {
-            if (CharacterSpawnManager.instance)
+            if (CharacterSpawnManager.Instance)
             {
-                CharacterSpawnManager.instance.DeregisterSpawner(this);
+                CharacterSpawnManager.Instance.DeregisterSpawner(this);
             }
         }
 
@@ -151,8 +152,17 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         protected GameObject SpawnPrefab(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent, string instanceName, bool spawnActiveState)
         {
             prefab.SetActive(spawnActiveState);
-
+#if UNITY_EDITOR
+            GameObject prefabInstance = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+            prefabInstance.transform.position = position;
+            prefabInstance.transform.rotation = rotation;
+            if (parent)
+            {
+                prefabInstance.transform.SetParent(parent);
+            }
+#else
             GameObject prefabInstance = parent ? Instantiate(prefab, position, rotation, parent) : Instantiate(prefab, position, rotation);
+#endif
             if (string.IsNullOrEmpty(instanceName))
             {
                 return prefabInstance;

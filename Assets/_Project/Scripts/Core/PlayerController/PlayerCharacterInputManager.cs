@@ -3,21 +3,15 @@ using UnityEngine;
 namespace DaftAppleGames.Darskerry.Core.PlayerController
 {
     [DefaultExecutionOrder(-3)]
-    public class PlayerCharacterInputManager : MonoBehaviour
+    public class PlayerCharacterInputManager : Singleton<PlayerCharacterInputManager>
     {
-        public static PlayerCharacterInputManager Instance;
-        public PlayerControls PlayerControls {  get; private set; }
+        public PlayerControls PlayerControls { get; private set; }
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            base.Awake();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void OnEnable()
@@ -32,7 +26,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
                 PlayerControls = new PlayerControls();
                 PlayerControls.Enable();
             }
-
         }
 
         private void OnDisable()

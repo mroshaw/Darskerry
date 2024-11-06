@@ -16,20 +16,20 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         #region Start
         private void OnEnable()
         {
-            if (!CharacterSpawnManager.instance)
+            if (!CharacterSpawnManager.Instance)
             {
                 Debug.LogError("CharacterSpawnManagerEvents: There is no CharacterSpawnManager in the scene! Please add one!");
                 return;
             }
 
-            CharacterSpawnManager.instance.playerSpawnedEvent.AddListener(PlayerSpawnedProxy);
+            CharacterSpawnManager.Instance.playerSpawnedEvent.AddListener(PlayerSpawnedProxy);
         }
 
         private void OnDisable()
         {
-            if (CharacterSpawnManager.instance)
+            if (CharacterSpawnManager.Instance)
             {
-                CharacterSpawnManager.instance.playerSpawnedEvent.RemoveListener(PlayerSpawnedProxy);
+                CharacterSpawnManager.Instance.playerSpawnedEvent.RemoveListener(PlayerSpawnedProxy);
             }
         }
 
