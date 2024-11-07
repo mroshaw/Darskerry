@@ -178,7 +178,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             {
                 if (_footstepManager)
                 {
-                    _footstepManager.FootstepsEnabled = false;
+                    _footstepManager.footstepsEnabled = false;
                 }
                 return;
             }
