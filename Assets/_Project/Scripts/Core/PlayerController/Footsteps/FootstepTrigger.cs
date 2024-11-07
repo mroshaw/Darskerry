@@ -12,18 +12,12 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
         private bool _terrainDetected;
 
         private FootstepSurface _defaultSurface;
-        private FootstepSurface[] _footstepSurfaces;
 
         #endregion
 
         #region Startup
         private void Awake()
         {
-            if (!FootstepManager || !FootstepManager.FootstepsEnabled)
-            {
-                GetComponent<SphereCollider>().enabled = false;
-                return;
-            }
 
             _audioSource = GetComponent<AudioSource>();
 
@@ -39,16 +33,24 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
                 _terrainData = Terrain.activeTerrain.terrainData;
             }
 
-            _defaultSurface = FootstepManager.GetDefaultSurface();
-            _footstepSurfaces = FootstepManager.GetAllSurfaces();
 
         }
+        private void Start()
+        {
+            if (!FootstepManager || !FootstepManager.FootstepsEnabled)
+            {
+                GetComponent<SphereCollider>().enabled = false;
+                return;
+            }
+            _defaultSurface = FootstepManager.GetDefaultSurface();
+        }
+
         #endregion
 
         #region Class methods
         public override void TriggerEnter(Collider other)
         {
-            if (_cooldownCounter > 0.0f || !FootstepManager.decalPool || !FootstepManager.particleFxPool)
+            if (_cooldownCounter > 0.0f)
             {
                 return;
             }
@@ -59,13 +61,13 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
             // Spawn particles
             if (footstepSurface.spawnParticle)
             {
-                SpawnFootStepParticleFx(spawnPosition, FootstepManager.transform.rotation);
+                FootstepManager.SpawnFootStepParticleFx(spawnPosition, FootstepManager.transform.rotation);
             }
 
             // Spawn decal
             if (footstepSurface.spawnDecal)
             {
-                SpawnFootStepDecal(spawnPosition, FootstepManager.transform.rotation);
+                FootstepManager.SpawnFootStepDecal(spawnPosition, FootstepManager.transform.rotation);
             }
 
             // Play random audio
@@ -90,20 +92,18 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
         #endregion
 
         #region Class methods
-        public void SpawnFootStepParticleFx(Vector3 spawnPosition, Quaternion spawnRotation)
-        {
-            GameObject particleFxInstance = FootstepManager.particleFxPool.SpawnInstance(spawnPosition, spawnRotation);
-        }
+
 
         public void SpawnFootStepDecal(Vector3 spawnPosition, Quaternion spawnRotation)
         {
-            GameObject decalInstance = FootstepManager.decalPool.SpawnInstance(spawnPosition, spawnRotation);
+            FootstepManager.SpawnFootStepDecal(spawnPosition, spawnRotation);
         }
 
         public void GetSurfaceFromCollision(Transform footTransform, Collider otherCollider,
             out FootstepSurface footstepSurface, out Vector3 spawnPosition)
         {
 
+            // Collision if on a Terrain
             if (otherCollider is TerrainCollider)
             {
                 Vector3 collisionPosition = footTransform.position;
@@ -112,33 +112,28 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
                     footstepSurface = _defaultSurface;
                     spawnPosition = collisionPosition;
                 }
-                float terrainHeight = Terrain.activeTerrain.SampleHeight(collisionPosition);
-                spawnPosition = new Vector3(collisionPosition.x, terrainHeight, collisionPosition.z);
-                footstepSurface = FindSurfaceFromTexture(terrainTextureName);
+                else
+                {
+                    float terrainHeight = Terrain.activeTerrain.SampleHeight(collisionPosition);
+                    spawnPosition = new Vector3(collisionPosition.x, terrainHeight, collisionPosition.z);
+                    footstepSurface = FootstepManager.GetSurfaceFromTextureName(terrainTextureName);
+                }
                 return;
 
             }
+
+            // Collision if with a Mesh or other collider type
             spawnPosition = otherCollider is MeshCollider { convex: true } or BoxCollider or SphereCollider or CapsuleCollider ? otherCollider.ClosestPoint(footTransform.position) : footTransform.position;
 
             if (FindMaterialTextureFromCollider(otherCollider, out var meshTextureName))
             {
-                footstepSurface = FindSurfaceFromTexture(meshTextureName);
+                footstepSurface = FootstepManager.GetSurfaceFromTextureName(meshTextureName);
                 return;
             }
+
+            // We haven't found anything, so return the default
             footstepSurface = _defaultSurface;
             spawnPosition = footTransform.position;
-        }
-
-        private FootstepSurface FindSurfaceFromTexture(string textureName)
-        {
-            foreach (FootstepSurface currSurface in _footstepSurfaces)
-            {
-                if (currSurface.ContainsTextureName(textureName) && currSurface.audioClips.Length > 0)
-                {
-                    return currSurface;
-                }
-            }
-            return _defaultSurface;
         }
 
         private bool FindMaterialTextureFromCollider(Collider other, out string textureName)

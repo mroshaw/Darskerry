@@ -178,14 +178,13 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             {
                 if (_footstepManager)
                 {
-                    _footstepManager.Disable();
-                    _footstepManager.enabled = false;
+                    _footstepManager.FootstepsEnabled = false;
                 }
                 return;
             }
 
-            _footstepManager.particleFxPool = _particlePool;
-            _footstepManager.decalPool = _stepMarkPool;
+            _footstepManager.SetParticlePool(_particlePool);
+            _footstepManager.SetDecalPrefabPool(_stepMarkPool);
         }
 
         protected virtual void SetSpawnsActive()

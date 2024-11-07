@@ -15,28 +15,47 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
         [BoxGroup("Settings")][SerializeField] private FootstepSurface defaultSurface;
         [BoxGroup("Settings")][SerializeField] private LayerMask triggerLayerMask;
         [BoxGroup("Settings")][SerializeField] private AudioMixerGroup audioMixerGroup;
+        [BoxGroup("Debug")][SerializeField] public bool debugTextureName;
 
         [BoxGroup("Spawn Settings")] public bool alignToTerrainSlope;
 
-        [BoxGroup("Pool Settings")][SerializeField] public PrefabPool particleFxPool;
-        [BoxGroup("Pool Settings")][SerializeField] public PrefabPool decalPool;
+        [BoxGroup("Pool Settings")][SerializeField] private PrefabPool particleFxPool;
+        [BoxGroup("Pool Settings")][SerializeField] private PrefabPool decalPool;
 
-        [BoxGroup("Debug")][SerializeField] public bool DebugTextureName { get; private set; }
+        public bool DebugTextureName => debugTextureName;
         #endregion
 
-        public bool FootstepsEnabled => enableFootsteps;
+        public bool FootstepsEnabled
+        {
+            get
+            {
+                return enableFootsteps;
+            }
+            set
+            {
+                enableFootsteps = value;
+            }
+        }
+
+        private Dictionary<string, FootstepSurface> _footstepSurfaceDict;
 
         #region Startup
-        private void Awake()
+        public void OnEnable()
         {
             // Register the triggers
             foreach (FootstepTrigger trigger in footstepTriggers)
             {
-                if ((trigger))
+                if (trigger)
                 {
                     trigger.FootstepManager = this;
                 }
             }
+        }
+
+        private void Awake()
+        {
+            // Create a dictionary of all supported textures to corresponding surfaces
+            CreateSurfaceDictionary();
         }
         #endregion
 
@@ -52,6 +71,38 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
             return footstepSurfaces;
         }
 
+        public FootstepSurface GetSurfaceFromTextureName(string textureName)
+        {
+            FootstepSurface surface = _footstepSurfaceDict[textureName];
+            return surface ? surface : defaultSurface;
+        }
+
+        public void SpawnFootStepParticleFx(Vector3 spawnPosition, Quaternion spawnRotation)
+        {
+            particleFxPool.SpawnInstance(spawnPosition, spawnRotation);
+        }
+
+        public void SpawnFootStepDecal(Vector3 spawnPosition, Quaternion spawnRotation)
+        {
+            decalPool.SpawnInstance(spawnPosition, spawnRotation);
+        }
+
+        private void CreateSurfaceDictionary()
+        {
+            _footstepSurfaceDict = new Dictionary<string, FootstepSurface>();
+
+            foreach (FootstepSurface surface in footstepSurfaces)
+            {
+                foreach (string textureName in surface.textureNames)
+                {
+                    _footstepSurfaceDict.Add(textureName, surface);
+                }
+            }
+        }
+
+        #endregion
+
+        #region Editor methods
         [Button("Create Triggers")]
         private void CreateFootstepTriggers()
         {
@@ -96,20 +147,14 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
             return newFootStepTrigger;
         }
 
-        public void Enable()
+        public void SetDecalPrefabPool(PrefabPool newDecalPool)
         {
-            foreach (FootstepTrigger trigger in footstepTriggers)
-            {
-                trigger.gameObject.SetActive(true);
-            }
+            decalPool = newDecalPool;
         }
 
-        public void Disable()
+        public void SetParticlePool(PrefabPool newParticlePool)
         {
-            foreach (FootstepTrigger trigger in footstepTriggers)
-            {
-                trigger.gameObject.SetActive(false);
-            }
+            particleFxPool = newParticlePool;
         }
 
         #endregion

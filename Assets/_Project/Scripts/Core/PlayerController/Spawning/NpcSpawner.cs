@@ -7,8 +7,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
     public class NpcSpawner : CharacterSpawner
     {
         #region Class Variables
-        [PropertyOrder(3)][BoxGroup("NPC")][SerializeField] private string npsName = "NPC Name";
-
         [PropertyOrder(10)]
         [FoldoutGroup("Events")] public UnityEvent NpcReadyEvent;
 
