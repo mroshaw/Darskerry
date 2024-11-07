@@ -32,12 +32,11 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
             {
                 _terrainData = Terrain.activeTerrain.terrainData;
             }
-
-
         }
+
         private void Start()
         {
-            if (!FootstepManager || !FootstepManager.FootstepsEnabled)
+            if (!FootstepManager || !FootstepManager.footstepsEnabled)
             {
                 GetComponent<SphereCollider>().enabled = false;
                 return;
@@ -92,13 +91,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
         #endregion
 
         #region Class methods
-
-
-        public void SpawnFootStepDecal(Vector3 spawnPosition, Quaternion spawnRotation)
-        {
-            FootstepManager.SpawnFootStepDecal(spawnPosition, spawnRotation);
-        }
-
         public void GetSurfaceFromCollision(Transform footTransform, Collider otherCollider,
             out FootstepSurface footstepSurface, out Vector3 spawnPosition)
         {
