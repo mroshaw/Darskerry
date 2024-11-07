@@ -9,7 +9,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
     {
         #region Class Variables
 
-        [BoxGroup("Settings")][SerializeField] private bool enableFootsteps;
+        [BoxGroup("Settings")]public bool footstepsEnabled;
         [BoxGroup("Settings")][SerializeField] private List<FootstepTrigger> footstepTriggers;
         [BoxGroup("Settings")][SerializeField] private FootstepSurface[] footstepSurfaces;
         [BoxGroup("Settings")][SerializeField] private FootstepSurface defaultSurface;
@@ -24,18 +24,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
 
         public bool DebugTextureName => debugTextureName;
         #endregion
-
-        public bool FootstepsEnabled
-        {
-            get
-            {
-                return enableFootsteps;
-            }
-            set
-            {
-                enableFootsteps = value;
-            }
-        }
 
         private Dictionary<string, FootstepSurface> _footstepSurfaceDict;
 
