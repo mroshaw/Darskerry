@@ -1,4 +1,3 @@
-using ECM2;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,21 +44,8 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
 
         private void Update()
         {
-            // Compose a movement direction vector in world space
-            Vector3 movementDirection = Vector3.zero;
-            movementDirection += Vector3.forward * _moveInput.y;
-            movementDirection += Vector3.right * _moveInput.x;
-
-            // If character has a camera assigned,
-            // make movement direction relative to this camera view direction
-            if (_character.camera)
-            {
-                movementDirection
-                    = movementDirection.relativeTo(_character.cameraTransform);
-            }
-
             // Set character's movement direction vector
-            _character.SetMovementDirection(movementDirection);
+            _character.SetMovementVelocity(_moveInput);
         }
 
         public void OnMove(InputAction.CallbackContext context)

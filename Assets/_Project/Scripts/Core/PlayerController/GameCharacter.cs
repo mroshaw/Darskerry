@@ -2,7 +2,6 @@ using ECM2;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-
 namespace DaftAppleGames.Darskerry.Core.PlayerController
 {
     public class GameCharacter : Character
@@ -33,6 +32,35 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             base.OnDisable();
             MovementModeChanged -= ToggleRootMotion;
         }
+
+        #region Movement methods
+        public void SetMovementVelocity(Vector2 moveInput)
+        {
+            // Handle sprinting
+            if (!IsSprinting() && useRootMotion)
+            {
+                if (moveInput.magnitude > 1.0f - sprintSpeed)
+                {
+                    moveInput = (moveInput.magnitude - sprintSpeed) * moveInput.normalized;
+                }
+            }
+
+            // Compose a movement direction vector in world space
+            Vector3 movementDirection = Vector3.zero;
+            movementDirection += Vector3.forward * moveInput.y;
+            movementDirection += Vector3.right * moveInput.x;
+
+            // If character has a camera assigned,
+            // make movement direction relative to this camera view direction
+            if (camera)
+            {
+                movementDirection
+                    = movementDirection.relativeTo(cameraTransform);
+            }
+
+            SetMovementDirection(movementDirection);
+        }
+        #endregion
 
         #region Roll methods
         public bool IsRolling()
@@ -108,11 +136,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             return _isSprinting;
         }
 
-        private void HandleSprinting()
-        {
-
-        }
-
         protected virtual bool CanSprint()
         {
             return IsWalking() && !IsCrouched();
@@ -145,6 +168,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         }
         #endregion
         #region Character Overrides
+
         protected override void OnBeforeSimulationUpdate(float deltaTime)
         {
             // Call base method implementation
@@ -155,7 +179,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             CheckRollInput();
             // HandlingRolling();
             CheckSprintInput();
-            HandleSprinting();
         }
         public override float GetMaxSpeed()
         {

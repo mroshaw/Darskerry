@@ -2279,17 +2279,17 @@ GameObject:
   - component: {fileID: 739093872290207473}
   - component: {fileID: 3664031758168650796}
   - component: {fileID: 1976535220876881101}
-  - component: {fileID: 6251113902260199705}
   - component: {fileID: 125582273168634071}
   - component: {fileID: 3102780328697759572}
   - component: {fileID: 8976830599319394131}
   - component: {fileID: 4090998394890565174}
-  - component: {fileID: 2644624564670886733}
   - component: {fileID: 1450090301578989889}
   - component: {fileID: 8750704160810954693}
   - component: {fileID: 5719628919058396296}
   - component: {fileID: 2804864082133668405}
   - component: {fileID: 309562842667565914}
+  - component: {fileID: 6961110775462024559}
+  - component: {fileID: 6856886333460779344}
   m_Layer: 11
   m_Name: Player Character (Female)
   m_TagString: Player
@@ -2386,18 +2386,6 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &6251113902260199705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123739610637826781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4cab649c793e5f49adb92bd5a7f34ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &125582273168634071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2502,68 +2490,6 @@ MonoBehaviour:
   alignToTerrainSlope: 1
   particleFxPool: {fileID: 0}
   decalPool: {fileID: 0}
---- !u!114 &2644624564670886733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123739610637826781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38df7bdfccfeda442be65d7ccf3ff5f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationMode: 1
-  _rotationRate: 540
-  _startingMovementMode: 1
-  _maxWalkSpeed: 5
-  _minAnalogWalkSpeed: 0
-  _maxAcceleration: 20
-  _brakingDecelerationWalking: 20
-  _groundFriction: 8
-  _canEverCrouch: 1
-  _crouchedHeight: 1.25
-  _unCrouchedHeight: 2
-  _maxWalkSpeedCrouched: 2
-  _maxFallSpeed: 40
-  _brakingDecelerationFalling: 0
-  _fallingLateralFriction: 0.3
-  _airControl: 0.3
-  _canEverJump: 1
-  _canJumpWhileCrouching: 1
-  _jumpMaxCount: 1
-  _jumpImpulse: 5
-  _jumpMaxHoldTime: 0
-  _jumpMaxPreGroundedTime: 0
-  _jumpMaxPostGroundedTime: 0
-  _maxFlySpeed: 10
-  _brakingDecelerationFlying: 0
-  _flyingFriction: 1
-  _maxSwimSpeed: 3
-  _brakingDecelerationSwimming: 0
-  _swimmingFriction: 0
-  _buoyancy: 1
-  _gravity: {x: 0, y: -9.81, z: 0}
-  _gravityScale: 1
-  _useRootMotion: 0
-  _impartPlatformMovement: 0
-  _impartPlatformRotation: 0
-  _impartPlatformVelocity: 0
-  _enablePhysicsInteraction: 0
-  _applyPushForceToCharacters: 0
-  _applyStandingDownwardForce: 0
-  _mass: 1
-  _pushForceScale: 1
-  _standingDownwardForceScale: 1
-  _camera: {fileID: 0}
-  moveSpeeds:
-    walkSpeed: 5
-    runSpeed: 8
-    sprintSpeed: 10
-    movementSpeed: 2
-  rollSpeed: 0.8
-  _rollImpulse: 0.5
 --- !u!114 &1450090301578989889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2807,6 +2733,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minBlinkWait: 3
   maxBlinkWait: 5
+--- !u!114 &6961110775462024559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123739610637826781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff8926a22266ac4b8a233d965c9438b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationMode: 1
+  _rotationRate: 540
+  _startingMovementMode: 1
+  _maxWalkSpeed: 5
+  _minAnalogWalkSpeed: 0
+  _maxAcceleration: 20
+  _brakingDecelerationWalking: 20
+  _groundFriction: 8
+  _canEverCrouch: 1
+  _crouchedHeight: 1.25
+  _unCrouchedHeight: 2
+  _maxWalkSpeedCrouched: 3
+  _maxFallSpeed: 40
+  _brakingDecelerationFalling: 0
+  _fallingLateralFriction: 0.3
+  _airControl: 0.3
+  _canEverJump: 1
+  _canJumpWhileCrouching: 1
+  _jumpMaxCount: 1
+  _jumpImpulse: 5
+  _jumpMaxHoldTime: 0
+  _jumpMaxPreGroundedTime: 0
+  _jumpMaxPostGroundedTime: 0
+  _maxFlySpeed: 10
+  _brakingDecelerationFlying: 0
+  _flyingFriction: 1
+  _maxSwimSpeed: 3
+  _brakingDecelerationSwimming: 0
+  _swimmingFriction: 0
+  _buoyancy: 1
+  _gravity: {x: 0, y: -9.81, z: 0}
+  _gravityScale: 1
+  _useRootMotion: 1
+  _impartPlatformMovement: 0
+  _impartPlatformRotation: 0
+  _impartPlatformVelocity: 0
+  _enablePhysicsInteraction: 0
+  _applyPushForceToCharacters: 0
+  _applyStandingDownwardForce: 0
+  _mass: 1
+  _pushForceScale: 1
+  _standingDownwardForceScale: 1
+  _camera: {fileID: 0}
+  sprintSpeed: 0.3
+  rollSpeed: 1
+  _rollImpulse: 0
+--- !u!114 &6856886333460779344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123739610637826781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51195cb3e462c5f4893ea29dc0f21b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1142335557884276798
 GameObject:
   m_ObjectHideFlags: 0
