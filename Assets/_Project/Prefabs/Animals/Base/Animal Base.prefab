@@ -380,14 +380,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495bb9e33aa1e2749a56e0e95199b061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  traversalSpeeds:
-    walkSpeed: 0.6
-    runSpeed: 0.9
-    sprintSpeed: 81
-    movementSpeed: 2
-  wanderAreaCenter: {fileID: 0}
-  wandering: 1
-  minWanderDistance: 5
-  maxWanderDistance: 20
-  minDelayBetweenStops: 1
-  maxDelayBetweenStops: 5
+  blackboardRefreshInterval: 5
+  wanderSpeed: 0
+  wanderMinRange: 0
+  wanderMaxRange: 0
+  wanderMinPause: 0
+  wanderMaxPause: 0
+  wanderCenterTransform: {fileID: 0}
+  startingThirst: 100
+  thirstRate: 0.01
+  startingHunger: 100
+  hungerRate: 0.01
+  hungryThreshold: 10
+  thirstyThreshold: 10
+  hungerDamageRate: 0.5
+  thirstyDamageRate: 0.5
+  _hunger: 0
+  _thirst: 0

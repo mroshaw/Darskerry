@@ -32,7 +32,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             base.OnDisable();
             MovementModeChanged -= ToggleRootMotion;
         }
-
+        #endregion
         #region Movement methods
         public void SetMovementVelocity(Vector2 moveInput)
         {
@@ -61,7 +61,20 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             SetMovementDirection(movementDirection);
         }
         #endregion
+        #region Jump methods
+        public override void Jump()
+        {
+            // Set to 'Flying' to force the Jump to not use root motion anims
+            // SetMovementMode(MovementMode.Flying);
+            base.Jump();
+        }
 
+        public override void StopJumping()
+        {
+            base.StopJumping();
+            // No need to set MovementMode, should return to 'Walking' when Grounded.
+        }
+        #endregion
         #region Roll methods
         public bool IsRolling()
         {
@@ -167,34 +180,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             return sprintSpeed > GetMaxSpeed() ? sprintSpeed : GetMaxSpeed();
         }
         #endregion
-        #region Character Overrides
-
-        protected override void OnBeforeSimulationUpdate(float deltaTime)
-        {
-            // Call base method implementation
-            base.OnBeforeSimulationUpdate(deltaTime);
-            // Handle attacking
-            CheckAttackInput();
-            // Handle rolling
-            CheckRollInput();
-            // HandlingRolling();
-            CheckSprintInput();
-        }
-        public override float GetMaxSpeed()
-        {
-            return _isSprinting ? sprintSpeed : base.GetMaxSpeed();
-        }
-        protected virtual bool CanAttack()
-        {
-            return !IsRolling() && IsWalking() && !IsCrouched(); ;
-        }
-        private void ToggleRootMotion(MovementMode prevMovementMode, int prevCustomMovementMode)
-        {
-            useRootMotion = IsWalking();
-        }
-        #endregion
-        #endregion
-
         #region Attack methods
         public bool IsAttacking()
         {
@@ -223,6 +208,30 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             }
         }
         #endregion
-
+        #region Character Overrides
+        protected override void OnBeforeSimulationUpdate(float deltaTime)
+        {
+            // Call base method implementation
+            base.OnBeforeSimulationUpdate(deltaTime);
+            // Handle attacking
+            CheckAttackInput();
+            // Handle rolling
+            CheckRollInput();
+            // HandlingRolling();
+            CheckSprintInput();
+        }
+        public override float GetMaxSpeed()
+        {
+            return _isSprinting ? sprintSpeed : base.GetMaxSpeed();
+        }
+        protected virtual bool CanAttack()
+        {
+            return !IsRolling() && IsWalking() && !IsCrouched(); ;
+        }
+        private void ToggleRootMotion(MovementMode prevMovementMode, int prevCustomMovementMode)
+        {
+            useRootMotion = IsWalking();
+        }
+        #endregion
     }
 }

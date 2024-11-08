@@ -298,17 +298,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fab1b466bee70344b15e253cb7adafd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  traversalSpeeds:
-    walkSpeed: 2
-    runSpeed: 5
-    sprintSpeed: 8
-    movementSpeed: 2
-  wanderAreaCenter: {fileID: 0}
-  wandering: 0
-  minWanderDistance: 0
-  maxWanderDistance: 0
-  minDelayBetweenStops: 1
-  maxDelayBetweenStops: 5
+  blackboardRefreshInterval: 5
+  wanderSpeed: 0
+  wanderMinRange: 0
+  wanderMaxRange: 0
+  wanderMinPause: 0
+  wanderMaxPause: 0
+  wanderCenterTransform: {fileID: 0}
+  startingThirst: 100
+  thirstRate: 0.01
+  startingHunger: 100
+  hungerRate: 0.01
+  hungryThreshold: 10
+  thirstyThreshold: 10
+  hungerDamageRate: 0.5
+  thirstyDamageRate: 0.5
+  _hunger: 0
+  _thirst: 0
 --- !u!114 &7036747865611017783
 MonoBehaviour:
   m_ObjectHideFlags: 0

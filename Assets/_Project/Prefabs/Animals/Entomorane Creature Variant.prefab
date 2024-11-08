@@ -1579,6 +1579,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2863851420020100418, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: _rotationRate
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3566903358524483613, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
       propertyPath: _height
       value: 1.67
@@ -1625,12 +1629,26 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 716237023281813498, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4023466263148480856}
+    - targetCorrespondingSourceObject: {fileID: 716237023281813498, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1459079567119442384}
   m_SourcePrefab: {fileID: 100100000, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
 --- !u!4 &5508478545859436019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2321865534921473633, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
   m_PrefabInstance: {fileID: 7803296057155691410}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7296145619716720374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+  m_PrefabInstance: {fileID: 7803296057155691410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330300728185631848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fab1b466bee70344b15e253cb7adafd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7330300728185631848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 716237023281813498, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
@@ -1668,3 +1686,65 @@ MonoBehaviour:
   alignToTerrainSlope: 0
   particleFxPool: {fileID: 0}
   decalPool: {fileID: 0}
+--- !u!114 &1459079567119442384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330300728185631848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: 0}
+  m_BlackboardVariableOverridesList:
+  - rid: 6260567725073498874
+  - rid: 6260567725073498875
+  - rid: 6260567725073498876
+  - rid: 6260567725073498877
+  - rid: 6260567725073498878
+  references:
+    version: 2
+    RefIds:
+    - rid: 6260567725073498874
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 7330300728185631848}
+    - rid: 6260567725073498875
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 12333602877743098859
+          m_Value1: 3798076693593157602
+        Name: MinWanderPauseDelay
+        m_Value: 5
+    - rid: 6260567725073498876
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14173861561286787212
+          m_Value1: 6151426603109333002
+        Name: MaxWanderPauseDelay
+        m_Value: 10
+    - rid: 6260567725073498877
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11585092350901480264
+          m_Value1: 2016173408638423795
+        Name: WanderSpeed
+        m_Value: 0.9
+    - rid: 6260567725073498878
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.PlayerController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15959437954996248840
+          m_Value1: 15154441729271724395
+        Name: AiBrain
+        m_Value: {fileID: 7296145619716720374}

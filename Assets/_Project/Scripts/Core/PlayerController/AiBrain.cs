@@ -1,107 +1,167 @@
 using ECM2;
 using Sirenix.OdinInspector;
-using System.Collections;
+using Unity.Behavior;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace DaftAppleGames.Darskerry.Core.PlayerController
 {
+    /// <summary>
+    /// Helper component for AI Behaviour features
+    /// </summary>
     public abstract class AiBrain : MonoBehaviour
     {
-        #region Class Variables
-        [PropertyOrder(-1)][BoxGroup("Movement Settings")] public MoveSpeeds traversalSpeeds;
-        [PropertyOrder(-1)][BoxGroup("Wander Settings")] public Transform wanderAreaCenter;
-        [PropertyOrder(-1)][BoxGroup("Wander Settings")] public bool wandering;
-        [PropertyOrder(-1)][BoxGroup("Wander Settings")] public float minWanderDistance = 5.0f;
-        [PropertyOrder(-1)][BoxGroup("Wander Settings")] public float maxWanderDistance = 20.0f;
-        [PropertyOrder(-1)][BoxGroup("Wander Settings")] public float minDelayBetweenStops = 1.0f;
-        [PropertyOrder(-1)][BoxGroup("Wander Settings")] public float maxDelayBetweenStops = 5.0f;
+        private static string WanderSpeedVariableName = "WanderSpeed";
+        private static string WanderMinRangeVariableName = "WanderMinRange";
+        private static string WanderMaxRangeVariableName = "WanderMaxRange";
+        private static string WanderMinPauseVariableName = "WanderMinPause";
+        private static string WanderMaxPauseVariableName = "WanderMaxPause";
+        private static string WanderCenterTransformVariableName = "WanderCenterTransform";
+        private static string IsHungryVariableName = "IsHungry";
+        private static string IsThirstyVariableName = "IsThirsty";
 
+        #region Class Variables
+        [BoxGroup("Blackboard Sync Settings")][SerializeField] private int blackboardRefreshInterval = 5;
+        [BoxGroup("Wander Settings")][SerializeField] private float wanderSpeed;
+        [BoxGroup("Wander Settings")][SerializeField] private float wanderMinRange;
+        [BoxGroup("Wander Settings")][SerializeField] private float wanderMaxRange;
+        [BoxGroup("Wander Settings")][SerializeField] private float wanderMinPause;
+        [BoxGroup("Wander Settings")][SerializeField] private float wanderMaxPause;
+        [BoxGroup("Wander Settings")][SerializeField] private Transform wanderCenterTransform;
+
+        [BoxGroup("Needs")][SerializeField] private float startingThirst = 100.0f;
+        [BoxGroup("Needs")][SerializeField] private float thirstRate = 0.01f;
+        [BoxGroup("Needs")][SerializeField] private float startingHunger = 100.0f;
+        [BoxGroup("Needs")][SerializeField] private float hungerRate = 0.01f;
+        [BoxGroup("Needs")][SerializeField] private float hungryThreshold = 10.0f;
+        [BoxGroup("Needs")][SerializeField] private float thirstyThreshold = 10.0f;
+        [BoxGroup("Needs")][SerializeField] private float hungerDamageRate = 0.5f;
+        [BoxGroup("Needs")][SerializeField] private float thirstyDamageRate = 0.5f;
+
+        [BoxGroup("Needs Debug")][SerializeField] private float _hunger;
+        [BoxGroup("Needs Debug")][SerializeField] private float _thirst;
+
+        private BehaviorGraphAgent _behaviorGraphAgent;
         private NavMeshCharacter _navMeshCharacter;
-        private GameCharacter _character;
+        private GameCharacter _gameCharacter;
+        BlackboardReference _blackboardRef;
+        #endregion
+
+        #region Properties
+        public NavMeshCharacter NavMeshCharacter => _navMeshCharacter;
+        public GameCharacter GameCharacter => _gameCharacter;
         #endregion
 
         #region Startup
         protected virtual void Awake()
         {
             _navMeshCharacter = GetComponent<NavMeshCharacter>();
-            _character = GetComponent<GameCharacter>();
-
+            _gameCharacter = GetComponent<GameCharacter>();
+            _behaviorGraphAgent = GetComponent<BehaviorGraphAgent>();
+            _blackboardRef = _behaviorGraphAgent.BlackboardReference;
         }
 
         protected virtual void Start()
         {
-            if (!wanderAreaCenter)
-            {
-                wanderAreaCenter = transform;
-            }
-
-            if (wandering)
-            {
-                _navMeshCharacter.DestinationReached += ArrivedAtDestination;
-                // If character doesn't have a destination set or has arrived
-                if (wandering && !_navMeshCharacter.IsPathFollowing())
-                {
-                    GoToNextDestination();
-                }
-            }
+            _hunger = startingHunger;
+            _thirst = startingThirst;
+            SetBlackboard();
         }
         #endregion
 
-        #region Update Logic
-        #endregion
+        #region Update
+        protected virtual void Update()
+        {
+            if (_hunger > 0)
+            {
+                _hunger -= hungerRate * Time.deltaTime;
+            }
+            if (_thirst > 0)
+            {
+                _thirst -= thirstRate * Time.deltaTime;
+            }
 
+            if (Time.frameCount % blackboardRefreshInterval == 0)
+            {
+                SyncBlackboard();
+            }
+        }
+        #endregion
         #region Class methods
-        private void GoToNextDestination()
+        protected virtual void SetBlackboard()
         {
-            _character.maxWalkSpeed = traversalSpeeds.GetMoveSpeed();
-            _navMeshCharacter.MoveToDestination(GetRandomLocation(wanderAreaCenter.position, minWanderDistance, maxWanderDistance));
-        }
-
-        private void ArrivedAtDestination()
-        {
-            StartCoroutine(MoveToNextAfterDelayAsync());
-        }
-
-        private IEnumerator MoveToNextAfterDelayAsync()
-        {
-            yield return new WaitForSeconds(Random.Range(minDelayBetweenStops, maxDelayBetweenStops));
-            GoToNextDestination();
-        }
-
-        private Vector3 GetRandomLocation(Vector3 center, float minDistance, float maxDistance)
-        {
-            Vector2 randomDirection = Random.insideUnitCircle.normalized;
-            float distance = Random.Range(minDistance, maxDistance);
-            Vector3 offset = new Vector3(randomDirection.x, 0, randomDirection.y) * distance;
-            Vector3 randomPosition = center + offset;
-
-            if (Terrain.activeTerrain)
+            SetVariableFloat(WanderSpeedVariableName, wanderSpeed);
+            SetVariableFloat(WanderMinRangeVariableName, wanderMinRange);
+            SetVariableFloat(WanderMaxRangeVariableName, wanderMaxRange);
+            SetVariableFloat(WanderMinPauseVariableName, wanderMinPause);
+            SetVariableFloat(WanderMaxPauseVariableName, wanderMaxPause);
+            if (wanderCenterTransform)
             {
-                float terrainHeight = Terrain.activeTerrain.SampleHeight(randomPosition);
-                randomPosition.y = terrainHeight;
+                SetVariableTransform(WanderCenterTransformVariableName, wanderCenterTransform);
             }
-
-            if (NavMesh.SamplePosition(randomPosition, out NavMeshHit myNavHit, 100, -1))
+            else
             {
-                return myNavHit.position;
+                SetVariableTransform(WanderCenterTransformVariableName, transform);
             }
-            return randomPosition;
         }
-        #endregion
 
-        #region Editor code
-#if UNITY_EDITOR
-        private void OnDrawGizmosSelected()
+        protected virtual void SyncBlackboard()
         {
-            Gizmos.color = new Color(1, 0, 0, 0.5f);
-            Gizmos.DrawSphere(wanderAreaCenter ? wanderAreaCenter.position : gameObject.transform.position, minWanderDistance);
-            Gizmos.color = new Color(0, 1, 0, 0.5f);
-            Gizmos.DrawSphere(wanderAreaCenter ? wanderAreaCenter.position : gameObject.transform.position, maxWanderDistance);
-
+            SetVariableBool(IsHungryVariableName, IsHungry());
+            SetVariableBool(IsThirstyVariableName, IsThirsty());
         }
 
-#endif
+        protected void SetVariableFloat(string variableName, float floatValue)
+        {
+            BlackboardVariable<float> blackboardFloat = new();
+            if (_blackboardRef.GetVariable(variableName, out blackboardFloat))
+            {
+                blackboardFloat.Value = floatValue;
+            }
+        }
+
+        protected void SetVariableTransform(string variableName, Transform transformValue)
+        {
+            BlackboardVariable<Transform> blackboardTransform = new();
+            if (_blackboardRef.GetVariable(variableName, out blackboardTransform))
+            {
+                blackboardTransform.Value = transformValue;
+            }
+        }
+
+        protected void SetVariableBool(string variableName, bool boolValue)
+        {
+            BlackboardVariable<bool> blackboardBool = new();
+            if (_blackboardRef.GetVariable(variableName, out blackboardBool))
+            {
+                blackboardBool.Value = boolValue;
+            }
+        }
+
+        public void SetMoveSpeed(float speed)
+        {
+            _gameCharacter.maxWalkSpeed = speed;
+        }
+
+        private bool IsHungry()
+        {
+            return _hunger < hungryThreshold;
+        }
+
+        private bool IsThirsty()
+        {
+            return _thirst < thirstyThreshold;
+        }
+
+
+        public void Eat(float foodValue)
+        {
+            _hunger = (_hunger + foodValue) > startingHunger ? startingHunger : (_hunger + foodValue);
+        }
+
+        public void Drink(float thirstValue)
+        {
+            _thirst = (_thirst + thirstValue) > startingThirst ? startingThirst : (_thirst + thirstValue);
+        }
         #endregion
     }
 }

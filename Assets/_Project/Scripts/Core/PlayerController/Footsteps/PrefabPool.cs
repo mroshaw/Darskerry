@@ -16,8 +16,10 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
         [BoxGroup("Prefab Settings")][SerializeField] private float lifeTimeInSeconds;
         [BoxGroup("Pool Settings")][SerializeField] private int poolMaxSize = 5;
         [BoxGroup("Pool Settings")][SerializeField] private int poolInitialSize = 10;
+        /*
         [BoxGroup("DEBUG")][SerializeField] private int poolActiveCountDebug;
         [BoxGroup("DEBUG")][SerializeField] private int poolInactiveCountDebug;
+        */
         public PrefabPoolType PrefabPoolType => prefabPoolType;
 
         private ObjectPool<GameObject> _prefabInstancePool;
@@ -36,14 +38,15 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
         #endregion
 
         #region Update
-
+        /*
         private void Update()
         {
             poolActiveCountDebug = _prefabInstancePool.CountActive;
             poolInactiveCountDebug = _prefabInstancePool.CountInactive;
         }
-        #endregion
 
+        */
+        #endregion
         #region Class methods
         public GameObject SpawnInstance(Vector3 spawnPosition, Quaternion spawnRotation)
         {
