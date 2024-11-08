@@ -6,28 +6,26 @@ using UnityEngine.AI;
 
 namespace DaftAppleGames.Darskerry.Core.PlayerController
 {
-    public enum MovementSpeed { Walking = 2, Running = 4, Sprinting = 6 }
-
     public abstract class AiBrain : MonoBehaviour
     {
         #region Class Variables
+        [PropertyOrder(-1)][BoxGroup("Movement Settings")] public MoveSpeeds traversalSpeeds;
         [PropertyOrder(-1)][BoxGroup("Wander Settings")] public Transform wanderAreaCenter;
         [PropertyOrder(-1)][BoxGroup("Wander Settings")] public bool wandering;
         [PropertyOrder(-1)][BoxGroup("Wander Settings")] public float minWanderDistance = 5.0f;
         [PropertyOrder(-1)][BoxGroup("Wander Settings")] public float maxWanderDistance = 20.0f;
-        [PropertyOrder(-1)][BoxGroup("Wander Settings")] public MovementSpeed movementSpeed = MovementSpeed.Walking;
         [PropertyOrder(-1)][BoxGroup("Wander Settings")] public float minDelayBetweenStops = 1.0f;
         [PropertyOrder(-1)][BoxGroup("Wander Settings")] public float maxDelayBetweenStops = 5.0f;
 
         private NavMeshCharacter _navMeshCharacter;
-        private Character _character;
+        private GameCharacter _character;
         #endregion
 
         #region Startup
         protected virtual void Awake()
         {
             _navMeshCharacter = GetComponent<NavMeshCharacter>();
-            _character = GetComponent<Character>();
+            _character = GetComponent<GameCharacter>();
 
         }
 
@@ -56,7 +54,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         #region Class methods
         private void GoToNextDestination()
         {
-            _character.maxWalkSpeed = (int)movementSpeed;
+            _character.maxWalkSpeed = traversalSpeeds.GetMoveSpeed();
             _navMeshCharacter.MoveToDestination(GetRandomLocation(wanderAreaCenter.position, minWanderDistance, maxWanderDistance));
         }
 

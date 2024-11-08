@@ -42,7 +42,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             while (_isBlinking)
             {
                 yield return new WaitForSeconds(Random.Range(minBlinkWait, maxBlinkWait));
-                Debug.Log("Blinking...");
                 _animator.SetTrigger(Blink);
             }
         }

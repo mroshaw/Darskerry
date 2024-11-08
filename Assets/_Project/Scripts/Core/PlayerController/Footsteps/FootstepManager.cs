@@ -1,5 +1,6 @@
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -9,7 +10,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
     {
         #region Class Variables
 
-        [BoxGroup("Settings")]public bool footstepsEnabled;
+        [BoxGroup("Settings")] public bool footstepsEnabled;
         [BoxGroup("Settings")][SerializeField] private List<FootstepTrigger> footstepTriggers;
         [BoxGroup("Settings")][SerializeField] private FootstepSurface[] footstepSurfaces;
         [BoxGroup("Settings")][SerializeField] private FootstepSurface defaultSurface;
@@ -143,6 +144,14 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.FootSteps
         public void SetParticlePool(PrefabPool newParticlePool)
         {
             particleFxPool = newParticlePool;
+        }
+
+        [Button("Find Triggers")]
+        private void FindTriggers()
+        {
+            FootstepTrigger[] foundTriggers = gameObject.GetComponentsInChildren<FootstepTrigger>(true);
+            footstepTriggers = new();
+            footstepTriggers = foundTriggers.ToList();
         }
 
         #endregion

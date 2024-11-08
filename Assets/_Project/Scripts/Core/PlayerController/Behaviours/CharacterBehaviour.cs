@@ -8,14 +8,14 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController.Behaviours
     public abstract class CharacterBehaviour : StateMachineBehaviour
     {
         #region Class Variables
-        protected PlayerCharacter Character { get; private set; }
+        protected GameCharacter Character { get; private set; }
         protected AudioSource AudioSource { get; private set; }
         #endregion
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             if (Character == null)
             {
-                Character = animator.transform.root.GetComponent<PlayerCharacter>();
+                Character = animator.transform.root.GetComponent<GameCharacter>();
             }
 
             if (AudioSource == null)

@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,12 +6,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
     [RequireComponent(typeof(PlayerCamera))]
     public class PlayerCameraInput : MonoBehaviour, PlayerControls.ICameraControlsActions
     {
-        #region Debug values
-        [BoxGroup("DEBUG")] public Vector2 LookDebug;
-        [BoxGroup("DEBUG")] public Vector2 GamepadLookDebug;
-        [BoxGroup("DEBUG")] public float ScrollInputDebug;
-        #endregion
-
         #region Properties
         private PlayerCamera _playerCamera;
         private Vector2 _lookInputValue = Vector2.zero;
@@ -63,20 +56,17 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         public void OnLookGamepad(InputAction.CallbackContext context)
         {
             _gamepadLookInputValue = context.ReadValue<Vector2>();
-            GamepadLookDebug = _gamepadLookInputValue;
         }
 
         public void OnZoom(InputAction.CallbackContext context)
         {
             float scrollInput = context.ReadValue<Vector2>().y;
-            ScrollInputDebug = scrollInput;
             _playerCamera.Scroll(scrollInput);
         }
 
         public void OnLook(InputAction.CallbackContext context)
         {
             _lookInputValue = context.ReadValue<Vector2>();
-            LookDebug = _lookInputValue;
         }
         #endregion
     }

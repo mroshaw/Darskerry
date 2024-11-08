@@ -88,7 +88,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         protected override void Configure()
         {
             base.Configure();
-            PlayerCharacter playerCharacter = character as PlayerCharacter;
+            GameCharacter playerCharacter = character as GameCharacter;
 
             playerCharacter.camera = _camera;
             _cinemachine.Target.TrackingTarget = _playerCamera.followTarget;

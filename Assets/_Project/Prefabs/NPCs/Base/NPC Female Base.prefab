@@ -14,13 +14,14 @@ GameObject:
   - component: {fileID: 4541497567866805505}
   - component: {fileID: 6535709168098740466}
   - component: {fileID: 6726531321932469862}
-  - component: {fileID: 8692233224701288046}
   - component: {fileID: 7629226045507993110}
   - component: {fileID: 3555701545966748572}
   - component: {fileID: 8973616623971416207}
   - component: {fileID: 318814566282637338}
   - component: {fileID: 1569693396001912485}
-  - component: {fileID: 5072371920474567621}
+  - component: {fileID: 2756266831385284375}
+  - component: {fileID: 8242133475444570136}
+  - component: {fileID: 1417135065250611223}
   m_Layer: 0
   m_Name: NPC Female Base
   m_TagString: Untagged
@@ -165,28 +166,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f556384b5731243a48c137b4700b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traversalSpeeds:
+    walkSpeed: 2
+    runSpeed: 5
+    sprintSpeed: 8
+    movementSpeed: 2
   wanderAreaCenter: {fileID: 0}
   wandering: 1
   minWanderDistance: 15
   maxWanderDistance: 25
-  movementSpeed: 2
   minDelayBetweenStops: 1
   maxDelayBetweenStops: 5
---- !u!114 &8692233224701288046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883413149427130804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb8447124dfe15f4b9816a4e6e2ce436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeedDebug: 0
-  currentSpeedDebug: 0
-  forwardAmountDebug: 0
 --- !u!82 &7629226045507993110
 AudioSource:
   m_ObjectHideFlags: 0
@@ -296,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e2053c8a3dfb947bc2060456ca7cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableFootsteps: 0
+  footstepsEnabled: 0
   footstepTriggers:
   - {fileID: 0}
   - {fileID: 0}
@@ -454,7 +444,7 @@ MonoBehaviour:
   m_maxIkCorrectionOffset: 0
   m_upwardsVelocity: 0
   m_maxUpwardsVelocity: 0
---- !u!114 &5072371920474567621
+--- !u!114 &2756266831385284375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -463,7 +453,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 883413149427130804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551c54318156ed3418d14242e9bef76c, type: 3}
+  m_Script: {fileID: 11500000, guid: 838519e5d02343249e0d4ddd7578cba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8242133475444570136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883413149427130804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff8926a22266ac4b8a233d965c9438b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationMode: 1
@@ -498,7 +500,7 @@ MonoBehaviour:
   _buoyancy: 1
   _gravity: {x: 0, y: -9.81, z: 0}
   _gravityScale: 1
-  _useRootMotion: 0
+  _useRootMotion: 1
   _impartPlatformMovement: 0
   _impartPlatformRotation: 0
   _impartPlatformVelocity: 0
@@ -509,5 +511,18 @@ MonoBehaviour:
   _pushForceScale: 1
   _standingDownwardForceScale: 1
   _camera: {fileID: 0}
-  maxSprintSpeed: 10
+  sprintSpeed: 0
   rollSpeed: 1
+  _rollImpulse: 0
+--- !u!114 &1417135065250611223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883413149427130804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51195cb3e462c5f4893ea29dc0f21b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 378106817244051341}
   - component: {fileID: 4938019587575313261}
   - component: {fileID: 930491699479239434}
-  - component: {fileID: 3703311840736149733}
   - component: {fileID: 4977250269204651420}
   - component: {fileID: 6605414030194774568}
   - component: {fileID: 1194504852215988646}
-  - component: {fileID: 1464151232867483705}
-  - component: {fileID: 5115956101675443585}
+  - component: {fileID: 1049711645463539511}
+  - component: {fileID: 8492526367132484468}
+  - component: {fileID: 2554779575739414048}
+  - component: {fileID: 6921697838751068253}
   m_Layer: 0
   m_Name: Animal Base
   m_TagString: Untagged
@@ -151,21 +152,6 @@ MonoBehaviour:
     impartPlatformRotation: 0
     impartPlatformVelocity: 0
   _minSlopeLimit: 0.7069833
---- !u!114 &3703311840736149733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5022603727771528588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de690b0989340c43b7650262056ffd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeedDebug: 0
-  currentSpeedDebug: 0
-  forwardAmountDebug: 0
 --- !u!82 &4977250269204651420
 AudioSource:
   m_ObjectHideFlags: 0
@@ -300,7 +286,7 @@ MonoBehaviour:
   _autoBraking: 1
   _brakingDistance: 2
   _stoppingDistance: 1
---- !u!114 &1464151232867483705
+--- !u!114 &1049711645463539511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -309,7 +295,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5022603727771528588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5836ff53a1425b54cac8b2b58df935f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 838519e5d02343249e0d4ddd7578cba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8492526367132484468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022603727771528588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff8926a22266ac4b8a233d965c9438b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationMode: 1
@@ -320,7 +318,7 @@ MonoBehaviour:
   _maxAcceleration: 20
   _brakingDecelerationWalking: 20
   _groundFriction: 8
-  _canEverCrouch: 0
+  _canEverCrouch: 1
   _crouchedHeight: 1.25
   _unCrouchedHeight: 2
   _maxWalkSpeedCrouched: 3
@@ -329,7 +327,7 @@ MonoBehaviour:
   _fallingLateralFriction: 0.3
   _airControl: 0.3
   _canEverJump: 1
-  _canJumpWhileCrouching: 0
+  _canJumpWhileCrouching: 1
   _jumpMaxCount: 1
   _jumpImpulse: 5
   _jumpMaxHoldTime: 0
@@ -344,7 +342,7 @@ MonoBehaviour:
   _buoyancy: 1
   _gravity: {x: 0, y: -9.81, z: 0}
   _gravityScale: 1
-  _useRootMotion: 0
+  _useRootMotion: 1
   _impartPlatformMovement: 0
   _impartPlatformRotation: 0
   _impartPlatformVelocity: 0
@@ -355,8 +353,22 @@ MonoBehaviour:
   _pushForceScale: 1
   _standingDownwardForceScale: 1
   _camera: {fileID: 0}
-  maxSprintSpeed: 10
---- !u!114 &5115956101675443585
+  sprintSpeed: 0
+  rollSpeed: 1
+  _rollImpulse: 0
+--- !u!114 &2554779575739414048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022603727771528588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51195cb3e462c5f4893ea29dc0f21b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6921697838751068253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,10 +380,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495bb9e33aa1e2749a56e0e95199b061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traversalSpeeds:
+    walkSpeed: 0.6
+    runSpeed: 0.9
+    sprintSpeed: 81
+    movementSpeed: 2
   wanderAreaCenter: {fileID: 0}
-  wandering: 0
-  minWanderDistance: 0
-  maxWanderDistance: 0
-  movementSpeed: 0
+  wandering: 1
+  minWanderDistance: 5
+  maxWanderDistance: 20
   minDelayBetweenStops: 1
   maxDelayBetweenStops: 5

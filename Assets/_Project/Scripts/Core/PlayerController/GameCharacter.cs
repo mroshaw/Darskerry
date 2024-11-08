@@ -7,34 +7,110 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
 {
     public class GameCharacter : Character
     {
-        [BoxGroup("Movement Settings")][SerializeField] private float maxSprintSpeed = 10.0f;
+        [PropertyOrder(-1)][BoxGroup("Movement Settings")][SerializeField] private float sprintSpeed;
+        [PropertyOrder(-1)][BoxGroup("Movement Settings")][SerializeField] private float rollSpeed = 1.0f;
+        [PropertyOrder(-1)][BoxGroup("Movement Settings")][Tooltip("Initial forward velocity when rolling.")][SerializeField] private float _rollImpulse;
 
         private bool _isAttacking;
         private bool _attackInputPressed;
-
         private bool _isSprinting;
         private bool _sprintInputPressed;
 
+        private Vector3 _rollMovementDirection = Vector3.zero;
+
+        private bool _isRolling;
+        private bool _rollInputPressed;
+
         #region Startup
-        #endregion
-        #region Update
-        protected override void OnBeforeSimulationUpdate(float deltaTime)
+        protected override void OnEnable()
         {
-            // Call base method implementation
-            base.OnBeforeSimulationUpdate(deltaTime);
-
-            // Handle attacking
-            CheckAttackInput();
-
-            // Handle Sprinting
-            CheckSprintInput();
+            base.OnEnable();
+            MovementModeChanged += ToggleRootMotion;
         }
 
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            MovementModeChanged -= ToggleRootMotion;
+        }
+
+        #region Roll methods
+        public bool IsRolling()
+        {
+            return _isRolling;
+        }
+        private bool CanRoll()
+        {
+            return IsWalking() || IsCrouched();
+        }
+
+        public void Roll()
+        {
+            _rollInputPressed = true;
+        }
+
+        public void StopRolling()
+        {
+            _isRolling = false;
+            // useRootMotion = false;
+        }
+
+        public void StopRollingInput()
+        {
+            _rollInputPressed = false;
+        }
+
+        protected void CheckRollInput()
+        {
+            if (!_rollInputPressed || _isRolling)
+                return;
+
+            if (CanRoll())
+            {
+                /*
+                _rollMovementDirection = GetMovementDirection();
+                if (_rollMovementDirection == Vector3.zero)
+                {
+                    _rollMovementDirection = transform.forward * rollSpeed;
+                }
+                */
+                DoRoll();
+                /*
+                useRootMotion = true;
+                */
+                _isRolling = true;
+
+            }
+        }
+
+        private void DoRoll()
+        {
+            float forwardSpeed = Mathf.Max(Vector3.Dot(characterMovement.velocity, transform.forward), _rollImpulse);
+
+            Vector3 newVelocity = Vector3.ProjectOnPlane(characterMovement.velocity, transform.forward) + transform.forward * forwardSpeed;
+
+            characterMovement.velocity =
+               newVelocity;
+        }
+
+        private void HandlingRolling()
+        {
+            if (!_isRolling)
+            {
+                return;
+            }
+            SetMovementDirection(_rollMovementDirection);
+        }
         #endregion
         #region Sprint methods
         public bool IsSprinting()
         {
             return _isSprinting;
+        }
+
+        private void HandleSprinting()
+        {
+
         }
 
         protected virtual bool CanSprint()
@@ -65,18 +141,41 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         }
         public float GetMaxAttainableSpeed()
         {
-            return maxSprintSpeed > GetMaxSpeed() ? maxSprintSpeed : GetMaxSpeed();
+            return sprintSpeed > GetMaxSpeed() ? sprintSpeed : GetMaxSpeed();
         }
         #endregion
+        #region Character Overrides
+        protected override void OnBeforeSimulationUpdate(float deltaTime)
+        {
+            // Call base method implementation
+            base.OnBeforeSimulationUpdate(deltaTime);
+            // Handle attacking
+            CheckAttackInput();
+            // Handle rolling
+            CheckRollInput();
+            // HandlingRolling();
+            CheckSprintInput();
+            HandleSprinting();
+        }
+        public override float GetMaxSpeed()
+        {
+            return _isSprinting ? sprintSpeed : base.GetMaxSpeed();
+        }
+        protected virtual bool CanAttack()
+        {
+            return !IsRolling() && IsWalking() && !IsCrouched(); ;
+        }
+        private void ToggleRootMotion(MovementMode prevMovementMode, int prevCustomMovementMode)
+        {
+            useRootMotion = IsWalking();
+        }
+        #endregion
+        #endregion
+
         #region Attack methods
         public bool IsAttacking()
         {
             return _isAttacking;
-        }
-
-        protected virtual bool CanAttack()
-        {
-            return IsWalking() && !IsCrouched();
         }
 
         public void Attack()
@@ -101,12 +200,6 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             }
         }
         #endregion
-        #region Character Overrides
-        public override float GetMaxSpeed()
-        {
-            return _isSprinting ? maxSprintSpeed : base.GetMaxSpeed();
-        }
 
-        #endregion
     }
 }

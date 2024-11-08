@@ -15,7 +15,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
         /// Cached controlled character
         /// </summary>
 
-        private PlayerCharacter _character;
+        private GameCharacter _character;
 
         private Vector2 _lookInput;
         [SerializeField] private Vector2 _moveInput;
@@ -40,7 +40,7 @@ namespace DaftAppleGames.Darskerry.Core.PlayerController
             //
             // Cache controlled character.
 
-            _character = GetComponent<PlayerCharacter>();
+            _character = GetComponent<GameCharacter>();
         }
 
         private void Update()
