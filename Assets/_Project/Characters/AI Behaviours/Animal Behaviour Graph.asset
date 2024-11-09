@@ -278,87 +278,87 @@ MonoBehaviour:
   m_Name: Animal Behaviour Graph
   m_EditorClassIdentifier: 
   Graphs:
-  - rid: 6260567726555136189
+  - rid: 6260567746006483541
   RootGraph:
-    rid: 6260567726555136189
+    rid: 6260567746006483541
   m_DebugInfo: {fileID: -3460434447371940687}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 6260567726555136189
+    - rid: 6260567746006483541
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
           m_Value0: 4906710537891650968
           m_Value1: 1601304228336948042
-        m_DebugInfo: {fileID: -3460434447371940687}
+        m_DebugInfo: {fileID: 0}
         Root:
-          rid: 6260567726555136190
+          rid: 6260567746006483542
         BlackboardReference:
-          rid: 6260567726555136191
+          rid: 6260567746006483543
         BlackboardGroupReferences: []
         m_VersionTimestamp: 638666724564842525
-    - rid: 6260567726555136190
+    - rid: 6260567746006483542
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 9252822159886622122
           m_Value1: 13744896526561946588
         Graph:
-          rid: 6260567726555136189
+          rid: 6260567746006483541
         m_Parent:
           rid: -2
         m_Child:
-          rid: 6260567726555136192
+          rid: 6260567746006483544
         Repeat: 1
-    - rid: 6260567726555136191
+    - rid: 6260567746006483543
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Blackboard:
-          rid: 6260567726555136193
+          rid: 6260567746006483545
         m_Source: {fileID: -7255895820478751003}
-    - rid: 6260567726555136192
+    - rid: 6260567746006483544
       type: {class: AiWanderAction, ns: , asm: DaftAppleGames.Darskerry.Core}
       data:
         ID:
           m_Value0: 2446542438602007537
           m_Value1: 265425398780285429
         Graph:
-          rid: 6260567726555136189
+          rid: 6260567746006483541
         m_Parent:
-          rid: 6260567726555136190
+          rid: 6260567746006483542
         MinRange:
-          rid: 6260567726555136194
+          rid: 6260567746006483546
         MaxRange:
-          rid: 6260567726555136195
+          rid: 6260567746006483547
         WanderTransform:
-          rid: 6260567726555136196
+          rid: 6260567746006483548
         MovementSpeed:
-          rid: 6260567726555136197
+          rid: 6260567746006483549
         MinPauseDelay:
-          rid: 6260567726555136198
+          rid: 6260567746006483550
         MaxPauseDelay:
-          rid: 6260567726555136199
+          rid: 6260567746006483551
         AiBrain:
-          rid: 6260567726555136200
-    - rid: 6260567726555136193
+          rid: 6260567746006483552
+    - rid: 6260567746006483545
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 6260567726555136201
-        - rid: 6260567726555136202
-        - rid: 6260567726555136200
-        - rid: 6260567726555136194
-        - rid: 6260567726555136195
-        - rid: 6260567726555136197
-        - rid: 6260567726555136203
-        - rid: 6260567726555136198
-        - rid: 6260567726555136199
-        - rid: 6260567726555136204
-        - rid: 6260567726555136205
-    - rid: 6260567726555136194
+        - rid: 6260567746006483553
+        - rid: 6260567746006483554
+        - rid: 6260567746006483552
+        - rid: 6260567746006483546
+        - rid: 6260567746006483547
+        - rid: 6260567746006483549
+        - rid: 6260567746006483555
+        - rid: 6260567746006483550
+        - rid: 6260567746006483551
+        - rid: 6260567746006483556
+        - rid: 6260567746006483557
+    - rid: 6260567746006483546
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -366,7 +366,7 @@ MonoBehaviour:
           m_Value1: 14075479551134972727
         Name: WanderMinRange
         m_Value: 5
-    - rid: 6260567726555136195
+    - rid: 6260567746006483547
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -374,7 +374,7 @@ MonoBehaviour:
           m_Value1: 2932791885747617424
         Name: WanderMaxRange
         m_Value: 15
-    - rid: 6260567726555136196
+    - rid: 6260567746006483548
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -382,7 +382,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: {fileID: 0}
-    - rid: 6260567726555136197
+    - rid: 6260567746006483549
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -390,7 +390,7 @@ MonoBehaviour:
           m_Value1: 2016173408638423795
         Name: WanderSpeed
         m_Value: 0.5
-    - rid: 6260567726555136198
+    - rid: 6260567746006483550
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -398,7 +398,7 @@ MonoBehaviour:
           m_Value1: 3798076693593157602
         Name: MinWanderPauseDelay
         m_Value: 0
-    - rid: 6260567726555136199
+    - rid: 6260567746006483551
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -406,7 +406,7 @@ MonoBehaviour:
           m_Value1: 6151426603109333002
         Name: MaxWanderPauseDelay
         m_Value: 0
-    - rid: 6260567726555136200
+    - rid: 6260567746006483552
       type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.PlayerController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -414,7 +414,7 @@ MonoBehaviour:
           m_Value1: 15154441729271724395
         Name: AiBrain
         m_Value: {fileID: 0}
-    - rid: 6260567726555136201
+    - rid: 6260567746006483553
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -422,7 +422,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 6260567726555136202
+    - rid: 6260567746006483554
       type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -430,7 +430,7 @@ MonoBehaviour:
           m_Value1: 17072317444087174981
         Name: Patrol Points
         m_Value: []
-    - rid: 6260567726555136203
+    - rid: 6260567746006483555
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -438,7 +438,7 @@ MonoBehaviour:
           m_Value1: 16604992394736228935
         Name: WanderCenterTransform
         m_Value: {fileID: 0}
-    - rid: 6260567726555136204
+    - rid: 6260567746006483556
       type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -446,7 +446,7 @@ MonoBehaviour:
           m_Value1: 2182878247437034399
         Name: IsHungry
         m_Value: 0
-    - rid: 6260567726555136205
+    - rid: 6260567746006483557
       type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -635,7 +635,7 @@ MonoBehaviour:
         LocalValue:
           rid: 6260567723480973996
         LinkedVariable:
-          rid: 6260567726555136218
+          rid: 6260567746006483540
     - rid: 6260567723480973996
       type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.PlayerController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -665,7 +665,7 @@ MonoBehaviour:
         LocalValue:
           rid: 6260567725073498405
         LinkedVariable:
-          rid: 6260567726555136215
+          rid: 6260567746006483537
     - rid: 6260567725073498400
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -676,7 +676,7 @@ MonoBehaviour:
         LocalValue:
           rid: 6260567725073498406
         LinkedVariable:
-          rid: 6260567726555136216
+          rid: 6260567746006483538
     - rid: 6260567725073498401
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -687,7 +687,7 @@ MonoBehaviour:
         LocalValue:
           rid: 6260567725073498407
         LinkedVariable:
-          rid: 6260567726555136217
+          rid: 6260567746006483539
     - rid: 6260567725073498404
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -730,7 +730,7 @@ MonoBehaviour:
         LocalValue:
           rid: 6260567725073498453
         LinkedVariable:
-          rid: 6260567726555136213
+          rid: 6260567746006483535
     - rid: 6260567725073498452
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -741,7 +741,7 @@ MonoBehaviour:
         LocalValue:
           rid: 6260567725073498454
         LinkedVariable:
-          rid: 6260567726555136214
+          rid: 6260567746006483536
     - rid: 6260567725073498453
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -758,7 +758,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 0
-    - rid: 6260567726555136213
+    - rid: 6260567746006483535
       type: {class: 'TypedVariableModel`1[[System.Single, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -768,7 +768,7 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: 5
-    - rid: 6260567726555136214
+    - rid: 6260567746006483536
       type: {class: 'TypedVariableModel`1[[System.Single, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -778,7 +778,7 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: 15
-    - rid: 6260567726555136215
+    - rid: 6260567746006483537
       type: {class: 'TypedVariableModel`1[[System.Single, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -788,7 +788,7 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: 0.5
-    - rid: 6260567726555136216
+    - rid: 6260567746006483538
       type: {class: 'TypedVariableModel`1[[System.Single, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -798,7 +798,7 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: 0
-    - rid: 6260567726555136217
+    - rid: 6260567746006483539
       type: {class: 'TypedVariableModel`1[[System.Single, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -808,7 +808,7 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: 0
-    - rid: 6260567726555136218
+    - rid: 6260567746006483540
       type: {class: 'TypedVariableModel`1[[DaftAppleGames.Darskerry.Core.PlayerController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:

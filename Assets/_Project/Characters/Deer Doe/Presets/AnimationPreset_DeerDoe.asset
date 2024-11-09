@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6eadbd399063240bb4cd065fef69a5, type: 3}
+  m_Name: AnimationPreset_DeerDoe
+  m_EditorClassIdentifier: 
+  animMappings: {fileID: 11400000, guid: 8bff3ad59d7a26a4894728dd406b555d, type: 2}
+  animPresets:
+  - animClip: {fileID: 7400000, guid: 9278dafdca09b2c4e89943f64837aee5, type: 2}
+    mirrorAnimation: 0
+    animSpeed: 1
+    animMapping:
+      animationHeader: Movement
+      animationName: MoveIdle
+      stateName: Grounded
+      stateMachineName: 
+      layerName: Base Layer
+      blendTreeName: Blend Tree
+      blendTreeIndex: 0
+  - animClip: {fileID: 7400000, guid: 6e5b78463f72b474f8135cafa67a65c0, type: 2}
+    mirrorAnimation: 0
+    animSpeed: 1
+    animMapping:
+      animationHeader: Movement
+      animationName: IdleRight
+      stateName: Grounded
+      stateMachineName: 
+      layerName: Base Layer
+      blendTreeName: Blend Tree
+      blendTreeIndex: 1
+  - animClip: {fileID: 7400000, guid: 4ac6c03346e73db4f84cc4fa30d64d4e, type: 2}
+    mirrorAnimation: 0
+    animSpeed: 1
+    animMapping:
+      animationHeader: Movement
+      animationName: IdleLeft
+      stateName: Grounded
+      stateMachineName: 
+      layerName: Base Layer
+      blendTreeName: Blend Tree
+      blendTreeIndex: 2
+  - animClip: {fileID: 7400000, guid: 79605367e09a99d44a714740ece7a12a, type: 2}
+    mirrorAnimation: 0
+    animSpeed: 1
+    animMapping:
+      animationHeader: Movement
+      animationName: WalkForward
+      stateName: Grounded
+      stateMachineName: 
+      layerName: Base Layer
+      blendTreeName: Blend Tree
+      blendTreeIndex: 3
+  - animClip: {fileID: 7400000, guid: 6e5b78463f72b474f8135cafa67a65c0, type: 2}
+    mirrorAnimation: 0
+    animSpeed: 1
+    animMapping:
+      animationHeader: Movement
+      animationName: WalkRight
+      stateName: Grounded
+      stateMachineName: 
+      layerName: Base Layer
+      blendTreeName: Blend Tree
+      blendTreeIndex: 4
+  - animClip: {fileID: 7400000, guid: 4ac6c03346e73db4f84cc4fa30d64d4e, type: 2}
+    mirrorAnimation: 0
+    animSpeed: 1
+    animMapping:
+      animationHeader: Movement
+      animationName: WalkLeft
+      stateName: Grounded
+      stateMachineName: 
+      layerName: Base Layer
+      blendTreeName: Blend Tree
+      blendTreeIndex: 5
+  - animClip: {fileID: 7400000, guid: 79605367e09a99d44a714740ece7a12a, type: 2}
+    mirrorAnimation: 0
+    animSpeed: 1
+    animMapping:
+      animationHeader: Movement
+      animationName: RunForward
+      stateName: Grounded
+      stateMachineName: 
+      layerName: Base Layer
+      blendTreeName: Blend Tree
+      blendTreeIndex: 6
+  - animClip: {fileID: 7400000, guid: 6e5b78463f72b474f8135cafa67a65c0, type: 2}
+    mirrorAnimation: 0
+    animSpeed: 1
+    animMapping:
+      animationHeader: Movement
+      animationName: RunRight
+      stateName: Grounded
+      stateMachineName: 
+      layerName: Base Layer
+      blendTreeName: Blend Tree
+      blendTreeIndex: 7
+  - animClip: {fileID: 7400000, guid: 4ac6c03346e73db4f84cc4fa30d64d4e, type: 2}
+    mirrorAnimation: 0
+    animSpeed: 1
+    animMapping:
+      animationHeader: Movement
+      animationName: RunLeft
+      stateName: Grounded
+      stateMachineName: 
+      layerName: Base Layer
+      blendTreeName: Blend Tree
+      blendTreeIndex: 8
