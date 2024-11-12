@@ -5,7 +5,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace DaftAppleGames.Editor.BuildTool
+namespace DaftAppleGames.Darskerry.Editor.BuildTool
 {
     [CreateAssetMenu(fileName = "BuildSettings", menuName = "Daft Apple Games/Project/Build settings", order = 1)]
     public class BuildSettings : ScriptableObject

@@ -8,7 +8,7 @@ using UnityEditor.Animations;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace DaftAppleGames.Editor.CharacterConfiguration
+namespace DaftAppleGames.Darskerry.Editor.CharacterConfiguration
 {
     [CreateAssetMenu(fileName = "AnimationMapping", menuName = "Daft Apple Games/Character/Animation Mapping", order = 1)]
     public class AnimationMappings : ScriptableObject

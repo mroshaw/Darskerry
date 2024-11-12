@@ -3,7 +3,7 @@ using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace DaftAppleGames.Editor.ObjectTools
+namespace DaftAppleGames.Darskerry.Editor.ObjectTools
 {
     public class TerrainAlignEditorWindow : OdinEditorWindow
     {

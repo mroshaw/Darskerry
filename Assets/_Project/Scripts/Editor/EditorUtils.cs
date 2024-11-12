@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DaftAppleGames.Editor
+namespace DaftAppleGames.Darskerry.Editor
 {
     public static class EditorUtils
     {

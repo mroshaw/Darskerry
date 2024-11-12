@@ -3,7 +3,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using UnityEditor;
 
-namespace DaftAppleGames.Editor
+namespace DaftAppleGames.Darskerry.Editor
 {
     public class CustomiseNewScriptFiles : AssetModificationProcessor
     {
@@ -14,7 +14,7 @@ namespace DaftAppleGames.Editor
         private static string _parentNamespace = "";
         private static string _editorClass = "";
         private static string _editorWindow = "";
-        
+
         /// <summary>
         /// Manage the creation of new script files
         /// </summary>
@@ -52,7 +52,7 @@ namespace DaftAppleGames.Editor
 
             if (di.Parent != null) _parentNamespace = di.Parent.Name;
             _fullNamespace = path.Substring(path.IndexOf("Assets", StringComparison.Ordinal)).Substring(0, path.Substring(path.IndexOf("Assets", StringComparison.Ordinal)).LastIndexOf('/')).Replace('/', '.');
-            _fullNamespace =  _fullNamespace.Replace("Assets._Project.Scripts.Core", RootNamespace);
+            _fullNamespace = _fullNamespace.Replace("Assets._Project.Scripts.Core", RootNamespace);
             _scriptFriendlyName = Regex.Replace(fileName, @"((?<=\p{Ll})\p{Lu})|((?!\A)\p{Lu}(?>\p{Ll}))", " $0");
 
             int editorIndex = fileName.IndexOf("Editor", StringComparison.Ordinal);
@@ -60,7 +60,7 @@ namespace DaftAppleGames.Editor
             {
                 _editorClass = fileName.Substring(0, editorIndex);
             }
-            
+
             int windowIndex = fileName.IndexOf("Window", StringComparison.Ordinal);
             if (windowIndex != -1)
             {

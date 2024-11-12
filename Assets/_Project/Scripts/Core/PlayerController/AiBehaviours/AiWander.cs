@@ -81,7 +81,6 @@ public partial class AiWanderAction : Action
     {
         _aiBrain.SetMoveSpeed(MovementSpeed.Value);
         Vector3 wanderLocation = GetRandomWanderLocation(_wanderTransformCenter, MinRange.Value, MaxRange.Value);
-        Debug.Log($"AiWanderAction: Moving to new target: {wanderLocation}");
         _navMeshCharacter.MoveToDestination(wanderLocation);
     }
 

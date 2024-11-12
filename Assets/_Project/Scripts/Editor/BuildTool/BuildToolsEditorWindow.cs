@@ -19,7 +19,7 @@ using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 using UnityEngine.Rendering.HighDefinition;
 
-namespace DaftAppleGames.Editor.BuildTool
+namespace DaftAppleGames.Darskerry.Editor.BuildTool
 {
     public class BuildToolsEditorWindow : OdinEditorWindow
     {

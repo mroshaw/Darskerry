@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEditor.Animations;
 using UnityEngine;
 
-namespace DaftAppleGames.Editor.CharacterConfiguration
+namespace DaftAppleGames.Darskerry.Editor.CharacterConfiguration
 {
     [CreateAssetMenu(fileName = "AnimationPreset", menuName = "Daft Apple Games/Character/Animation Presets", order = 1)]
     public class AnimationPresets : ScriptableObject

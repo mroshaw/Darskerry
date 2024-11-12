@@ -4,7 +4,7 @@ using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace DaftAppleGames.Editor.TerrainEditor
+namespace DaftAppleGames.Darskerry.Editor.TerrainEditor
 {
     public class TerrainObjectReplacerWindow : OdinEditorWindow
     {

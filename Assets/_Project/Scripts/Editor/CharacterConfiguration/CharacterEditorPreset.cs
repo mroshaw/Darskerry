@@ -7,7 +7,7 @@ using UnityEngine;
 using CharacterController = UnityEngine.CharacterController;
 using Vector3 = UnityEngine.Vector3;
 
-namespace DaftAppleGames.Editor.CharacterConfiguration
+namespace DaftAppleGames.Darskerry.Editor.CharacterConfiguration
 {
 
     [CreateAssetMenu(fileName = "CharacterEditorPreset", menuName = "Daft Apple Games/Character/Character Editor Preset", order = 1)]

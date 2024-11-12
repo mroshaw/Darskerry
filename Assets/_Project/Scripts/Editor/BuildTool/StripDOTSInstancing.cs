@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 using UnityEditor.Build;
 using UnityEditor.Rendering;
 
-namespace DaftAppleGames.Editor.BuildTool
+namespace DaftAppleGames.Darskerry.Editor.BuildTool
 {
     class StripDOTSInstancing : IPreprocessShaders
     {

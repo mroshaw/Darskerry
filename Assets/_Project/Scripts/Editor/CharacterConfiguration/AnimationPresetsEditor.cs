@@ -4,7 +4,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DaftAppleGames.Editor.CharacterConfiguration
+namespace DaftAppleGames.Darskerry.Editor.CharacterConfiguration
 {
     [CustomEditor(typeof(AnimationPresets))]
     public class AnimationPresetsEditor : UnityEditor.Editor

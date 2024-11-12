@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace DaftAppleGames.Editor.BuildTool
+namespace DaftAppleGames.Darskerry.Editor.BuildTool
 {
     public class SceneLoaderWindow : OdinEditorWindow
     {

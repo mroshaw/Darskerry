@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using RenderingLayerMask = UnityEngine.Rendering.HighDefinition.RenderingLayerMask;
 
-namespace DaftAppleGames.Editor.ObjectTools
+namespace DaftAppleGames.Darskerry.Editor.ObjectTools
 {
     public enum MeshProperties { CastShadows, StaticShadowCaster, ContributeGI, ReceiveGI, MotionVectors, DynamicOcclusion, RenderLayerMask, Priority }
 

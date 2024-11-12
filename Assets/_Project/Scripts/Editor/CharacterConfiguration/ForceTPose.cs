@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace DaftAppleGames.Editor.CharacterConfiguration
+namespace DaftAppleGames.Darskerry.Editor.CharacterConfiguration
 {
     public class ForceTPose
     {
