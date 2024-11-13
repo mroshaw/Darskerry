@@ -167,20 +167,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackboardRefreshInterval: 5
-  wanderSpeed: 0
-  wanderMinRange: 0
-  wanderMaxRange: 0
-  wanderMinPause: 0
-  wanderMaxPause: 0
-  wanderCenterTransform: {fileID: 0}
+  wanderParams:
+    speed: 0
+    minRange: 0
+    maxRange: 0
+    minPause: 0
+    maxPause: 0
+    centerTransform: {fileID: 0}
   startingThirst: 100
   thirstRate: 0.01
   startingHunger: 100
   hungerRate: 0.01
   hungryThreshold: 10
   thirstyThreshold: 10
-  hungerDamageRate: 0.5
-  thirstyDamageRate: 0.5
   _hunger: 0
   _thirst: 0
 --- !u!82 &7629226045507993110
@@ -518,7 +517,6 @@ MonoBehaviour:
   _standingDownwardForceScale: 1
   _camera: {fileID: 0}
   sprintSpeed: 0
-  rollSpeed: 1
   _rollImpulse: 0
 --- !u!114 &1417135065250611223
 MonoBehaviour:

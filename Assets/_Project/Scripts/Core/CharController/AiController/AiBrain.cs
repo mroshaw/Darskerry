@@ -10,23 +10,14 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     /// </summary>
     public abstract class AiBrain : MonoBehaviour
     {
-        private static string WanderSpeedVariableName = "WanderSpeed";
-        private static string WanderMinRangeVariableName = "WanderMinRange";
-        private static string WanderMaxRangeVariableName = "WanderMaxRange";
-        private static string WanderMinPauseVariableName = "WanderMinPause";
-        private static string WanderMaxPauseVariableName = "WanderMaxPause";
-        private static string WanderCenterTransformVariableName = "WanderCenterTransform";
         private static string IsHungryVariableName = "IsHungry";
         private static string IsThirstyVariableName = "IsThirsty";
+        private static string TargetVariableName = "TargetTransform";
+        private static string FleeFromTargetVariableName = "FleeFromTargetTransform";
 
         #region Class Variables
         [BoxGroup("Blackboard Sync Settings")][SerializeField] private int blackboardRefreshInterval = 5;
-        [BoxGroup("Wander Settings")][SerializeField] private float wanderSpeed;
-        [BoxGroup("Wander Settings")][SerializeField] private float wanderMinRange;
-        [BoxGroup("Wander Settings")][SerializeField] private float wanderMaxRange;
-        [BoxGroup("Wander Settings")][SerializeField] private float wanderMinPause;
-        [BoxGroup("Wander Settings")][SerializeField] private float wanderMaxPause;
-        [BoxGroup("Wander Settings")][SerializeField] private Transform wanderCenterTransform;
+        [BoxGroup("Wander Settings")][SerializeField] private WanderParams wanderParams;
 
         [BoxGroup("Needs")][SerializeField] private float startingThirst = 100.0f;
         [BoxGroup("Needs")][SerializeField] private float thirstRate = 0.01f;
@@ -34,12 +25,15 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         [BoxGroup("Needs")][SerializeField] private float hungerRate = 0.01f;
         [BoxGroup("Needs")][SerializeField] private float hungryThreshold = 10.0f;
         [BoxGroup("Needs")][SerializeField] private float thirstyThreshold = 10.0f;
-        [BoxGroup("Needs")][SerializeField] private float hungerDamageRate = 0.5f;
-        [BoxGroup("Needs")][SerializeField] private float thirstyDamageRate = 0.5f;
 
         [BoxGroup("Needs Debug")][SerializeField] private float _hunger;
         [BoxGroup("Needs Debug")][SerializeField] private float _thirst;
 
+        public WanderParams WanderParams => wanderParams;
+        public Transform Target => _target;
+        public Transform FleeFromTarget => _fleeFromTarget;
+        private Transform _target;
+        private Transform _fleeFromTarget;
         private BehaviorGraphAgent _behaviorGraphAgent;
         private NavMeshCharacter _navMeshCharacter;
         private GameCharacter _gameCharacter;
@@ -64,7 +58,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             _hunger = startingHunger;
             _thirst = startingThirst;
-            SetBlackboard();
         }
         #endregion
 
@@ -87,25 +80,10 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         }
         #endregion
         #region Class methods
-        protected virtual void SetBlackboard()
-        {
-            SetVariableFloat(WanderSpeedVariableName, wanderSpeed);
-            SetVariableFloat(WanderMinRangeVariableName, wanderMinRange);
-            SetVariableFloat(WanderMaxRangeVariableName, wanderMaxRange);
-            SetVariableFloat(WanderMinPauseVariableName, wanderMinPause);
-            SetVariableFloat(WanderMaxPauseVariableName, wanderMaxPause);
-            if (wanderCenterTransform)
-            {
-                SetVariableTransform(WanderCenterTransformVariableName, wanderCenterTransform);
-            }
-            else
-            {
-                SetVariableTransform(WanderCenterTransformVariableName, transform);
-            }
-        }
-
         protected virtual void SyncBlackboard()
         {
+            SetVariableTransform(TargetVariableName, _target);
+            SetVariableTransform(FleeFromTargetVariableName, _fleeFromTarget);
             SetVariableBool(IsHungryVariableName, IsHungry());
             SetVariableBool(IsThirstyVariableName, IsThirsty());
         }

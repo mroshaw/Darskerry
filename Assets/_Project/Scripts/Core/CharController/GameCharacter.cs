@@ -7,7 +7,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     public class GameCharacter : Character
     {
         [PropertyOrder(-1)][BoxGroup("Movement Settings")][SerializeField] private float sprintSpeed;
-        [PropertyOrder(-1)][BoxGroup("Movement Settings")][SerializeField] private float rollSpeed = 1.0f;
         [PropertyOrder(-1)][BoxGroup("Movement Settings")][Tooltip("Initial forward velocity when rolling.")][SerializeField] private float _rollImpulse;
 
         private bool _isAttacking;

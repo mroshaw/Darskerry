@@ -10,15 +10,9 @@ using Action = Unity.Behavior.Action;
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "AiWander", story: "Wander within a minimum [minRange] and maximum [maxRange] range from transform [wanderTransform] at speed [movementSpeed] with minimum [minPauseDelay] and maximum [maxPauseDelay] pauses using an [AiBrain]", category: "Action", id: "79530ae655e4c01296bec8f3939d187e")]
-    public partial class AiWanderAction : Action
+    [NodeDescription(name: "Wander", story: "Wander using an [AiBrain]", category: "Action/Navigation", id: "79530ae655e4c01296bec8f3939d187e")]
+    public partial class WanderAction : Action
     {
-        [SerializeReference] public BlackboardVariable<float> MinRange;
-        [SerializeReference] public BlackboardVariable<float> MaxRange;
-        [SerializeReference] public BlackboardVariable<Transform> WanderTransform;
-        [SerializeReference] public BlackboardVariable<float> MovementSpeed;
-        [SerializeReference] public BlackboardVariable<float> MinPauseDelay;
-        [SerializeReference] public BlackboardVariable<float> MaxPauseDelay;
         [SerializeReference] public BlackboardVariable<AiBrain> AiBrain;
         private AiBrain _aiBrain;
         private NavMeshCharacter _navMeshCharacter;
@@ -28,19 +22,20 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
 
         protected override Status OnStart()
         {
-            if (AiBrain.Value == null)
+            _aiBrain = AiBrain.Value;
+            if (_aiBrain == null)
             {
                 LogFailure("No Ai Brain assigned.");
                 return Status.Failure;
             }
 
-            if (MinRange.Value == 0.0f || MaxRange.Value == 0.0f || MovementSpeed.Value == 0.0f)
+            if (_aiBrain.WanderParams.MinRange == 0.0f || _aiBrain.WanderParams.MaxRange == 0.0f || _aiBrain.WanderParams.Speed == 0.0f)
             {
                 LogFailure("Minimum and Maximum Range and Speed must all be non-zero.");
                 return Status.Failure;
             }
 
-            if (MinPauseDelay > MaxPauseDelay)
+            if (_aiBrain.WanderParams.MinPause > _aiBrain.WanderParams.MaxPause)
             {
                 LogFailure("Minimum Pause Delay is greater than Maximum Pause Delay.");
                 return Status.Failure;
@@ -74,14 +69,14 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
         {
             _aiBrain = AiBrain.Value.GetComponent<AiBrain>();
             _navMeshCharacter = _aiBrain.NavMeshCharacter;
-            _wanderTransformCenter = WanderTransform.Value != null ? WanderTransform.Value.position : _aiBrain.transform.position;
+            _wanderTransformCenter = _aiBrain.WanderParams.CenterTransform != null ? _aiBrain.WanderParams.CenterTransform.position : _aiBrain.transform.position;
             _navMeshCharacter.DestinationReached += ArrivedAtDestination;
         }
 
         private void GoToNextDestination()
         {
-            _aiBrain.SetMoveSpeed(MovementSpeed.Value);
-            Vector3 wanderLocation = GetRandomWanderLocation(_wanderTransformCenter, MinRange.Value, MaxRange.Value);
+            _aiBrain.SetMoveSpeed(_aiBrain.WanderParams.Speed);
+            Vector3 wanderLocation = GetRandomWanderLocation(_wanderTransformCenter, _aiBrain.WanderParams.MinRange, _aiBrain.WanderParams.MaxRange);
             _navMeshCharacter.MoveToDestination(wanderLocation);
         }
 
@@ -107,7 +102,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
 
         private IEnumerator MoveToNextAfterDelayAsync()
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(MinPauseDelay, MaxPauseDelay));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(_aiBrain.WanderParams.MinPause, _aiBrain.WanderParams.MaxPause));
             GoToNextDestination();
         }
 
