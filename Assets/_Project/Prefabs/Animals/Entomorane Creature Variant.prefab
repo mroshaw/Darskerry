@@ -1638,17 +1638,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2321865534921473633, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
   m_PrefabInstance: {fileID: 7803296057155691410}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7296145619716720374 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
-  m_PrefabInstance: {fileID: 7803296057155691410}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7330300728185631848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fab1b466bee70344b15e253cb7adafd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7330300728185631848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 716237023281813498, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
@@ -1704,10 +1693,12 @@ MonoBehaviour:
   - rid: 6260567725073498875
   - rid: 6260567725073498876
   - rid: 6260567725073498877
-  - rid: 6260567725073498878
+  - rid: -2
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 6260567725073498874
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -1740,11 +1731,3 @@ MonoBehaviour:
           m_Value1: 2016173408638423795
         Name: WanderSpeed
         m_Value: 0.9
-    - rid: 6260567725073498878
-      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.PlayerController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 15959437954996248840
-          m_Value1: 15154441729271724395
-        Name: AiBrain
-        m_Value: {fileID: 7296145619716720374}

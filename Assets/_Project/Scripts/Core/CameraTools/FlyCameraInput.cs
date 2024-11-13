@@ -1,4 +1,4 @@
-using DaftAppleGames.Darskerry.Core.PlayerController;
+using DaftAppleGames.Darskerry.Core.CharController.AiController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
