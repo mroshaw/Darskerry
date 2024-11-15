@@ -14,7 +14,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         #region Class Variables
         [PropertyOrder(1)][BoxGroup("Sensor Configuration")][Tooltip("Only GameObjects in these layers will be detected.")][SerializeField] protected LayerMask detectionLayerMask;
         [PropertyOrder(1)][BoxGroup("Sensor Configuration")][Tooltip("Only GameObjects with this tag will be detected.")][SerializeField][TagSelector] protected string detectionTag;
-        [PropertyOrder(1)][BoxGroup("Sensor Configuration")][Tooltip("Maximum number of GameObjects that can be detected by the Overlapsphere. Used to avoid GC.")][SerializeField] private int detectionBufferSize = 20;
+        [PropertyOrder(1)][BoxGroup("Sensor Configuration")][Tooltip("Maximum number of GameObjects that can be detected by the OverlapSphere. Used to avoid GC.")][SerializeField] private int detectionBufferSize = 20;
         [PropertyOrder(1)][BoxGroup("Aware Sensor Configuration")][Tooltip("An GameObject that is within the OverlapSphere of this radius will be added to the 'awareObjects' list")][SerializeField] private float awareSensorRange = 15;
         [PropertyOrder(1)][BoxGroup("Aware Sensor Configuration")][Tooltip("The frequency with which the 'awareness' OverlapSphere is cast. Smaller number for greater accuracy, larger for better performance.")][SerializeField] private int awareCheckFrequencyFrames = 5;
         [PropertyOrder(1)][BoxGroup("Vision Sensor Configuration")][Tooltip("Objects on these layers will block vision.")][SerializeField] private LayerMask blockedLayerMask;
@@ -22,14 +22,14 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         [PropertyOrder(1)][BoxGroup("Vision Sensor Configuration")][Tooltip("When a GameObject is in the 'awareObjects' list, a vision cone is cast at this range. If hit, the GameObject is added to the 'seeObjects' list")][SerializeField] private float visionSensorRange = 5;
         [PropertyOrder(1)][BoxGroup("Vision Sensor Configuration")][Tooltip("The angle 'sweep' of the vision sensor.")][SerializeField] private float visionSensorAngle = 170.0f;
         [PropertyOrder(1)][BoxGroup("Vision Sensor Configuration")][Tooltip("The frequency with which the vision cone is cast. Smaller number for greater accuracy, larger for better performance.")][SerializeField] private int visionCheckFrequencyFrames = 5;
-        [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<GameObject> VisionDetectedEvent;
-        [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<GameObject> VisionLostEvent;
-        [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<GameObject> AwareDetectedEvent;
-        [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<GameObject> AwareLostEvent;
+        [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<GameObject> visionDetectedEvent;
+        [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<GameObject> visionLostEvent;
+        [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<GameObject> awareDetectedEvent;
+        [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<GameObject> awareLostEvent;
 
         [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] protected bool debugEnabled = true;
-        [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] private GameObject[] _awareGameObjectsDebug;
-        [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] private GameObject[] _visionGameObjectsDebug;
+        [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] private GameObject[] awareGameObjectsDebug;
+        [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] private GameObject[] visionGameObjectsDebug;
 
 #if UNITY_EDITOR
         [PropertyOrder(3)][FoldoutGroup("Gizmos")][SerializeField] private bool drawVisionSphereGizmo = true;
@@ -48,9 +48,10 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         private Collider[] _overlapSphereBuffer;
         private RaycastHit[] _rayHitsBuffer;
         private Collider[] _detectedBuffer;
+        private readonly HashSet<string> _existingGuidsBuffer = new();
 
-        private bool _isAwareOfTargets = false;
-        private bool _canSeeTargets = false;
+        private bool _isAwareOfTargets;
+        private bool _canSeeTargets;
         #endregion
         #region Startup
         /// <summary>
@@ -92,9 +93,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             return _visionTargets.HasTargets();
         }
 
-        public bool CanSeeTargetsWithTag(string tag)
+        public bool CanSeeTargetsWithTag(string targetTag)
         {
-            return _visionTargets.HasTargetWithTag(tag);
+            return _visionTargets.HasTargetWithTag(targetTag);
         }
 
         private void CheckForAlertObjects()
@@ -104,7 +105,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
             if (debugEnabled)
             {
-                _awareGameObjectsDebug = _awareTargets.GetAllTargetGameObjects();
+                awareGameObjectsDebug = _awareTargets.GetAllTargetGameObjects();
             }
         }
 
@@ -115,9 +116,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             // Loop through the 'aware' game objects, and see if any are within range, within the FOV angle, and not behind any blocking layers
             foreach (KeyValuePair<string, DetectorTarget> currTarget in _awareTargets)
             {
-                if (GetDistanceToTarget(currTarget.Value.target) < visionSensorRange && GetAngleToTarget(currTarget.Value.target) < visionSensorAngle / 2 && CanSeeTarget(currTarget.Value.target))
+                if (GetDistanceToTarget(currTarget.Value.Target) < visionSensorRange && GetAngleToTarget(currTarget.Value.Target) < visionSensorAngle / 2 && CanSeeTarget(currTarget.Value.Target))
                 {
-                    _detectedBuffer[detectedBufferIndex] = currTarget.Value.target.GetComponent<Collider>();
+                    _detectedBuffer[detectedBufferIndex] = currTarget.Value.Target.GetComponent<Collider>();
                     detectedBufferIndex++;
                 }
             }
@@ -132,13 +133,13 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
             if (debugEnabled)
             {
-                _visionGameObjectsDebug = _visionTargets.GetAllTargetGameObjects();
+                visionGameObjectsDebug = _visionTargets.GetAllTargetGameObjects();
             }
         }
 
-        internal void UpdateTargetDict(Collider[] detectedColliders, int numberDetected, ref DetectorTargets currentTargets, Action<GameObject> targetAddedDelegate, Action<GameObject> targetLostDelegate)
+        private void UpdateTargetDict(Collider[] detectedColliders, int numberDetected, ref DetectorTargets currentTargets, Action<GameObject> targetAddedDelegate, Action<GameObject> targetLostDelegate)
         {
-            HashSet<string> existingGuids = new HashSet<string>();
+            _existingGuidsBuffer.Clear();
 
             for (int currCollider = 0; currCollider < numberDetected; currCollider++)
             {
@@ -149,7 +150,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                 if (guid && colliderGameObject.CompareTag(detectionTag))
                 {
                     // Add to HashSet for later reference
-                    existingGuids.Add(guid.Guid);
+                    _existingGuidsBuffer.Add(guid.Guid);
 
                     if (!currentTargets.HasGuid(guid.Guid))
                     {
@@ -163,9 +164,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             List<string> keysToRemove = new List<string>();
             foreach (KeyValuePair<string, DetectorTarget> currTarget in currentTargets)
             {
-                if (!existingGuids.Contains(currTarget.Key))
+                if (!_existingGuidsBuffer.Contains(currTarget.Key))
                 {
-                    targetLostDelegate.Invoke(currTarget.Value.target);
+                    targetLostDelegate.Invoke(currTarget.Value.Target);
                     keysToRemove.Add(currTarget.Key);
                 }
             }
@@ -198,7 +199,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         private bool CanSeeTarget(GameObject target)
         {
             Vector3 directionToTarget = (target.transform.position + (Vector3.up * 1.5f)) - eyesTransform.position;
-            float maxDistance = directionToTarget.magnitude;
+            // float maxDistance = directionToTarget.magnitude;
             Ray ray = new Ray(eyesTransform.position, directionToTarget.normalized);
 
             int objectsDetected = Physics.RaycastNonAlloc(ray, _rayHitsBuffer, visionSensorRange + 0.5f, detectionLayerMask | blockedLayerMask);
@@ -233,25 +234,25 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         private void AwareDetected(GameObject detectedGameObject)
         {
             Debug.Log($"RangeDetector: {gameObject.name} detected: {detectedGameObject.name}");
-            AwareDetectedEvent.Invoke(detectedGameObject);
+            awareDetectedEvent.Invoke(detectedGameObject);
         }
 
         private void AwareLost(GameObject detectedGameObject)
         {
             Debug.Log($"RangeDetector: {gameObject.name} lost: {detectedGameObject.name}");
-            AwareLostEvent.Invoke(detectedGameObject);
+            awareLostEvent.Invoke(detectedGameObject);
         }
 
         private void VisionDetected(GameObject detectedGameObject)
         {
             Debug.Log($"FovDetector: {gameObject.name} detected: {detectedGameObject.name}");
-            AwareDetectedEvent.Invoke(detectedGameObject);
+            awareDetectedEvent.Invoke(detectedGameObject);
         }
 
         private void VisionLost(GameObject detectedGameObject)
         {
             Debug.Log($"FovDetector: {gameObject.name} lost: {detectedGameObject.name}");
-            AwareLostEvent.Invoke(detectedGameObject);
+            awareLostEvent.Invoke(detectedGameObject);
         }
 
         private void RefreshAwareList(Collider[] awareColliders, int numberDetected)

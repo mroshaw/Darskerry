@@ -67,7 +67,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
 
         private void Initialize()
         {
-            _aiBrain = AiBrain.Value.GetComponent<AiBrain>();
             _navMeshCharacter = _aiBrain.NavMeshCharacter;
             _wanderTransformCenter = _aiBrain.WanderParams.CenterTransform != null ? _aiBrain.WanderParams.CenterTransform.position : _aiBrain.transform.position;
             _navMeshCharacter.DestinationReached += ArrivedAtDestination;

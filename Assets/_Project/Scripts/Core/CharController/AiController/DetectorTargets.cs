@@ -6,48 +6,43 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
     internal class DetectorTargets : IEnumerable<KeyValuePair<string, DetectorTarget>>
     {
-        private Dictionary<string, DetectorTarget> targets;
-
-        public DetectorTargets()
-        {
-            targets = new Dictionary<string, DetectorTarget>();
-        }
+        private readonly Dictionary<string, DetectorTarget> _targets = new();
 
         internal void AddTarget(string guid, GameObject target, float distance)
         {
             DetectorTarget newTarget = new()
             {
-                target = target,
-                distance = distance,
+                Target = target,
+                Distance = distance,
             };
-            targets.Add(guid, newTarget);
+            _targets.Add(guid, newTarget);
         }
 
         internal void RemoveTarget(string guid)
         {
-            targets.Remove(guid);
+            _targets.Remove(guid);
         }
 
         internal bool HasGuid(string guid)
         {
-            return targets.ContainsKey(guid);
+            return _targets.ContainsKey(guid);
         }
 
         internal GameObject GetTargetGameObject(string guid)
         {
-            return targets[guid].target;
+            return _targets[guid].Target;
         }
 
         internal bool HasTargets()
         {
-            return targets.Count > 0;
+            return _targets.Count > 0;
         }
 
         internal bool HasTargetWithTag(string tag)
         {
-            foreach (var entry in targets)
+            foreach (var entry in _targets)
             {
-                if (entry.Value.target.CompareTag(tag))
+                if (entry.Value.Target.CompareTag(tag))
                 {
                     return true;
                 }
@@ -59,41 +54,41 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             KeyValuePair<string, DetectorTarget> minTarget = default;
             float minDistance = float.MaxValue;
-            foreach (var entry in targets)
+            foreach (var entry in _targets)
             {
-                if (entry.Value.distance < minDistance)
+                if (entry.Value.Distance < minDistance)
                 {
-                    minDistance = entry.Value.distance;
+                    minDistance = entry.Value.Distance;
                     minTarget = entry;
                 }
             }
-            return minTarget.Value.target;
+            return minTarget.Value.Target;
         }
 
         internal GameObject GetClosestTargetGameObjectWithTag(string tag)
         {
             KeyValuePair<string, DetectorTarget> minTarget = default;
             float minDistance = float.MaxValue;
-            foreach (var entry in targets)
+            foreach (var entry in _targets)
             {
-                if (entry.Value.target.CompareTag(tag) && entry.Value.distance < minDistance)
+                if (entry.Value.Target.CompareTag(tag) && entry.Value.Distance < minDistance)
                 {
-                    minDistance = entry.Value.distance;
+                    minDistance = entry.Value.Distance;
                     minTarget = entry;
                 }
             }
-            return minTarget.Value.target;
+            return minTarget.Value.Target;
         }
 
         internal GameObject[] GetAllTargetGameObjects()
         {
-            int numTargets = targets.Count;
+            int numTargets = _targets.Count;
             GameObject[] allGameObjects = new GameObject[numTargets];
             int currTargetIndex = 0;
 
-            foreach (KeyValuePair<string, DetectorTarget> currTarget in targets)
+            foreach (KeyValuePair<string, DetectorTarget> currTarget in _targets)
             {
-                allGameObjects[currTargetIndex] = currTarget.Value.target;
+                allGameObjects[currTargetIndex] = currTarget.Value.Target;
             }
 
             return allGameObjects;
@@ -101,7 +96,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         public IEnumerator<KeyValuePair<string, DetectorTarget>> GetEnumerator()
         {
-            return targets.GetEnumerator();
+            return _targets.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -110,9 +105,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         }
     }
 
-    internal class DetectorTarget
+    internal struct DetectorTarget
     {
-        internal GameObject target;
-        internal float distance;
+        internal GameObject Target;
+        internal float Distance;
     }
 }

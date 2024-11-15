@@ -275,6 +275,37 @@ Transform:
   - {fileID: 1636122742624377278}
   m_Father: {fileID: 4294351993204111911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3049577586241454032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2179842224669845828}
+  m_Layer: 0
+  m_Name: Eyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2179842224669845828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049577586241454032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.083, z: 0.837}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5508478545859436019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3141745738268316684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,6 +1523,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: hungerRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: thirstRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
       propertyPath: maxWanderDistance
       value: 20
       objectReference: {fileID: 0}
@@ -1500,12 +1539,32 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: wanderParams.speed
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
       propertyPath: maxDelayBetweenStops
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
       propertyPath: minDelayBetweenStops
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: wanderParams.maxPause
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: wanderParams.maxRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: wanderParams.minPause
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: wanderParams.minRange
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 651893448936547684, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
       propertyPath: traversalSpeeds.runSpeed
@@ -1619,19 +1678,39 @@ PrefabInstance:
       propertyPath: moveSpeeds.movementSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6247540200013593914, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: eyesTransform
+      value: 
+      objectReference: {fileID: 2179842224669845828}
+    - target: {fileID: 6601390110217038538, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: 'footstepTriggers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7382742564464697068}
+    - target: {fileID: 6601390110217038538, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: 'footstepTriggers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 695483376570002124}
+    - target: {fileID: 6601390110217038538, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: 'footstepTriggers.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2900762399151600648}
+    - target: {fileID: 6601390110217038538, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      propertyPath: 'footstepTriggers.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8948096631058050783}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2321865534921473633, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3986972588837060382}
+    - targetCorrespondingSourceObject: {fileID: 2321865534921473633, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2179842224669845828}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 716237023281813498, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4023466263148480856}
-    - targetCorrespondingSourceObject: {fileID: 716237023281813498, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1459079567119442384}
+      addedObject: {fileID: 1551964399951008378}
   m_SourcePrefab: {fileID: 100100000, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
 --- !u!4 &5508478545859436019 stripped
 Transform:
@@ -1643,7 +1722,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 716237023281813498, guid: 33b08abbb0e0a9b41a01f2e1e1e8d9e2, type: 3}
   m_PrefabInstance: {fileID: 7803296057155691410}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4023466263148480856
+--- !u!114 &1551964399951008378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1652,82 +1731,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7330300728185631848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e2053c8a3dfb947bc2060456ca7cb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepsEnabled: 1
-  footstepTriggers:
-  - {fileID: 7382742564464697068}
-  - {fileID: 695483376570002124}
-  - {fileID: 2900762399151600648}
-  - {fileID: 8948096631058050783}
-  footstepSurfaces:
-  - {fileID: 11400000, guid: 5ebcabe77c9c90f4aa2172ad3698ea2d, type: 2}
-  - {fileID: 11400000, guid: dbf798eb47c52b94297e62dac7658471, type: 2}
-  - {fileID: 11400000, guid: debd016e1db82084288f76afe717744a, type: 2}
-  - {fileID: 11400000, guid: 4ef0bad6d58869e42b5268b0697c9e50, type: 2}
-  defaultSurface: {fileID: 11400000, guid: b96d4259795d83b43a2c33790a121240, type: 2}
-  triggerLayerMask:
-    serializedVersion: 2
-    m_Bits: 448
-  audioMixerGroup: {fileID: -6464323900965202910, guid: 954e221b2888650448cd9413a9c0f832, type: 2}
-  debugTextureName: 0
-  alignToTerrainSlope: 0
-  particleFxPool: {fileID: 0}
-  decalPool: {fileID: 0}
---- !u!114 &1459079567119442384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7330300728185631848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Graph: {fileID: 0}
-  m_BlackboardVariableOverridesList:
-  - rid: 6260567725073498874
-  - rid: 6260567725073498875
-  - rid: 6260567725073498876
-  - rid: 6260567725073498877
-  - rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 6260567725073498874
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        m_Value: {fileID: 7330300728185631848}
-    - rid: 6260567725073498875
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 12333602877743098859
-          m_Value1: 3798076693593157602
-        Name: MinWanderPauseDelay
-        m_Value: 5
-    - rid: 6260567725073498876
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 14173861561286787212
-          m_Value1: 6151426603109333002
-        Name: MaxWanderPauseDelay
-        m_Value: 10
-    - rid: 6260567725073498877
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11585092350901480264
-          m_Value1: 2016173408638423795
-        Name: WanderSpeed
-        m_Value: 0.9
+  guid: af6131d5-8d2a-4ee0-93c7-857af1df0497

@@ -5,6 +5,14 @@ using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
+    public enum RelationshipToPlayer
+    {
+        Fearful,
+        Enemy,
+        Friend,
+        Neutral
+    }
+
     /// <summary>
     /// Helper component for AI Behaviour features
     /// </summary>

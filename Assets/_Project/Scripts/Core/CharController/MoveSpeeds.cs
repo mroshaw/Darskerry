@@ -5,13 +5,13 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     public enum MovementSpeed { Walking = 2, Running = 4, Sprinting = 6 }
 
     [Serializable]
-    public class MoveSpeeds
+    public struct MoveSpeeds
     {
-        [SerializeField] private float walkSpeed = 2.0f;
-        [SerializeField] private float runSpeed = 5.0f;
-        [SerializeField] private float sprintSpeed = 8.0f;
-        [SerializeField] private MovementSpeed movementSpeed = MovementSpeed.Walking;
-
+        [SerializeField] private float walkSpeed;
+        [SerializeField] private float runSpeed;
+        [SerializeField] private float sprintSpeed;
+        [SerializeField] private MovementSpeed movementSpeed;
+        
         public float GetMoveSpeed()
         {
             switch (movementSpeed)

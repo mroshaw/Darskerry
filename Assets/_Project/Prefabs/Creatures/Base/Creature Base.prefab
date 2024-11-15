@@ -20,6 +20,9 @@ GameObject:
   - component: {fileID: 7036747865611017783}
   - component: {fileID: 2863851420020100418}
   - component: {fileID: 4907528546030007452}
+  - component: {fileID: 1322245390548040509}
+  - component: {fileID: 6247540200013593914}
+  - component: {fileID: 6601390110217038538}
   m_Layer: 0
   m_Name: Creature Base
   m_TagString: Untagged
@@ -146,6 +149,7 @@ MonoBehaviour:
     minMoveDistance: 0
     maxMovementIterations: 5
     maxDepenetrationIterations: 1
+    useFastGeomNormalPath: 0
     enablePhysicsInteraction: 0
     allowPushCharacters: 0
     impartPlatformMovement: 0
@@ -257,7 +261,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716237023281813498}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -270,7 +274,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &4095458639488884854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,3 +399,125 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51195cb3e462c5f4893ea29dc0f21b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1322245390548040509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716237023281813498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: -5801731707225311110, guid: 989db2c23c2318444ad35a2bb6f93816, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 6260567865202835837
+  - rid: 6260567865202835838
+  - rid: 6260567865202835841
+  references:
+    version: 2
+    RefIds:
+    - rid: 6260567865202835837
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 716237023281813498}
+    - rid: 6260567865202835838
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13743249389936159987
+          m_Value1: 4846904776781450044
+        Name: AiBrain
+        m_Value: {fileID: 651893448936547684}
+    - rid: 6260567865202835841
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11902972372056963776
+          m_Value1: 6172965814748363493
+        Name: Detector
+        m_Value: {fileID: 6247540200013593914}
+--- !u!114 &6247540200013593914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716237023281813498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032af3880ceda24428ce3d649e845bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  detectionTag: Player
+  detectionBufferSize: 20
+  awareSensorRange: 15
+  awareCheckFrequencyFrames: 5
+  blockedLayerMask:
+    serializedVersion: 2
+    m_Bits: 1984
+  eyesTransform: {fileID: 0}
+  visionSensorRange: 5
+  visionSensorAngle: 170
+  visionCheckFrequencyFrames: 5
+  visionDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  visionLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  awareDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  awareLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  debugEnabled: 0
+  awareGameObjectsDebug: []
+  visionGameObjectsDebug: []
+  drawVisionSphereGizmo: 1
+  visionConeGizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  visionConeGizmoResolution: 50
+  drawAwareSphereGizmo: 1
+  awareSphereGizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!114 &6601390110217038538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716237023281813498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e2053c8a3dfb947bc2060456ca7cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepsEnabled: 1
+  footstepTriggers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  footstepSurfaces:
+  - {fileID: 11400000, guid: 5ebcabe77c9c90f4aa2172ad3698ea2d, type: 2}
+  - {fileID: 11400000, guid: dbf798eb47c52b94297e62dac7658471, type: 2}
+  - {fileID: 11400000, guid: debd016e1db82084288f76afe717744a, type: 2}
+  - {fileID: 11400000, guid: 4ef0bad6d58869e42b5268b0697c9e50, type: 2}
+  defaultSurface: {fileID: 11400000, guid: b96d4259795d83b43a2c33790a121240, type: 2}
+  triggerLayerMask:
+    serializedVersion: 2
+    m_Bits: 448
+  audioMixerGroup: {fileID: -6464323900965202910, guid: 954e221b2888650448cd9413a9c0f832, type: 2}
+  debugTextureName: 0
+  alignToTerrainSlope: 0
+  particleFxPool: {fileID: 0}
+  decalPool: {fileID: 0}
