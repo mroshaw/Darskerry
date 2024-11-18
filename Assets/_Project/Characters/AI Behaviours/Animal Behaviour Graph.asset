@@ -12,25 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: Animal Behaviour Graph Blackboard Editor
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638672873266268091
+  VersionTimestamp: 638675447261224148
   AssetID:
     m_Value0: 4906710537891650968
     m_Value1: 1601304228336948042
   m_Blackboard:
     m_Variables:
-    - rid: 6260567886297039695
-    - rid: 6260567886297039696
-    - rid: 6260567886297039697
-    - rid: 6260567886297039698
-    - rid: 6260567886297039699
-    - rid: 6260567886297039700
-    - rid: 6260567886297039701
-    - rid: 6260567886297039702
+    - rid: 6260567954238735012
+    - rid: 6260567954238735013
+    - rid: 6260567954238735014
+    - rid: 6260567954238735015
+    - rid: 6260567954238735016
+    - rid: 6260567954238735017
+    - rid: 6260567954238735018
+    - rid: 6260567954238735019
   m_SharedBlackboardVariableGuids: []
   references:
     version: 2
     RefIds:
-    - rid: 6260567886297039695
+    - rid: 6260567954238735012
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -38,15 +38,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 6260567886297039696
-      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 15557034350043553457
-          m_Value1: 17072317444087174981
-        Name: Patrol Points
-        m_Value: []
-    - rid: 6260567886297039697
+    - rid: 6260567954238735013
       type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -54,7 +46,7 @@ MonoBehaviour:
           m_Value1: 2182878247437034399
         Name: IsHungry
         m_Value: 0
-    - rid: 6260567886297039698
+    - rid: 6260567954238735014
       type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -62,7 +54,7 @@ MonoBehaviour:
           m_Value1: 9272199778717297325
         Name: IsThirsty
         m_Value: 0
-    - rid: 6260567886297039699
+    - rid: 6260567954238735015
       type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -70,7 +62,7 @@ MonoBehaviour:
           m_Value1: 4846904776781450044
         Name: AiBrain
         m_Value: {fileID: 0}
-    - rid: 6260567886297039700
+    - rid: 6260567954238735016
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -78,15 +70,7 @@ MonoBehaviour:
           m_Value1: 9085700364329305969
         Name: Target
         m_Value: {fileID: 0}
-    - rid: 6260567886297039701
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11606047804769197635
-          m_Value1: 17096098288324100735
-        Name: FleeFromTarget
-        m_Value: {fileID: 0}
-    - rid: 6260567886297039702
+    - rid: 6260567954238735017
       type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -94,6 +78,22 @@ MonoBehaviour:
           m_Value1: 6172965814748363493
         Name: Detector
         m_Value: {fileID: 0}
+    - rid: 6260567954238735018
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 18226332417802639176
+          m_Value1: 745355759677808464
+        Name: Patrol Route
+        m_Value: {fileID: 0}
+    - rid: 6260567954238735019
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3355574849927799743
+          m_Value1: 15976231998309259839
+        Name: DetectorUpdateDelay
+        m_Value: 0.1
 --- !u!114 &-6969992538231738639
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,14 +111,14 @@ MonoBehaviour:
     m_Value1: 1601304228336948042
   m_Variables:
   - rid: 6260567723480973748
-  - rid: 6260567723480973753
   - rid: 6260567726061781463
   - rid: 6260567726061781464
   - rid: 6260567835759608378
   - rid: 6260567838019813482
-  - rid: 6260567838019813483
   - rid: 6260567842268119420
-  m_VersionTimestamp: 638672873266268091
+  - rid: 6260567949426295332
+  - rid: 6260567953286628192
+  m_VersionTimestamp: 638675447261224148
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: -7255895820478751003}
@@ -135,16 +135,6 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
-    - rid: 6260567723480973753
-      type: {class: 'TypedVariableModel`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 15557034350043553457
-          m_Value1: 17072317444087174981
-        Name: Patrol Points
-        IsExposed: 1
-        m_IsShared: 0
-        m_Value: []
     - rid: 6260567726061781463
       type: {class: 'TypedVariableModel`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -185,16 +175,6 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
-    - rid: 6260567838019813483
-      type: {class: 'TypedVariableModel`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 11606047804769197635
-          m_Value1: 17096098288324100735
-        Name: FleeFromTarget
-        IsExposed: 1
-        m_IsShared: 0
-        m_Value: {fileID: 0}
     - rid: 6260567842268119420
       type: {class: 'TypedVariableModel`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -205,6 +185,26 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
+    - rid: 6260567949426295332
+      type: {class: 'TypedVariableModel`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 18226332417802639176
+          m_Value1: 745355759677808464
+        Name: Patrol Route
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 6260567953286628192
+      type: {class: 'TypedVariableModel`1[[System.Single, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 3355574849927799743
+          m_Value1: 15976231998309259839
+        Name: DetectorUpdateDelay
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: 0.1
 --- !u!114 &-5801731707225311110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,16 +218,24 @@ MonoBehaviour:
   m_Name: Animal Behaviour Graph
   m_EditorClassIdentifier: 
   Graphs:
-  - rid: 6260567886297039808
+  - rid: 6260567954238735046
   RootGraph:
-    rid: 6260567886297039808
+    rid: 6260567954238735046
   m_DebugInfo: {fileID: -3460434447371940687}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 6260567886297039807
+    - rid: 6260567954238735044
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 6260567954238735045
       type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -235,7 +243,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: Player
-    - rid: 6260567886297039808
+    - rid: 6260567954238735046
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
@@ -243,97 +251,75 @@ MonoBehaviour:
           m_Value1: 1601304228336948042
         m_DebugInfo: {fileID: 0}
         Root:
-          rid: 6260567886297039809
+          rid: 6260567954238735047
         BlackboardReference:
-          rid: 6260567886297039810
+          rid: 6260567954238735048
         BlackboardGroupReferences: []
-        m_VersionTimestamp: 638672873264405939
-    - rid: 6260567886297039809
+        m_VersionTimestamp: 638675447261224148
+    - rid: 6260567954238735047
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 9252822159886622122
           m_Value1: 13744896526561946588
         Graph:
-          rid: 6260567886297039808
+          rid: 6260567954238735046
         m_Parent:
           rid: -2
         m_Child:
-          rid: 6260567886297039811
+          rid: 6260567954238735049
         Repeat: 1
-    - rid: 6260567886297039810
+    - rid: 6260567954238735048
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Blackboard:
-          rid: 6260567886297039812
+          rid: 6260567954238735050
         m_Source: {fileID: -7255895820478751003}
-    - rid: 6260567886297039811
-      type: {class: ParallelAllComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+    - rid: 6260567954238735049
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
-          m_Value0: 13599728439890047077
-          m_Value1: 12700860370428535707
+          m_Value0: 2993169005195070220
+          m_Value1: 6852310613808710252
         Graph:
-          rid: 6260567886297039808
+          rid: 6260567954238735046
         m_Parent:
-          rid: 6260567886297039809
+          rid: 6260567954238735047
         m_Children:
-        - rid: 6260567886297039813
-        - rid: 6260567886297039814
-        - rid: 6260567886297039815
-    - rid: 6260567886297039812
+        - rid: 6260567954238735051
+    - rid: 6260567954238735050
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 6260567886297039816
-        - rid: 6260567886297039817
-        - rid: 6260567886297039818
-        - rid: 6260567886297039819
-        - rid: 6260567886297039820
-        - rid: 6260567886297039821
-        - rid: 6260567886297039822
-        - rid: 6260567886297039823
-    - rid: 6260567886297039813
-      type: {class: WanderAction, ns: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree, asm: DaftAppleGames.Darskerry.Core}
+        - rid: 6260567954238735052
+        - rid: 6260567954238735053
+        - rid: 6260567954238735054
+        - rid: 6260567954238735055
+        - rid: 6260567954238735056
+        - rid: 6260567954238735057
+        - rid: 6260567954238735058
+        - rid: 6260567954238735059
+    - rid: 6260567954238735051
+      type: {class: BranchingConditionComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
-          m_Value0: 7412053159142652490
-          m_Value1: 4519451583356435122
+          m_Value0: 15079864043473638621
+          m_Value1: 6087649601906312131
         Graph:
-          rid: 6260567886297039808
+          rid: 6260567954238735046
         m_Parent:
-          rid: 6260567886297039811
-        AiBrain:
-          rid: 6260567886297039820
-    - rid: 6260567886297039814
-      type: {class: CheckDetectorAction, ns: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree, asm: DaftAppleGames.Darskerry.Core}
-      data:
-        ID:
-          m_Value0: 107693367104752411
-          m_Value1: 340560512165636214
-        Graph:
-          rid: 6260567886297039808
-        m_Parent:
-          rid: 6260567886297039811
-        FovDetector:
-          rid: 6260567886297039823
-        Tag:
-          rid: 6260567886297039807
-    - rid: 6260567886297039815
-      type: {class: FleeAction, ns: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree, asm: DaftAppleGames.Darskerry.Core}
-      data:
-        ID:
-          m_Value0: 1100970171567260610
-          m_Value1: 6119606882560225738
-        Graph:
-          rid: 6260567886297039808
-        m_Parent:
-          rid: 6260567886297039811
-        Target:
-          rid: 6260567886297039821
-        AiBrain:
-          rid: 6260567886297039820
-    - rid: 6260567886297039816
+          rid: 6260567954238735049
+        m_Children:
+        - rid: 6260567954238735060
+        - rid: 6260567954238735061
+        m_Conditions:
+        - rid: 6260567954238735062
+        m_RequiresAllConditions: 0
+        True:
+          rid: 6260567954238735060
+        False:
+          rid: 6260567954238735061
+    - rid: 6260567954238735052
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -341,15 +327,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 6260567886297039817
-      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 15557034350043553457
-          m_Value1: 17072317444087174981
-        Name: Patrol Points
-        m_Value: []
-    - rid: 6260567886297039818
+    - rid: 6260567954238735053
       type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -357,7 +335,7 @@ MonoBehaviour:
           m_Value1: 2182878247437034399
         Name: IsHungry
         m_Value: 0
-    - rid: 6260567886297039819
+    - rid: 6260567954238735054
       type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -365,7 +343,7 @@ MonoBehaviour:
           m_Value1: 9272199778717297325
         Name: IsThirsty
         m_Value: 0
-    - rid: 6260567886297039820
+    - rid: 6260567954238735055
       type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -373,7 +351,7 @@ MonoBehaviour:
           m_Value1: 4846904776781450044
         Name: AiBrain
         m_Value: {fileID: 0}
-    - rid: 6260567886297039821
+    - rid: 6260567954238735056
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -381,15 +359,7 @@ MonoBehaviour:
           m_Value1: 9085700364329305969
         Name: Target
         m_Value: {fileID: 0}
-    - rid: 6260567886297039822
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11606047804769197635
-          m_Value1: 17096098288324100735
-        Name: FleeFromTarget
-        m_Value: {fileID: 0}
-    - rid: 6260567886297039823
+    - rid: 6260567954238735057
       type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -397,6 +367,150 @@ MonoBehaviour:
           m_Value1: 6172965814748363493
         Name: Detector
         m_Value: {fileID: 0}
+    - rid: 6260567954238735058
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 18226332417802639176
+          m_Value1: 745355759677808464
+        Name: Patrol Route
+        m_Value: {fileID: 0}
+    - rid: 6260567954238735059
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3355574849927799743
+          m_Value1: 15976231998309259839
+        Name: DetectorUpdateDelay
+        m_Value: 0.1
+    - rid: 6260567954238735060
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 1055473128686369458
+          m_Value1: 9708343205513442754
+        Graph:
+          rid: 6260567954238735046
+        m_Parent:
+          rid: 6260567954238735051
+        m_Children:
+        - rid: 6260567954238735063
+        - rid: 6260567954238735064
+    - rid: 6260567954238735061
+      type: {class: FleeAction, ns: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions, asm: DaftAppleGames.Darskerry.Core}
+      data:
+        ID:
+          m_Value0: 5785440751650198315
+          m_Value1: 12746237621641559437
+        Graph:
+          rid: 6260567954238735046
+        m_Parent:
+          rid: 6260567954238735051
+        Target:
+          rid: 6260567954238735056
+        AiBrain:
+          rid: 6260567954238735055
+    - rid: 6260567954238735062
+      type: {class: TransformIsNullCondition, ns: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Conditions, asm: DaftAppleGames.Darskerry.Core}
+      data:
+        Graph:
+          rid: 6260567954238735046
+        Transform:
+          rid: 6260567954238735056
+    - rid: 6260567954238735063
+      type: {class: BranchingConditionComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 18168899214008465198
+          m_Value1: 16748789031426067573
+        Graph:
+          rid: 6260567954238735046
+        m_Parent:
+          rid: 6260567954238735060
+        m_Children:
+        - rid: 6260567954238735065
+        - rid: 6260567954238735066
+        m_Conditions:
+        - rid: 6260567954238735067
+        m_RequiresAllConditions: 0
+        True:
+          rid: 6260567954238735065
+        False:
+          rid: 6260567954238735066
+    - rid: 6260567954238735064
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 7164915169815129479
+          m_Value1: 6647162083525615250
+        Graph:
+          rid: 6260567954238735046
+        m_Parent:
+          rid: 6260567954238735060
+        m_Children:
+        - rid: 6260567954238735068
+        - rid: 6260567954238735069
+    - rid: 6260567954238735065
+      type: {class: WanderAction, ns: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions, asm: DaftAppleGames.Darskerry.Core}
+      data:
+        ID:
+          m_Value0: 17974080198225006702
+          m_Value1: 2139650925237707295
+        Graph:
+          rid: 6260567954238735046
+        m_Parent:
+          rid: 6260567954238735063
+        AiBrain:
+          rid: 6260567954238735055
+    - rid: 6260567954238735066
+      type: {class: PatrolAction, ns: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions, asm: DaftAppleGames.Darskerry.Core}
+      data:
+        ID:
+          m_Value0: 2682270405623746351
+          m_Value1: 918461373620119927
+        Graph:
+          rid: 6260567954238735046
+        m_Parent:
+          rid: 6260567954238735063
+        PatrolRoute:
+          rid: 6260567954238735044
+        AiBrain:
+          rid: 6260567954238735055
+    - rid: 6260567954238735067
+      type: {class: PatrolrouteIsNullCondition, ns: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Conditions, asm: DaftAppleGames.Darskerry.Core}
+      data:
+        Graph:
+          rid: 6260567954238735046
+        Patrolroute:
+          rid: 6260567954238735058
+    - rid: 6260567954238735068
+      type: {class: CheckDetectorAction, ns: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions, asm: DaftAppleGames.Darskerry.Core}
+      data:
+        ID:
+          m_Value0: 6137362652464743290
+          m_Value1: 7288292120026699782
+        Graph:
+          rid: 6260567954238735046
+        m_Parent:
+          rid: 6260567954238735064
+        FovDetector:
+          rid: 6260567954238735057
+        Target:
+          rid: 6260567954238735056
+        Tag:
+          rid: 6260567954238735045
+    - rid: 6260567954238735069
+      type: {class: WaitAction, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 1693299594338988358
+          m_Value1: 5254304881924150681
+        Graph:
+          rid: 6260567954238735046
+        m_Parent:
+          rid: 6260567954238735064
+        SecondsToWait:
+          rid: 6260567954238735059
 --- !u!114 &-3460434447371940687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,14 +537,24 @@ MonoBehaviour:
   m_Name: Animal Behaviour Graph
   m_EditorClassIdentifier: 
   Blackboard: {fileID: -6969992538231738639}
-  m_Description: 
+  m_Description: Simple animal behaviour graph.
   m_Nodes:
   - rid: 6260567723480973746
-  - rid: 6260567838019813992
-  - rid: 6260567838019814134
-  - rid: 6260567838019814356
-  - rid: 6260567886297039687
-  m_VersionTimestamp: 638672873264405939
+  - rid: 6260567949426295504
+  - rid: 6260567949426295505
+  - rid: 6260567949426295506
+  - rid: 6260567949426295549
+  - rid: 6260567949426295677
+  - rid: 6260567949426295678
+  - rid: 6260567949426295679
+  - rid: 6260567949426295698
+  - rid: 6260567950692974839
+  - rid: 6260567952152854579
+  - rid: 6260567952152854585
+  - rid: 6260567952152854592
+  - rid: 6260567952152854601
+  - rid: 6260567952152854605
+  m_VersionTimestamp: 638675447261224148
   m_DebugInfo: {fileID: -3460434447371940687}
   AssetID:
     m_Value0: 4906710537891650968
@@ -447,6 +571,34 @@ MonoBehaviour:
       m_Value1: 11549843281177505721
     Variables: []
     NamedChildren: []
+  - Name: Conditional Branch
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 12334964803190848789
+      m_Value1: 14608808926743427008
+    Variables: []
+    NamedChildren:
+    - True
+    - False
+  - Name: Sequence
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 10181448252506100447
+      m_Value1: 8737116843063128493
+    Variables: []
+    NamedChildren: []
+  - Name: Wait
+    Story: Wait for [SecondsToWait] seconds
+    RuntimeTypeID:
+      m_Value0: 7729581452106168333
+      m_Value1: 8820302366443624372
+    Variables:
+    - Name: SecondsToWait
+      Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    NamedChildren: []
   - Name: Wander
     Story: 'Wander using an [AiBrain]'
     RuntimeTypeID:
@@ -459,15 +611,25 @@ MonoBehaviour:
           DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Tooltip: 
     NamedChildren: []
-  - Name: Run In Parallel
-    Story: 
+  - Name: Patrol
+    Story: 'Patrol [PatrolRoute] waypoints using [AiBrain]'
     RuntimeTypeID:
-      m_Value0: 6216542881172158703
-      m_Value1: 2191282456596108218
-    Variables: []
+      m_Value0: 12092307830067959424
+      m_Value1: 1613155988586425706
+    Variables:
+    - Name: PatrolRoute
+      Type:
+        m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute,
+          DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: AiBrain
+      Type:
+        m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain,
+          DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
     NamedChildren: []
   - Name: CheckDetector
-    Story: 'Check if [FovDetector] has a Target tagged [Tag]'
+    Story: 'Check if [FovDetector] has a [Target] tagged [Tag]'
     RuntimeTypeID:
       m_Value0: 14948044243100379319
       m_Value1: 11869018812749785394
@@ -476,6 +638,11 @@ MonoBehaviour:
       Type:
         m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector,
           DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Target
+      Type:
+        m_SerializableType: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
       Tooltip: 
     - Name: Tag
       Type:
@@ -511,7 +678,7 @@ MonoBehaviour:
     - rid: 6260567723480973746
       type: {class: StartNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -187.37971, y: -157.34364}
+        Position: {x: -187.37968, y: -350.89328}
         ID:
           m_Value0: 9252822159886622122
           m_Value1: 13744896526561946588
@@ -535,46 +702,477 @@ MonoBehaviour:
         m_NodeModel:
           rid: 6260567723480973746
         m_Connections:
-        - rid: 6260567838019814135
-    - rid: 6260567838019813992
-      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+        - rid: 6260567949426295550
+    - rid: 6260567949426295504
+      type: {class: BranchingConditionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -401.4794, y: 96.52832}
+        Position: {x: -588.51135, y: 248.33499}
         ID:
-          m_Value0: 7412053159142652490
-          m_Value1: 4519451583356435122
+          m_Value0: 18168899214008465198
+          m_Value1: 16748789031426067573
         Parents: []
         PortModels:
-        - rid: 6260567838019813993
-        - rid: 6260567838019813994
+        - rid: 6260567949426295507
+        - rid: 6260567949426295508
+        - rid: 6260567949426295509
         NodeType:
-          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.WanderAction,
-            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          m_SerializableType: Unity.Behavior.BranchingConditionComposite, Unity.Behavior,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         NodeTypeID:
-          m_Value0: 1351330945793938297
-          m_Value1: 9086185506995748502
-        m_FieldValues:
-        - rid: 6260567838019813995
-    - rid: 6260567838019813993
+          m_Value0: 12334964803190848789
+          m_Value1: 14608808926743427008
+        m_FieldValues: []
+        <ConditionModels>k__BackingField:
+        - ConditionType:
+            m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Conditions.PatrolrouteIsNullCondition,
+              DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          ConditionTypeID:
+            m_Value0: 12227388915466654587
+            m_Value1: 17564933071998364247
+          NodeModel:
+            rid: 6260567949426295504
+          m_FieldValues:
+          - rid: 6260567952152854550
+          OperatorFieldModel:
+            rid: -2
+        <RequiresAllConditionsTrue>k__BackingField: 0
+        <ShouldTruncateNodeUI>k__BackingField: 0
+    - rid: 6260567949426295505
+      type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -712.7132, y: 381.17297}
+        ID:
+          m_Value0: 16636916749512526550
+          m_Value1: 6421455520590016445
+        Parents: []
+        PortModels:
+        - rid: 6260567949426295510
+        - rid: 6260567949426295511
+        ParentNodeID:
+          m_Value0: 18168899214008465198
+          m_Value1: 16748789031426067573
+        PortName: True
+    - rid: 6260567949426295506
+      type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -458.65375, y: 382.2533}
+        ID:
+          m_Value0: 17164275165850790889
+          m_Value1: 17120813375412464618
+        Parents: []
+        PortModels:
+        - rid: 6260567949426295512
+        - rid: 6260567949426295513
+        ParentNodeID:
+          m_Value0: 18168899214008465198
+          m_Value1: 16748789031426067573
+        PortName: False
+    - rid: 6260567949426295507
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         m_Name: InputPort
         m_PortDataFlowType: 0
         m_IsFloating: 0
         m_NodeModel:
-          rid: 6260567838019813992
+          rid: 6260567949426295504
         m_Connections:
-        - rid: 6260567838019814136
-    - rid: 6260567838019813994
+        - rid: 6260567949426295700
+    - rid: 6260567949426295508
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: True
+        m_PortDataFlowType: 1
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 6260567949426295504
+        m_Connections:
+        - rid: 6260567949426295510
+    - rid: 6260567949426295509
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: False
+        m_PortDataFlowType: 1
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 6260567949426295504
+        m_Connections:
+        - rid: 6260567949426295512
+    - rid: 6260567949426295510
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 6260567949426295505
+        m_Connections:
+        - rid: 6260567949426295508
+    - rid: 6260567949426295511
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         m_Name: OutputPort
         m_PortDataFlowType: 1
         m_IsFloating: 0
         m_NodeModel:
-          rid: 6260567838019813992
+          rid: 6260567949426295505
+        m_Connections:
+        - rid: 6260567952152854580
+    - rid: 6260567949426295512
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 6260567949426295506
+        m_Connections:
+        - rid: 6260567949426295509
+    - rid: 6260567949426295513
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567949426295506
+        m_Connections:
+        - rid: 6260567952152854586
+    - rid: 6260567949426295549
+      type: {class: CompositeNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -187.24417, y: -254.62491}
+        ID:
+          m_Value0: 2993169005195070220
+          m_Value1: 6852310613808710252
+        Parents: []
+        PortModels:
+        - rid: 6260567949426295550
+        - rid: 6260567949426295551
+        NodeType:
+          m_SerializableType: Unity.Behavior.SequenceComposite, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 10181448252506100447
+          m_Value1: 8737116843063128493
+        m_FieldValues: []
+    - rid: 6260567949426295550
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567949426295549
+        m_Connections:
+        - rid: 6260567723480973747
+    - rid: 6260567949426295551
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567949426295549
+        m_Connections:
+        - rid: 6260567949426295680
+    - rid: 6260567949426295677
+      type: {class: BranchingConditionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -187.7764, y: -170.67139}
+        ID:
+          m_Value0: 15079864043473638621
+          m_Value1: 6087649601906312131
+        Parents: []
+        PortModels:
+        - rid: 6260567949426295680
+        - rid: 6260567949426295681
+        - rid: 6260567949426295682
+        NodeType:
+          m_SerializableType: Unity.Behavior.BranchingConditionComposite, Unity.Behavior,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 12334964803190848789
+          m_Value1: 14608808926743427008
+        m_FieldValues: []
+        <ConditionModels>k__BackingField:
+        - ConditionType:
+            m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Conditions.TransformIsNullCondition,
+              DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          ConditionTypeID:
+            m_Value0: 25466992275787011
+            m_Value1: 10622574858005947761
+          NodeModel:
+            rid: 6260567949426295677
+          m_FieldValues:
+          - rid: 6260567953286627378
+          OperatorFieldModel:
+            rid: -2
+        <RequiresAllConditionsTrue>k__BackingField: 0
+        <ShouldTruncateNodeUI>k__BackingField: 0
+    - rid: 6260567949426295678
+      type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -371.66864, y: -46.16577}
+        ID:
+          m_Value0: 5009582180420958318
+          m_Value1: 5536131683515605052
+        Parents: []
+        PortModels:
+        - rid: 6260567949426295683
+        - rid: 6260567949426295684
+        ParentNodeID:
+          m_Value0: 15079864043473638621
+          m_Value1: 6087649601906312131
+        PortName: True
+    - rid: 6260567949426295679
+      type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -10.429574, y: -42.4257}
+        ID:
+          m_Value0: 2595087442802568137
+          m_Value1: 18180835983690084189
+        Parents: []
+        PortModels:
+        - rid: 6260567949426295685
+        - rid: 6260567949426295686
+        ParentNodeID:
+          m_Value0: 15079864043473638621
+          m_Value1: 6087649601906312131
+        PortName: False
+    - rid: 6260567949426295680
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567949426295677
+        m_Connections:
+        - rid: 6260567949426295551
+    - rid: 6260567949426295681
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: True
+        m_PortDataFlowType: 1
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 6260567949426295677
+        m_Connections:
+        - rid: 6260567949426295683
+    - rid: 6260567949426295682
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: False
+        m_PortDataFlowType: 1
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 6260567949426295677
+        m_Connections:
+        - rid: 6260567949426295685
+    - rid: 6260567949426295683
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 6260567949426295678
+        m_Connections:
+        - rid: 6260567949426295681
+    - rid: 6260567949426295684
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567949426295678
+        m_Connections:
+        - rid: 6260567949426295699
+    - rid: 6260567949426295685
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 6260567949426295679
+        m_Connections:
+        - rid: 6260567949426295682
+    - rid: 6260567949426295686
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567949426295679
+        m_Connections:
+        - rid: 6260567952152854606
+    - rid: 6260567949426295698
+      type: {class: CompositeNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -370.86313, y: 91.48723}
+        ID:
+          m_Value0: 1055473128686369458
+          m_Value1: 9708343205513442754
+        Parents: []
+        PortModels:
+        - rid: 6260567949426295699
+        - rid: 6260567949426295700
+        NodeType:
+          m_SerializableType: Unity.Behavior.SequenceComposite, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 10181448252506100447
+          m_Value1: 8737116843063128493
+        m_FieldValues: []
+    - rid: 6260567949426295699
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567949426295698
+        m_Connections:
+        - rid: 6260567949426295684
+    - rid: 6260567949426295700
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567949426295698
+        m_Connections:
+        - rid: 6260567949426295507
+        - rid: 6260567952152854602
+    - rid: 6260567950692974839
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -116.208206, y: 234.73242}
+        ID:
+          m_Value0: 1693299594338988358
+          m_Value1: 5254304881924150681
+        Parents:
+        - rid: 6260567952152854601
+        PortModels:
+        - rid: 6260567950692974840
+        - rid: 6260567950692974841
+        NodeType:
+          m_SerializableType: Unity.Behavior.WaitAction, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 7729581452106168333
+          m_Value1: 8820302366443624372
+        m_FieldValues:
+        - rid: 6260567950692974842
+    - rid: 6260567950692974840
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567950692974839
         m_Connections: []
-    - rid: 6260567838019813995
+    - rid: 6260567950692974841
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567950692974839
+        m_Connections: []
+    - rid: 6260567950692974842
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: SecondsToWait
+        Type:
+          m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 6260567950692974843
+        LinkedVariable:
+          rid: 6260567954238735008
+    - rid: 6260567950692974843
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0.1
+    - rid: 6260567952152854550
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Patrolroute
+        Type:
+          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute,
+            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 6260567952152854551
+        LinkedVariable:
+          rid: 6260567952152854552
+    - rid: 6260567952152854551
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 6260567952152854552
+      type: {class: 'TypedVariableModel`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 18226332417802639176
+          m_Value1: 745355759677808464
+        Name: Patrol Route
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 6260567952152854579
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -768.70667, y: 513.51337}
+        ID:
+          m_Value0: 17974080198225006702
+          m_Value1: 2139650925237707295
+        Parents: []
+        PortModels:
+        - rid: 6260567952152854580
+        - rid: 6260567952152854581
+        NodeType:
+          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions.WanderAction,
+            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 1351330945793938297
+          m_Value1: 9086185506995748502
+        m_FieldValues:
+        - rid: 6260567952152854582
+    - rid: 6260567952152854580
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567952152854579
+        m_Connections:
+        - rid: 6260567949426295511
+    - rid: 6260567952152854581
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567952152854579
+        m_Connections: []
+    - rid: 6260567952152854582
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
         FieldName: AiBrain
@@ -582,10 +1180,10 @@ MonoBehaviour:
           m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain,
             DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         LocalValue:
-          rid: 6260567838019813996
+          rid: 6260567952152854583
         LinkedVariable:
-          rid: 6260567886297039788
-    - rid: 6260567838019813996
+          rid: 6260567954238735009
+    - rid: 6260567952152854583
       type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -593,87 +1191,124 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: {fileID: 0}
-    - rid: 6260567838019814134
-      type: {class: RunInParallelNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+    - rid: 6260567952152854585
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -188.03003, y: -22.207573}
+        Position: {x: -456.52365, y: 503.01987}
         ID:
-          m_Value0: 13599728439890047077
-          m_Value1: 12700860370428535707
+          m_Value0: 2682270405623746351
+          m_Value1: 918461373620119927
         Parents: []
         PortModels:
-        - rid: 6260567838019814135
-        - rid: 6260567838019814136
+        - rid: 6260567952152854586
+        - rid: 6260567952152854587
         NodeType:
-          m_SerializableType: Unity.Behavior.ParallelAllComposite, Unity.Behavior,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions.PatrolAction,
+            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         NodeTypeID:
-          m_Value0: 6216542881172158703
-          m_Value1: 2191282456596108218
-        m_FieldValues: []
-        m_Mode: 0
-    - rid: 6260567838019814135
+          m_Value0: 12092307830067959424
+          m_Value1: 1613155988586425706
+        m_FieldValues:
+        - rid: 6260567952152854588
+        - rid: 6260567952152854589
+    - rid: 6260567952152854586
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         m_Name: InputPort
         m_PortDataFlowType: 0
         m_IsFloating: 0
         m_NodeModel:
-          rid: 6260567838019814134
+          rid: 6260567952152854585
         m_Connections:
-        - rid: 6260567723480973747
-    - rid: 6260567838019814136
+        - rid: 6260567949426295513
+    - rid: 6260567952152854587
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         m_Name: OutputPort
         m_PortDataFlowType: 1
         m_IsFloating: 0
         m_NodeModel:
-          rid: 6260567838019814134
-        m_Connections:
-        - rid: 6260567838019813993
-        - rid: 6260567838019814357
-        - rid: 6260567886297039688
-    - rid: 6260567838019814356
+          rid: 6260567952152854585
+        m_Connections: []
+    - rid: 6260567952152854588
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: PatrolRoute
+        Type:
+          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute,
+            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 6260567952152854590
+        LinkedVariable:
+          rid: -2
+    - rid: 6260567952152854589
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: AiBrain
+        Type:
+          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain,
+            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 6260567952152854591
+        LinkedVariable:
+          rid: 6260567954238735009
+    - rid: 6260567952152854590
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.PatrolRoute, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 6260567952152854591
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 6260567952152854592
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -98.03988, y: 97.39232}
+        Position: {x: -101.05444, y: 219.69377}
         ID:
-          m_Value0: 107693367104752411
-          m_Value1: 340560512165636214
-        Parents: []
+          m_Value0: 6137362652464743290
+          m_Value1: 7288292120026699782
+        Parents:
+        - rid: 6260567952152854601
         PortModels:
-        - rid: 6260567838019814357
-        - rid: 6260567838019814358
+        - rid: 6260567952152854593
+        - rid: 6260567952152854594
         NodeType:
-          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.CheckDetectorAction,
+          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions.CheckDetectorAction,
             DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         NodeTypeID:
           m_Value0: 14948044243100379319
           m_Value1: 11869018812749785394
         m_FieldValues:
-        - rid: 6260567842268119401
-        - rid: 6260567842268119967
-    - rid: 6260567838019814357
+        - rid: 6260567952152854595
+        - rid: 6260567952152854596
+        - rid: 6260567952152854597
+    - rid: 6260567952152854593
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         m_Name: InputPort
         m_PortDataFlowType: 0
         m_IsFloating: 0
         m_NodeModel:
-          rid: 6260567838019814356
-        m_Connections:
-        - rid: 6260567838019814136
-    - rid: 6260567838019814358
+          rid: 6260567952152854592
+        m_Connections: []
+    - rid: 6260567952152854594
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         m_Name: OutputPort
         m_PortDataFlowType: 1
         m_IsFloating: 0
         m_NodeModel:
-          rid: 6260567838019814356
+          rid: 6260567952152854592
         m_Connections: []
-    - rid: 6260567842268119401
+    - rid: 6260567952152854595
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
         FieldName: FovDetector
@@ -681,76 +1316,10 @@ MonoBehaviour:
           m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector,
             DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         LocalValue:
-          rid: 6260567842268119403
+          rid: 6260567952152854598
         LinkedVariable:
-          rid: 6260567886297039789
-    - rid: 6260567842268119403
-      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: {fileID: 0}
-    - rid: 6260567842268119967
-      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        FieldName: Tag
-        Type:
-          m_SerializableType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-            PublicKeyToken=b77a5c561934e089
-        LocalValue:
-          rid: 6260567842268119970
-        LinkedVariable:
-          rid: -2
-    - rid: 6260567842268119970
-      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: Player
-    - rid: 6260567886297039687
-      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        Position: {x: 229.1002, y: 98.22427}
-        ID:
-          m_Value0: 1100970171567260610
-          m_Value1: 6119606882560225738
-        Parents: []
-        PortModels:
-        - rid: 6260567886297039688
-        - rid: 6260567886297039689
-        NodeType:
-          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.FleeAction,
-            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        NodeTypeID:
-          m_Value0: 1822749127581634777
-          m_Value1: 6061410955423352114
-        m_FieldValues:
-        - rid: 6260567886297039690
-        - rid: 6260567886297039691
-    - rid: 6260567886297039688
-      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        m_Name: InputPort
-        m_PortDataFlowType: 0
-        m_IsFloating: 0
-        m_NodeModel:
-          rid: 6260567886297039687
-        m_Connections:
-        - rid: 6260567838019814136
-    - rid: 6260567886297039689
-      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        m_Name: OutputPort
-        m_PortDataFlowType: 1
-        m_IsFloating: 0
-        m_NodeModel:
-          rid: 6260567886297039687
-        m_Connections: []
-    - rid: 6260567886297039690
+          rid: 6260567954238735010
+    - rid: 6260567952152854596
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
         FieldName: Target
@@ -758,21 +1327,29 @@ MonoBehaviour:
           m_SerializableType: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         LocalValue:
-          rid: 6260567886297039692
+          rid: 6260567952152854599
         LinkedVariable:
-          rid: 6260567886297039790
-    - rid: 6260567886297039691
+          rid: 6260567954238735011
+    - rid: 6260567952152854597
       type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        FieldName: AiBrain
+        FieldName: Tag
         Type:
-          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain,
-            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          m_SerializableType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
         LocalValue:
-          rid: 6260567886297039693
+          rid: 6260567952152854600
         LinkedVariable:
-          rid: 6260567886297039788
-    - rid: 6260567886297039692
+          rid: -2
+    - rid: 6260567952152854598
+      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 6260567952152854599
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -780,7 +1357,117 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: {fileID: 0}
-    - rid: 6260567886297039693
+    - rid: 6260567952152854600
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: Player
+    - rid: 6260567952152854601
+      type: {class: SequenceNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -97.84448, y: 208.4986}
+        ID:
+          m_Value0: 7164915169815129479
+          m_Value1: 6647162083525615250
+        Parents: []
+        PortModels:
+        - rid: 6260567952152854602
+        - rid: 6260567952152854603
+        Nodes:
+        - rid: 6260567952152854592
+        - rid: 6260567950692974839
+    - rid: 6260567952152854602
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567952152854601
+        m_Connections:
+        - rid: 6260567949426295700
+    - rid: 6260567952152854603
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567952152854601
+        m_Connections: []
+    - rid: 6260567952152854605
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -10.385226, y: 20.507317}
+        ID:
+          m_Value0: 5785440751650198315
+          m_Value1: 12746237621641559437
+        Parents: []
+        PortModels:
+        - rid: 6260567952152854606
+        - rid: 6260567952152854607
+        NodeType:
+          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions.FleeAction,
+            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 1822749127581634777
+          m_Value1: 6061410955423352114
+        m_FieldValues:
+        - rid: 6260567952152854608
+        - rid: 6260567952152854609
+    - rid: 6260567952152854606
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567952152854605
+        m_Connections:
+        - rid: 6260567949426295686
+    - rid: 6260567952152854607
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 6260567952152854605
+        m_Connections: []
+    - rid: 6260567952152854608
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Target
+        Type:
+          m_SerializableType: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 6260567952152854610
+        LinkedVariable:
+          rid: 6260567954238735011
+    - rid: 6260567952152854609
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: AiBrain
+        Type:
+          m_SerializableType: DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain,
+            DaftAppleGames.Darskerry.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 6260567952152854611
+        LinkedVariable:
+          rid: 6260567954238735009
+    - rid: 6260567952152854610
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 6260567952152854611
       type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -788,7 +1475,46 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: {fileID: 0}
-    - rid: 6260567886297039788
+    - rid: 6260567953286627377
+      type: {class: 'TypedVariableModel`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1318775912870540500
+          m_Value1: 9085700364329305969
+        Name: Target
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 6260567953286627378
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Transform
+        Type:
+          m_SerializableType: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 6260567953286627379
+        LinkedVariable:
+          rid: 6260567953286627377
+    - rid: 6260567953286627379
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 6260567954238735008
+      type: {class: 'TypedVariableModel`1[[System.Single, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 3355574849927799743
+          m_Value1: 15976231998309259839
+        Name: DetectorUpdateDelay
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: 0.1
+    - rid: 6260567954238735009
       type: {class: 'TypedVariableModel`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -798,7 +1524,7 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
-    - rid: 6260567886297039789
+    - rid: 6260567954238735010
       type: {class: 'TypedVariableModel`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:
@@ -808,7 +1534,7 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
-    - rid: 6260567886297039790
+    - rid: 6260567954238735011
       type: {class: 'TypedVariableModel`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
         ID:

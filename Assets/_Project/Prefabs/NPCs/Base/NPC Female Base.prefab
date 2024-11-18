@@ -167,14 +167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f556384b5731243a48c137b4700b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackboardRefreshInterval: 5
-  wanderParams:
-    speed: 0
-    minRange: 0
-    maxRange: 0
-    minPause: 0
-    maxPause: 0
-    centerTransform: {fileID: 0}
+  wanderSpeed: 0
+  wanderRotationRate: 0
+  wanderMinRange: 0
+  wanderMaxRange: 0
+  wanderMinPause: 0
+  wanderMaxPause: 0
+  wanderCenterTransform: {fileID: 0}
+  fleeSpeed: 0
+  fleeRotationRate: 0
+  fleeMinRange: 0
+  fleeMaxRange: 0
+  fleeRestTime: 0
   startingThirst: 100
   thirstRate: 0.01
   startingHunger: 100

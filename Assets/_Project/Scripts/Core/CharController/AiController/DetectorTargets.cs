@@ -65,7 +65,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             return minTarget.Value.Target;
         }
 
-        internal GameObject GetClosestTargetGameObjectWithTag(string tag)
+        internal GameObject GetClosestTargetWithTag(string tag)
         {
             KeyValuePair<string, DetectorTarget> minTarget = default;
             float minDistance = float.MaxValue;
@@ -77,7 +77,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                     minTarget = entry;
                 }
             }
-            return minTarget.Value.Target;
+
+            // If target found, return closest. Otherwise, return null
+            return minDistance < float.MaxValue ? minTarget.Value.Target : null;
         }
 
         internal GameObject[] GetAllTargetGameObjects()

@@ -11,7 +11,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         [SerializeField] private float runSpeed;
         [SerializeField] private float sprintSpeed;
         [SerializeField] private MovementSpeed movementSpeed;
-        
+
         public float GetMoveSpeed()
         {
             switch (movementSpeed)

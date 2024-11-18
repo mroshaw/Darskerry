@@ -88,14 +88,23 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         }
         #endregion
         #region Class methods
+
+        // Can the detector currently see any targets at all?
         public bool CanSeeTargets()
         {
             return _visionTargets.HasTargets();
         }
 
+        // Can the detector currently see any targets with this tag?
         public bool CanSeeTargetsWithTag(string targetTag)
         {
             return _visionTargets.HasTargetWithTag(targetTag);
+        }
+
+        // Return the closest target that the detector can currently see, with this tag
+        public GameObject GetClosestTargetWithTag(string targetTag)
+        {
+            return _visionTargets.GetClosestTargetWithTag(targetTag);
         }
 
         private void CheckForAlertObjects()
@@ -233,25 +242,25 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         private void AwareDetected(GameObject detectedGameObject)
         {
-            Debug.Log($"RangeDetector: {gameObject.name} detected: {detectedGameObject.name}");
+            // Debug.Log($"RangeDetector: {gameObject.name} detected: {detectedGameObject.name}");
             awareDetectedEvent.Invoke(detectedGameObject);
         }
 
         private void AwareLost(GameObject detectedGameObject)
         {
-            Debug.Log($"RangeDetector: {gameObject.name} lost: {detectedGameObject.name}");
+            // Debug.Log($"RangeDetector: {gameObject.name} lost: {detectedGameObject.name}");
             awareLostEvent.Invoke(detectedGameObject);
         }
 
         private void VisionDetected(GameObject detectedGameObject)
         {
-            Debug.Log($"FovDetector: {gameObject.name} detected: {detectedGameObject.name}");
+            // Debug.Log($"FovDetector: {gameObject.name} detected: {detectedGameObject.name}");
             awareDetectedEvent.Invoke(detectedGameObject);
         }
 
         private void VisionLost(GameObject detectedGameObject)
         {
-            Debug.Log($"FovDetector: {gameObject.name} lost: {detectedGameObject.name}");
+            // Debug.Log($"FovDetector: {gameObject.name} lost: {detectedGameObject.name}");
             awareLostEvent.Invoke(detectedGameObject);
         }
 
