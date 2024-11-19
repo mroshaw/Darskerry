@@ -1,12 +1,9 @@
-using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
-    [Serializable]
-    public struct PatrolParams
+    public class WaterSource : MonoBehaviour
     {
-
     }
 }

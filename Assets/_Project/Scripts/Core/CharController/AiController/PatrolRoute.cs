@@ -6,19 +6,23 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     public class PatrolRoute : MonoBehaviour
     {
         #region Class Variables
-        [SerializeField]private PatrolParams patrolParams;
-
+        [BoxGroup("Patrol Settings")] [SerializeField] private Transform[] patrolPoints;
+        [BoxGroup("Patrol Settings")] [SerializeField] private bool reverseOnReturn;
+        [BoxGroup("Patrol Settings")][SerializeField] private float speed;
+        [BoxGroup("Patrol Settings")][SerializeField] private float minPause;
+        [BoxGroup("Patrol Settings")][SerializeField] private float maxPause;
+        public float Speed => speed;
+        public float MinPause => minPause;
+        public float MaxPause => maxPause;
+        public Transform[] PatrolPoints => patrolPoints;
+        public int NumberOfPatrolPoints => patrolPoints.Length;
         private int _currentPatrolIndex;
-        private int _numberOfPatrolPoints;
-        private bool _isValid;
         #endregion
 
         #region Startup
         private void Start()
         {
-            _numberOfPatrolPoints = patrolParams.NumberOfPatrolPoints;
-            _isValid = _numberOfPatrolPoints > 0;
-            if (!_isValid)
+            if (NumberOfPatrolPoints < 1)
             {
                 Debug.LogError($"PatrolRoute: There are no patrol points for GameObject {gameObject.name}");
             }
@@ -27,6 +31,10 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         #region Class Methods
 
+        public Transform GetPatrolPointAtIndex(int patrolPointIndex)
+        {
+            return patrolPoints[patrolPointIndex];
+        }
         public Transform GetFirstDestination()
         {
             _currentPatrolIndex = 0;
@@ -35,11 +43,13 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         public Transform GetNextDestination()
         {
-            if (_currentPatrolIndex >= _numberOfPatrolPoints - 1)
-            {
-                _currentPatrolIndex = 0;
-            }
-            return patrolParams.PatrolPoints[_currentPatrolIndex];
+            _currentPatrolIndex = _currentPatrolIndex >= NumberOfPatrolPoints - 1 ? 0 : _currentPatrolIndex + 1;
+            return patrolPoints[_currentPatrolIndex];
+        }
+
+        public Transform GetCurrentDestination()
+        {
+            return patrolPoints[_currentPatrolIndex];
         }
         #endregion
 

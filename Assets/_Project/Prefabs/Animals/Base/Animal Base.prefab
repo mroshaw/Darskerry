@@ -383,6 +383,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495bb9e33aa1e2749a56e0e95199b061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolRoute: {fileID: 0}
+  patrolSpeed: 0
+  patrolRotationRate: 0
+  patrolMinPause: 0
+  patrolMaxPause: 0
   wanderSpeed: 0
   wanderRotationRate: 0
   wanderMinRange: 0
@@ -397,11 +402,6 @@ MonoBehaviour:
   fleeRestTime: 0
   startingThirst: 100
   thirstRate: 0.1
-  startingHunger: 100
-  hungerRate: 0.1
-  hungryThreshold: 10
-  thirstyThreshold: 10
-  _hunger: 0
   _thirst: 0
 --- !u!114 &7822774531022254522
 MonoBehaviour:

@@ -30,8 +30,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
             if (_detectedTarget)
             {
                 Target.Value = _detectedTarget.transform;
+                return Status.Success;
             }
-            return Status.Success;
+            return Status.Failure;
         }
     }
 }

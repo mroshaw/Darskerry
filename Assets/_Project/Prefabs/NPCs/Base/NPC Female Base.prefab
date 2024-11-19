@@ -167,6 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f556384b5731243a48c137b4700b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolRoute: {fileID: 0}
+  patrolSpeed: 0
+  patrolRotationRate: 0
+  patrolMinPause: 0
+  patrolMaxPause: 0
   wanderSpeed: 0
   wanderRotationRate: 0
   wanderMinRange: 0
@@ -181,11 +186,6 @@ MonoBehaviour:
   fleeRestTime: 0
   startingThirst: 100
   thirstRate: 0.01
-  startingHunger: 100
-  hungerRate: 0.01
-  hungryThreshold: 10
-  thirstyThreshold: 10
-  _hunger: 0
   _thirst: 0
 --- !u!82 &7629226045507993110
 AudioSource:

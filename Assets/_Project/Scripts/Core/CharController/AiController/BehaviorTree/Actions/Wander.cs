@@ -14,20 +14,18 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
     public partial class WanderAction : Action
     {
     [SerializeReference] public BlackboardVariable<AiBrain> AiBrain;
-        private AiBrain _aiBrain;
 
         protected override Status OnStart()
         {
             base.OnStart();
 
-            _aiBrain = AiBrain.Value;
-            if (_aiBrain == null)
+            if (AiBrain.Value == null)
             {
                 LogFailure("No Ai Brain assigned.");
                 return Status.Failure;
             }
 
-            _aiBrain.Wander();
+            AiBrain.Value.Wander();
             return Status.Success;
         }
     }

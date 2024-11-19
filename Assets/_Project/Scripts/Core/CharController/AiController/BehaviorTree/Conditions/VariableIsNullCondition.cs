@@ -17,7 +17,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
                 return false;
             }
 
-            return ReferenceEquals(Variable.ObjectValue, null);
+            return Variable.ObjectValue is null || Variable.ObjectValue.Equals(null);
         }
     }
 }

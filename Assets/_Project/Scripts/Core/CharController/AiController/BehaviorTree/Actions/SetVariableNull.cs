@@ -7,15 +7,14 @@ using Unity.Properties;
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Set Transform Null", story: "Set [Transform] to null", category: "Action", id: "70a5b810f073de3d71270e9bd8f21278")]
-    public partial class SetTransformNullAction : Action
+    [NodeDescription(name: "Set Variable Null", story: "Set [Variable] to null", category: "Action")]
+    public partial class SetVariableNullAction : Action
     {
-    [SerializeReference] public BlackboardVariable<Transform> Transform;
+        [SerializeReference] public BlackboardVariable Variable;
         protected override Status OnStart()
         {
-            Transform.Value = null;
+            Variable.ObjectValue = null;
             return Status.Success;
         }
-
     }
 }
