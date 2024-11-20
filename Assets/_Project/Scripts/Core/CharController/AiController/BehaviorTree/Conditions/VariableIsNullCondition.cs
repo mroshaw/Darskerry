@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Conditions
 {
     [Serializable, Unity.Properties.GeneratePropertyBag]
-    [Condition(name: "Variable Is Null", story: "[Variable] is null", category: "Conditions")]
+    [Condition(name: "AI Variable Is Null", story: "[Variable] is null", category: "Conditions/Blackboard")]
     public partial class VariableIsNullCondition : Condition
     {
         [SerializeReference] public BlackboardVariable Variable;

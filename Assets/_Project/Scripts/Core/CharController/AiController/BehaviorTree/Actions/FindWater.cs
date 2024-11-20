@@ -1,24 +1,24 @@
-using DaftAppleGames.Darskerry.Core.CharController.AiController;
 using System;
 using Unity.Behavior;
 using UnityEngine;
-using Action = Unity.Behavior.Action;
 using Unity.Properties;
-using Object = UnityEngine.Object;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Find Water", story: "Find nearest [WaterSource]", category: "Action", id: "cfbeaaac6039bc4e972763f2f0fd128e")]
-    public partial class FindWaterAction : Action
+    [NodeDescription(name: "AI Find Water", story: "[Agent] finds nearest [WaterSource]", category: "Action/Needs", id: "cfbeaaac6039bc4e972763f2f0fd128e")]
+    public partial class FindWaterAction : AiBrainAction
     {
     [SerializeReference] public BlackboardVariable<Transform> WaterSource;
-        protected override Status OnStart()
+    protected override Status OnStart()
         {
-            WaterSource[] water = Object.FindObjectsByType<WaterSource>(FindObjectsSortMode.None);
-            WaterSource.Value = water[0].gameObject.transform;
+            if(!Init())
+            {
+                return Status.Failure;
+            }
+
+            WaterSource.Value = AiBrain.GetClosestWaterSource().transform;
             return Status.Success;
         }
-
     }
 }

@@ -1,29 +1,26 @@
-using DaftAppleGames.Darskerry.Core.CharController.AiController;
 using System;
 using Unity.Behavior;
-using UnityEngine;
-using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Drink", story: "Agent drinks using [AiBrain]", category: "Action",
+    [NodeDescription(name: "AI Drink", story: "[Agent] drinks", category: "Action/Needs",
         id: "e0244217a628d45716b10b2f14860411")]
-    public partial class DrinkAction : Action
+    public partial class DrinkAction : AiBrainAction
     {
-        [SerializeReference] public BlackboardVariable<AiBrain> AiBrain;
-
         protected override Status OnStart()
         {
-            if (AiBrain.Value == null)
+            if(!Init())
             {
-                LogFailure("No AIBrain assigned.");
                 return Status.Failure;
             }
+            return Status.Running;
+        }
 
-            AiBrain.Value.Drink(100.0f);
-            return Status.Success;
+        protected override Status OnUpdate()
+        {
+            return AiBrain.Drink(1.0f) ? Status.Success : Status.Running;
         }
     }
 }

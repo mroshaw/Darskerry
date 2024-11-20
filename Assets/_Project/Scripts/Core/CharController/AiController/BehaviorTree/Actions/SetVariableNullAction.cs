@@ -7,7 +7,7 @@ using Unity.Properties;
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Set Variable Null", story: "Set [Variable] to null", category: "Action")]
+    [NodeDescription(name: "AI Set Variable Null", story: "Clear [Variable]", category: "Action/Blackboard", id: "712c2a49cfcbf9fafdf24f3d4f4193b8")]
     public partial class SetVariableNullAction : Action
     {
         [SerializeReference] public BlackboardVariable Variable;

@@ -2,18 +2,15 @@ using System;
 using ECM2;
 using Unity.Behavior;
 using UnityEngine;
-using Action = Unity.Behavior.Action;
 using Unity.Properties;
-using UnityEngine.AI;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Flee", story: "Flee from [Target] using [AiBrain]", category: "Action", id: "d9102898acb44b193285ab3326751e54")]
-    public partial class FleeAction : Action
+    [NodeDescription(name: "AI Flee", story: "[Agent] flees from [Target]", category: "Action/Navigation", id: "d9102898acb44b193285ab3326751e54")]
+    public partial class FleeAction : AiBrainAction
     {
     [SerializeReference] public BlackboardVariable<Transform> Target;
-    [SerializeReference] public BlackboardVariable<AiBrain> AiBrain;
 
         private NavMeshCharacter _navMeshCharacter;
 
@@ -21,19 +18,17 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
 
         protected override Status OnStart()
         {
-            if (AiBrain.Value == null)
+            if(!Init())
             {
-                LogFailure("No Ai Brain assigned.");
                 return Status.Failure;
             }
-
-            AiBrain.Value.Flee(Target.Value);
+            AiBrain.Flee(Target.Value);
             return Status.Running;
         }
 
         protected override Status OnUpdate()
         {
-            if (AiBrain.Value.State == AiState.Fleeing)
+            if (AiBrain.AiState == AiState.Fleeing)
             {
                 return Status.Running;
             }

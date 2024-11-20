@@ -14,15 +14,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         Patrolling,
         Fleeing,
         Attacking,
-        Moving
-    }
-
-    public enum RelationshipToPlayer
-    {
-        Fearful,
-        Enemy,
-        Friend,
-        Neutral
     }
 
     /// <summary>
@@ -53,33 +44,33 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         [BoxGroup("Needs")][SerializeField] private float startingThirst = 100.0f;
         [BoxGroup("Needs")][SerializeField] private float thirstRate = 0.01f;
+        [BoxGroup("Needs")][SerializeField] private WaterSource[] knownWaterSources;
 
         [BoxGroup("Needs Debug")][SerializeField] private float _thirst;
-
-        private NavMeshCharacter _navMeshCharacter;
-        private GameCharacter _gameCharacter;
-
-        private AiState _aiState;
 
         private BlackboardReference _blackboardRef;
         #endregion
         #region Properties
-        public NavMeshCharacter NavMeshCharacter => _navMeshCharacter;
-        public GameCharacter GameCharacter => _gameCharacter;
-        public AiState State => _aiState;
+        public NavMeshCharacter NavMeshCharacter { get; private set; }
+        public GameCharacter GameCharacter { get; private set; }
+        public FovDetector FovDetector { get; private set; }
+        public Animator Animator { get; private set; }
+        public AiState AiState { get; private set; }
         #endregion
         #region Startup
         protected virtual void Awake()
         {
-            _navMeshCharacter = GetComponent<NavMeshCharacter>();
-            _gameCharacter = GetComponent<GameCharacter>();
+            NavMeshCharacter = GetComponent<NavMeshCharacter>();
+            GameCharacter = GetComponent<GameCharacter>();
+            FovDetector = GetComponent<FovDetector>();
+            Animator = GetComponent<Animator>();
 
             if (!wanderCenterTransform)
             {
                 wanderCenterTransform = transform;
             }
 
-            _aiState = AiState.Idle;
+            AiState = AiState.Idle;
             _thirst = startingThirst;
         }
 
@@ -104,20 +95,20 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         #region Move methods
         private void SetMoveSpeed(float speed)
         {
-            _gameCharacter.maxWalkSpeed = speed;
+            GameCharacter.maxWalkSpeed = speed;
         }
 
         private void SetRotationRate(float rotateRate)
         {
-            _gameCharacter.rotationRate = rotateRate;
+            GameCharacter.rotationRate = rotateRate;
         }
 
         public void MoveTo(Vector3 position, NavMeshCharacter.DestinationReachedEventHandler arrivalCallBack)
         {
             SetMoveSpeed(wanderSpeed);
-            _navMeshCharacter.DestinationReached -= arrivalCallBack;
-            _navMeshCharacter.DestinationReached += arrivalCallBack;
-            _navMeshCharacter.MoveToDestination(position);
+            NavMeshCharacter.DestinationReached -= arrivalCallBack;
+            NavMeshCharacter.DestinationReached += arrivalCallBack;
+            NavMeshCharacter.MoveToDestination(position);
         }
         #endregion
         #region Patrol methods
@@ -130,25 +121,25 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         [Button("Start Patrol")]
         public void Patrol()
         {
-            if(!patrolRoute || _aiState == AiState.Patrolling)
+            if(!patrolRoute || AiState == AiState.Patrolling)
             {
                 return;
             }
 
-            _navMeshCharacter.DestinationReached -= ArrivedAtPatrolDestination;
-            _navMeshCharacter.DestinationReached += ArrivedAtPatrolDestination;
+            NavMeshCharacter.DestinationReached -= ArrivedAtPatrolDestination;
+            NavMeshCharacter.DestinationReached += ArrivedAtPatrolDestination;
 
             SetMoveSpeed(patrolSpeed);
             SetRotationRate(patrolRotationRate);
 
-            _navMeshCharacter.MoveToDestination(patrolRoute.GetNextDestination().position);
-            _aiState = AiState.Patrolling;
+            NavMeshCharacter.MoveToDestination(patrolRoute.GetNextDestination().position);
+            AiState = AiState.Patrolling;
         }
 
         private void StopPatrolling()
         {
-            _navMeshCharacter.DestinationReached -= ArrivedAtPatrolDestination;
-            _aiState = AiState.Idle;
+            NavMeshCharacter.DestinationReached -= ArrivedAtPatrolDestination;
+            AiState = AiState.Idle;
         }
 
         private void ArrivedAtPatrolDestination()
@@ -159,34 +150,34 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         private IEnumerator MoveToNextPatrolPointAfterDelayAsync()
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(patrolMinPause, patrolMaxPause));
-            _navMeshCharacter.MoveToDestination(patrolRoute.GetNextDestination().position);
+            NavMeshCharacter.MoveToDestination(patrolRoute.GetNextDestination().position);
         }
         #endregion
         #region Wander methods
         public void Wander()
         {
-            if (_aiState == AiState.Wandering)
+            if (AiState == AiState.Wandering)
             {
                 return;
             }
             SetMoveSpeed(wanderSpeed);
             SetRotationRate(wanderRotationRate);
-            _navMeshCharacter.DestinationReached += ArrivedAtWanderDestination;
+            NavMeshCharacter.DestinationReached += ArrivedAtWanderDestination;
             GoToRandomDestination();
-            _aiState = AiState.Wandering;
+            AiState = AiState.Wandering;
         }
 
         private void StopWandering()
         {
-            _navMeshCharacter.StopMovement();
-            _navMeshCharacter.DestinationReached -= ArrivedAtWanderDestination;
-            _aiState = AiState.Idle;
+            NavMeshCharacter.StopMovement();
+            NavMeshCharacter.DestinationReached -= ArrivedAtWanderDestination;
+            AiState = AiState.Idle;
         }
 
         private void GoToRandomDestination()
         {
             Vector3 wanderLocation = GetRandomWanderLocation(wanderCenterTransform.position, wanderMinRange, wanderMaxRange);
-            _navMeshCharacter.MoveToDestination(wanderLocation);
+            NavMeshCharacter.MoveToDestination(wanderLocation);
         }
 
         private Vector3 GetRandomWanderLocation(Vector3 center, float minDistance, float maxDistance)
@@ -223,7 +214,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         #region Flee methods
         public void Flee(Transform fleeFromTarget)
         {
-            switch (_aiState)
+            switch (AiState)
             {
                 case AiState.Fleeing:
                     return;
@@ -234,21 +225,21 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
             SetMoveSpeed(fleeSpeed);
             SetRotationRate(fleeRotationRate);
-            _navMeshCharacter.MoveToDestination(GetFleeDestination(fleeFromTarget));
-            _navMeshCharacter.DestinationReached += ArrivedAtFleeDestination;
-            _aiState = AiState.Fleeing;
+            NavMeshCharacter.MoveToDestination(GetFleeDestination(fleeFromTarget));
+            NavMeshCharacter.DestinationReached += ArrivedAtFleeDestination;
+            AiState = AiState.Fleeing;
         }
 
         private void StopFleeing()
         {
-            _navMeshCharacter.DestinationReached -= ArrivedAtFleeDestination;
+            NavMeshCharacter.DestinationReached -= ArrivedAtFleeDestination;
             StartCoroutine(RestAfterFlee());
         }
 
         private IEnumerator RestAfterFlee()
         {
             yield return new WaitForSeconds(fleeRestTime);
-            _aiState = AiState.Idle;
+            AiState = AiState.Idle;
         }
 
         private Vector3 GetFleeDestination(Transform targetTransform)
@@ -276,9 +267,43 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             return _thirst <= 0;
         }
 
-        public void Drink(float thirstValue)
+        public bool Drink(float thirstValue)
         {
             _thirst = (_thirst + thirstValue) > startingThirst ? startingThirst : (_thirst + thirstValue);
+            return Mathf.Approximately(_thirst, startingThirst);
+        }
+
+        [Button("Update Water Sources")]
+        private void GetWaterSources()
+        {
+            knownWaterSources = FindObjectsByType<WaterSource>(FindObjectsSortMode.None);
+        }
+
+        public WaterSource GetClosestWaterSource()
+        {
+            if (knownWaterSources == null || knownWaterSources.Length == 0)
+                return null;
+
+            WaterSource closestWaterSource = null;
+            float closestDistanceSqr = float.MaxValue;
+            Vector3 playerPosition = transform.position;
+
+            foreach (WaterSource waterSource in knownWaterSources)
+            {
+                if (waterSource == null)
+                    continue;
+
+                Vector3 directionToWaterSource = waterSource.transform.position - playerPosition;
+                float distanceSqr = directionToWaterSource.sqrMagnitude;
+
+                if (distanceSqr < closestDistanceSqr)
+                {
+                    closestDistanceSqr = distanceSqr;
+                    closestWaterSource = waterSource;
+                }
+            }
+
+            return closestWaterSource;
         }
         #endregion
         #endregion

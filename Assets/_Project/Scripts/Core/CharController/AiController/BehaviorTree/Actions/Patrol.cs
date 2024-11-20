@@ -1,26 +1,21 @@
-using DaftAppleGames.Darskerry.Core.CharController.AiController;
 using System;
 using Unity.Behavior;
-using UnityEngine;
-using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions
 {
 
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Patrol", story: "Patrol waypoints using [AiBrain]", category: "Action", id: "8016e055e781d0a76aedfc22d3146316")]
-    public partial class PatrolAction : Action
+    [NodeDescription(name: "AI Patrol", story: "[Agent] patrols waypoints", category: "Action/Navigation", id: "8016e055e781d0a76aedfc22d3146316")]
+    public partial class PatrolAction : AiBrainAction
     {
-    [SerializeReference] public BlackboardVariable<AiBrain> AiBrain;
-    protected override Status OnStart()
+ protected override Status OnStart()
         {
-            if (AiBrain.Value == null)
+            if(!Init())
             {
-                LogFailure("No AIBrain assigned.");
                 return Status.Failure;
             }
-            AiBrain.Value.Patrol();
+            AiBrain.Patrol();
             return Status.Success;
         }
     }

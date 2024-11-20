@@ -10,9 +10,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         private static readonly int JumpLeg = Animator.StringToHash("JumpLeg");
         private static readonly int Roll = Animator.StringToHash("Roll");
         private static readonly int Crouch = Animator.StringToHash("Crouch");
-
         private static readonly int Jump = Animator.StringToHash("Jump");
-        private static readonly int Attack = Animator.StringToHash("Attack");
 
         // Cached Character
         protected GameCharacter GameCharacter { get; private set; }
@@ -47,7 +45,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             Animator.SetFloat(Forward, ForwardAmount, 0.1f, deltaTime);
             Animator.SetFloat(Turn, Mathf.Atan2(MoveDirection.x, MoveDirection.z), 0.1f, deltaTime);
             Animator.SetBool(Ground, GameCharacter.IsGrounded());
-            Animator.SetBool(Attack, GameCharacter.IsAttacking());
             Animator.SetBool(Roll, GameCharacter.IsRolling());
             Animator.SetBool(Crouch, GameCharacter.IsCrouched());
 

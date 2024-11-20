@@ -1,4 +1,3 @@
-using DaftAppleGames.Darskerry.Core.CharController.AiController;
 using System;
 using Unity.Behavior;
 using UnityEngine;
@@ -6,21 +5,25 @@ using UnityEngine;
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Conditions
 {
     [Serializable, Unity.Properties.GeneratePropertyBag]
-    [Condition(name: "Target Detected", story: "[Detector] sees [Target] with tag [Tag]", category: "Conditions",
+    [Condition(name: "AI Can See", story: "[Agent] can see [Target] tagged [Tag]", category: "Conditions/Darskerry/Detection",
         id: "8726cdf612c610ebfe8addaa580d1b4b")]
-    public partial class DetectTargetCondition : Condition
+    public partial class CanSeeTargetCondition : AiBrainCondition
     {
-        [SerializeReference] public BlackboardVariable<FovDetector> Detector;
         [SerializeReference] public BlackboardVariable<Transform> Target;
         [SerializeReference] public BlackboardVariable<string> Tag;
 
+        public override void OnStart()
+        {
+            base.OnStart();
+            if (AiBrain.FovDetector == null)
+            {
+                Debug.LogError("FovDetector is not attached to Behaviour agent!");
+            }
+        }
+
         public override bool IsTrue()
         {
-            if (Detector.Value == null)
-            {
-                return false;
-            }
-            GameObject target = Detector.Value.GetClosestTargetWithTag(Tag.Value);
+            GameObject target = AiBrain.FovDetector.GetClosestTargetWithTag(Tag.Value);
             if (target)
             {
                 Target.Value = target.transform;

@@ -1,20 +1,23 @@
 using System;
 using Unity.Behavior;
 using Unity.Properties;
+using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "AI Wander", story: "[Agent] wanders", category: "Action/Navigation", id: "79530ae655e4c01296bec8f3939d187e")]
-    public partial class WanderAction : AiBrainAction
+    [NodeDescription(name: "AI Set Animator Trigger", story: "Trigger anim [Trigger] in [Agent]", category: "Action/Animation")]
+    public partial class TriggerAnimationAction : AiBrainAction
     {
+        [SerializeReference] public BlackboardVariable<string> Trigger;
+
         protected override Status OnStart()
         {
             if(!Init())
             {
                 return Status.Failure;
             }
-            AiBrain.Wander();
+            AiBrain.Animator.SetTrigger(Trigger.Value);
             return Status.Success;
         }
     }
