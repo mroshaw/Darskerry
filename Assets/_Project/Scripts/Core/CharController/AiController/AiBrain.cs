@@ -93,12 +93,12 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         #endregion
         #region Class methods
         #region Move methods
-        private void SetMoveSpeed(float speed)
+        public void SetMoveSpeed(float speed)
         {
             GameCharacter.maxWalkSpeed = speed;
         }
 
-        private void SetRotationRate(float rotateRate)
+        public void SetRotationRate(float rotateRate)
         {
             GameCharacter.rotationRate = rotateRate;
         }
