@@ -24,14 +24,16 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
                 LogFailure("MoveTo Transform is null.");
                 return Status.Failure;
             }
-            AiBrain.MoveTo(Transform.Value.position, DestinationReached);
+            AiBrain.MoveTo(Transform.Value.position);
+            // AiBrain.MoveTo(Transform.Value.position, DestinationReached);
             _hasMoved = false;
             return Status.Running;
         }
 
         protected override Status OnUpdate()
         {
-            return _hasMoved ? Status.Success : Status.Running;
+            return AiBrain.HasArrived() ? Status.Success : Status.Running;
+            // return _hasMoved ? Status.Success : Status.Running;
         }
 
         private void DestinationReached()

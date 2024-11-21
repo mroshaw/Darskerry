@@ -4,10 +4,16 @@ using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
-    public class GameCharacter : Character
+    public class GameCharacter : Character, IDamageable
     {
         [PropertyOrder(-1)][BoxGroup("Movement Settings")][SerializeField] private float sprintSpeed;
-        [PropertyOrder(-1)][BoxGroup("Movement Settings")][Tooltip("Initial forward velocity when rolling.")][SerializeField] private float _rollImpulse;
+        [PropertyOrder(-1)][BoxGroup("Movement Settings")][Tooltip("Initial forward velocity when rolling.")][SerializeField] private float rollImpulse;
+
+        [PropertyOrder(-1)][BoxGroup("Stats")][SerializeField] private float maxHealth = 100f;
+        [PropertyOrder(-1)][BoxGroup("Stats")][SerializeField] private float maxStamina = 100f;
+        [PropertyOrder(-1)][BoxGroup("Stats")][SerializeField] private float currentHealth = 100f;
+
+        public float CurrentHealth => currentHealth;
 
         private bool _isAttacking;
         private bool _attackInputPressed;
@@ -125,7 +131,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         private void DoRoll()
         {
-            float forwardSpeed = Mathf.Max(Vector3.Dot(characterMovement.velocity, transform.forward), _rollImpulse);
+            float forwardSpeed = Mathf.Max(Vector3.Dot(characterMovement.velocity, transform.forward), rollImpulse);
 
             Vector3 newVelocity = Vector3.ProjectOnPlane(characterMovement.velocity, transform.forward) + transform.forward * forwardSpeed;
 
@@ -207,6 +213,22 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             }
         }
         #endregion
+        #region Stats methods
+        public bool IsDead( )
+        {
+            return currentHealth <= 0;
+        }
+        public void TakeDamage(float damage)
+        {
+            currentHealth = currentHealth - damage < 0 ? 0 : currentHealth - damage;
+        }
+
+        public void RestoreHealth(float health)
+        {
+            currentHealth = currentHealth + health > maxHealth ? maxHealth : currentHealth + health;
+        }
+
+        #endregion
         #region Character Overrides
         protected override void OnBeforeSimulationUpdate(float deltaTime)
         {
@@ -232,5 +254,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             useRootMotion = IsWalking();
         }
         #endregion
+
+
     }
 }

@@ -103,6 +103,25 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             GameCharacter.rotationRate = rotateRate;
         }
 
+        public bool HasArrived()
+        {
+            return !NavMeshCharacter.agent.hasPath || NavMeshCharacter.agent.velocity.sqrMagnitude == 0.0f;
+        }
+
+        public void MoveTo(Vector3 position)
+        {
+            SetMoveSpeed(wanderSpeed);
+            SetRotationRate(wanderRotationRate);
+            NavMeshCharacter.MoveToDestination(position);
+        }
+
+        public void MoveTo(Vector3 position, float moveSpeed, float rotationRate)
+        {
+            SetMoveSpeed(moveSpeed);
+            SetRotationRate(rotationRate);
+            NavMeshCharacter.MoveToDestination(position);
+        }
+
         public void MoveTo(Vector3 position, NavMeshCharacter.DestinationReachedEventHandler arrivalCallBack)
         {
             SetMoveSpeed(wanderSpeed);

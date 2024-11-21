@@ -6,7 +6,7 @@ using UnityEngine;
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTree.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "AI Set Animator Bool", story: "Set [AnimBoolParam] to [AnimState] in [Agent]", category: "Action/Animation", id: "c88cdeec261f1b053278dfafc7b55f45")]
+    [NodeDescription(name: "AI Set Animator Bool", story: "Set [AnimBoolParam] to [AnimState] on [Agent]", category: "Action/Animation", id: "c88cdeec261f1b053278dfafc7b55f45")]
     public partial class SetAnimationBoolAction : AiBrainAction
     {
         [SerializeReference] public BlackboardVariable<string> AnimBoolParam;
