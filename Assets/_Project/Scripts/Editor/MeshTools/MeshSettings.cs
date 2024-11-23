@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using RenderingLayerMask = UnityEngine.Rendering.HighDefinition.RenderingLayerMask;
 
-namespace DaftAppleGames.Darskerry.Editor.ObjectTools
+namespace DaftAppleGames.Darskerry.Editor.MeshTools
 {
     /// <summary>
     /// Scriptable Object to store Editor usable instances of the Player Character Configuration

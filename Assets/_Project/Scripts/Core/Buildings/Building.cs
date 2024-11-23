@@ -3,18 +3,14 @@ using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.Buildings
 {
-    public class Building : Structure
+    public class Building : MonoBehaviour
     {
-        [BoxGroup("Custom Components")]
-        public GameObject customComponents;
+        [BoxGroup("Meshes")] [SerializeField] public GameObject[] interiors;
 
-        [BoxGroup("Meshes")]
-        public GameObject[] interiors;
-        [BoxGroup("Meshes")]
-        public GameObject[] exteriors;
-        [BoxGroup("Meshes")]
-        public GameObject[] interiorProps;
-        [BoxGroup("Meshes")]
-        public GameObject[] exteriorProps;
+        [BoxGroup("Meshes")] [SerializeField] public GameObject[] exteriors;
+
+        [BoxGroup("Meshes")] [SerializeField] public GameObject[] interiorProps;
+
+        [BoxGroup("Meshes")] [SerializeField] public GameObject[] exteriorProps;
     }
 }
