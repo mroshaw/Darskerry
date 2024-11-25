@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DaftAppleGames.Darskerry.Core.Buildings;
+using DaftAppleGames.Darskerry.Core.Extensions;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
@@ -46,6 +47,17 @@ namespace DaftAppleGames.Darskerry.Editor.BuildingTools
             wnd.titleContent = new GUIContent("Simple Building Editor");
         }
 
+        [BoxGroup("Main Setup")] [Button("Add Components to Selected")]
+        private void AddBuildingToSelected()
+        {
+            GameObject selectedObject = Selection.activeGameObject;
+            if (selectedObject)
+            {
+                selectedObject.EnsureComponent<Building>();
+                selectedObject.EnsureComponent<LightingController>();
+            }
+        }
+
         [BoxGroup("Colliders")] [Button("Configure Colliders")]
         private void ConfigureColliders()
         {
@@ -70,19 +82,31 @@ namespace DaftAppleGames.Darskerry.Editor.BuildingTools
             Log("Configuring layout... Done!");
         }
 
+        [BoxGroup("Meshes")] [Button("Configure Meshes")]
+        private void ConfigureMeshes()
+        {
+            Log("Configuring meshes...");
+            foreach (Building building in selectedBuildings)
+            {
+                buildingSettings.meshSettings.ApplyToBuilding(building);
+            }
+
+            Log("Configuring meshes... Done!");
+        }
+
         [BoxGroup("Lights")] [Button("Add Lights")]
         private void AddLights()
         {
             Log("Adding lights...");
             foreach (Building building in selectedBuildings)
             {
-                foreach (BuildingEditorSettings.LightSettings currLightSettings in buildingSettings.lightingSettings)
+                foreach (LightSettings currLightSettings in buildingSettings.lightingSettings)
                 {
                     currLightSettings.AddToBuilding(building);
                 }
             }
 
-            Log("Adding lights... Done!");
+            Log("Adding volumes... Done!");
         }
 
         [BoxGroup("Lights")] [Button("Configure Lights")]
@@ -91,15 +115,36 @@ namespace DaftAppleGames.Darskerry.Editor.BuildingTools
             Log("Configuring lights...");
             foreach (Building building in selectedBuildings)
             {
-                foreach (BuildingEditorSettings.LightSettings currLightSettings in buildingSettings.lightingSettings)
+                foreach (LightSettings currLightSettings in buildingSettings.lightingSettings)
                 {
                     currLightSettings.ApplyToBuilding(building);
                 }
             }
 
-            Log("Configuring lights... Done!");
+            Log("Configuring Lights... Done!");
         }
 
+        [BoxGroup("Volumes")] [Button("Configure Volumes")]
+        private void ConfigureVolumes()
+        {
+            foreach (Building building in selectedBuildings)
+            {
+                buildingSettings.volumeSettings.ApplyToBuilding(building);
+            }
+
+            Log("Configuring Volumes... Done!");
+        }
+
+        [BoxGroup("Volumes")] [Button("Configure Doors")]
+        private void ConfigureDoors()
+        {
+            foreach (Building building in selectedBuildings)
+            {
+                buildingSettings.doorSettings.ApplyToBuilding(building);
+            }
+
+            Log("Configuring Doors... Done!");
+        }
 
         private static void Log(string message, LogLevel messageLogLevel = LogLevel.Debug)
         {

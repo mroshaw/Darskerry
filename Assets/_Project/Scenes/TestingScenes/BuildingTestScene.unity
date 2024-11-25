@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 2465444}
   - component: {fileID: 2465446}
   - component: {fileID: 2465445}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_carpet03c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 2702428}
   - component: {fileID: 2702430}
   - component: {fileID: 2702429}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_hang01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 9534918}
   - component: {fileID: 9534920}
   - component: {fileID: 9534919}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_scroll11a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 9754126}
   - component: {fileID: 9754128}
   - component: {fileID: 9754127}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_L3f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -472,7 +472,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 10785689}
-  m_Layer: 8
+  - component: {fileID: 10785690}
+  m_Layer: 10
   m_Name: cooking_fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,6 +498,25 @@ Transform:
   - {fileID: 1279307564}
   m_Father: {fileID: 1230261585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &10785690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10785688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5b5140d1db7a9488a639b87b9a5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  buildingLightType: 2
+  lights:
+  - {fileID: 518921439}
+  particles:
+  - {fileID: 1363183301}
+  - {fileID: 1279307566}
 --- !u!1 &11836960
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11836961}
   - component: {fileID: 11836962}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_bookshelf_04b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +586,7 @@ GameObject:
   - component: {fileID: 13024862}
   - component: {fileID: 13024864}
   - component: {fileID: 13024863}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_hang03a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +628,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -652,7 +672,7 @@ GameObject:
   - component: {fileID: 14492813}
   - component: {fileID: 14492815}
   - component: {fileID: 14492814}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_S4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +714,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -738,7 +758,7 @@ GameObject:
   - component: {fileID: 19283381}
   - component: {fileID: 19283383}
   - component: {fileID: 19283382}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_hang03a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +800,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -879,7 +899,7 @@ GameObject:
   - component: {fileID: 29192752}
   - component: {fileID: 29192754}
   - component: {fileID: 29192753}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_book_cluster_medium02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,7 +941,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -1030,7 +1050,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -1074,7 +1094,7 @@ GameObject:
   - component: {fileID: 35041065}
   - component: {fileID: 35041067}
   - component: {fileID: 35041066}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_crate_05e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1116,7 +1136,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -1160,7 +1180,7 @@ GameObject:
   - component: {fileID: 44861000}
   - component: {fileID: 44861002}
   - component: {fileID: 44861001}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_crate_05e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1202,7 +1222,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -1246,7 +1266,7 @@ GameObject:
   - component: {fileID: 46714864}
   - component: {fileID: 46714866}
   - component: {fileID: 46714865}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_book_cluster_medium03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1288,7 +1308,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -1399,7 +1419,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -1443,7 +1463,7 @@ GameObject:
   - component: {fileID: 59564527}
   - component: {fileID: 59564529}
   - component: {fileID: 59564528}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_book_cluster01_1missing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,7 +1505,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -1529,7 +1549,7 @@ GameObject:
   - component: {fileID: 60829330}
   - component: {fileID: 60829332}
   - component: {fileID: 60829331}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6831,7 +6851,7 @@ GameObject:
   - component: {fileID: 75098916}
   - component: {fileID: 75098918}
   - component: {fileID: 75098917}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6930,7 +6950,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 1
+  m_LightlayersMask: 258
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -7005,14 +7025,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.8916084, g: 0.77243596, b: 0.39257383, a: 1}
-  m_Intensity: 47.746483
-  m_Range: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.63661975
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -7044,20 +7064,20 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_Lightmapping: 1
-  m_LightShadowCasterMode: 2
+  m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 1.08e-43, z: NaN, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 0
+  m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!1 &75111732
@@ -7136,7 +7156,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -7180,7 +7200,7 @@ GameObject:
   - component: {fileID: 89795816}
   - component: {fileID: 89795818}
   - component: {fileID: 89795817}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_chair01_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7222,7 +7242,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -7331,7 +7351,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -7440,7 +7460,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -7550,7 +7570,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -7595,7 +7615,7 @@ GameObject:
   - component: {fileID: 116709658}
   - component: {fileID: 116709657}
   - component: {fileID: 116709656}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_bed04_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7658,7 +7678,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0b5b0508938634b449c5ca578f4bc6ee, type: 2}
@@ -7702,7 +7722,7 @@ GameObject:
   - component: {fileID: 119713603}
   - component: {fileID: 119713605}
   - component: {fileID: 119713604}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_quil02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7744,7 +7764,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -7886,7 +7906,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -7994,7 +8014,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -8036,7 +8056,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131029925}
-  m_Layer: 8
+  - component: {fileID: 131029926}
+  m_Layer: 10
   m_Name: candle_flame1_smaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8061,6 +8082,24 @@ Transform:
   - {fileID: 974668295}
   m_Father: {fileID: 2134847786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &131029926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131029924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5b5140d1db7a9488a639b87b9a5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  buildingLightType: 0
+  lights:
+  - {fileID: 974668297}
+  particles:
+  - {fileID: 1621971555}
 --- !u!1 &133859858
 GameObject:
   m_ObjectHideFlags: 0
@@ -8137,7 +8176,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -8245,7 +8284,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -8288,7 +8327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 152905601}
   - component: {fileID: 152905602}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8336,7 +8375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 164129785}
   - component: {fileID: 164129786}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_bookshelf_01b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8395,7 +8434,7 @@ GameObject:
   - component: {fileID: 183687292}
   - component: {fileID: 183687294}
   - component: {fileID: 183687293}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_cut_chalice_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8437,7 +8476,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c8610f64d2afe458635502b400fcf6, type: 2}
@@ -8481,7 +8520,7 @@ GameObject:
   - component: {fileID: 195932708}
   - component: {fileID: 195932710}
   - component: {fileID: 195932709}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_food_carrot02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8523,7 +8562,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8ffc3987f6a712246b2edd5ee8071f14, type: 2}
@@ -8632,7 +8671,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -8676,7 +8715,7 @@ GameObject:
   - component: {fileID: 234101818}
   - component: {fileID: 234101820}
   - component: {fileID: 234101819}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_food_bread02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8718,7 +8757,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8ffc3987f6a712246b2edd5ee8071f14, type: 2}
@@ -8859,7 +8898,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -8903,7 +8942,7 @@ GameObject:
   - component: {fileID: 249212461}
   - component: {fileID: 249212463}
   - component: {fileID: 249212462}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_chair01_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8945,7 +8984,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -9292,7 +9331,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -9336,7 +9375,7 @@ GameObject:
   - component: {fileID: 270339217}
   - component: {fileID: 270339219}
   - component: {fileID: 270339218}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_M4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9378,7 +9417,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -9422,7 +9461,7 @@ GameObject:
   - component: {fileID: 271498051}
   - component: {fileID: 271498053}
   - component: {fileID: 271498052}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_Stall12a_red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9465,7 +9504,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -9508,7 +9547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 272750787}
   - component: {fileID: 272750788}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9624,7 +9663,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -9733,7 +9772,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -9842,7 +9881,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -9886,7 +9925,7 @@ GameObject:
   - component: {fileID: 357189541}
   - component: {fileID: 357189543}
   - component: {fileID: 357189542}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_cut_chalice_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9928,7 +9967,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c8610f64d2afe458635502b400fcf6, type: 2}
@@ -9973,7 +10012,7 @@ GameObject:
   - component: {fileID: 363785253}
   - component: {fileID: 363785252}
   - component: {fileID: 363785251}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_crate_10d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10037,7 +10076,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -10179,7 +10218,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8dc24a3a7e4f7ab4db09042993840730, type: 2}
@@ -10288,7 +10327,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -10333,7 +10372,7 @@ GameObject:
   - component: {fileID: 380236284}
   - component: {fileID: 380236283}
   - component: {fileID: 380236282}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_crate_pallet_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10397,7 +10436,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -10862,7 +10901,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 386899708}
-  m_Layer: 8
+  - component: {fileID: 386899709}
+  m_Layer: 10
   m_Name: candle_flame1_smaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10887,6 +10927,24 @@ Transform:
   - {fileID: 75098916}
   m_Father: {fileID: 1550081995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &386899709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386899707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5b5140d1db7a9488a639b87b9a5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  buildingLightType: 0
+  lights:
+  - {fileID: 75098918}
+  particles:
+  - {fileID: 1577958024}
 --- !u!1 &387965921
 GameObject:
   m_ObjectHideFlags: 0
@@ -10963,7 +11021,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -11072,7 +11130,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -11188,7 +11246,7 @@ GameObject:
   - component: {fileID: 407700108}
   - component: {fileID: 407700110}
   - component: {fileID: 407700109}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_cut_broom_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11230,7 +11288,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c8610f64d2afe458635502b400fcf6, type: 2}
@@ -11275,7 +11333,7 @@ GameObject:
   - component: {fileID: 425200845}
   - component: {fileID: 425200844}
   - component: {fileID: 425200843}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_crate_10a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11339,7 +11397,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -11426,7 +11484,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -11459,6 +11517,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430020067}
   m_Mesh: {fileID: 4300000, guid: 0befdb71b4163974b893ef2724e94749, type: 3}
+--- !u!1 &438676745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 438676746}
+  - component: {fileID: 438676747}
+  m_Layer: 0
+  m_Name: Adaptive Probe Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &438676746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438676745}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9208475, y: 2.3178406, z: -0.3318268}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1611240454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &438676747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438676745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cded085d155cde949b60f67a11dbc3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 2
+  size: {x: 19.128716, y: 10.944351, z: 19.701797}
+  overrideRendererFilters: 0
+  minRendererVolumeSize: 0.1
+  objectLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  lowestSubdivLevelOverride: 0
+  highestSubdivLevelOverride: 3
+  overridesSubdivLevels: 0
+  mightNeedRebaking: 0
+  cachedTransform:
+    e00: 0
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 0
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 0
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 0
+  cachedHashCode: 0
+  fillEmptySpaces: 0
+  version: 2
+  globalVolume: 0
 --- !u!1 &440952838
 GameObject:
   m_ObjectHideFlags: 0
@@ -11958,7 +12092,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -12044,7 +12178,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -12153,7 +12287,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -12198,6 +12332,8 @@ GameObject:
   - component: {fileID: 459652350}
   - component: {fileID: 459652349}
   - component: {fileID: 459652348}
+  - component: {fileID: 459652352}
+  - component: {fileID: 459652351}
   m_Layer: 7
   m_Name: fi_vil_door_square01_left
   m_TagString: Untagged
@@ -12213,13 +12349,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459652346}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.8375004, z: -0, w: 0.5464367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.31, y: 0, z: -0.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1767409532}
   m_Father: {fileID: 1823150908}
-  m_LocalEulerAnglesHint: {x: 0, y: 113.754, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &459652348
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12262,7 +12399,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -12295,6 +12432,137 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459652346}
   m_Mesh: {fileID: 4300000, guid: eea930fe9bff2094d9a672750061d4f0, type: 3}
+--- !u!114 &459652351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459652346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340f1f921d0ef3d42ab1bd0600b952f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openAngle: 110
+  openingTime: 2
+  stayOpenTime: 5
+  closingTime: 2
+  openingClips:
+  - {fileID: 8300000, guid: 60c475a6d5bffdb43bb4b71eb69b9132, type: 3}
+  closingClips:
+  - {fileID: 8300000, guid: 60c475a6d5bffdb43bb4b71eb69b9132, type: 3}
+  closedClips:
+  - {fileID: 8300000, guid: 80f85f7c9156d914890d35c6b2be956f, type: 3}
+  openingStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  openingEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  closingStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  closingEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!82 &459652352
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459652346}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6464323900965202910, guid: 954e221b2888650448cd9413a9c0f832, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &463479298
 GameObject:
   m_ObjectHideFlags: 0
@@ -12348,7 +12616,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -12457,7 +12725,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -12502,7 +12770,7 @@ GameObject:
   - component: {fileID: 469100331}
   - component: {fileID: 469100330}
   - component: {fileID: 469100329}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_crate_pallet_large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12566,7 +12834,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -12659,7 +12927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 508687180}
   - component: {fileID: 508687181}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12774,7 +13042,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -12819,7 +13087,7 @@ GameObject:
   - component: {fileID: 512705347}
   - component: {fileID: 512705346}
   - component: {fileID: 512705345}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_table02_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12882,7 +13150,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -12924,10 +13192,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 518921435}
-  - component: {fileID: 518921438}
   - component: {fileID: 518921437}
-  - component: {fileID: 518921436}
-  m_Layer: 8
+  - component: {fileID: 518921439}
+  - component: {fileID: 518921438}
+  m_Layer: 10
   m_Name: Lightsource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12949,7 +13217,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 10785689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &518921436
+--- !u!123 &518921437
+LensFlare:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518921434}
+  m_Enabled: 1
+  m_Flare: {fileID: 12100000, guid: 183c70acd2d53a44ba3eb830a7e96d7a, type: 2}
+  m_Color: {r: 1, g: 0.5803922, b: 0, a: 1}
+  m_Brightness: 1
+  m_FadeSpeed: 3
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
+--- !u!114 &518921438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13026,7 +13310,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 1
+  m_LightlayersMask: 258
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -13091,23 +13375,7 @@ MonoBehaviour:
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
---- !u!123 &518921437
-LensFlare:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518921434}
-  m_Enabled: 1
-  m_Flare: {fileID: 12100000, guid: 183c70acd2d53a44ba3eb830a7e96d7a, type: 2}
-  m_Color: {r: 1, g: 0.5803922, b: 0, a: 1}
-  m_Brightness: 1
-  m_FadeSpeed: 3
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 6
-  m_Directional: 0
---- !u!108 &518921438
+--- !u!108 &518921439
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13117,14 +13385,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 1, g: 0.8933586, b: 0.35820895, a: 1}
-  m_Intensity: 47.746483
-  m_Range: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 255}
+  m_Intensity: 1.9894367
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -13156,20 +13424,20 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_Lightmapping: 1
-  m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 0.5, y: 0.5}
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 1.08e-43, z: NaN, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 0
+  m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!1 &519055325
@@ -13183,7 +13451,7 @@ GameObject:
   - component: {fileID: 519055326}
   - component: {fileID: 519055328}
   - component: {fileID: 519055327}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_L4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13225,7 +13493,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -13334,7 +13602,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -13420,7 +13688,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -13464,7 +13732,7 @@ GameObject:
   - component: {fileID: 536754282}
   - component: {fileID: 536754284}
   - component: {fileID: 536754283}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_container_wine_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13506,7 +13774,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -13550,7 +13818,7 @@ GameObject:
   - component: {fileID: 540662745}
   - component: {fileID: 540662747}
   - component: {fileID: 540662746}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_carpet12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13592,7 +13860,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -13701,7 +13969,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -13745,7 +14013,7 @@ GameObject:
   - component: {fileID: 549435963}
   - component: {fileID: 549435965}
   - component: {fileID: 549435964}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_barrel_S4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13787,7 +14055,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -13895,7 +14163,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -13939,7 +14207,7 @@ GameObject:
   - component: {fileID: 562466135}
   - component: {fileID: 562466137}
   - component: {fileID: 562466136}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_cut_pan_large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13981,7 +14249,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c8610f64d2afe458635502b400fcf6, type: 2}
@@ -14014,6 +14282,429 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562466134}
   m_Mesh: {fileID: 4300000, guid: 41cc8a19d0273c84e8cb4bc3a60ec001, type: 3}
+--- !u!1 &564243852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564243853}
+  - component: {fileID: 564243854}
+  m_Layer: 0
+  m_Name: Microverse Clear Stamp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564243853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564243852}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9208475, y: 0, z: -0.3318268}
+  m_LocalScale: {x: 21.128716, y: 12.944351, z: 21.701813}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1611240454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564243854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564243852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97baf41d834fe4858a9eec843c145f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stampVersion: 1
+  clearTrees: 1
+  clearDetails: 1
+  clearObjects: 0
+  filterSet:
+    falloffFilter:
+      filterType: 1
+      texture: {fileID: 0}
+      textureChannel: 0
+      textureParams: {x: 1, y: 0}
+      textureRotationScale: {x: 0, y: 1, z: 0, w: 0}
+      clampTexture: 0
+      splineArea: {fileID: 0}
+      splineAreaFalloff: 0
+      splineAreaFalloffBoost: 0
+      paintArea: {fileID: 0}
+      easing:
+        blend: 0
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 100
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 1, y: 1, z: 0, w: 0}
+        channel: 0
+        displayGamma: 0
+      falloffRange: {x: 0.8, y: 1}
+      paintMask:
+        bytes: 
+        size: 256
+        updateMode: 0
+    weight: 1
+    weightNoise:
+      noiseType: 0
+      noiseSpace: 0
+      frequency: 100
+      amplitude: 1
+      offset: 0
+      balance: 0
+      texture: {fileID: 0}
+      textureST: {x: 1, y: 1, z: 0, w: 0}
+      channel: 0
+      displayGamma: 0
+    weight2Noise:
+      noiseType: 0
+      noiseSpace: 0
+      frequency: 100
+      amplitude: 1
+      offset: 0
+      balance: 0
+      texture: {fileID: 0}
+      textureST: {x: 1, y: 1, z: 0, w: 0}
+      channel: 0
+      displayGamma: 0
+    weight3Noise:
+      noiseType: 0
+      noiseSpace: 0
+      frequency: 100
+      amplitude: 1
+      offset: 0
+      balance: 0
+      texture: {fileID: 0}
+      textureST: {x: 1, y: 1, z: 0, w: 0}
+      channel: 0
+      displayGamma: 0
+    weight2NoiseOp: 0
+    weight3NoiseOp: 0
+    version: 0
+    heightFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0, y: 500}
+      smoothness: {x: 20, y: 20}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 100
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 1, y: 1, z: 0, w: 0}
+        channel: 0
+        displayGamma: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    slopeFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0, y: 18}
+      smoothness: {x: 4, y: 4}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 100
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 1, y: 1, z: 0, w: 0}
+        channel: 0
+        displayGamma: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    angleFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0, y: 90}
+      smoothness: {x: 12, y: 12}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 100
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 1, y: 1, z: 0, w: 0}
+        channel: 0
+        displayGamma: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    curvatureFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0.6, y: 1}
+      smoothness: {x: 0.1, y: 0.1}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 100
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 1, y: 1, z: 0, w: 0}
+        channel: 0
+        displayGamma: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    flowFilter:
+      enabled: 0
+      filterType: 0
+      weight: 1
+      range: {x: 0.6, y: 1}
+      smoothness: {x: 0.1, y: 0.1}
+      noise:
+        noiseType: 0
+        noiseSpace: 0
+        frequency: 100
+        amplitude: 1
+        offset: 0
+        balance: 0
+        texture: {fileID: 0}
+        textureST: {x: 1, y: 1, z: 0, w: 0}
+        channel: 0
+        displayGamma: 0
+      mipBias: 0
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.25
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.75
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      _curveTexture: {fileID: 0}
+    textureFilterEnabled: 0
+    otherTextureWeight: 1
+    textureFilters: []
 --- !u!1 &573653359
 GameObject:
   m_ObjectHideFlags: 0
@@ -14067,7 +14758,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -14176,7 +14867,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -14263,7 +14954,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -14307,7 +14998,7 @@ GameObject:
   - component: {fileID: 587145068}
   - component: {fileID: 587145070}
   - component: {fileID: 587145069}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_inkpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14349,7 +15040,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -14485,7 +15176,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -14529,7 +15220,7 @@ GameObject:
   - component: {fileID: 593529642}
   - component: {fileID: 593529644}
   - component: {fileID: 593529643}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_hang03a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14571,7 +15262,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -14615,7 +15306,7 @@ GameObject:
   - component: {fileID: 603569703}
   - component: {fileID: 603569705}
   - component: {fileID: 603569704}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_bookpile17a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14657,7 +15348,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -14701,7 +15392,7 @@ GameObject:
   - component: {fileID: 606972828}
   - component: {fileID: 606972830}
   - component: {fileID: 606972829}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_forge_broadsword1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14743,7 +15434,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d7823f7788ad82e4ea3d2f1c45ecc7c0, type: 2}
@@ -14852,7 +15543,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -14896,7 +15587,7 @@ GameObject:
   - component: {fileID: 620855967}
   - component: {fileID: 620855969}
   - component: {fileID: 620855968}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_S4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14938,7 +15629,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -14982,7 +15673,7 @@ GameObject:
   - component: {fileID: 634576018}
   - component: {fileID: 634576020}
   - component: {fileID: 634576019}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19875,7 +20566,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -19961,7 +20652,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -20005,7 +20696,7 @@ GameObject:
   - component: {fileID: 661466814}
   - component: {fileID: 661466816}
   - component: {fileID: 661466815}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_book_cluster_small01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20047,7 +20738,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -20155,7 +20846,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -20199,7 +20890,7 @@ GameObject:
   - component: {fileID: 666009709}
   - component: {fileID: 666009711}
   - component: {fileID: 666009710}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_pot_hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20241,7 +20932,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c8610f64d2afe458635502b400fcf6, type: 2}
@@ -20285,7 +20976,7 @@ GameObject:
   - component: {fileID: 679715903}
   - component: {fileID: 679715905}
   - component: {fileID: 679715904}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_book_cluster04_1missing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20327,7 +21018,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -20371,7 +21062,7 @@ GameObject:
   - component: {fileID: 685179136}
   - component: {fileID: 685179138}
   - component: {fileID: 685179137}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_hang03a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20413,7 +21104,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -20498,7 +21189,10 @@ MonoBehaviour:
       ambientAreaColor: {r: 0, g: 0, b: 1, a: 0.5}
       noisePreviewColor: {r: 1, g: 0, b: 0, a: 0.8}
       filterPreviewColor: {r: 0, g: 0, b: 1, a: 0.8}
+    gizmoVisibility: 1
   explicitTerrains: []
+  msConfig: {fileID: 0}
+  _proxyRenderMode: 0
 --- !u!4 &686491001
 Transform:
   m_ObjectHideFlags: 0
@@ -20537,7 +21231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &694288651
 Transform:
   m_ObjectHideFlags: 0
@@ -20993,7 +21687,7 @@ GameObject:
   - component: {fileID: 702581490}
   - component: {fileID: 702581492}
   - component: {fileID: 702581491}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_map07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21035,7 +21729,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -21144,7 +21838,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8dc24a3a7e4f7ab4db09042993840730, type: 2}
@@ -21253,7 +21947,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -21339,7 +22033,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -21482,7 +22176,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -21590,7 +22284,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -21634,7 +22328,7 @@ GameObject:
   - component: {fileID: 738627377}
   - component: {fileID: 738627379}
   - component: {fileID: 738627378}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_chair01_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21676,7 +22370,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -21718,7 +22412,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 756364149}
-  m_Layer: 8
+  - component: {fileID: 756364150}
+  m_Layer: 10
   m_Name: candle_flame1_smaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21743,6 +22438,24 @@ Transform:
   - {fileID: 1777500145}
   m_Father: {fileID: 1474479322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &756364150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756364148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5b5140d1db7a9488a639b87b9a5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  buildingLightType: 0
+  lights:
+  - {fileID: 1777500147}
+  particles:
+  - {fileID: 60829332}
 --- !u!1 &775583925
 GameObject:
   m_ObjectHideFlags: 0
@@ -21819,7 +22532,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -21906,7 +22619,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -21993,7 +22706,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -22026,6 +22739,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806065694}
   m_Mesh: {fileID: 4300000, guid: 169a203addeb8074092a8f5be8162139, type: 3}
+--- !u!1 &808252081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808252082}
+  - component: {fileID: 808252084}
+  - component: {fileID: 808252083}
+  m_Layer: 0
+  m_Name: Interior Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808252082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808252081}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1611240454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &808252083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808252081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 0
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: fd6a51bd6237507459f4959a4b92c605, type: 2}
+--- !u!65 &808252084
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808252081}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 23.128716, y: 10.944351, z: 23.701797}
+  m_Center: {x: 1.9208475, y: 2.3178406, z: -0.3318268}
 --- !u!1 &817886391
 GameObject:
   m_ObjectHideFlags: 0
@@ -22129,7 +22913,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -22429,7 +23213,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -22473,7 +23257,7 @@ GameObject:
   - component: {fileID: 841398446}
   - component: {fileID: 841398448}
   - component: {fileID: 841398447}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_cut_chalice_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22515,7 +23299,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c8610f64d2afe458635502b400fcf6, type: 2}
@@ -22559,7 +23343,7 @@ GameObject:
   - component: {fileID: 841856677}
   - component: {fileID: 841856679}
   - component: {fileID: 841856678}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27451,7 +28235,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -27560,7 +28344,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -27669,7 +28453,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -27714,7 +28498,7 @@ GameObject:
   - component: {fileID: 860822835}
   - component: {fileID: 860822834}
   - component: {fileID: 860822833}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_table03_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27777,7 +28561,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -27886,7 +28670,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -28235,7 +29019,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -28278,7 +29062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880979334}
   - component: {fileID: 880979335}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28426,7 +29210,7 @@ GameObject:
   - component: {fileID: 906421314}
   - component: {fileID: 906421316}
   - component: {fileID: 906421315}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_food_bread03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28468,7 +29252,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8ffc3987f6a712246b2edd5ee8071f14, type: 2}
@@ -28512,7 +29296,7 @@ GameObject:
   - component: {fileID: 927745753}
   - component: {fileID: 927745755}
   - component: {fileID: 927745754}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_L4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28554,7 +29338,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -28598,7 +29382,7 @@ GameObject:
   - component: {fileID: 930955980}
   - component: {fileID: 930955982}
   - component: {fileID: 930955981}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_container_sack03_cherries_cluster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28640,7 +29424,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5b79b010da2e35545aba15514469c454, type: 2}
@@ -28684,7 +29468,7 @@ GameObject:
   - component: {fileID: 932790277}
   - component: {fileID: 932790279}
   - component: {fileID: 932790278}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_bookpile08a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28726,7 +29510,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -28835,7 +29619,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -28878,7 +29662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951296634}
   - component: {fileID: 951296635}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28992,7 +29776,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -29036,7 +29820,7 @@ GameObject:
   - component: {fileID: 974668295}
   - component: {fileID: 974668297}
   - component: {fileID: 974668296}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29135,7 +29919,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 1
+  m_LightlayersMask: 258
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -29210,14 +29994,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.8916084, g: 0.77243596, b: 0.39257383, a: 1}
-  m_Intensity: 47.746483
-  m_Range: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.63661975
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -29249,20 +30033,20 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_Lightmapping: 1
-  m_LightShadowCasterMode: 2
+  m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: NaN, y: -3083.9658, z: NaN, w: NaN}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 0
+  m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!1 &977192151
@@ -29274,7 +30058,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 977192152}
-  m_Layer: 8
+  - component: {fileID: 977192153}
+  m_Layer: 10
   m_Name: candle_flame1_smaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29299,6 +30084,24 @@ Transform:
   - {fileID: 1387525475}
   m_Father: {fileID: 2003516952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &977192153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977192151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5b5140d1db7a9488a639b87b9a5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  buildingLightType: 0
+  lights:
+  - {fileID: 1387525477}
+  particles:
+  - {fileID: 1625872670}
 --- !u!1 &979748610
 GameObject:
   m_ObjectHideFlags: 0
@@ -29310,7 +30113,7 @@ GameObject:
   - component: {fileID: 979748611}
   - component: {fileID: 979748613}
   - component: {fileID: 979748612}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29409,7 +30212,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 1
+  m_LightlayersMask: 258
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -29484,14 +30287,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.8916084, g: 0.77243596, b: 0.39257383, a: 1}
-  m_Intensity: 47.746483
-  m_Range: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.63661975
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -29523,20 +30326,20 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_Lightmapping: 1
-  m_LightShadowCasterMode: 2
+  m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 7.2122e-41, y: NaN, z: NaN, w: NaN}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 0
+  m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!1 &983244525
@@ -29615,7 +30418,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -29657,10 +30460,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 999108144}
-  - component: {fileID: 999108147}
   - component: {fileID: 999108146}
-  - component: {fileID: 999108145}
-  m_Layer: 8
+  - component: {fileID: 999108148}
+  - component: {fileID: 999108147}
+  m_Layer: 10
   m_Name: Lightsource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29682,7 +30485,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1315175113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &999108145
+--- !u!123 &999108146
+LensFlare:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999108143}
+  m_Enabled: 1
+  m_Flare: {fileID: 12100000, guid: 183c70acd2d53a44ba3eb830a7e96d7a, type: 2}
+  m_Color: {r: 1, g: 0.5803922, b: 0, a: 1}
+  m_Brightness: 1
+  m_FadeSpeed: 3
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
+--- !u!114 &999108147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29759,7 +30578,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 1
+  m_LightlayersMask: 258
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -29824,23 +30643,7 @@ MonoBehaviour:
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
---- !u!123 &999108146
-LensFlare:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999108143}
-  m_Enabled: 1
-  m_Flare: {fileID: 12100000, guid: 183c70acd2d53a44ba3eb830a7e96d7a, type: 2}
-  m_Color: {r: 1, g: 0.5803922, b: 0, a: 1}
-  m_Brightness: 1
-  m_FadeSpeed: 3
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 6
-  m_Directional: 0
---- !u!108 &999108147
+--- !u!108 &999108148
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29850,14 +30653,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 1, g: 0.8933586, b: 0.35820895, a: 1}
-  m_Intensity: 47.746483
-  m_Range: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 255}
+  m_Intensity: 1.9894367
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -29889,20 +30692,20 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_Lightmapping: 1
-  m_LightShadowCasterMode: 2
+  m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 1.08e-43, z: NaN, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 0
+  m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!1 &1000393278
@@ -30096,7 +30899,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -30189,7 +30992,7 @@ GameObject:
   - component: {fileID: 1018800265}
   - component: {fileID: 1018800267}
   - component: {fileID: 1018800266}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35017,7 +35820,7 @@ GameObject:
   - component: {fileID: 1019706996}
   - component: {fileID: 1019706998}
   - component: {fileID: 1019706997}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39845,7 +40648,7 @@ GameObject:
   - component: {fileID: 1029240844}
   - component: {fileID: 1029240846}
   - component: {fileID: 1029240845}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_chair01_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39887,7 +40690,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -39996,7 +40799,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -40040,7 +40843,7 @@ GameObject:
   - component: {fileID: 1039935852}
   - component: {fileID: 1039935854}
   - component: {fileID: 1039935853}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_crate_05e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40082,7 +40885,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -40126,7 +40929,7 @@ GameObject:
   - component: {fileID: 1045401586}
   - component: {fileID: 1045401588}
   - component: {fileID: 1045401587}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_bucket01b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40168,7 +40971,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -40277,7 +41080,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -40386,7 +41189,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -40495,7 +41298,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -40929,7 +41732,7 @@ GameObject:
   - component: {fileID: 1086180778}
   - component: {fileID: 1086180780}
   - component: {fileID: 1086180779}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_carpet12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40971,7 +41774,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -41015,7 +41818,7 @@ GameObject:
   - component: {fileID: 1089486632}
   - component: {fileID: 1089486634}
   - component: {fileID: 1089486633}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_map01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41057,7 +41860,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -41144,7 +41947,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -41188,7 +41991,7 @@ GameObject:
   - component: {fileID: 1101548483}
   - component: {fileID: 1101548485}
   - component: {fileID: 1101548484}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_book_open01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41230,7 +42033,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -41339,7 +42142,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: aa1111c3e362c0044934064b5a50bb56, type: 2}
@@ -41383,7 +42186,7 @@ GameObject:
   - component: {fileID: 1113594905}
   - component: {fileID: 1113594907}
   - component: {fileID: 1113594906}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_chair01_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41425,7 +42228,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -41467,7 +42270,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1115484310}
-  m_Layer: 8
+  - component: {fileID: 1115484311}
+  m_Layer: 10
   m_Name: candle_flame1_smaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41492,6 +42296,24 @@ Transform:
   - {fileID: 1926894235}
   m_Father: {fileID: 1611687043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1115484311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115484309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5b5140d1db7a9488a639b87b9a5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  buildingLightType: 0
+  lights:
+  - {fileID: 1926894237}
+  particles:
+  - {fileID: 1019706998}
 --- !u!1 &1115659343
 GameObject:
   m_ObjectHideFlags: 0
@@ -41545,7 +42367,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -41654,7 +42476,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -41814,7 +42636,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -41922,7 +42744,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -42031,7 +42853,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -42075,7 +42897,7 @@ GameObject:
   - component: {fileID: 1153926881}
   - component: {fileID: 1153926883}
   - component: {fileID: 1153926882}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_bookshelf02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42117,7 +42939,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -42166,7 +42988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1156610103
 Transform:
   m_ObjectHideFlags: 0
@@ -43049,7 +43871,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -43135,7 +43957,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -43246,7 +44068,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -43290,7 +44112,7 @@ GameObject:
   - component: {fileID: 1190780858}
   - component: {fileID: 1190780860}
   - component: {fileID: 1190780859}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_food_meat_beef_coocked05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43332,7 +44154,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8ffc3987f6a712246b2edd5ee8071f14, type: 2}
@@ -43376,7 +44198,7 @@ GameObject:
   - component: {fileID: 1193194683}
   - component: {fileID: 1193194685}
   - component: {fileID: 1193194684}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_bookpile14b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43418,7 +44240,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -43463,7 +44285,7 @@ GameObject:
   - component: {fileID: 1196746260}
   - component: {fileID: 1196746259}
   - component: {fileID: 1196746258}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_bed04_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43526,7 +44348,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0b5b0508938634b449c5ca578f4bc6ee, type: 2}
@@ -43635,7 +44457,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -43744,7 +44566,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -43788,7 +44610,7 @@ GameObject:
   - component: {fileID: 1205608432}
   - component: {fileID: 1205608434}
   - component: {fileID: 1205608433}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_food_meat_beef_coocked04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43830,7 +44652,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8ffc3987f6a712246b2edd5ee8071f14, type: 2}
@@ -43874,7 +44696,7 @@ GameObject:
   - component: {fileID: 1207348871}
   - component: {fileID: 1207348873}
   - component: {fileID: 1207348872}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_chair01_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43916,7 +44738,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -44051,7 +44873,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -44095,7 +44917,7 @@ GameObject:
   - component: {fileID: 1227697314}
   - component: {fileID: 1227697316}
   - component: {fileID: 1227697315}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_chair01_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44137,7 +44959,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -44181,7 +45003,7 @@ GameObject:
   - component: {fileID: 1230261585}
   - component: {fileID: 1230261587}
   - component: {fileID: 1230261586}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_unit_fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44225,7 +45047,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d7823f7788ad82e4ea3d2f1c45ecc7c0, type: 2}
@@ -44334,7 +45156,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -44379,7 +45201,7 @@ GameObject:
   - component: {fileID: 1247574379}
   - component: {fileID: 1247574378}
   - component: {fileID: 1247574377}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_bookstand_used01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44447,7 +45269,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -44556,7 +45378,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -44665,7 +45487,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -44786,7 +45608,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -44895,7 +45717,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -44939,7 +45761,7 @@ GameObject:
   - component: {fileID: 1279307564}
   - component: {fileID: 1279307566}
   - component: {fileID: 1279307565}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49720,7 +50542,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -49806,7 +50628,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -49850,7 +50672,7 @@ GameObject:
   - component: {fileID: 1290810774}
   - component: {fileID: 1290810776}
   - component: {fileID: 1290810775}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_L4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49892,7 +50714,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -49934,7 +50756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1295562021}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Props
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49978,7 +50800,7 @@ GameObject:
   - component: {fileID: 1298329053}
   - component: {fileID: 1298329055}
   - component: {fileID: 1298329054}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_S4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50020,7 +50842,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -50064,7 +50886,7 @@ GameObject:
   - component: {fileID: 1299722310}
   - component: {fileID: 1299722312}
   - component: {fileID: 1299722311}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_barrel_L3f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50106,7 +50928,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -50148,7 +50970,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1315175113}
-  m_Layer: 8
+  - component: {fileID: 1315175114}
+  m_Layer: 10
   m_Name: cooking_fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50173,6 +50996,25 @@ Transform:
   - {fileID: 2043637203}
   m_Father: {fileID: 1230261585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315175114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315175112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5b5140d1db7a9488a639b87b9a5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  buildingLightType: 2
+  lights:
+  - {fileID: 999108148}
+  particles:
+  - {fileID: 1877213360}
+  - {fileID: 2043637205}
 --- !u!1 &1321298932
 GameObject:
   m_ObjectHideFlags: 0
@@ -50183,7 +51025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1321298933}
   - component: {fileID: 1321298934}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50231,7 +51073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1333023701}
   - component: {fileID: 1333023702}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50357,7 +51199,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -50644,7 +51486,7 @@ GameObject:
   - component: {fileID: 1354206915}
   - component: {fileID: 1354206917}
   - component: {fileID: 1354206916}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_shield04_combo01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50688,7 +51530,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7e44fe23df43e0f42a5d5a60df332e2c, type: 2}
@@ -50732,7 +51574,7 @@ GameObject:
   - component: {fileID: 1362135375}
   - component: {fileID: 1362135377}
   - component: {fileID: 1362135376}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_container_wine_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50774,7 +51616,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -50818,7 +51660,7 @@ GameObject:
   - component: {fileID: 1363183299}
   - component: {fileID: 1363183301}
   - component: {fileID: 1363183300}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55565,7 +56407,7 @@ GameObject:
   - component: {fileID: 1365338834}
   - component: {fileID: 1365338836}
   - component: {fileID: 1365338835}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_map02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55607,7 +56449,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -55651,7 +56493,7 @@ GameObject:
   - component: {fileID: 1387525475}
   - component: {fileID: 1387525477}
   - component: {fileID: 1387525476}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55750,7 +56592,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 1
+  m_LightlayersMask: 258
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -55825,14 +56667,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.8916084, g: 0.77243596, b: 0.39257383, a: 1}
-  m_Intensity: 47.746483
-  m_Range: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.63661975
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -55864,20 +56706,20 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_Lightmapping: 1
-  m_LightShadowCasterMode: 2
+  m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 1.08e-43, z: NaN, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 0
+  m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!1 &1393059678
@@ -55989,7 +56831,7 @@ GameObject:
   - component: {fileID: 1403139987}
   - component: {fileID: 1403139989}
   - component: {fileID: 1403139988}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_hang03a (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56031,7 +56873,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -56141,7 +56983,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -56250,7 +57092,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -56336,7 +57178,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -56415,7 +57257,7 @@ GameObject:
   - component: {fileID: 1414686183}
   - component: {fileID: 1414686185}
   - component: {fileID: 1414686184}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_bookpile17b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56457,7 +57299,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -56543,7 +57385,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -56629,7 +57471,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -56738,7 +57580,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -56847,7 +57689,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -56891,7 +57733,7 @@ GameObject:
   - component: {fileID: 1452085576}
   - component: {fileID: 1452085578}
   - component: {fileID: 1452085577}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_carpet03c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56933,7 +57775,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -57465,7 +58307,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -57574,7 +58416,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -57618,7 +58460,7 @@ GameObject:
   - component: {fileID: 1474479322}
   - component: {fileID: 1474479324}
   - component: {fileID: 1474479323}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_combs_props_candle_yellow_single01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57661,7 +58503,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f18dae15ee617da43b1f5815882539f8, type: 2}
@@ -57705,7 +58547,7 @@ GameObject:
   - component: {fileID: 1486264274}
   - component: {fileID: 1486264276}
   - component: {fileID: 1486264275}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_book_cluster_medium05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57747,7 +58589,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -57792,7 +58634,7 @@ GameObject:
   - component: {fileID: 1505526235}
   - component: {fileID: 1505526234}
   - component: {fileID: 1505526233}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_wagons_wood_pine_axesingle_blockB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57856,7 +58698,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 097db94fca2ef254d84ca6bf9795baa5, type: 2}
@@ -58413,7 +59255,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8dc24a3a7e4f7ab4db09042993840730, type: 2}
@@ -58462,7 +59304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1530185305
 Transform:
   m_ObjectHideFlags: 0
@@ -58572,7 +59414,7 @@ GameObject:
   - component: {fileID: 1531700207}
   - component: {fileID: 1531700209}
   - component: {fileID: 1531700208}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_crate_04f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58614,7 +59456,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -58656,7 +59498,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1538678255}
-  m_Layer: 8
+  - component: {fileID: 1538678256}
+  m_Layer: 10
   m_Name: candle_flame1_smaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58681,6 +59524,24 @@ Transform:
   - {fileID: 2099982151}
   m_Father: {fileID: 2143492290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1538678256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538678254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5b5140d1db7a9488a639b87b9a5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  buildingLightType: 0
+  lights:
+  - {fileID: 2099982153}
+  particles:
+  - {fileID: 634576020}
 --- !u!1 &1543118950
 GameObject:
   m_ObjectHideFlags: 0
@@ -58734,7 +59595,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -58778,7 +59639,7 @@ GameObject:
   - component: {fileID: 1545255489}
   - component: {fileID: 1545255491}
   - component: {fileID: 1545255490}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_Stall12_a_canv_red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58820,7 +59681,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -58864,7 +59725,7 @@ GameObject:
   - component: {fileID: 1550081995}
   - component: {fileID: 1550081997}
   - component: {fileID: 1550081996}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_combs_props_candle_yellow_single01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58907,7 +59768,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f18dae15ee617da43b1f5815882539f8, type: 2}
@@ -58949,7 +59810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1554271267}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: candle_flame1_smaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59084,7 +59945,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -59171,7 +60032,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -59215,7 +60076,7 @@ GameObject:
   - component: {fileID: 1577958022}
   - component: {fileID: 1577958024}
   - component: {fileID: 1577958023}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64108,7 +64969,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -64666,7 +65527,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -64752,7 +65613,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -64796,7 +65657,7 @@ GameObject:
   - component: {fileID: 1600475960}
   - component: {fileID: 1600475962}
   - component: {fileID: 1600475961}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_book_cluster_small02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64838,7 +65699,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -64880,6 +65741,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1611240454}
+  - component: {fileID: 1611240456}
+  - component: {fileID: 1611240455}
   m_Layer: 0
   m_Name: House12
   m_TagString: Untagged
@@ -64908,8 +65771,56 @@ Transform:
   - {fileID: 66295054}
   - {fileID: 1906543492}
   - {fileID: 1756761653}
+  - {fileID: 438676746}
+  - {fileID: 808252082}
+  - {fileID: 564243853}
+  - {fileID: 1718796162}
   m_Father: {fileID: 686491001}
   m_LocalEulerAnglesHint: {x: 0, y: -314.531, z: 0}
+--- !u!114 &1611240455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611240453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caac6552e5388640a5c1e6cc4df484b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  candleLights:
+  - {fileID: 1115484311}
+  - {fileID: 131029926}
+  - {fileID: 1538678256}
+  - {fileID: 386899709}
+  - {fileID: 2109499340}
+  - {fileID: 756364150}
+  - {fileID: 977192153}
+  cookingLights:
+  - {fileID: 10785690}
+  - {fileID: 1315175114}
+--- !u!114 &1611240456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611240453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2580c02b0eb19cb4a88e89555320d460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interiors:
+  - {fileID: 1412883287}
+  exteriors:
+  - {fileID: 1127881563}
+  interiorProps:
+  - {fileID: 1748987556}
+  exteriorProps:
+  - {fileID: 1295562020}
 --- !u!1 &1611687042
 GameObject:
   m_ObjectHideFlags: 0
@@ -64921,7 +65832,7 @@ GameObject:
   - component: {fileID: 1611687043}
   - component: {fileID: 1611687045}
   - component: {fileID: 1611687044}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_light_candle_cluster01_lit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64965,7 +65876,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 05a6b76d444e9f747b83e88e455365d2, type: 2}
@@ -65066,7 +65977,7 @@ GameObject:
   - component: {fileID: 1621971553}
   - component: {fileID: 1621971555}
   - component: {fileID: 1621971554}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69936,7 +70847,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -69980,7 +70891,7 @@ GameObject:
   - component: {fileID: 1625872668}
   - component: {fileID: 1625872670}
   - component: {fileID: 1625872669}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74808,7 +75719,7 @@ GameObject:
   - component: {fileID: 1630015945}
   - component: {fileID: 1630015947}
   - component: {fileID: 1630015946}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_unit_grill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74850,7 +75761,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c8610f64d2afe458635502b400fcf6, type: 2}
@@ -75035,7 +75946,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -75171,7 +76082,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -75280,7 +76191,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -75324,7 +76235,7 @@ GameObject:
   - component: {fileID: 1657984916}
   - component: {fileID: 1657984918}
   - component: {fileID: 1657984917}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_container_crate_small_fruit02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75366,7 +76277,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -75409,7 +76320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1660972066}
   - component: {fileID: 1660972067}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75525,7 +76436,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -75569,7 +76480,7 @@ GameObject:
   - component: {fileID: 1698097333}
   - component: {fileID: 1698097335}
   - component: {fileID: 1698097334}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_container_sack03_cherries_leaning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75611,7 +76522,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5b79b010da2e35545aba15514469c454, type: 2}
@@ -75655,7 +76566,7 @@ GameObject:
   - component: {fileID: 1699138912}
   - component: {fileID: 1699138914}
   - component: {fileID: 1699138913}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_hang03a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75697,7 +76608,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -75833,7 +76744,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -75942,7 +76853,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -75975,6 +76886,121 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715669020}
   m_Mesh: {fileID: 4300000, guid: f8d1bfc1b938fa9408d5594869eed8dd, type: 3}
+--- !u!1 &1718796161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1718796162}
+  - component: {fileID: 1718796163}
+  m_Layer: 0
+  m_Name: Microverse Height Stamp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1718796162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718796161}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9208475, y: -0.2, z: -0.3318268}
+  m_LocalScale: {x: 24.128716, y: 15.944351, z: 24.701813}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1611240454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1718796163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718796161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46dcf383b4434ac0a71a028e5ff4cad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stampVersion: 1
+  stamp: {fileID: 0}
+  mode: 2
+  falloff:
+    filterType: 1
+    texture: {fileID: 0}
+    textureChannel: 0
+    textureParams: {x: 1, y: 0}
+    textureRotationScale: {x: 0, y: 1, z: 0, w: 0}
+    clampTexture: 0
+    splineArea: {fileID: 0}
+    splineAreaFalloff: 0
+    splineAreaFalloffBoost: 0
+    paintArea: {fileID: 0}
+    easing:
+      blend: 0
+    noise:
+      noiseType: 0
+      noiseSpace: 0
+      frequency: 10
+      amplitude: 1
+      offset: 0
+      balance: 0
+      texture: {fileID: 0}
+      textureST: {x: 1, y: 1, z: 0, w: 0}
+      channel: 0
+      displayGamma: 0
+    falloffRange: {x: 0, y: 0}
+    paintMask:
+      bytes: 
+      size: 256
+      updateMode: 0
+  twist: 0
+  erosion: 0
+  erosionSize: 4
+  power: 1
+  invert: 0
+  useHeightRemap: 0
+  remapCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  blend: 1
+  remapRange: {x: 0, y: 1}
+  scaleOffset: {x: 1, y: 1, z: 0, w: 0}
+  tiltX: 0
+  tiltZ: 0
+  tiltScaleX: 0
+  tiltScaleZ: 0
+  mipBias: 0
+  version: 2
 --- !u!1 &1722827151
 GameObject:
   m_ObjectHideFlags: 0
@@ -76029,7 +77055,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -76139,7 +77165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1748987557}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Props
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76252,7 +77278,7 @@ GameObject:
   - component: {fileID: 1755655379}
   - component: {fileID: 1755655381}
   - component: {fileID: 1755655380}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_hang03a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76294,7 +77320,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -76802,6 +77828,72 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &1767409531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767409532}
+  - component: {fileID: 1767409534}
+  - component: {fileID: 1767409533}
+  m_Layer: 0
+  m_Name: Door Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1767409532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767409531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 459652347}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1767409533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767409531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d209d2e457e3f5343833b6e988118b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1767409534
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767409531}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3352545, y: 2, z: 2}
+  m_Center: {x: -0.0000047683716, y: 0, z: 0.7380135}
 --- !u!1 &1769337512
 GameObject:
   m_ObjectHideFlags: 0
@@ -76813,7 +77905,7 @@ GameObject:
   - component: {fileID: 1769337513}
   - component: {fileID: 1769337515}
   - component: {fileID: 1769337514}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_combs_props_candle_yellow_single01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76856,7 +77948,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f18dae15ee617da43b1f5815882539f8, type: 2}
@@ -76965,7 +78057,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -77009,7 +78101,7 @@ GameObject:
   - component: {fileID: 1777500145}
   - component: {fileID: 1777500147}
   - component: {fileID: 1777500146}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77108,7 +78200,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 1
+  m_LightlayersMask: 258
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -77184,13 +78276,13 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 47.746483
-  m_Range: 1.59
+  m_Intensity: 0.63661975
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -77222,20 +78314,20 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 2
-  m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 0.5, y: 0.5}
+  m_RenderingLayerMask: 2
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 2.7655e-41, y: 2.524355e-29, z: 0, w: 3e-45}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 0
+  m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!1 &1782540114
@@ -77292,7 +78384,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -77336,7 +78428,7 @@ GameObject:
   - component: {fileID: 1785903124}
   - component: {fileID: 1785903126}
   - component: {fileID: 1785903125}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_book_cluster_small03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77378,7 +78470,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -77580,7 +78672,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -77688,7 +78780,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -77797,7 +78889,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -77884,7 +78976,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -77928,7 +79020,7 @@ GameObject:
   - component: {fileID: 1807816332}
   - component: {fileID: 1807816334}
   - component: {fileID: 1807816333}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_hang05_combo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77970,7 +79062,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c8610f64d2afe458635502b400fcf6, type: 2}
@@ -78014,7 +79106,7 @@ GameObject:
   - component: {fileID: 1815712983}
   - component: {fileID: 1815712985}
   - component: {fileID: 1815712984}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_barrel_L4e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78056,7 +79148,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -78219,7 +79311,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -78263,7 +79355,7 @@ GameObject:
   - component: {fileID: 1855323799}
   - component: {fileID: 1855323801}
   - component: {fileID: 1855323800}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_trophy01_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78305,7 +79397,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -78392,7 +79484,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -78436,7 +79528,7 @@ GameObject:
   - component: {fileID: 1877213358}
   - component: {fileID: 1877213360}
   - component: {fileID: 1877213359}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83216,7 +84308,7 @@ GameObject:
   - component: {fileID: 1883225552}
   - component: {fileID: 1883225554}
   - component: {fileID: 1883225553}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_barrel_L4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83258,7 +84350,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -83369,7 +84461,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -83455,7 +84547,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -83504,7 +84596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1904043712
 Transform:
   m_ObjectHideFlags: 0
@@ -84398,7 +85490,7 @@ GameObject:
   - component: {fileID: 1913746642}
   - component: {fileID: 1913746641}
   - component: {fileID: 1913746640}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_unit02_c_lit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84465,7 +85557,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -84510,7 +85602,7 @@ GameObject:
   - component: {fileID: 1918209269}
   - component: {fileID: 1918209268}
   - component: {fileID: 1918209267}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_bed04_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84573,7 +85665,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0b5b0508938634b449c5ca578f4bc6ee, type: 2}
@@ -84681,7 +85773,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -84767,7 +85859,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c52c4f4e1b68b438df50ec9bfa1849, type: 2}
@@ -84811,7 +85903,7 @@ GameObject:
   - component: {fileID: 1926894235}
   - component: {fileID: 1926894237}
   - component: {fileID: 1926894236}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84985,20 +86077,20 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.8916084, g: 0.77243596, b: 0.39257383, a: 1}
-  m_Intensity: 47.746483
-  m_Range: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0
-    m_NormalBias: 0.17
-    m_NearPlane: 0.01
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -85025,19 +86117,19 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
-  m_LightShadowCasterMode: 2
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
-  m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: NaN, y: NaN, z: 0, w: -1.8885971e+23}
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 0
+  m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!1 &1926982888
@@ -85165,7 +86257,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -85209,7 +86301,7 @@ GameObject:
   - component: {fileID: 1950143488}
   - component: {fileID: 1950143490}
   - component: {fileID: 1950143489}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_woven_hang03a (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85251,7 +86343,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31f51418fff94604d9f5cdf08eee6672, type: 2}
@@ -85359,7 +86451,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -85468,7 +86560,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -85577,7 +86669,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -85666,7 +86758,7 @@ GameObject:
   - component: {fileID: 1985038552}
   - component: {fileID: 1985038554}
   - component: {fileID: 1985038553}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fe_vil_crate_05e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85708,7 +86800,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -85817,7 +86909,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -85861,7 +86953,7 @@ GameObject:
   - component: {fileID: 2003516952}
   - component: {fileID: 2003516954}
   - component: {fileID: 2003516953}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_combs_props_candle_yellow_single01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85904,7 +86996,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f18dae15ee617da43b1f5815882539f8, type: 2}
@@ -85948,7 +87040,7 @@ GameObject:
   - component: {fileID: 2006195262}
   - component: {fileID: 2006195264}
   - component: {fileID: 2006195263}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_chair01_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85990,7 +87082,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -86150,7 +87242,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -86259,7 +87351,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -86352,7 +87444,7 @@ GameObject:
   - component: {fileID: 2031867242}
   - component: {fileID: 2031867244}
   - component: {fileID: 2031867243}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_forge_broadsword1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86394,7 +87486,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d7823f7788ad82e4ea3d2f1c45ecc7c0, type: 2}
@@ -86439,7 +87531,7 @@ GameObject:
   - component: {fileID: 2035867552}
   - component: {fileID: 2035867551}
   - component: {fileID: 2035867550}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_crate_pallet_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86503,7 +87595,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 17e9b9ea0778b1846bcdafb0ec17bb16, type: 2}
@@ -86547,7 +87639,7 @@ GameObject:
   - component: {fileID: 2038353947}
   - component: {fileID: 2038353949}
   - component: {fileID: 2038353948}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_barrel_L4d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86589,7 +87681,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -86700,7 +87792,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -86744,7 +87836,7 @@ GameObject:
   - component: {fileID: 2042669541}
   - component: {fileID: 2042669543}
   - component: {fileID: 2042669542}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: fe_vil_barrel_S4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86786,7 +87878,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0f01ae681ec44e74699cf5571022882a, type: 2}
@@ -86830,7 +87922,7 @@ GameObject:
   - component: {fileID: 2043637203}
   - component: {fileID: 2043637205}
   - component: {fileID: 2043637204}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Sparkles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91633,7 +92725,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}
@@ -91742,7 +92834,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -91786,7 +92878,7 @@ GameObject:
   - component: {fileID: 2084664237}
   - component: {fileID: 2084664239}
   - component: {fileID: 2084664238}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_furniture_bookshelf05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91828,7 +92920,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 470cc9557bcfd2544a3d520568324650, type: 2}
@@ -91872,7 +92964,7 @@ GameObject:
   - component: {fileID: 2084750581}
   - component: {fileID: 2084750583}
   - component: {fileID: 2084750582}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_library_map01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91914,7 +93006,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1f62ca4355194f6468cf2b4520b73792, type: 2}
@@ -92001,7 +93093,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 5
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c4401510f3cbe944a203a24e7eb59b0, type: 2}
@@ -92045,7 +93137,7 @@ GameObject:
   - component: {fileID: 2099982151}
   - component: {fileID: 2099982153}
   - component: {fileID: 2099982152}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92144,7 +93236,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 1
+  m_LightlayersMask: 258
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -92219,14 +93311,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.8916084, g: 0.77243596, b: 0.39257383, a: 1}
-  m_Intensity: 47.746483
-  m_Range: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.63661975
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -92258,20 +93350,20 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_Lightmapping: 1
-  m_LightShadowCasterMode: 2
+  m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 4000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 1.08e-43, z: NaN, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 0
+  m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
 --- !u!1 &2102648849
@@ -92350,7 +93442,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -92392,7 +93484,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2109499339}
-  m_Layer: 8
+  - component: {fileID: 2109499340}
+  m_Layer: 10
   m_Name: candle_flame1_smaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92417,6 +93510,24 @@ Transform:
   - {fileID: 979748611}
   m_Father: {fileID: 1769337513}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2109499340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109499338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5b5140d1db7a9488a639b87b9a5e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findLightsOnAwake: 0
+  buildingLightType: 0
+  lights:
+  - {fileID: 979748613}
+  particles:
+  - {fileID: 1018800267}
 --- !u!1 &2112497295
 GameObject:
   m_ObjectHideFlags: 0
@@ -92428,7 +93539,7 @@ GameObject:
   - component: {fileID: 2112497296}
   - component: {fileID: 2112497298}
   - component: {fileID: 2112497297}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_food_cheese02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92470,7 +93581,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8ffc3987f6a712246b2edd5ee8071f14, type: 2}
@@ -92579,7 +93690,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -92623,7 +93734,7 @@ GameObject:
   - component: {fileID: 2117651097}
   - component: {fileID: 2117651099}
   - component: {fileID: 2117651098}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_kitch_hang06_combo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92665,7 +93776,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b1c8610f64d2afe458635502b400fcf6, type: 2}
@@ -92709,7 +93820,7 @@ GameObject:
   - component: {fileID: 2134847786}
   - component: {fileID: 2134847788}
   - component: {fileID: 2134847787}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_combs_props_candle_yellow_single01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92752,7 +93863,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f18dae15ee617da43b1f5815882539f8, type: 2}
@@ -92861,7 +93972,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ac6c9d22292fc145b97d5cdf07a7597, type: 2}
@@ -92966,7 +94077,7 @@ GameObject:
   - component: {fileID: 2143492290}
   - component: {fileID: 2143492292}
   - component: {fileID: 2143492291}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: fi_vil_combs_props_candle_yellow_single01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93009,7 +94120,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f18dae15ee617da43b1f5815882539f8, type: 2}
@@ -93118,7 +94229,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f909e5fb715da5145bcf1bb920db5d40, type: 2}

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.Buildings
@@ -8,6 +9,7 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
     {
         [BoxGroup("Settings")] [SerializeField] private bool findLightsOnAwake;
         [BoxGroup("Building Lights")] [SerializeField] private List<BuildingLight> candleLights;
+        [BoxGroup("Building Lights")] [SerializeField] private List<BuildingLight> cookingLights;
 
         #region Startup
 
@@ -30,10 +32,16 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
             BuildingLight[] allLights = gameObject.GetComponentsInChildren<BuildingLight>(true);
             foreach (BuildingLight currLight in allLights)
             {
-                if (currLight.BuildingLightType == BuildingLightType.IndoorCandle)
+                currLight.UpdateLights();
+
+                switch (currLight.BuildingLightType)
                 {
-                    currLight.UpdateLights();
-                    candleLights.Add(currLight);
+                    case BuildingLightType.IndoorCandle:
+                        candleLights.Add(currLight);
+                        break;
+                    case BuildingLightType.IndoorCooking:
+                        cookingLights.Add(currLight);
+                        break;
                 }
             }
         }
@@ -49,6 +57,19 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
         {
             SetLightsState(candleLights, false);
         }
+
+        [Button("Turn On Cooking")]
+        public void TurnOnCookingLights()
+        {
+            SetLightsState(cookingLights, true);
+        }
+
+        [Button("Turn Off Cooking")]
+        public void TurnOffCookingLights()
+        {
+            SetLightsState(cookingLights, false);
+        }
+
 
         private void SetLightsState(List<BuildingLight> lights, bool state)
         {
