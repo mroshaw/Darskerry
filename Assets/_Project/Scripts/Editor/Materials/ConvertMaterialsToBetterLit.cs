@@ -76,7 +76,8 @@ public class ConvertMaterialsToBetterLitWindow : OdinEditorWindow
                 textureImporter.swizzleR = TextureImporterSwizzle.R;
                 textureImporter.swizzleG = TextureImporterSwizzle.G;
                 textureImporter.swizzleB = TextureImporterSwizzle.B;
-                textureImporter.swizzleA = TextureImporterSwizzle.OneMinusA;
+                // textureImporter.swizzleA = TextureImporterSwizzle.OneMinusA;
+                textureImporter.swizzleA = TextureImporterSwizzle.A;
                 Debug.Log($"Alpha swizzle set to '1-A' for texture: {assetPath}");
 
                 AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceUpdate);
