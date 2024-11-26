@@ -5,17 +5,11 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace DaftAppleGames.Darskerry.Editor.BuildTool
+namespace Assets._Project.Scripts.Editor.EditorTools
 {
     public class SceneLoaderWindow : OdinEditorWindow
     {
-        [HideIf("@mainMenuSceneAsset != null")][SerializeField] private SceneAsset mainMenuSceneAsset;
-
-        [HideIf("@gameSceneAsset != null")][SerializeField] private SceneAsset gameSceneAsset;
-
-        [HideIf("@gameWorldSceneAsset != null")][SerializeField] private SceneAsset gameWorldSceneAsset;
-
-        [HideIf("@emptySceneAsset != null")][SerializeField] private SceneAsset emptySceneAsset;
+        [HideIf("@sceneLoaderSettings != null")] [SerializeField] private SceneLoaderSettings sceneLoaderSettings;
 
         // Display Editor Window
         [MenuItem("Daft Apple Games/Editor/Scene Loader")]
@@ -31,7 +25,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
         private void LoadMainMenuScenes()
         {
             EditorSceneManager.SaveOpenScenes();
-            OpenScene(mainMenuSceneAsset);
+            OpenScene(sceneLoaderSettings.mainMenuSceneAsset);
             CallAdditiveLoader();
         }
 
@@ -40,7 +34,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
         private void LoadGameScenes()
         {
             EditorSceneManager.SaveOpenScenes();
-            OpenScene(gameSceneAsset);
+            OpenScene(sceneLoaderSettings.gameSceneAsset);
             CallAdditiveLoader();
         }
 
@@ -49,7 +43,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
         private void LoadGameWorldScenes()
         {
             EditorSceneManager.SaveOpenScenes();
-            OpenScene(gameWorldSceneAsset);
+            OpenScene(sceneLoaderSettings.gameWorldSceneAsset);
             CallAdditiveLoader();
         }
 
@@ -58,7 +52,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
         private void LoadEmptyScene()
         {
             EditorSceneManager.SaveOpenScenes();
-            OpenScene(emptySceneAsset);
+            OpenScene(sceneLoaderSettings.emptySceneAsset);
             CallAdditiveLoader();
         }
 

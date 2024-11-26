@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca80d67b1a147241b9f0f96f73d552c, type: 3}
+  m_Name: MainMenuAdditiveSceneLoaderSettings
+  m_EditorClassIdentifier: 
+  loaderScene:
+    sceneName: MainMenuLoaderScene
+    sceneAsset: {fileID: 102900000, guid: 07a9bf3c8612b4a44854fec3436deca8, type: 3}
+    isMain: 0
+  additiveScenes:
+  - sceneName: MainMenuLightingScene
+    sceneAsset: {fileID: 102900000, guid: 60e7dd2cae9fb1948ba0a625ba823842, type: 3}
+    isMain: 0
+  - sceneName: GameWorldScene
+    sceneAsset: {fileID: 102900000, guid: 81d71935b4dd8864ea89eccd1ee9a600, type: 3}
+    isMain: 0
+  - sceneName: MainMenuScene
+    sceneAsset: {fileID: 102900000, guid: 51524a99b7908934496629631bc786f7, type: 3}
+    isMain: 1
