@@ -62,8 +62,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps
 
         public FootstepSurface GetSurfaceFromTextureName(string textureName)
         {
-            FootstepSurface surface = _footstepSurfaceDict[textureName];
-            return surface ? surface : defaultSurface;
+            return _footstepSurfaceDict.GetValueOrDefault(textureName, defaultSurface);
         }
 
         public void SpawnFootStepParticleFx(Vector3 spawnPosition, Quaternion spawnRotation)

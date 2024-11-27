@@ -2296,7 +2296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3652467136335270844
 Transform:
   m_ObjectHideFlags: 0
@@ -2418,6 +2418,7 @@ MonoBehaviour:
     minMoveDistance: 0
     maxMovementIterations: 5
     maxDepenetrationIterations: 1
+    useFastGeomNormalPath: 0
     enablePhysicsInteraction: 0
     allowPushCharacters: 0
     impartPlatformMovement: 0
@@ -2682,8 +2683,10 @@ MonoBehaviour:
   _standingDownwardForceScale: 1
   _camera: {fileID: 0}
   sprintSpeed: 0.3
-  rollSpeed: 1
-  _rollImpulse: 0
+  rollImpulse: 0
+  maxHealth: 100
+  maxStamina: 100
+  currentHealth: 100
 --- !u!114 &6856886333460779344
 MonoBehaviour:
   m_ObjectHideFlags: 0
