@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.Buildings
@@ -10,6 +9,7 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
         [BoxGroup("Settings")] [SerializeField] private bool findLightsOnAwake;
         [BoxGroup("Building Lights")] [SerializeField] private List<BuildingLight> candleLights;
         [BoxGroup("Building Lights")] [SerializeField] private List<BuildingLight> cookingLights;
+        [BoxGroup("Building Lights")] [SerializeField] private List<BuildingLight> outdoorLights;
 
         #region Startup
 
@@ -29,6 +29,8 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
         public void UpdateLights()
         {
             candleLights = new List<BuildingLight>();
+            cookingLights = new List<BuildingLight>();
+            outdoorLights = new List<BuildingLight>();
             BuildingLight[] allLights = gameObject.GetComponentsInChildren<BuildingLight>(true);
             foreach (BuildingLight currLight in allLights)
             {
@@ -42,6 +44,10 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
                     case BuildingLightType.IndoorCooking:
                         cookingLights.Add(currLight);
                         break;
+                    case BuildingLightType.OutdoorCandle:
+                        outdoorLights.Add(currLight);
+                        break;
+
                 }
             }
         }
@@ -56,6 +62,18 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
         public void TurnOffCandleLights()
         {
             SetLightsState(candleLights, false);
+        }
+
+        [Button("Turn On Outdoor Lights")]
+        public void TurnOnOutdoorLights()
+        {
+            SetLightsState(outdoorLights, true);
+        }
+
+        [Button("Turn Off Outdoor Lights")]
+        public void TurnOffOutdoorLights()
+        {
+            SetLightsState(outdoorLights, false);
         }
 
         [Button("Turn On Cooking")]

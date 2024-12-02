@@ -19,7 +19,10 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.AnimBehaviou
                 return;
             }
 
-            Character.StartCoroutine(PlayClipAsync());
+            if (Character.gameObject.activeSelf)
+            {
+                Character.StartCoroutine(PlayClipAsync());
+            }
         }
 
         private IEnumerator PlayClipAsync()

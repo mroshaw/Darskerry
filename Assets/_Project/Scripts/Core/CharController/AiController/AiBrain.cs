@@ -1,4 +1,5 @@
 using System.Collections;
+using DaftAppleGames.Darskerry.Core.Extensions;
 using ECM2;
 using Sirenix.OdinInspector;
 using Unity.Behavior;
@@ -201,22 +202,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         private Vector3 GetRandomWanderLocation(Vector3 center, float minDistance, float maxDistance)
         {
-            Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized;
-            float distance = UnityEngine.Random.Range(minDistance, maxDistance);
-            Vector3 offset = new Vector3(randomDirection.x, 0, randomDirection.y) * distance;
-            Vector3 randomPosition = center + offset;
-
-            if (Terrain.activeTerrain)
-            {
-                float terrainHeight = Terrain.activeTerrain.SampleHeight(randomPosition);
-                randomPosition.y = terrainHeight;
-            }
-
-            if (NavMesh.SamplePosition(randomPosition, out NavMeshHit myNavHit, 100, -1))
-            {
-                return myNavHit.position;
-            }
-            return randomPosition;
+            return Terrain.activeTerrain.GetRandomLocation(center, minDistance, maxDistance);
         }
 
         private IEnumerator MoveToRandomPositionAfterDelayAsync()
@@ -265,8 +251,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             float fleeRange = Random.Range(fleeMinRange, fleeMaxRange);
             Vector3 fleePosition = transform.position + ((transform.position - targetTransform.position).normalized) * fleeRange;
-            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.transform.position = fleePosition;
 
             if (NavMesh.SamplePosition(fleePosition, out NavMeshHit myNavHit, 100, -1))
             {

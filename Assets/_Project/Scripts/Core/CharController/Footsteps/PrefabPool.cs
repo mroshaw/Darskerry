@@ -1,35 +1,39 @@
 using Sirenix.OdinInspector;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps
 {
-    public enum PrefabPoolType { FootstepMarks, FootstepParticles };
+    public enum PrefabPoolType { FootstepMarks, FootstepParticles, AiCharacter };
 
     public class PrefabPool : MonoBehaviour
     {
         #region Class Variables
         [BoxGroup("Prefab Settings")][SerializeField] private PrefabPoolType prefabPoolType;
+        [BoxGroup("Prefab Settings")] [SerializeField] private bool destroyAfterDelay = true;
+        [ShowIf("destroyAfterDelay")] [BoxGroup("Prefab Settings")][SerializeField] private float lifeTimeInSeconds;
         [BoxGroup("Prefab Settings")][SerializeField] private GameObject poolPrefab;
         [BoxGroup("Prefab Settings")][SerializeField] private Transform instanceContainer;
-        [BoxGroup("Prefab Settings")][SerializeField] private float lifeTimeInSeconds;
-        [BoxGroup("Pool Settings")][SerializeField] private int poolMaxSize = 5;
-        [BoxGroup("Pool Settings")][SerializeField] private int poolInitialSize = 10;
+        [BoxGroup("Pool Settings")][SerializeField] internal int poolMaxSize = 5;
+        [BoxGroup("Pool Settings")][SerializeField] internal int poolInitialSize = 10;
         /*
         [BoxGroup("DEBUG")][SerializeField] private int poolActiveCountDebug;
         [BoxGroup("DEBUG")][SerializeField] private int poolInactiveCountDebug;
         */
         public PrefabPoolType PrefabPoolType => prefabPoolType;
-
         private ObjectPool<GameObject> _prefabInstancePool;
+
+        internal int ActivePoolSize => _prefabInstancePool.CountActive;
+
         #endregion
 
         #region Startup
         /// <summary>
         /// Configure the component on awake
         /// </summary>   
-        private void Start()
+        protected virtual void Awake()
         {
             _prefabInstancePool = new ObjectPool<GameObject>(CreatePrefabInstancePoolItem, PrefabInstanceOnTakeFromPool,
                 PrefabInstanceOnReturnToPool, PrefabInstanceOnDestroyPoolObject, false,
@@ -53,8 +57,19 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps
             GameObject prefabInstance = _prefabInstancePool.Get();
             prefabInstance.transform.position = spawnPosition;
             prefabInstance.transform.rotation = spawnRotation;
-            StartCoroutine(ReturnToPoolAfterDelay(prefabInstance));
+            if (destroyAfterDelay)
+            {
+                StartCoroutine(ReturnToPoolAfterDelay(prefabInstance));
+            }
             return prefabInstance;
+        }
+
+        public void DespawnInstance(GameObject prefabInstance)
+        {
+            prefabInstance.transform.position = Vector3.zero;
+            prefabInstance.transform.rotation = Quaternion.identity;
+            prefabInstance.SetActive(false);
+            _prefabInstancePool.Release(prefabInstance);
         }
 
         private IEnumerator ReturnToPoolAfterDelay(GameObject prefabInstance)

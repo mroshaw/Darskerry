@@ -15,12 +15,22 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.AnimBehaviou
         {
             if (Character == null)
             {
-                Character = animator.transform.root.GetComponent<GameCharacter>();
+                Character = animator.GetComponent<GameCharacter>();
+
+                if (!Character)
+                {
+                    Debug.LogError($"No GameCharacter found on {animator.transform.root.gameObject.name}");
+                }
             }
 
             if (AudioSource == null)
             {
-                AudioSource = animator.transform.root.GetComponent<AudioSource>();
+                AudioSource = animator.GetComponent<AudioSource>();
+                if (!AudioSource)
+                {
+                    Debug.LogError($"No AudioSource found on {animator.transform.root.gameObject.name}");
+                }
+
             }
         }
     }

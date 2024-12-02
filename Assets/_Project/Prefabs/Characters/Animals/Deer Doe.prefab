@@ -55,6 +55,9 @@ GameObject:
   - component: {fileID: 8238421743018735748}
   - component: {fileID: 894347997516769037}
   - component: {fileID: 4401777681269761540}
+  - component: {fileID: 562747798931870366}
+  - component: {fileID: 6938398839387357548}
+  - component: {fileID: 9083419313285995449}
   m_Layer: 0
   m_Name: Deer Doe
   m_TagString: Untagged
@@ -70,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5515435308577716372}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.18980007, z: -0, w: 0.9818228}
+  m_LocalRotation: {x: 0, y: 0.18979806, z: 0, w: 0.98182315}
   m_LocalPosition: {x: -11.574555, y: -0.0000019073486, z: -24.206085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -294,7 +297,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5515435308577716372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 3.5
@@ -316,7 +319,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5515435308577716372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b8353732406ae7418b47f5928e333c6, type: 3}
   m_Name: 
@@ -452,7 +455,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5515435308577716372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
@@ -588,7 +591,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: ab2d23e8-4557-4d4d-931d-4d36ecec839f
+  guid: e309059b-00fd-47be-b68c-936e1a1924b7
+--- !u!114 &562747798931870366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5515435308577716372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949d511d8f351b441b849bcdaf1dd047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeIn: 1
+  fadeInTime: 10
+  fadeOut: 1
+  fadeOutTime: 10
+  SpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  DespawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6938398839387357548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5515435308577716372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc30a7900159aef4198d8353a8f29f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alignX: 0
+  alignY: 1
+  alignZ: 1
+  alignEveryFrames: 5
+--- !u!114 &9083419313285995449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5515435308577716372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1ccf5596993034c931871b07a05a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 10
+  referenceMaterial: {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
+  fadeMaterials:
+  - {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
+  - {fileID: 2100000, guid: 534f1263f9444b44bbf8c0a6dc56ae53, type: 2}
+  properties:
+  - name: _BaseColor
+    type: 0
+  FadeInCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  FadeOutCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8010760872066668631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,6 +664,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8806547491359502958}
     m_Modifications:
+    - target: {fileID: 8088803665567068489, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
+    - target: {fileID: 8088803665567068489, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 534f1263f9444b44bbf8c0a6dc56ae53, type: 2}
     - target: {fileID: 8088803665580670007, guid: f317a66714524ad4da0b1850b5371238, type: 3}
       propertyPath: m_Name
       value: DeerDoe

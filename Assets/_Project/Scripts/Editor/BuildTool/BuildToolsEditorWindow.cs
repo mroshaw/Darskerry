@@ -23,7 +23,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
 {
     public class BuildToolsEditorWindow : OdinEditorWindow
     {
-        private const string BuildConfig = "Assets/_Project/Settings/BuildTool/DarskerryBuildSettings.asset";
+        private const string BuildConfig = "Assets/_Project/Settings/Editor Settings/BuildTool/DarskerryBuildSettings.asset";
 
         // Display Editor Window
         [MenuItem("Daft Apple Games/Build and Deploy/Build Tool")]

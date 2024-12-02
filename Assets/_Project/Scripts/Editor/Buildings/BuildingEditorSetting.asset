@@ -59,6 +59,23 @@ MonoBehaviour:
     lightLayers: 258
     dayTimeState: 0
     nightTimeState: 0
+  - lightType: 3
+    lightParentObjectNames:
+    - candle
+    lightObjectLayers:
+    - PropsExterior
+    lightMode: 0
+    radius: 0
+    intensityLumens: 150
+    filterColor: {r: 227, g: 197, b: 100, a: 255}
+    temperature: 5630
+    range: 10
+    enableVolumetrics: 0
+    enableShadowMap: 1
+    shadowMapUpdateMode: 2
+    lightLayers: 0
+    dayTimeState: 0
+    nightTimeState: 0
   meshSettings:
     interiorMeshSettings:
       isGIEnabled: 1
