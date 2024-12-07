@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 2860674946823268584}
   - component: {fileID: 9211320848909851788}
   - component: {fileID: 1811483153803792496}
+  - component: {fileID: 8486878075472994688}
   m_Layer: 0
   m_Name: Entomorane
   m_TagString: Untagged
@@ -567,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: cee3561f-5335-4229-9e4c-1a9b9b904b9f
+  guid: 62ba3e2b-2253-4279-aaf2-ac95f45a51d3
 --- !u!114 &1811483153803792496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +584,25 @@ MonoBehaviour:
   damageAppliers:
   - {fileID: 0}
   refreshAppliersOnStart: 0
+--- !u!114 &8486878075472994688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683998902874178089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc30a7900159aef4198d8353a8f29f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSlopeAngle: 30
+  alignRate: 10
+  rayOffset: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  drawRays: 1
 --- !u!1 &9037549825899228978
 GameObject:
   m_ObjectHideFlags: 0

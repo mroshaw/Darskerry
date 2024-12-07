@@ -1,38 +1,123 @@
-using DaftAppleGames.Darskerry.Core.Extensions;
-using UnityEngine;
+using ECM2;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
-    public class AlignToSlope : MonoBehaviour
+    public class AlignToSlope : MonoBehaviour, IColliderFilter
     {
-        #region Class Variables
+        [BoxGroup("Settings")] [SerializeField] private float maxSlopeAngle = 30.0f;
+        [BoxGroup("Settings")] [SerializeField] private float alignRate = 10.0f;
+        [BoxGroup("Settings")] [SerializeField] private float rayOffset = 0.1f;
 
-        [BoxGroup("Settings")] [SerializeField] private bool alignX = false;
-        [BoxGroup("Settings")] [SerializeField] private bool alignY = true;
-        [BoxGroup("Settings")] [SerializeField] private bool alignZ = true;
-        [BoxGroup("Settings")] [SerializeField] private int alignEveryFrames = 5;
-        #endregion
-        #region Update Logic
-        private void Update()
+        public LayerMask groundMask = 1;
+
+        [Space(15f)]
+        public bool drawRays = true;
+
+        private readonly RaycastHit[] _hits = new RaycastHit[8];
+
+        private Character _character;
+
+        // Implement IColliderFilter.
+        // Ignore character's capsule collider.
+        public bool Filter(Collider otherCollider)
         {
-            if (Time.frameCount % alignEveryFrames == 0)
+            CharacterMovement characterMovement = _character.GetCharacterMovement();
+            if (otherCollider == characterMovement.collider)
+                return true;
+
+            return false;
+        }
+
+        /// <summary>
+        /// Computes the average normal sampling a 3x3 area, each ray is a rayOffset distance of other.
+        /// </summary>
+
+        private Vector3 ComputeAverageNormal()
+        {
+            CharacterMovement characterMovement = _character.GetCharacterMovement();
+
+            Vector3 worldUp = Vector3.up;
+            Vector3 castOrigin = _character.GetPosition() + worldUp * (characterMovement.height * 0.5f);
+
+            Vector3 castDirection = -worldUp;
+            float castDistance = characterMovement.height;
+            LayerMask castLayerMask = groundMask;
+
+            Vector3 avgNormal = Vector3.zero;
+
+            float x = -rayOffset;
+            float z = -rayOffset;
+
+            int hitCount = 0;
+
+            for (int i = 0; i < 3; i++)
             {
-                Align();
+                z = -rayOffset;
+
+                for (int j = 0; j < 3; j++)
+                {
+                    bool hit = CollisionDetection.Raycast(castOrigin + new Vector3(x, 0.0f, z), castDirection,
+                        castDistance, castLayerMask, QueryTriggerInteraction.Ignore, out RaycastHit hitResult, _hits, this) > 0;
+
+                    if (hit)
+                    {
+                        float angle = Vector3.Angle(hitResult.normal, worldUp);
+                        if (angle < maxSlopeAngle)
+                        {
+                            avgNormal += hitResult.normal;
+
+                            if (drawRays)
+                                Debug.DrawRay(hitResult.point, hitResult.normal, Color.yellow);
+
+                            hitCount ++;
+                        }
+                    }
+
+                    z += rayOffset;
+                }
+
+                x += rayOffset;
             }
+
+            if (hitCount > 0)
+                avgNormal /= hitCount;
+            else
+                avgNormal = worldUp;
+
+            if (drawRays)
+                Debug.DrawRay(_character.GetPosition(), avgNormal * 2f, Color.green);
+
+            return avgNormal;
         }
 
-        private void LateUpdate()
+        private void OnAfterSimulationUpdated(float deltaTime)
         {
-            
-        }
-        #endregion
-        #region Class Methods
+            Vector3 avgNormal = _character.IsWalking() ? ComputeAverageNormal() : Vector3.up;
 
-        private void Align()
-        {
-            Terrain.activeTerrain.AlignObject(gameObject, false, true, alignX, alignY, alignZ);
+            Quaternion characterRotation = _character.GetRotation();
+            Vector3 characterUp = characterRotation * Vector3.up;
+
+            Quaternion slopeRotation = Quaternion.FromToRotation(characterUp, avgNormal);
+            characterRotation = Quaternion.Slerp(characterRotation, slopeRotation * characterRotation, alignRate * deltaTime);
+
+            _character.SetRotation(characterRotation);
         }
-        #endregion
+
+        private void Awake()
+        {
+            _character = GetComponent<Character>();
+        }
+
+        private void OnEnable()
+        {
+            _character.AfterSimulationUpdated += OnAfterSimulationUpdated;
+        }
+
+        private void OnDisable()
+        {
+            _character.AfterSimulationUpdated -= OnAfterSimulationUpdated;
+        }
     }
 }

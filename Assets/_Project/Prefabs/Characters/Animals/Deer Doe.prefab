@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: e309059b-00fd-47be-b68c-936e1a1924b7
+  guid: 4234f481-23b5-4c3d-9f70-08d2eef1dda6
 --- !u!114 &562747798931870366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,10 +626,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc30a7900159aef4198d8353a8f29f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alignX: 0
-  alignY: 1
-  alignZ: 1
-  alignEveryFrames: 5
+  maxSlopeAngle: 30
+  alignRate: 10
+  rayOffset: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  drawRays: 1
 --- !u!114 &9083419313285995449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,14 +645,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1ccf5596993034c931871b07a05a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 10
-  referenceMaterial: {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
-  fadeMaterials:
-  - {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
-  - {fileID: 2100000, guid: 534f1263f9444b44bbf8c0a6dc56ae53, type: 2}
-  properties:
-  - name: _BaseColor
-    type: 0
+  fadeInOnStart: 1
+  fadeTime: 3
+  materialMap:
+  - origMaterial: {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
+    fadeMaterial: {fileID: 2100000, guid: 682531093594111458d49817340007f4, type: 2}
+  - origMaterial: {fileID: 2100000, guid: 534f1263f9444b44bbf8c0a6dc56ae53, type: 2}
+    fadeMaterial: {fileID: 2100000, guid: c5d11dfa0ccf91145b80fe8a67a95739, type: 2}
+  swapData:
+  - renderer: {fileID: 2263837824662989086}
+    materialMap:
+    - origMaterial: {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 682531093594111458d49817340007f4, type: 2}
+    - origMaterial: {fileID: 2100000, guid: 534f1263f9444b44bbf8c0a6dc56ae53, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: c5d11dfa0ccf91145b80fe8a67a95739, type: 2}
+  - renderer: {fileID: 2263837824662989084}
+    materialMap:
+    - origMaterial: {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 682531093594111458d49817340007f4, type: 2}
+    - origMaterial: {fileID: 2100000, guid: 534f1263f9444b44bbf8c0a6dc56ae53, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: c5d11dfa0ccf91145b80fe8a67a95739, type: 2}
+  - renderer: {fileID: 2263837824662989082}
+    materialMap:
+    - origMaterial: {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 682531093594111458d49817340007f4, type: 2}
+  - renderer: {fileID: 2263837824662989080}
+    materialMap:
+    - origMaterial: {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 682531093594111458d49817340007f4, type: 2}
+  _properties: []
   FadeInCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -722,6 +746,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+--- !u!137 &2263837824662989080 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8088803665567068495, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+  m_PrefabInstance: {fileID: 8010760872066668631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2263837824662989082 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8088803665567068493, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+  m_PrefabInstance: {fileID: 8010760872066668631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2263837824662989084 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8088803665567068491, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+  m_PrefabInstance: {fileID: 8010760872066668631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2263837824662989086 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8088803665567068489, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+  m_PrefabInstance: {fileID: 8010760872066668631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2263837824676952064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8088803665581154391, guid: f317a66714524ad4da0b1850b5371238, type: 3}

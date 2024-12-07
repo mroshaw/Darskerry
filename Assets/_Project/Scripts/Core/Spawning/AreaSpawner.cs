@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -8,6 +9,8 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
     {
         #region Class Variables
         [BoxGroup("Behaviour")] [SerializeField] private bool fillPoolsOnStart = true;
+        [BoxGroup("Behaviour")] [SerializeField] private bool spawnPoolsOnStart = true;
+        [BoxGroup("Behaviour")] [SerializeField] private float delayBeforeSpawn = 0.0f;
         [BoxGroup("Prefabs")] [SerializeField] private SpawnPool[] spawnPools;
         [BoxGroup("Trigger Settings")] [SerializeField] private float triggerRange = 15.0f;
         [BoxGroup("Spawn Settings")] [SerializeField] private float minSpawnDistance = 1.5f;
@@ -51,6 +54,11 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
             {
                 FillPrefabPools();
             }
+
+            if (spawnPoolsOnStart)
+            {
+                StartCoroutine(SpawnAfterDelayAsync());
+            }
         }
         #endregion
         #region Class methods
@@ -72,6 +80,12 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
             {
                 spawnPool.SpawnAll(transform.position, minSpawnDistance, maxSpawnDistance, true);
             }
+        }
+
+        private IEnumerator SpawnAfterDelayAsync()
+        {
+            yield return new WaitForSeconds(delayBeforeSpawn);
+            Spawn();
         }
 
         [Button("Despawn Now")]

@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 3846178564153701706}
   - component: {fileID: 79234412933126063}
   - component: {fileID: 5785661246989091378}
+  - component: {fileID: 1022756068661290752}
   m_Layer: 0
   m_Name: Deer Stag
   m_TagString: Untagged
@@ -590,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: a96c1923-6687-4170-b2c2-85ea485aaba5
+  guid: eb7f4d01-d818-420f-afb5-436f040a8c59
 --- !u!114 &79234412933126063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,10 +626,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc30a7900159aef4198d8353a8f29f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alignX: 0
-  alignY: 1
-  alignZ: 1
-  alignEveryFrames: 5
+  maxSlopeAngle: 30
+  alignRate: 10
+  rayOffset: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  drawRays: 1
+--- !u!114 &1022756068661290752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590575480512812058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1ccf5596993034c931871b07a05a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeInOnStart: 1
+  fadeTime: 3
+  materialMap:
+  - origMaterial: {fileID: 2100000, guid: 8d53ca7c6210e8c4181f055e58f29903, type: 2}
+    fadeMaterial: {fileID: 2100000, guid: 07da0018e30841041bce4960eb05ab7f, type: 2}
+  - origMaterial: {fileID: 2100000, guid: 585e7a562dd6a4642a9f50bb5bef9a75, type: 2}
+    fadeMaterial: {fileID: 2100000, guid: 673588082c0e7b84f80b847038a37b6f, type: 2}
+  swapData:
+  - renderer: {fileID: 2795674585191014415}
+    materialMap:
+    - origMaterial: {fileID: 2100000, guid: 8d53ca7c6210e8c4181f055e58f29903, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 07da0018e30841041bce4960eb05ab7f, type: 2}
+    - origMaterial: {fileID: 2100000, guid: 585e7a562dd6a4642a9f50bb5bef9a75, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 673588082c0e7b84f80b847038a37b6f, type: 2}
+  - renderer: {fileID: 2795674585191014413}
+    materialMap:
+    - origMaterial: {fileID: 2100000, guid: 8d53ca7c6210e8c4181f055e58f29903, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 07da0018e30841041bce4960eb05ab7f, type: 2}
+    - origMaterial: {fileID: 2100000, guid: 585e7a562dd6a4642a9f50bb5bef9a75, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 673588082c0e7b84f80b847038a37b6f, type: 2}
+  - renderer: {fileID: 2795674585191014411}
+    materialMap:
+    - origMaterial: {fileID: 2100000, guid: 8d53ca7c6210e8c4181f055e58f29903, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 07da0018e30841041bce4960eb05ab7f, type: 2}
+  - renderer: {fileID: 2795674585191014409}
+    materialMap:
+    - origMaterial: {fileID: 2100000, guid: 8d53ca7c6210e8c4181f055e58f29903, type: 2}
+      fadeMaterial: {fileID: 2100000, guid: 07da0018e30841041bce4960eb05ab7f, type: 2}
+  _properties: []
+  FadeInCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  FadeOutCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5155801340354389930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -690,5 +741,25 @@ PrefabInstance:
 --- !u!4 &2795674585179287853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7007932221180647047, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}
+  m_PrefabInstance: {fileID: 5155801340354389930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2795674585191014409 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7007932221183723427, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}
+  m_PrefabInstance: {fileID: 5155801340354389930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2795674585191014411 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7007932221183723425, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}
+  m_PrefabInstance: {fileID: 5155801340354389930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2795674585191014413 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7007932221183723431, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}
+  m_PrefabInstance: {fileID: 5155801340354389930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2795674585191014415 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7007932221183723429, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}
   m_PrefabInstance: {fileID: 5155801340354389930}
   m_PrefabAsset: {fileID: 0}
