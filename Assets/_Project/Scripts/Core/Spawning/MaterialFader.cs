@@ -3,22 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using UnityEditor;
-using UnityEditor.TerrainTools;
 using UnityEngine.Events;
 
 namespace DaftAppleGames.Darskerry.Core.Spawning
 {
     public class MaterialFader : MonoBehaviour
     {
-        private static readonly int AlphaRemapMin = Shader.PropertyToID("_AlphaRemapMin");
         [BoxGroup("Spawn Settings")] [SerializeField] private bool fadeInOnStart = true;
         [BoxGroup("Spawn Settings")] [SerializeField] private float fadeTime = 10.0f;
         [BoxGroup("Material Settings")] [SerializeField] private List<MaterialMap> materialMap;
         [BoxGroup("Material Settings")] [SerializeField] private List<SwapData> swapData;
-        [SerializeField] public List<ShaderProperty> _properties = new List<ShaderProperty>();
-        [BoxGroup("Events")] public UnityEvent FadeInCompleteEvent;
-        [BoxGroup("Events")] public UnityEvent FadeOutCompleteEvent;
+#if UNITY_EDITOR
+        [SerializeField] private List<ShaderProperty> shaderProperties = new();
+#endif
+        [BoxGroup("Events")] public UnityEvent fadeInCompleteEvent;
+        [BoxGroup("Events")] public UnityEvent fadeOutCompleteEvent;
+
+        private static readonly int AlphaRemapMin = Shader.PropertyToID("_AlphaRemapMin");
 
         private void Start()
         {
@@ -31,28 +32,48 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
         [Button("Fade In")]
         public void FadeIn()
         {
-            FadeMaterials();
-            StartCoroutine(FadeMaterials(0, 1, FadeInComplete));
+            SetFadeMaterials();
+            StartCoroutine(FadeMaterialsAsync(0, 1, FadeInComplete));
         }
 
         [Button("Fade Out")]
         public void FadeOut()
         {
-            FadeMaterials();
-            StartCoroutine(FadeMaterials(1, 0, FadeOutComplete));
+            SetFadeMaterials();
+            StartCoroutine(FadeMaterialsAsync(1, 0, FadeOutComplete));
         }
 
         private void FadeInComplete()
         {
-            OriginalMaterials();
+            SetOriginalMaterials();
+            fadeInCompleteEvent.Invoke();
         }
 
         private void FadeOutComplete()
         {
-            OriginalMaterials();
+            SetOriginalMaterials();
+            fadeOutCompleteEvent.Invoke();
         }
 
-        private IEnumerator FadeMaterials(float start, float end, Action onComplete)
+        [Button("Original Materials")]
+        private void SetOriginalMaterials()
+        {
+            foreach (SwapData currSwapData in swapData)
+            {
+                currSwapData.SetOriginalMaterial();
+            }
+        }
+
+        [Button("Fade Materials")]
+        private void SetFadeMaterials()
+        {
+            foreach (SwapData currSwapData in swapData)
+            {
+                currSwapData.SetFadeMaterial();
+            }
+        }
+
+        private IEnumerator FadeMaterialsAsync(float start, float end, Action onComplete)
         {
             float time = 0;
             SetMaterialsAlpha(start);
@@ -75,6 +96,79 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
             }
         }
 
+        [Serializable]
+        private struct MaterialMap
+        {
+            public Material origMaterial;
+            public Material fadeMaterial;
+
+            public MaterialMap(Material newOrigMat)
+            {
+                origMaterial = newOrigMat;
+                fadeMaterial = null;
+            }
+        }
+
+        [Serializable]
+        private class SwapData
+        {
+            public SkinnedMeshRenderer renderer;
+            public List<MaterialMap> materialMap;
+
+            public SwapData(SkinnedMeshRenderer newRenderer)
+            {
+                renderer = newRenderer;
+                materialMap = new List<MaterialMap>();
+            }
+
+            internal Material GetFadeMaterial(Material lookupMaterial)
+            {
+                foreach (MaterialMap currMaterialMap in materialMap)
+                {
+                    if (currMaterialMap.origMaterial == lookupMaterial)
+                    {
+                        return currMaterialMap.fadeMaterial;
+                    }
+                }
+
+                return null;
+            }
+
+            internal void SetOriginalMaterial()
+            {
+                Material[] newMaterials = new Material[renderer.materials.Length];
+
+                for (int matIndex = 0; matIndex < renderer.materials.Length; matIndex++)
+                {
+                    // Debug.Log($"Render {renderer.gameObject.name} set Material {matIndex} from {renderer.materials[matIndex].name} to {materialMap[matIndex].origMaterial.name}");
+                    newMaterials[matIndex] = materialMap[matIndex].origMaterial;
+                }
+
+                renderer.materials = newMaterials;
+            }
+
+            internal void SetFadeMaterial()
+            {
+                Material[] newMaterials = new Material[renderer.materials.Length];
+
+                for (int matIndex = 0; matIndex < renderer.materials.Length; matIndex++)
+                {
+                    // Debug.Log($"Render {renderer.gameObject.name} set Material {matIndex} from {renderer.materials[matIndex].name} to {materialMap[matIndex].fadeMaterial.name}");
+                    newMaterials[matIndex] = materialMap[matIndex].fadeMaterial;
+                }
+                renderer.materials = newMaterials;
+            }
+
+            internal void SwapMaterials()
+            {
+                for (int matIndex = 0; matIndex < renderer.materials.Length; matIndex++)
+                {
+                    renderer.sharedMaterials[matIndex] = renderer.sharedMaterials[matIndex] == materialMap[matIndex].origMaterial ? materialMap[matIndex].fadeMaterial : materialMap[matIndex].origMaterial;
+                }
+            }
+        }
+        #region Editor methods
+        #if UNITY_EDITOR
         [Button("Create Material Map")]
         private void CreateMaterialMap()
         {
@@ -118,35 +212,6 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
             }
         }
 
-        [Button("Original Materials")]
-        public void OriginalMaterials()
-        {
-            foreach (SwapData currSwapData in swapData)
-            {
-                currSwapData.SetOriginalMaterial();
-            }
-        }
-
-        [Button("Fade Materials")]
-        public void FadeMaterials()
-        {
-            foreach (SwapData currSwapData in swapData)
-            {
-                currSwapData.SetFadeMaterial();
-            }
-        }
-
-
-
-        [Button("Swap Materials")]
-        public void SwapMaterials()
-        {
-            foreach (SwapData currSwapData in swapData)
-            {
-                currSwapData.SwapMaterials();
-            }
-        }
-
         private Material GetFadeMaterial(Material origMaterial)
         {
             foreach (MaterialMap matMap in materialMap)
@@ -156,83 +221,11 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
                     return matMap.fadeMaterial;
                 }
             }
-
             return null;
         }
 
-        [Serializable]
-        public struct MaterialMap
-        {
-            public Material origMaterial;
-            public Material fadeMaterial;
 
-            public MaterialMap(Material newOrigMat)
-            {
-                origMaterial = newOrigMat;
-                fadeMaterial = null;
-            }
-        }
-
-        [Serializable]
-        public class SwapData
-        {
-            public SkinnedMeshRenderer renderer;
-            public List<MaterialMap> materialMap;
-
-            public SwapData(SkinnedMeshRenderer newRenderer)
-            {
-                renderer = newRenderer;
-                materialMap = new List<MaterialMap>();
-            }
-
-            public Material GetFadeMaterial(Material lookupMaterial)
-            {
-                foreach (MaterialMap currMaterialMap in materialMap)
-                {
-                    if (currMaterialMap.origMaterial == lookupMaterial)
-                    {
-                        return currMaterialMap.fadeMaterial;
-                    }
-                }
-
-                return null;
-            }
-
-            public void SetOriginalMaterial()
-            {
-                Material[] newMaterials = new Material[renderer.materials.Length];
-
-                for (int matIndex = 0; matIndex < renderer.materials.Length; matIndex++)
-                {
-                    Debug.Log($"Render {renderer.gameObject.name} set Material {matIndex} from {renderer.materials[matIndex].name} to {materialMap[matIndex].origMaterial.name}");
-                    newMaterials[matIndex] = materialMap[matIndex].origMaterial;
-                }
-
-                renderer.materials = newMaterials;
-            }
-
-            public void SetFadeMaterial()
-            {
-                Material[] newMaterials = new Material[renderer.materials.Length];
-
-                for (int matIndex = 0; matIndex < renderer.materials.Length; matIndex++)
-                {
-                    Debug.Log($"Render {renderer.gameObject.name} set Material {matIndex} from {renderer.materials[matIndex].name} to {materialMap[matIndex].fadeMaterial.name}");
-                    newMaterials[matIndex] = materialMap[matIndex].fadeMaterial;
-                }
-                renderer.materials = newMaterials;
-            }
-
-            public void SwapMaterials()
-            {
-                for (int matIndex = 0; matIndex < renderer.materials.Length; matIndex++)
-                {
-                    renderer.sharedMaterials[matIndex] = renderer.sharedMaterials[matIndex] == materialMap[matIndex].origMaterial ? materialMap[matIndex].fadeMaterial : materialMap[matIndex].origMaterial;
-                }
-            }
-        }
-
-        public enum ShaderPropertyType
+        internal enum ShaderPropertyType
         {
             Color,
             Vector,
@@ -241,8 +234,8 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
             Texture,
         }
 
-        [System.Serializable]
-        public struct ShaderProperty
+        [Serializable]
+        internal struct ShaderProperty
         {
             public string name;
             public ShaderPropertyType type;
@@ -251,7 +244,7 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
         [Button("Get Shader Properties")]
         public void Populate()
         {
-            _properties.Clear();
+            shaderProperties.Clear();
 
             Shader shader = materialMap[0].fadeMaterial.shader;
             int count = UnityEditor.ShaderUtil.GetPropertyCount(shader);
@@ -264,8 +257,11 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
                         .GetPropertyType(shader, i)
                 };
 
-                _properties.Add(shaderProperty);
+                shaderProperties.Add(shaderProperty);
             }
         }
+
+#endif
+        #endregion
     }
 }

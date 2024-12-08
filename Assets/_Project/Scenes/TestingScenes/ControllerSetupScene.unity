@@ -119,6 +119,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &2193288
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5552
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.697056
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.942099
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9818228
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.18980007
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 21.882
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228850033506452501, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846178564153701706, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: guid
+      value: 6c28706f-9255-4f4f-ace7-546a7a933b3e
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590575480512812058, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_Name
+      value: Deer Stag
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590575480512812058, guid: f57c995e70352ae438a32920545167a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f57c995e70352ae438a32920545167a8, type: 3}
 --- !u!1 &102959200
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,13 +615,14 @@ GameObject:
   m_Component:
   - component: {fileID: 214693681}
   - component: {fileID: 214693682}
+  - component: {fileID: 214693683}
   m_Layer: 0
   m_Name: Stag Fade Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &214693681
 Transform:
   m_ObjectHideFlags: 0
@@ -613,317 +679,31 @@ MonoBehaviour:
     materialMap:
     - origMaterial: {fileID: 2100000, guid: 8d53ca7c6210e8c4181f055e58f29903, type: 2}
       fadeMaterial: {fileID: 2100000, guid: 07da0018e30841041bce4960eb05ab7f, type: 2}
-  _properties:
-  - name: _BaseColor
-    type: 0
-  - name: _BaseColorMap
-    type: 4
-  - name: _Metallic
-    type: 3
-  - name: _Smoothness
-    type: 3
-  - name: _MaskMap
-    type: 4
-  - name: _MetallicRemapMin
-    type: 2
-  - name: _MetallicRemapMax
-    type: 2
-  - name: _SmoothnessRemapMin
-    type: 2
-  - name: _SmoothnessRemapMax
-    type: 2
-  - name: _AlphaRemapMin
-    type: 2
-  - name: _AlphaRemapMax
-    type: 2
-  - name: _AORemapMin
-    type: 2
-  - name: _AORemapMax
-    type: 2
-  - name: _NormalMap
-    type: 4
-  - name: _NormalMapOS
-    type: 4
-  - name: _NormalScale
-    type: 3
-  - name: _BentNormalMap
-    type: 4
-  - name: _BentNormalMapOS
-    type: 4
-  - name: _HeightMap
-    type: 4
-  - name: _HeightAmplitude
-    type: 2
-  - name: _HeightCenter
-    type: 3
-  - name: _HeightMapParametrization
-    type: 2
-  - name: _HeightOffset
-    type: 2
-  - name: _HeightMin
-    type: 2
-  - name: _HeightMax
-    type: 2
-  - name: _HeightTessAmplitude
-    type: 2
-  - name: _HeightTessCenter
-    type: 3
-  - name: _HeightPoMAmplitude
-    type: 2
-  - name: _DetailMap
-    type: 4
-  - name: _DetailAlbedoScale
-    type: 3
-  - name: _DetailNormalScale
-    type: 3
-  - name: _DetailSmoothnessScale
-    type: 3
-  - name: _TangentMap
-    type: 4
-  - name: _TangentMapOS
-    type: 4
-  - name: _Anisotropy
-    type: 3
-  - name: _AnisotropyMap
-    type: 4
-  - name: _SubsurfaceMask
-    type: 3
-  - name: _SubsurfaceMaskMap
-    type: 4
-  - name: _TransmissionMask
-    type: 3
-  - name: _TransmissionMaskMap
-    type: 4
-  - name: _Thickness
-    type: 2
-  - name: _ThicknessMap
-    type: 4
-  - name: _ThicknessRemap
-    type: 1
-  - name: _IridescenceThickness
-    type: 3
-  - name: _IridescenceThicknessMap
-    type: 4
-  - name: _IridescenceThicknessRemap
-    type: 1
-  - name: _IridescenceMask
-    type: 3
-  - name: _IridescenceMaskMap
-    type: 4
-  - name: _CoatMask
-    type: 3
-  - name: _CoatMaskMap
-    type: 4
-  - name: _EnergyConservingSpecularColor
-    type: 2
-  - name: _SpecularColor
-    type: 0
-  - name: _SpecularColorMap
-    type: 4
-  - name: _SpecularOcclusionMode
-    type: 2
-  - name: _EmissiveColor
-    type: 0
-  - name: _EmissiveColorLDR
-    type: 0
-  - name: _EmissiveColorMap
-    type: 4
-  - name: _AlbedoAffectEmissive
-    type: 2
-  - name: _EmissiveIntensityUnit
-    type: 2
-  - name: _UseEmissiveIntensity
-    type: 2
-  - name: _EmissiveIntensity
-    type: 2
-  - name: _EmissiveExposureWeight
-    type: 3
-  - name: _UseShadowThreshold
-    type: 2
-  - name: _AlphaCutoffEnable
-    type: 2
-  - name: _AlphaCutoff
-    type: 3
-  - name: _AlphaCutoffShadow
-    type: 3
-  - name: _AlphaCutoffPrepass
-    type: 3
-  - name: _AlphaCutoffPostpass
-    type: 3
-  - name: _TransparentDepthPrepassEnable
-    type: 2
-  - name: _TransparentBackfaceEnable
-    type: 2
-  - name: _TransparentDepthPostpassEnable
-    type: 2
-  - name: _TransparentSortPriority
-    type: 2
-  - name: _RefractionModel
-    type: 2
-  - name: _Ior
-    type: 3
-  - name: _TransmittanceColor
-    type: 0
-  - name: _TransmittanceColorMap
-    type: 4
-  - name: _ATDistance
-    type: 2
-  - name: _TransparentWritingMotionVec
-    type: 2
-  - name: _PerPixelSorting
-    type: 2
-  - name: _StencilRef
-    type: 2
-  - name: _StencilWriteMask
-    type: 2
-  - name: _StencilRefGBuffer
-    type: 2
-  - name: _StencilWriteMaskGBuffer
-    type: 2
-  - name: _StencilRefDepth
-    type: 2
-  - name: _StencilWriteMaskDepth
-    type: 2
-  - name: _StencilRefMV
-    type: 2
-  - name: _StencilWriteMaskMV
-    type: 2
-  - name: _SurfaceType
-    type: 2
-  - name: _BlendMode
-    type: 2
-  - name: _SrcBlend
-    type: 2
-  - name: _DstBlend
-    type: 2
-  - name: _DstBlend2
-    type: 2
-  - name: _AlphaSrcBlend
-    type: 2
-  - name: _AlphaDstBlend
-    type: 2
-  - name: _ZWrite
-    type: 2
-  - name: _TransparentZWrite
-    type: 2
-  - name: _CullMode
-    type: 2
-  - name: _CullModeForward
-    type: 2
-  - name: _TransparentCullMode
-    type: 2
-  - name: _OpaqueCullMode
-    type: 2
-  - name: _ZTestDepthEqualForOpaque
-    type: 2
-  - name: _ZTestGBuffer
-    type: 2
-  - name: _ZTestTransparent
-    type: 2
-  - name: _EnableFogOnTransparent
-    type: 2
-  - name: _EnableBlendModePreserveSpecularLighting
-    type: 2
-  - name: _DoubleSidedEnable
-    type: 2
-  - name: _DoubleSidedNormalMode
-    type: 2
-  - name: _DoubleSidedConstants
-    type: 1
-  - name: _DoubleSidedGIMode
-    type: 2
-  - name: _UVBase
-    type: 2
-  - name: _ObjectSpaceUVMapping
-    type: 2
-  - name: _TexWorldScale
-    type: 2
-  - name: _InvTilingScale
-    type: 2
-  - name: _UVMappingMask
-    type: 0
-  - name: _NormalMapSpace
-    type: 2
-  - name: _MaterialID
-    type: 2
-  - name: _TransmissionEnable
-    type: 2
-  - name: _DisplacementMode
-    type: 2
-  - name: _DisplacementLockObjectScale
-    type: 2
-  - name: _DisplacementLockTilingScale
-    type: 2
-  - name: _DepthOffsetEnable
-    type: 2
-  - name: _EnableGeometricSpecularAA
-    type: 2
-  - name: _SpecularAAScreenSpaceVariance
-    type: 3
-  - name: _SpecularAAThreshold
-    type: 3
-  - name: _PPDMinSamples
-    type: 3
-  - name: _PPDMaxSamples
-    type: 3
-  - name: _PPDLodThreshold
-    type: 3
-  - name: _PPDPrimitiveLength
-    type: 2
-  - name: _PPDPrimitiveWidth
-    type: 2
-  - name: _InvPrimScale
-    type: 1
-  - name: _UVDetail
-    type: 2
-  - name: _UVDetailsMappingMask
-    type: 0
-  - name: _LinkDetailsWithBase
-    type: 2
-  - name: _EmissiveColorMode
-    type: 2
-  - name: _UVEmissive
-    type: 2
-  - name: _ObjectSpaceUVMappingEmissive
-    type: 2
-  - name: _TexWorldScaleEmissive
-    type: 2
-  - name: _UVMappingMaskEmissive
-    type: 0
-  - name: _EmissionColor
-    type: 0
-  - name: _MainTex
-    type: 4
-  - name: _Color
-    type: 0
-  - name: _Cutoff
-    type: 3
-  - name: _SupportDecals
-    type: 2
-  - name: _ReceivesSSR
-    type: 2
-  - name: _ReceivesSSRTransparent
-    type: 2
-  - name: _AddPrecomputedVelocity
-    type: 2
-  - name: _RayTracing
-    type: 2
-  - name: _DiffusionProfile
-    type: 2
-  - name: _DiffusionProfileAsset
-    type: 1
-  - name: _DiffusionProfileHash
-    type: 2
-  - name: unity_Lightmaps
-    type: 4
-  - name: unity_LightmapsInd
-    type: 4
-  - name: unity_ShadowMasks
-    type: 4
-  FadeInCompleteEvent:
+  shaderProperties: []
+  fadeInCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
-  FadeOutCompleteEvent:
+  fadeOutCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &214693683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214693680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d538d0d68fdd5194d9fdb4ddd316c1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkFrequencyFrames: 10
+  distanceFromCamera: 10
+  movedOutsideDistanceEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  movedInsideDistanceEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &222420028
@@ -1225,6 +1005,35 @@ PrefabInstance:
       propertyPath: triggerLayers.m_Bits
       value: 1984
       objectReference: {fileID: 0}
+    - target: {fileID: 597728424449264259, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 597728424449264259, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 597728424449264259, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 262470865}
+    - target: {fileID: 597728424449264259, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 597728424449264259, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MakeNoise
+      objectReference: {fileID: 0}
+    - target: {fileID: 597728424449264259, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DaftAppleGames.Darskerry.Core.CharController.AiController.NoiseEmitter,
+        DaftAppleGames.Darskerry.Core
+      objectReference: {fileID: 0}
+    - target: {fileID: 597728424449264259, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1123739610637826781, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
       propertyPath: m_Name
       value: Player Character
@@ -1321,6 +1130,35 @@ PrefabInstance:
       propertyPath: triggerLayers.m_Bits
       value: 1984
       objectReference: {fileID: 0}
+    - target: {fileID: 8027404770364496680, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027404770364496680, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027404770364496680, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 262470864}
+    - target: {fileID: 8027404770364496680, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027404770364496680, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MakeNoise
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027404770364496680, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DaftAppleGames.Darskerry.Core.CharController.AiController.NoiseEmitter,
+        DaftAppleGames.Darskerry.Core
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027404770364496680, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      propertyPath: triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8069967311116219789, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.05
@@ -1364,7 +1202,52 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1123739610637826781, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
       insertIndex: -1
       addedObject: {fileID: 425317698}
+    - targetCorrespondingSourceObject: {fileID: 1123739610637826781, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 425317699}
+    - targetCorrespondingSourceObject: {fileID: 7989280164469581425, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 262470865}
+    - targetCorrespondingSourceObject: {fileID: 4805250609593150228, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 262470864}
   m_SourcePrefab: {fileID: 100100000, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+--- !u!1 &262470862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4805250609593150228, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+  m_PrefabInstance: {fileID: 262470861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &262470863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7989280164469581425, guid: d1d6fdd1e9882b04285ae7037165d663, type: 3}
+  m_PrefabInstance: {fileID: 262470861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &262470864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262470862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018652ce4f8b2d94eaf98b765f1e798b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseLevel: 0
+--- !u!114 &262470865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262470863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018652ce4f8b2d94eaf98b765f1e798b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseLevel: 0
 --- !u!114 &284684292 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7384850074924363673, guid: a491ea27810f7834099c90bb4a260e8b, type: 3}
@@ -1393,7 +1276,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 7c70ed8f-f083-4518-9c79-3cc6ca6e6a5f
+  guid: 60f58690-3146-4cd9-b82e-e78a805f0183
+--- !u!114 &425317699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425317680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83b55c744a5c1240a938f157c92fab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
+  noiseLevel: 0
 --- !u!1 &432432459
 GameObject:
   m_ObjectHideFlags: 0
@@ -22642,3 +22539,4 @@ SceneRoots:
   - {fileID: 1279347106}
   - {fileID: 1654314002}
   - {fileID: 214693681}
+  - {fileID: 2193288}

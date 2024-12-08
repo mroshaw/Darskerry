@@ -24,12 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137795624035747976}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.39, z: 1.1}
+  m_LocalRotation: {x: 0.57759196, y: -0.40788978, z: -0.57760704, w: -0.40790144}
+  m_LocalPosition: {x: -0.14963546, y: 0.13508031, z: 0.000039110688}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1228850033506452501}
+  m_Father: {fileID: 2795674585179287841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4590575480512812058
 GameObject:
@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 79234412933126063}
   - component: {fileID: 5785661246989091378}
   - component: {fileID: 1022756068661290752}
+  - component: {fileID: 6483384248996965852}
   m_Layer: 0
   m_Name: Deer Stag
   m_TagString: Untagged
@@ -78,7 +79,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1344037793033514107}
   - {fileID: 2795674585179287853}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 21.882, z: 0}
@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: eb7f4d01-d818-420f-afb5-436f040a8c59
+  guid: 701e0a70-13c2-4290-9dbd-7b7b41fe5873
 --- !u!114 &79234412933126063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,16 +604,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949d511d8f351b441b849bcdaf1dd047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeIn: 1
-  fadeInTime: 2
-  fadeOut: 1
-  fadeOutTime: 2
   SpawnEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1022756068661290752}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.Spawning.MaterialFader,
+          DaftAppleGames.Darskerry.Core
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DespawnEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1022756068661290752}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.Spawning.MaterialFader,
+          DaftAppleGames.Darskerry.Core
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5785661246989091378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1ccf5596993034c931871b07a05a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInOnStart: 1
+  fadeInOnStart: 0
   fadeTime: 3
   materialMap:
   - origMaterial: {fileID: 2100000, guid: 8d53ca7c6210e8c4181f055e58f29903, type: 2}
@@ -673,11 +695,31 @@ MonoBehaviour:
     materialMap:
     - origMaterial: {fileID: 2100000, guid: 8d53ca7c6210e8c4181f055e58f29903, type: 2}
       fadeMaterial: {fileID: 2100000, guid: 07da0018e30841041bce4960eb05ab7f, type: 2}
-  _properties: []
-  FadeInCompleteEvent:
+  shaderProperties: []
+  fadeInCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
-  FadeOutCompleteEvent:
+  fadeOutCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6483384248996965852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590575480512812058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d538d0d68fdd5194d9fdb4ddd316c1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkFrequencyFrames: 10
+  distanceFromCamera: 10
+  movedOutsideDistanceEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  movedInsideDistanceEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &5155801340354389930
@@ -735,9 +777,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7007932221187848549, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7007932221180647051, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1344037793033514107}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}
+--- !u!4 &2795674585179287841 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7007932221180647051, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}
+  m_PrefabInstance: {fileID: 5155801340354389930}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2795674585179287853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7007932221180647047, guid: ddd43017d5c0e0f4b90feffc37234b17, type: 3}

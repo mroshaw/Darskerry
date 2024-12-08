@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
-    internal class DetectorTargets : IEnumerable<KeyValuePair<string, DetectorTarget>>
+    public class DetectorTargets : IEnumerable<KeyValuePair<string, DetectorTarget>>
     {
         private readonly Dictionary<string, DetectorTarget> _targets = new();
 
@@ -107,7 +107,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         }
     }
 
-    internal struct DetectorTarget
+    public struct DetectorTarget
     {
         internal GameObject Target;
         internal float Distance;
