@@ -54,7 +54,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         #region Properties
         public NavMeshCharacter NavMeshCharacter { get; private set; }
         public GameCharacter GameCharacter { get; private set; }
-        public FovDetector FovDetector { get; private set; }
+        public FovDetectorOld FovDetectorOld { get; private set; }
         public Animator Animator { get; private set; }
         public AiState AiState { get; private set; }
         #endregion
@@ -63,7 +63,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             NavMeshCharacter = GetComponent<NavMeshCharacter>();
             GameCharacter = GetComponent<GameCharacter>();
-            FovDetector = GetComponent<FovDetector>();
+            FovDetectorOld = GetComponent<FovDetectorOld>();
             Animator = GetComponent<Animator>();
 
             if (!wanderCenterTransform)

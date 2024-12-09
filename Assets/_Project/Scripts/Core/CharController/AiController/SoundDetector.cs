@@ -4,22 +4,22 @@ using UnityEngine;
 #endif
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
-    public class SoundDetector : ProximityDetector
+    internal class SoundDetector : ProximityDetector
     {
-        [PropertyOrder(1)] [BoxGroup("Proximity Sensor Configuration")] private float minSoundVolume = 0.5f;
+        [PropertyOrder(1)] [BoxGroup("Settings")] [SerializeField] private float minSoundVolume = 0.5f;
 
         private Collider[] _soundTargetsBuffer;
 
         #region Startup
-        protected override void Awake()
+        protected override void Start()
         {
-            base.Awake();
-            _soundTargetsBuffer = new Collider[detectionBufferSize];
+            base.Start();
+            _soundTargetsBuffer = new Collider[DetectionBufferSize];
         }
         #endregion
-        protected override void CheckForTargets()
+        protected internal override void CheckForTargets()
         {
-            int objectsDetected = Physics.OverlapSphereNonAlloc(transform.position, proximityRange, OverlapSphereBuffer, detectionLayerMask);
+            int objectsDetected = Physics.OverlapSphereNonAlloc(transform.position, detectorRange, OverlapSphereBuffer, DetectionLayerMask);
             KeepAudibleTargets();
             RefreshTargetList(_soundTargetsBuffer, objectsDetected);
         }

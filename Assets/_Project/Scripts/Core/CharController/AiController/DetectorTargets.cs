@@ -1,14 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
+    [Serializable]
     public class DetectorTargets : IEnumerable<KeyValuePair<string, DetectorTarget>>
     {
         private readonly Dictionary<string, DetectorTarget> _targets = new();
 
-        internal void AddTarget(string guid, GameObject target, float distance)
+        internal DetectorTarget AddTarget(string guid, GameObject target, float distance)
         {
             DetectorTarget newTarget = new()
             {
@@ -16,6 +18,8 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                 Distance = distance,
             };
             _targets.Add(guid, newTarget);
+
+            return newTarget;
         }
 
         internal void RemoveTarget(string guid)
@@ -50,7 +54,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             return false;
         }
 
-        internal GameObject GetClosestTargetGameObject()
+        internal DetectorTarget GetClosestTarget()
         {
             KeyValuePair<string, DetectorTarget> minTarget = default;
             float minDistance = float.MaxValue;
@@ -62,7 +66,12 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                     minTarget = entry;
                 }
             }
-            return minTarget.Value.Target;
+            return minTarget.Value;
+        }
+
+        internal GameObject GetClosestTargetGameObject()
+        {
+            return GetClosestTarget().Target;
         }
 
         internal GameObject GetClosestTargetWithTag(string tag)
@@ -107,9 +116,10 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         }
     }
 
-    public struct DetectorTarget
+    [Serializable]
+    public class DetectorTarget
     {
-        internal GameObject Target;
-        internal float Distance;
+        [SerializeField] internal GameObject Target;
+        [SerializeField] internal float Distance;
     }
 }

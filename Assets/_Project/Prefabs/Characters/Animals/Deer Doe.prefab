@@ -464,8 +464,6 @@ MonoBehaviour:
   m_BlackboardVariableOverridesList:
   - rid: 6260567865202835836
   - rid: 6260567865202835839
-  - rid: 6260567865202835840
-  - rid: 6260567972528260053
   references:
     version: 2
     RefIds:
@@ -485,22 +483,6 @@ MonoBehaviour:
           m_Value1: 4846904776781450044
         Name: AiBrain
         m_Value: {fileID: 780080221177150161}
-    - rid: 6260567865202835840
-      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.FovDetector, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 11902972372056963776
-          m_Value1: 6172965814748363493
-        Name: Detector
-        m_Value: {fileID: 8238421743018735748}
-    - rid: 6260567972528260053
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 15382450224429744143
-          m_Value1: 5147467468817119527
-        Name: Animator
-        m_Value: {fileID: 2546059623079655930}
 --- !u!114 &8238421743018735748
 MonoBehaviour:
   m_ObjectHideFlags: 0
