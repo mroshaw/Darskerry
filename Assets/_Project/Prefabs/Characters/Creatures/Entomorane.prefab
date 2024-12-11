@@ -21,11 +21,13 @@ GameObject:
   - component: {fileID: 6270378194298109914}
   - component: {fileID: 9039301930096678411}
   - component: {fileID: 7008364648141391326}
-  - component: {fileID: 1236586431702461166}
   - component: {fileID: 2860674946823268584}
   - component: {fileID: 9211320848909851788}
   - component: {fileID: 1811483153803792496}
   - component: {fileID: 8486878075472994688}
+  - component: {fileID: 5343107192122155973}
+  - component: {fileID: 7520295418159017409}
+  - component: {fileID: 5996635482970299674}
   m_Layer: 0
   m_Name: Entomorane
   m_TagString: Untagged
@@ -46,7 +48,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 20460792719009618}
   - {fileID: 8593072248022703374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 124.08, z: 0}
@@ -404,6 +405,12 @@ MonoBehaviour:
   maxHealth: 100
   maxStamina: 100
   currentHealth: 100
+  crouchStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  crouchEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &9039301930096678411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,7 +468,7 @@ MonoBehaviour:
           m_Value0: 11902972372056963776
           m_Value1: 6172965814748363493
         Name: Detector
-        m_Value: {fileID: 1236586431702461166}
+        m_Value: {fileID: 0}
     - rid: 6260567997353034515
       type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -478,52 +485,6 @@ MonoBehaviour:
           m_Value1: 673461603112088423
         Name: Player Relationship
         m_Value: 1
---- !u!114 &1236586431702461166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7683998902874178089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 032af3880ceda24428ce3d649e845bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionLayerMask:
-    serializedVersion: 2
-    m_Bits: 2048
-  detectionTag: Player
-  detectionBufferSize: 20
-  awareSensorRange: 25
-  awareCheckFrequencyFrames: 5
-  blockedLayerMask:
-    serializedVersion: 2
-    m_Bits: 1984
-  eyesTransform: {fileID: 20460792719009618}
-  visionSensorRange: 15
-  visionSensorAngle: 170
-  visionCheckFrequencyFrames: 5
-  visionDetectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  visionLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  awareDetectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  awareLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  debugEnabled: 0
-  awareGameObjectsDebug: []
-  visionGameObjectsDebug: []
-  drawVisionSphereGizmo: 1
-  visionConeGizmoColor: {r: 1, g: 0, b: 0, a: 1}
-  visionConeGizmoResolution: 50
-  drawAwareSphereGizmo: 0
-  awareSphereGizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &2860674946823268584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 62ba3e2b-2253-4279-aaf2-ac95f45a51d3
+  guid: 4bcfb8c2-c32a-4471-8945-7f0f4620acd0
 --- !u!114 &1811483153803792496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,6 +564,91 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   drawRays: 1
+--- !u!114 &5343107192122155973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683998902874178089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb28e387b6777ba438691ac90cd4772d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionLayerMask:
+    serializedVersion: 2
+    m_Bits: 6144
+  detectionTags:
+  - Player
+  - Animal
+  detectionBufferSize: 20
+  detectors: []
+  newTargetDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  targetLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7520295418159017409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683998902874178089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf4df19ffe9fd34ba2bff34669cc2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectorRange: 20
+  refreshFrequency: 10
+  drawGizmos: 1
+  gizmoColor1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  gizmoColor2: {r: 0, g: 1, b: 0, a: 1}
+  newTargetDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  targetLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  debugEnabled: 1
+  detectedTargetsDebug: []
+  blockedLayerMask:
+    serializedVersion: 2
+    m_Bits: 1984
+  eyesTransform: {fileID: 20460792719009618}
+  visionSensorRange: 15
+  visionSensorAngle: 140
+  visibleTargetsDebug: []
+  visionConeGizmoResolution: 50
+--- !u!114 &5996635482970299674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683998902874178089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5c83036606fb48a6a915c937bfc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectorRange: 25
+  refreshFrequency: 10
+  drawGizmos: 1
+  gizmoColor1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  gizmoColor2: {r: 0, g: 1, b: 0, a: 1}
+  newTargetDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  targetLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  debugEnabled: 1
+  detectedTargetsDebug: []
+  minSoundVolume: 0.5
 --- !u!1 &9037549825899228978
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,12 +673,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9037549825899228978}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.083, z: 0.837}
+  m_LocalRotation: {x: 0.27207825, y: -0.65266657, z: 0.27207816, w: 0.65266633}
+  m_LocalPosition: {x: -0.49566928, y: -0.34711736, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9190457800932508691}
+  m_Father: {fileID: 8593072248022703362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8678455540280759912
 PrefabInstance:
@@ -693,9 +739,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1094560506066986158, guid: ae3440a52fde4514e8ce7d9e828f19e1, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1094560506076564330, guid: ae3440a52fde4514e8ce7d9e828f19e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 20460792719009618}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3440a52fde4514e8ce7d9e828f19e1, type: 3}
+--- !u!4 &8593072248022703362 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1094560506076564330, guid: ae3440a52fde4514e8ce7d9e828f19e1, type: 3}
+  m_PrefabInstance: {fileID: 8678455540280759912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8593072248022703374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1094560506076564326, guid: ae3440a52fde4514e8ce7d9e828f19e1, type: 3}

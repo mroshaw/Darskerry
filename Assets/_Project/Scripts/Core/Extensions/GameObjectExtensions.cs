@@ -62,6 +62,20 @@ namespace DaftAppleGames.Darskerry.Core.Extensions
             return result.ToArray();
         }
 
-        #endregion
+        public static bool HasMatchingTag(this GameObject gameObject, string[] tags)
+        {
+            if (gameObject == null || tags == null || tags.Length == 0)
+                return false;
+
+            foreach (string tag in tags)
+            {
+                if (gameObject.CompareTag(tag))
+                    return true;
+            }
+
+            return false;
+        }
     }
+
+    #endregion
 }

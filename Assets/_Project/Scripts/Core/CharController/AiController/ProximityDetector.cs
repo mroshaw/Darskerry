@@ -1,6 +1,7 @@
 using DaftAppleGames.Darskerry.Core.PropertyAttributes;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using DaftAppleGames.Darskerry.Core.Extensions;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -10,13 +11,11 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     internal class ProximityDetector : Detector
     {
         #region Class Variables
-        
+
         [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] protected bool debugEnabled = true;
         [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] private GameObject[] detectedTargetsDebug;
 
-        protected DetectorTargets DetectedTargets;
-
-        protected Collider[] OverlapSphereBuffer;
+        private Collider[] _overlapSphereBuffer;
         private readonly HashSet<string> _existingGuidsBuffer = new();
         #endregion
         #region Startup
@@ -26,7 +25,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         protected virtual void Start()
         {
             DetectedTargets = new DetectorTargets();
-            OverlapSphereBuffer = new Collider[DetectionBufferSize];
+            _overlapSphereBuffer = new Collider[DetectionBufferSize];
         }
         #endregion
         #region Update Logic
@@ -53,10 +52,10 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             return DetectedTargets.GetClosestTargetWithTag(targetTag);
         }
 
-        protected internal override void CheckForTargets()
+        protected internal override void CheckForTargets(bool triggerEvents)
         {
-            int objectsDetected = Physics.OverlapSphereNonAlloc(transform.position, detectorRange, OverlapSphereBuffer, DetectionLayerMask);
-            RefreshTargetList(OverlapSphereBuffer, objectsDetected);
+            int objectsDetected = Physics.OverlapSphereNonAlloc(transform.position, detectorRange, _overlapSphereBuffer, DetectionLayerMask);
+            RefreshTargetList(_overlapSphereBuffer, objectsDetected, triggerEvents);
 
             if (debugEnabled)
             {
@@ -69,7 +68,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             return DetectedTargets.HasTargets();
         }
 
-        protected void UpdateTargetDict(Collider[] detectedColliders, int numberDetected, ref DetectorTargets currentTargets)
+        protected void UpdateTargetDict(Collider[] detectedColliders, int numberDetected, ref DetectorTargets currentTargets, bool triggerEvents)
         {
             _existingGuidsBuffer.Clear();
 
@@ -79,7 +78,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                 ObjectGuid guid = detectedColliders[currCollider].GetComponent<ObjectGuid>();
                 GameObject colliderGameObject = detectedColliders[currCollider].gameObject;
 
-                if (guid && colliderGameObject.CompareTag(DetectionTag))
+                if (guid && colliderGameObject.HasMatchingTag(DetectionTags))
                 {
                     // Add to HashSet for later reference
                     _existingGuidsBuffer.Add(guid.Guid);
@@ -87,7 +86,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                     if (!currentTargets.HasGuid(guid.Guid))
                     {
                         float distanceToTarget = GetDistanceToTarget(colliderGameObject);
-                        NewTargetDetected(currentTargets.AddTarget(guid.Guid, colliderGameObject, distanceToTarget));
+                        NewTargetDetected(currentTargets.AddTarget(guid.Guid, colliderGameObject, distanceToTarget, colliderGameObject.tag), triggerEvents);
                     }
                 }
             }
@@ -98,7 +97,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                 if (!_existingGuidsBuffer.Contains(currTarget.Key))
                 {
                     keysToRemove.Add(currTarget.Key);
-                    TargetLost(currTarget.Value);
+                    TargetLost(currTarget.Value, triggerEvents);
                 }
             }
 
@@ -109,9 +108,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             }
         }
 
-        protected virtual void RefreshTargetList(Collider[] awareColliders, int numberDetected)
+        protected virtual void RefreshTargetList(Collider[] awareColliders, int numberDetected, bool triggerEvents)
         {
-            UpdateTargetDict(awareColliders, numberDetected, ref DetectedTargets);
+            UpdateTargetDict(awareColliders, numberDetected, ref DetectedTargets, triggerEvents);
         }
 
         #endregion

@@ -10,12 +10,18 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     {
         private readonly Dictionary<string, DetectorTarget> _targets = new();
 
-        internal DetectorTarget AddTarget(string guid, GameObject target, float distance)
+        internal DetectorTarget AddTarget(string guid, GameObject target, float distance, string tagValue)
         {
+            if (_targets.TryGetValue(guid, out DetectorTarget addTarget))
+            {
+                return addTarget;
+            }
+
             DetectorTarget newTarget = new()
             {
-                Target = target,
+                targetObject = target,
                 Distance = distance,
+                tag = tagValue
             };
             _targets.Add(guid, newTarget);
 
@@ -34,7 +40,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         internal GameObject GetTargetGameObject(string guid)
         {
-            return _targets[guid].Target;
+            return _targets[guid].targetObject;
         }
 
         internal bool HasTargets()
@@ -46,7 +52,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             foreach (var entry in _targets)
             {
-                if (entry.Value.Target.CompareTag(tag))
+                if (entry.Value.targetObject.CompareTag(tag))
                 {
                     return true;
                 }
@@ -71,7 +77,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         internal GameObject GetClosestTargetGameObject()
         {
-            return GetClosestTarget().Target;
+            return GetClosestTarget().targetObject;
         }
 
         internal GameObject GetClosestTargetWithTag(string tag)
@@ -80,7 +86,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             float minDistance = float.MaxValue;
             foreach (var entry in _targets)
             {
-                if (entry.Value.Target.CompareTag(tag) && entry.Value.Distance < minDistance)
+                if (entry.Value.targetObject.CompareTag(tag) && entry.Value.Distance < minDistance)
                 {
                     minDistance = entry.Value.Distance;
                     minTarget = entry;
@@ -88,7 +94,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             }
 
             // If target found, return closest. Otherwise, return null
-            return minDistance < float.MaxValue ? minTarget.Value.Target : null;
+            return minDistance < float.MaxValue ? minTarget.Value.targetObject : null;
         }
 
         internal GameObject[] GetAllTargetGameObjects()
@@ -99,7 +105,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
             foreach (KeyValuePair<string, DetectorTarget> currTarget in _targets)
             {
-                allGameObjects[currTargetIndex] = currTarget.Value.Target;
+                allGameObjects[currTargetIndex] = currTarget.Value.targetObject;
             }
 
             return allGameObjects;
@@ -117,9 +123,89 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     }
 
     [Serializable]
+    public class SortedDetectorTargetList
+    {
+        [SerializeReference] private readonly List<DetectorTarget> _targets = new();
+
+        public void Add(DetectorTarget target)
+        {
+            if (_targets.Exists(existingTarget => existingTarget.targetObject == target.targetObject))
+            {
+                return;
+            }
+            target.OnDistanceChanged += HandleDistanceChanged;
+            _targets.Add(target);
+            Sort();
+        }
+
+        public void Remove(DetectorTarget target)
+        {
+            target.OnDistanceChanged -= HandleDistanceChanged;
+            _targets.Remove(target);
+        }
+
+        public DetectorTarget GetClosestTarget()
+        {
+            if (Count() > 0)
+            {
+                return _targets[0];
+            }
+
+            return null;
+        }
+
+        public int Count()
+        {
+            return _targets.Count;
+        }
+
+        public void UpdateDistances(Transform sourceTransform)
+        {
+            foreach (DetectorTarget target in _targets.ToArray())
+            {
+                target.UpdateDistance(sourceTransform);
+            }
+        }
+
+        public IReadOnlyList<DetectorTarget> Targets => _targets.AsReadOnly();
+
+        private void HandleDistanceChanged(DetectorTarget target)
+        {
+            Sort();
+        }
+
+        private void Sort()
+        {
+            _targets.Sort((a, b) => a.Distance.CompareTo(b.Distance));
+        }
+    }
+
+    [Serializable]
     public class DetectorTarget
     {
-        [SerializeField] internal GameObject Target;
-        [SerializeField] internal float Distance;
+        [SerializeField] internal GameObject targetObject;
+        [SerializeField] internal string tag;
+
+        [SerializeField] private float distance;
+        public float Distance
+        {
+            get => distance;
+            set
+            {
+                if (Math.Abs(distance - value) > Mathf.Epsilon)
+                {
+                    distance = value;
+                    OnDistanceChanged?.Invoke(this);
+                }
+            }
+        }
+
+        public event Action<DetectorTarget> OnDistanceChanged;
+
+        public float UpdateDistance(Transform sourceTransform)
+        {
+            Distance = (sourceTransform.position - targetObject.transform.position).magnitude;
+            return Distance;
+        }
     }
 }

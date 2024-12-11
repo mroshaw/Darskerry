@@ -125,9 +125,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             // Loop through the 'aware' game objects, and see if any are within range, within the FOV angle, and not behind any blocking layers
             foreach (KeyValuePair<string, DetectorTarget> currTarget in _awareTargets)
             {
-                if (GetDistanceToTarget(currTarget.Value.Target) < visionSensorRange && GetAngleToTarget(currTarget.Value.Target) < visionSensorAngle / 2 && CanSeeTarget(currTarget.Value.Target))
+                if (GetDistanceToTarget(currTarget.Value.targetObject) < visionSensorRange && GetAngleToTarget(currTarget.Value.targetObject) < visionSensorAngle / 2 && CanSeeTarget(currTarget.Value.targetObject))
                 {
-                    _detectedBuffer[detectedBufferIndex] = currTarget.Value.Target.GetComponent<Collider>();
+                    _detectedBuffer[detectedBufferIndex] = currTarget.Value.targetObject.GetComponent<Collider>();
                     detectedBufferIndex++;
                 }
             }
@@ -164,7 +164,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                     if (!currentTargets.HasGuid(guid.Guid))
                     {
                         float distanceToTarget = GetDistanceToTarget(colliderGameObject);
-                        currentTargets.AddTarget(guid.Guid, colliderGameObject, distanceToTarget);
+                        currentTargets.AddTarget(guid.Guid, colliderGameObject, distanceToTarget, colliderGameObject.tag);
                         targetAddedDelegate.Invoke(colliderGameObject);
                     }
                 }
@@ -175,7 +175,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             {
                 if (!_existingGuidsBuffer.Contains(currTarget.Key))
                 {
-                    targetLostDelegate.Invoke(currTarget.Value.Target);
+                    targetLostDelegate.Invoke(currTarget.Value.targetObject);
                     keysToRemove.Add(currTarget.Key);
                 }
             }

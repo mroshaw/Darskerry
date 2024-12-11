@@ -1,5 +1,4 @@
-using System;
-using DaftAppleGames.Darskerry.Core.PropertyAttributes;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,8 +9,8 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     {
         #region Class Fields
 
-        [BoxGroup("Settings")] [SerializeField] protected float detectorRange;
-        [BoxGroup("Settings")] [SerializeField] public float refreshFrequency = 5.0f;
+        [BoxGroup("Settings")] [Tooltip("The range of this detector, presented as a sphere around the gameObject transform.")] [SerializeField] protected float detectorRange;
+        [BoxGroup("Settings")] [Tooltip("The number of frames to wait before refreshing the detector targets. Balance this between accuracy and performance.")] [SerializeField] public float refreshFrequency = 5.0f;
 
 #if UNITY_EDITOR
         [PropertyOrder(3)][FoldoutGroup("Gizmos")][SerializeField] protected bool drawGizmos = true;
@@ -20,40 +19,55 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 #endif
 
         internal LayerMask DetectionLayerMask { get; set; }
-        internal string DetectionTag { get; set; }
+        internal string[] DetectionTags { get; set; }
         internal int DetectionBufferSize { get; set; }
 
         [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<DetectorTarget> newTargetDetectedEvent;
         [PropertyOrder(2)][FoldoutGroup("Events")] public UnityEvent<DetectorTarget> targetLostEvent;
 
+        protected DetectorTargets DetectedTargets;
+
         #endregion
 
         #region Abstract Methods
 
-        protected internal abstract void CheckForTargets();
+        protected internal abstract void CheckForTargets(bool triggerEvents);
         protected internal abstract DetectorTarget GetClosestTarget();
         #endregion
 
         #region Class Methods
 
-        protected void SetLayerMask(LayerMask layerMask)
+        protected void SetLayerMask(LayerMask layerMaskToSet)
         {
-            DetectionLayerMask = layerMask;
+            DetectionLayerMask = layerMaskToSet;
         }
 
-        protected void SetTag(string tag)
+        protected void SetTag(string[] tagsToSet)
         {
-            DetectionTag = tag;
+            DetectionTags = tagsToSet;
         }
 
-        protected void NewTargetDetected(DetectorTarget detectedTarget)
+        protected void NewTargetDetected(DetectorTarget detectedTarget, bool triggerEvents)
         {
-            newTargetDetectedEvent.Invoke(detectedTarget);
+            if (triggerEvents)
+            {
+                Debug.Log("Event triggered!");
+                newTargetDetectedEvent.Invoke(detectedTarget);
+            }
         }
 
-        protected void TargetLost(DetectorTarget lostTarget)
+        protected void TargetLost(DetectorTarget lostTarget, bool triggerEvents)
         {
-            targetLostEvent.Invoke(lostTarget);
+            if (triggerEvents)
+            {
+                Debug.Log("Event triggered!");
+                targetLostEvent.Invoke(lostTarget);
+            }
+        }
+
+        protected bool IsColliderInArray(Collider colliderToCheck, Collider[] colliderArray)
+        {
+            return colliderArray.Contains(colliderToCheck);
         }
 
         protected float GetDistanceToTarget(GameObject target)

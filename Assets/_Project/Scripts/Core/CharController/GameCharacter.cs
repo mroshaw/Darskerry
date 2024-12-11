@@ -1,6 +1,7 @@
 using ECM2;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
@@ -12,6 +13,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         [PropertyOrder(-1)][BoxGroup("Stats")][SerializeField] private float maxHealth = 100f;
         [PropertyOrder(-1)][BoxGroup("Stats")][SerializeField] private float maxStamina = 100f;
         [PropertyOrder(-1)][BoxGroup("Stats")][SerializeField] private float currentHealth = 100f;
+
+        [FoldoutGroup("Events")] public UnityEvent crouchStartEvent;
+        [FoldoutGroup("Events")] public UnityEvent crouchEndEvent;
 
         public float CurrentHealth => currentHealth;
 
@@ -30,15 +34,30 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             base.OnEnable();
             MovementModeChanged += ToggleRootMotion;
+            Crouched += CrouchStarted;
+            UnCrouched += CrouchEnded;
+
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
             MovementModeChanged -= ToggleRootMotion;
+            Crouched -= CrouchStarted;
+            UnCrouched -= CrouchEnded;
         }
         #endregion
         #region Movement methods
+
+        private void CrouchStarted()
+        {
+            crouchStartEvent.Invoke();
+        }
+
+        private void CrouchEnded()
+        {
+            crouchEndEvent.Invoke();
+        }
         public void SetMovementVelocity(Vector2 moveInput)
         {
             // Handle sprinting

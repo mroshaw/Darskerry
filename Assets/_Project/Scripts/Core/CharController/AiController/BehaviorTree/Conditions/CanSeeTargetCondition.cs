@@ -15,15 +15,15 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
         public override void OnStart()
         {
             base.OnStart();
-            if (AiBrain.FovDetectorOld == null)
+            if (AiBrain.DetectorManager == null)
             {
-                Debug.LogError("FovDetector is not attached to Behaviour agent!");
+                Debug.LogError("DetectorManager is not attached to Behaviour agent!");
             }
         }
 
         public override bool IsTrue()
         {
-            GameObject target = AiBrain.FovDetectorOld.GetClosestTargetWithTag(Tag.Value);
+            GameObject target = AiBrain.DetectorManager.GetClosestTargetWithTag(Tag.Value);
             if (target)
             {
                 Target.Value = target.transform;

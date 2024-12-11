@@ -19,7 +19,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
             {
                 return Status.Failure;
             }
-            _detectedTarget = AiBrain.FovDetectorOld.GetClosestTargetWithTag(Tag.Value);
+            _detectedTarget = AiBrain.DetectorManager.GetClosestTargetWithTag(Tag);
 
             if (_detectedTarget)
             {

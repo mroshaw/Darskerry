@@ -32,6 +32,12 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
             _noiseMaker.MakeNoise(noiseLevel);
         }
+
+        
+        public void SetNoiseLevel(float newNoiseLevel)
+        {
+            noiseLevel = newNoiseLevel;
+        }
         #endregion
 
         #region Editor Methods

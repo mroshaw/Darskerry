@@ -4,12 +4,15 @@ using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 {
-    public class Noise : MonoBehaviour, INoiseMaker
+    public class NoiseMaker : MonoBehaviour, INoiseMaker
     {
         #region Class Variables
 
         [BoxGroup("Settings")] [SerializeField] private float fadeDuration = 2.0f;
         [BoxGroup("Debug")] [SerializeField] private float noiseLevel;
+#if UNITY_EDITOR
+        [BoxGroup("Debug")] [SerializeField] private NoiseEmitter[] noiseEmitters;
+#endif
         #endregion
 
         #region Update methods
@@ -36,6 +39,15 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             return noiseLevel;
         }
+        #endregion
+        #region Editor methods
+#if UNITY_EDITOR
+        [Button("Refresh Noise Emitters")]
+        private void RefreshEmitters()
+        {
+            noiseEmitters = GetComponentsInChildren<NoiseEmitter>(true);
+        }
+#endif
         #endregion
     }
 }

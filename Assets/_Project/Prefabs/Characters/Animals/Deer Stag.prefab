@@ -52,13 +52,15 @@ GameObject:
   - component: {fileID: 1474328581382225484}
   - component: {fileID: 5762946168928009757}
   - component: {fileID: 6924846138456223950}
-  - component: {fileID: 127789654131691568}
   - component: {fileID: 4881255923535286687}
   - component: {fileID: 3846178564153701706}
   - component: {fileID: 79234412933126063}
   - component: {fileID: 5785661246989091378}
   - component: {fileID: 1022756068661290752}
   - component: {fileID: 6483384248996965852}
+  - component: {fileID: 4536111902363851204}
+  - component: {fileID: 1040839562457760421}
+  - component: {fileID: 7362081367868434247}
   m_Layer: 0
   m_Name: Deer Stag
   m_TagString: Untagged
@@ -399,6 +401,12 @@ MonoBehaviour:
   maxHealth: 100
   maxStamina: 100
   currentHealth: 100
+  crouchStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  crouchEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1474328581382225484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,52 +491,6 @@ MonoBehaviour:
           m_Value1: 4846904776781450044
         Name: AiBrain
         m_Value: {fileID: 5762946168928009757}
---- !u!114 &127789654131691568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4590575480512812058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 032af3880ceda24428ce3d649e845bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionLayerMask:
-    serializedVersion: 2
-    m_Bits: 10240
-  detectionTag: Player
-  detectionBufferSize: 20
-  awareSensorRange: 25
-  awareCheckFrequencyFrames: 5
-  blockedLayerMask:
-    serializedVersion: 2
-    m_Bits: 1984
-  eyesTransform: {fileID: 1344037793033514107}
-  visionSensorRange: 20
-  visionSensorAngle: 170
-  visionCheckFrequencyFrames: 5
-  visionDetectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  visionLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  awareDetectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  awareLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  debugEnabled: 1
-  awareGameObjectsDebug: []
-  visionGameObjectsDebug: []
-  drawVisionSphereGizmo: 1
-  visionConeGizmoColor: {r: 1, g: 0, b: 0, a: 1}
-  visionConeGizmoResolution: 50
-  drawAwareSphereGizmo: 0
-  awareSphereGizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &4881255923535286687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 701e0a70-13c2-4290-9dbd-7b7b41fe5873
+  guid: 4425f0f7-bfc0-4a86-8fc9-d6385b4af999
 --- !u!114 &79234412933126063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,6 +666,100 @@ MonoBehaviour:
   movedInsideDistanceEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4536111902363851204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590575480512812058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb28e387b6777ba438691ac90cd4772d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionLayerMask:
+    serializedVersion: 2
+    m_Bits: 10240
+  detectionTags:
+  - Player
+  - Enemy
+  detectionBufferSize: 20
+  detectors:
+  - {fileID: 1040839562457760421}
+  - {fileID: 7362081367868434247}
+  newTargetDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  targetLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1040839562457760421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590575480512812058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf4df19ffe9fd34ba2bff34669cc2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectorRange: 25
+  refreshFrequency: 5
+  drawGizmos: 1
+  gizmoColor1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  gizmoColor2: {r: 0, g: 1, b: 0, a: 1}
+  newTargetDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  targetLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  debugEnabled: 1
+  detectedTargetsDebug: []
+  blockedLayerMask:
+    serializedVersion: 2
+    m_Bits: 1984
+  eyesTransform: {fileID: 1344037793033514107}
+  visionSensorRange: 20
+  visionSensorAngle: 170
+  visibleTargetsDebug: []
+  visionConeGizmoResolution: 50
+--- !u!114 &7362081367868434247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590575480512812058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5c83036606fb48a6a915c937bfc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectorRange: 25
+  refreshFrequency: 5
+  drawGizmos: 1
+  gizmoColor1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  gizmoColor2: {r: 0, g: 1, b: 0, a: 1}
+  newTargetDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  targetLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  debugEnabled: 1
+  detectedTargetsDebug: []
+  minSoundVolume: 0.5
+  _audibleTargets:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &5155801340354389930
 PrefabInstance:
   m_ObjectHideFlags: 0

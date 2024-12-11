@@ -41,9 +41,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         #endregion
         #region Class methods
 
-        protected internal override void CheckForTargets()
+        protected internal override void CheckForTargets(bool triggerEvents)
         {
-            base.CheckForTargets();
+            base.CheckForTargets(false);
             if (base.HasTargets())
             {
                 CheckForVisionObjects();
@@ -69,9 +69,9 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             // Loop through the 'proximity' game objects, and see if any are within range, within the FOV angle, and not behind any blocking layers
             foreach (KeyValuePair<string, DetectorTarget> currTarget in DetectedTargets)
             {
-                if (GetDistanceToTarget(currTarget.Value.Target) < visionSensorRange && GetAngleToTarget(currTarget.Value.Target) < visionSensorAngle / 2 && CanSeeTarget(currTarget.Value.Target))
+                if (GetDistanceToTarget(currTarget.Value.targetObject) < visionSensorRange && GetAngleToTarget(currTarget.Value.targetObject) < visionSensorAngle / 2 && CanSeeTarget(currTarget.Value.targetObject))
                 {
-                    _detectedBuffer[detectedBufferIndex] = currTarget.Value.Target.GetComponent<Collider>();
+                    _detectedBuffer[detectedBufferIndex] = currTarget.Value.targetObject.GetComponent<Collider>();
                     detectedBufferIndex++;
                 }
             }
@@ -127,7 +127,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         private void RefreshVisionList(Collider[] visionColliders, int numberDetected)
         {
-            UpdateTargetDict(visionColliders, numberDetected, ref _visibleTargets);
+            UpdateTargetDict(visionColliders, numberDetected, ref _visibleTargets, true);
         }
 
         #endregion

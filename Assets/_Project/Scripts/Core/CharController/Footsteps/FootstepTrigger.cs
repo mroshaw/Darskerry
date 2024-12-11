@@ -154,6 +154,11 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps
         {
             textureName = "";
 
+            if (Terrain.activeTerrain.terrainData.alphamapTextureCount == 0)
+            {
+                return false;
+            }
+
             Vector3 terrainSize = Terrain.activeTerrain.terrainData.size;
             Vector2 textureSize = new Vector2(Terrain.activeTerrain.terrainData.alphamapWidth,
                 Terrain.activeTerrain.terrainData.alphamapHeight);
