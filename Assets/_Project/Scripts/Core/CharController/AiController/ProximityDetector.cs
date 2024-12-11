@@ -11,10 +11,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     internal class ProximityDetector : Detector
     {
         #region Class Variables
-
-        [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] protected bool debugEnabled = true;
-        [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] private GameObject[] detectedTargetsDebug;
-
         private Collider[] _overlapSphereBuffer;
         private readonly HashSet<string> _existingGuidsBuffer = new();
         #endregion
@@ -56,11 +52,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             int objectsDetected = Physics.OverlapSphereNonAlloc(transform.position, detectorRange, _overlapSphereBuffer, DetectionLayerMask);
             RefreshTargetList(_overlapSphereBuffer, objectsDetected, triggerEvents);
-
-            if (debugEnabled)
-            {
-                detectedTargetsDebug = DetectedTargets.GetAllTargetGameObjects();
-            }
         }
 
         protected virtual bool HasTargets()

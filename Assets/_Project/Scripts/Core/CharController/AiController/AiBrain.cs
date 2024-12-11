@@ -202,7 +202,8 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         private Vector3 GetRandomWanderLocation(Vector3 center, float minDistance, float maxDistance)
         {
-            return Terrain.activeTerrain.GetRandomLocation(center, minDistance, maxDistance);
+            Terrain.activeTerrain.GetRandomLocation(center, minDistance, maxDistance, out Vector3 location);
+            return location;
         }
 
         private IEnumerator MoveToRandomPositionAfterDelayAsync()

@@ -57,7 +57,7 @@ namespace DaftAppleGames.Darskerry.Core.Extensions
             return terrain.SampleHeight(targetTransform.position);
         }
 
-        public static Vector3 GetRandomLocation(this Terrain terrain, Vector3 center, float minDistance, float maxDistance)
+        public static bool GetRandomLocation(this Terrain terrain, Vector3 center, float minDistance, float maxDistance, out Vector3 location)
         {
             Vector2 randomDirection = Random.insideUnitCircle.normalized;
             float distance = Random.Range(minDistance, maxDistance);
@@ -70,7 +70,14 @@ namespace DaftAppleGames.Darskerry.Core.Extensions
                 randomPosition.y = terrainHeight;
             }
 
-            return NavMesh.SamplePosition(randomPosition, out NavMeshHit myNavHit, 100, -1) ? myNavHit.position : randomPosition;
+            if (NavMesh.SamplePosition(randomPosition, out NavMeshHit myNavHit, 100, -1))
+            {
+                location = myNavHit.position;
+                return true;
+            }
+
+            location = randomPosition;
+            return false;
         }
     }
 }

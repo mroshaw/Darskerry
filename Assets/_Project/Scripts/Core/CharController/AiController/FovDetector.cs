@@ -14,16 +14,13 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         [PropertyOrder(1)][BoxGroup("Vision Sensor Configuration")][Tooltip("Only objects within this distance are added to the target list")][SerializeField] private float visionSensorRange = 5;
         [PropertyOrder(1)][BoxGroup("Vision Sensor Configuration")][Tooltip("The angle 'sweep' of the vision sensor.")][SerializeField] private float visionSensorAngle = 170.0f;
 
-        [PropertyOrder(4)][BoxGroup("Debug")][SerializeField] private GameObject[] visibleTargetsDebug;
-
 #if UNITY_EDITOR
+        [PropertyOrder(3)] [FoldoutGroup("Gizmos")] [SerializeField] private bool drawLineOfSightRay;
         [PropertyOrder(3)][FoldoutGroup("Gizmos")][SerializeField] private int visionConeGizmoResolution = 50;
 #endif
 
-        private DetectorTargets _visibleTargets;
-
+        [BoxGroup("Debug")] [ShowInInspector] private DetectorTargets _visibleTargets;
         private RaycastHit[] _rayHitsBuffer;
-        private Collider[] _detectedBuffer;
 
         #endregion
         #region Startup
@@ -36,7 +33,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             _visibleTargets = new DetectorTargets();
 
             _rayHitsBuffer = new RaycastHit[DetectionBufferSize];
-            _detectedBuffer = new Collider[DetectionBufferSize];
         }
         #endregion
         #region Class methods
@@ -46,7 +42,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             base.CheckForTargets(false);
             if (base.HasTargets())
             {
-                CheckForVisionObjects();
+                CheckForVisibleTargets();
             }
         }
 
@@ -62,31 +58,28 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             return _visibleTargets.GetClosestTargetWithTag(targetTag);
         }
 
-        private void CheckForVisionObjects()
+        protected override void TargetLost(DetectorTarget lostTarget, bool triggerEvents)
         {
-            int detectedBufferIndex = 0;
+            // If target drops out of the detection range of hte base proximity detector, drop it from the list
+            _visibleTargets.RemoveTarget(lostTarget.guid);
+            base.TargetLost(lostTarget, true);
 
+        }
+
+        private void CheckForVisibleTargets()
+        {
             // Loop through the 'proximity' game objects, and see if any are within range, within the FOV angle, and not behind any blocking layers
             foreach (KeyValuePair<string, DetectorTarget> currTarget in DetectedTargets)
             {
                 if (GetDistanceToTarget(currTarget.Value.targetObject) < visionSensorRange && GetAngleToTarget(currTarget.Value.targetObject) < visionSensorAngle / 2 && CanSeeTarget(currTarget.Value.targetObject))
                 {
-                    _detectedBuffer[detectedBufferIndex] = currTarget.Value.targetObject.GetComponent<Collider>();
-                    detectedBufferIndex++;
+                    // Add the target, if it's not already there
+                    if (_visibleTargets.AddTarget(currTarget.Value))
+                    {
+                        Debug.Log("Visible Target Detected!");
+                        NewTargetDetected(currTarget.Value, true);
+                    }
                 }
-            }
-
-            // Clear out the rest of the buffer
-            for (int currIndex = detectedBufferIndex; currIndex < DetectionBufferSize; currIndex++)
-            {
-                _detectedBuffer[currIndex] = null;
-            }
-
-            RefreshVisionList(_detectedBuffer, detectedBufferIndex);
-
-            if (debugEnabled)
-            {
-                visibleTargetsDebug = _visibleTargets.GetAllTargetGameObjects();
             }
         }
 
@@ -99,7 +92,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             int objectsDetected = Physics.RaycastNonAlloc(ray, _rayHitsBuffer, visionSensorRange + 0.5f, DetectionLayerMask | blockedLayerMask);
 
 #if UNITY_EDITOR
-            if (debugEnabled)
+            if (drawLineOfSightRay)
             {
                 Debug.DrawRay(eyesTransform.position, directionToTarget, Color.red, 0, false);
             }
@@ -123,11 +116,6 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             }
 
             return false;
-        }
-
-        private void RefreshVisionList(Collider[] visionColliders, int numberDetected)
-        {
-            UpdateTargetDict(visionColliders, numberDetected, ref _visibleTargets, true);
         }
 
         #endregion

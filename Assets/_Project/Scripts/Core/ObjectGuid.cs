@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core
@@ -12,11 +13,18 @@ namespace DaftAppleGames.Darskerry.Core
 
         private void OnEnable()
         {
+            Generate();
+        }
+
+        [Button("Generate Now")]
+        private void Generate()
+        {
             if (string.IsNullOrEmpty(_guid))
             {
                 _guid = System.Guid.NewGuid().ToString();
                 guid = _guid;
             }
+
         }
     }
 }

@@ -226,8 +226,6 @@ MonoBehaviour:
   targetLostEvent:
     m_PersistentCalls:
       m_Calls: []
-  debugEnabled: 1
-  detectedTargetsDebug: []
   minSoundVolume: 0.5
 --- !u!114 &2193291
 MonoBehaviour:
@@ -252,15 +250,13 @@ MonoBehaviour:
   targetLostEvent:
     m_PersistentCalls:
       m_Calls: []
-  debugEnabled: 1
-  detectedTargetsDebug: []
   blockedLayerMask:
     serializedVersion: 2
     m_Bits: 1984
   eyesTransform: {fileID: 0}
   visionSensorRange: 5
   visionSensorAngle: 170
-  visibleTargetsDebug: []
+  drawLineOfSightRay: 0
   visionConeGizmoResolution: 50
 --- !u!114 &2193292
 MonoBehaviour:
@@ -1504,7 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: ec35b96f-17b7-43d9-9f9e-73f4e7dcdc7f
+  guid: 0a7133a4-65d7-436c-a60e-4d89f421d7a2
 --- !u!114 &425317699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2638,7 +2634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1326915688
 Transform:
   m_ObjectHideFlags: 0
@@ -2705,8 +2701,6 @@ MonoBehaviour:
   targetLostEvent:
     m_PersistentCalls:
       m_Calls: []
-  debugEnabled: 1
-  detectedTargetsDebug: []
   minSoundVolume: 0.5
 --- !u!1 &1405031502
 GameObject:
@@ -3028,7 +3022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1654314001
 MonoBehaviour:
   m_ObjectHideFlags: 0

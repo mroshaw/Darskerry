@@ -445,16 +445,12 @@ MonoBehaviour:
   wanderCenterTransform: {fileID: 0}
   fleeSpeed: 1
   fleeRotationRate: 180
-  fleeMinRange: 20
-  fleeMaxRange: 25
+  fleeMinRange: 35
+  fleeMaxRange: 40
   fleeRestTime: 5
   startingThirst: 100
   thirstRate: 0.1
-  knownWaterSources:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  knownWaterSources: []
   _thirst: 0
 --- !u!114 &6924846138456223950
 MonoBehaviour:
@@ -535,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 4425f0f7-bfc0-4a86-8fc9-d6385b4af999
+  guid: 7234b52b-a25b-413f-b547-4636834ac871
 --- !u!114 &79234412933126063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,15 +713,13 @@ MonoBehaviour:
   targetLostEvent:
     m_PersistentCalls:
       m_Calls: []
-  debugEnabled: 1
-  detectedTargetsDebug: []
   blockedLayerMask:
     serializedVersion: 2
     m_Bits: 1984
   eyesTransform: {fileID: 1344037793033514107}
   visionSensorRange: 20
   visionSensorAngle: 170
-  visibleTargetsDebug: []
+  drawLineOfSightRay: 0
   visionConeGizmoResolution: 50
 --- !u!114 &7362081367868434247
 MonoBehaviour:
@@ -750,16 +744,7 @@ MonoBehaviour:
   targetLostEvent:
     m_PersistentCalls:
       m_Calls: []
-  debugEnabled: 1
-  detectedTargetsDebug: []
   minSoundVolume: 0.5
-  _audibleTargets:
-    rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!1001 &5155801340354389930
 PrefabInstance:
   m_ObjectHideFlags: 0

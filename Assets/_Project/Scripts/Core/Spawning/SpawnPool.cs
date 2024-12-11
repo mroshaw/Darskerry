@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps;
 using DaftAppleGames.Darskerry.Core.Extensions;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.Spawning
@@ -8,7 +9,7 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
     public class SpawnPool : PrefabPool
     {
         #region Class Variables
-
+        [BoxGroup("Settings")] [SerializeField] private bool mustSpawnOnNavMesh = true;
         private List<GameObject> _activePrefabs;
         #endregion
         #region Startup
@@ -36,7 +37,12 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
         internal GameObject Spawn(Vector3 center, float minDistance, float maxDistance, bool spawnState)
         {
             // Get random position on terrain
-            Vector3 spawnPosition = Terrain.activeTerrain.GetRandomLocation(center, minDistance, maxDistance);
+            if (!Terrain.activeTerrain.GetRandomLocation(center, minDistance, maxDistance, out Vector3 spawnPosition) && mustSpawnOnNavMesh)
+            {
+                Debug.Log("Couldn't find spawn position on NavMesh");
+                return null;
+            }
+
             GameObject spawnedPrefab = SpawnInstance(spawnPosition, QuaternionExtensions.RandomRotationX());
             if (spawnedPrefab.TryGetComponent <ISpawnable>(out ISpawnable spawnable))
             {

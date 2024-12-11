@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.CharController.AiController
@@ -8,8 +9,17 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     [Serializable]
     public class DetectorTargets : IEnumerable<KeyValuePair<string, DetectorTarget>>
     {
-        private readonly Dictionary<string, DetectorTarget> _targets = new();
+        [ShowInInspector] private readonly Dictionary<string, DetectorTarget> _targets = new();
 
+        internal bool AddTarget(DetectorTarget detectorTarget)
+        {
+            if (_targets.TryGetValue(detectorTarget.guid, out DetectorTarget _))
+            {
+                return false;
+            }
+            _targets.Add(detectorTarget.guid, detectorTarget);
+            return true;
+        }
         internal DetectorTarget AddTarget(string guid, GameObject target, float distance, string tagValue)
         {
             if (_targets.TryGetValue(guid, out DetectorTarget addTarget))
@@ -19,6 +29,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
             DetectorTarget newTarget = new()
             {
+                guid = guid,
                 targetObject = target,
                 Distance = distance,
                 tag = tagValue
@@ -183,6 +194,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
     [Serializable]
     public class DetectorTarget
     {
+        [SerializeField] internal string guid;
         [SerializeField] internal GameObject targetObject;
         [SerializeField] internal string tag;
 

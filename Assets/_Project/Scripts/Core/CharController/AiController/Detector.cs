@@ -47,20 +47,20 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             DetectionTags = tagsToSet;
         }
 
-        protected void NewTargetDetected(DetectorTarget detectedTarget, bool triggerEvents)
+        protected virtual void NewTargetDetected(DetectorTarget detectedTarget, bool triggerEvents)
         {
             if (triggerEvents)
             {
-                Debug.Log("Event triggered!");
+                Debug.Log("Base Target Detected! Event triggered!");
                 newTargetDetectedEvent.Invoke(detectedTarget);
             }
         }
 
-        protected void TargetLost(DetectorTarget lostTarget, bool triggerEvents)
+        protected virtual void TargetLost(DetectorTarget lostTarget, bool triggerEvents)
         {
             if (triggerEvents)
             {
-                Debug.Log("Event triggered!");
+                Debug.Log("Target Lost! Event triggered!");
                 targetLostEvent.Invoke(lostTarget);
             }
         }
@@ -88,6 +88,8 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             return angle;
         }
 
+#if UNITY_EDITOR
+
         protected abstract void DrawGizmos();
 
         protected void OnDrawGizmosSelected()
@@ -97,7 +99,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                 DrawGizmos();
             }
         }
-
+#endif
         #endregion
 
     }

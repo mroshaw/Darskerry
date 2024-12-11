@@ -2290,6 +2290,8 @@ GameObject:
   - component: {fileID: 6961110775462024559}
   - component: {fileID: 6856886333460779344}
   - component: {fileID: 74321694941150096}
+  - component: {fileID: 1209572150856007472}
+  - component: {fileID: 6110414410546385858}
   m_Layer: 11
   m_Name: Player Character (Female)
   m_TagString: Player
@@ -2687,6 +2689,64 @@ MonoBehaviour:
   maxHealth: 100
   maxStamina: 100
   currentHealth: 100
+  crouchStartEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1970769453845170774}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.CharController.AiController.NoiseEmitter,
+          DaftAppleGames.Darskerry.Core
+        m_MethodName: SetNoiseLevel
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7246232634392816663}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.CharController.AiController.NoiseEmitter,
+          DaftAppleGames.Darskerry.Core
+        m_MethodName: SetNoiseLevel
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  crouchEndEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1970769453845170774}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.CharController.AiController.NoiseEmitter,
+          DaftAppleGames.Darskerry.Core
+        m_MethodName: SetNoiseLevel
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.6
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7246232634392816663}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.CharController.AiController.NoiseEmitter,
+          DaftAppleGames.Darskerry.Core
+        m_MethodName: SetNoiseLevel
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.6
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6856886333460779344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2806,6 +2866,36 @@ MonoBehaviour:
   m_maxIkCorrectionOffset: 0
   m_upwardsVelocity: 0
   m_maxUpwardsVelocity: 0
+--- !u!114 &1209572150856007472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123739610637826781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83b55c744a5c1240a938f157c92fab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
+  noiseLevel: 0
+  noiseEmitters:
+  - {fileID: 1970769453845170774}
+  - {fileID: 7246232634392816663}
+--- !u!114 &6110414410546385858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123739610637826781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 0d5458ef-8058-42f3-a903-3edee23130a3
 --- !u!1 &1142335557884276798
 GameObject:
   m_ObjectHideFlags: 0
@@ -9460,6 +9550,7 @@ GameObject:
   - component: {fileID: 8027404770364496680}
   - component: {fileID: 1224381241442994959}
   - component: {fileID: 5979837358225421385}
+  - component: {fileID: 7246232634392816663}
   m_Layer: 11
   m_Name: Footstep Trigger RightFoot
   m_TagString: Untagged
@@ -9500,7 +9591,20 @@ MonoBehaviour:
     m_Bits: 1985
   triggerEnterEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7246232634392816663}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.CharController.AiController.NoiseEmitter,
+          DaftAppleGames.Darskerry.Core
+        m_MethodName: MakeNoise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   triggerExitEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -9622,6 +9726,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7246232634392816663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805250609593150228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018652ce4f8b2d94eaf98b765f1e798b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseLevel: 0.6
 --- !u!1 &4805274595165875752
 GameObject:
   m_ObjectHideFlags: 0
@@ -17446,6 +17563,7 @@ GameObject:
   - component: {fileID: 597728424449264259}
   - component: {fileID: 1434993669787086642}
   - component: {fileID: 1332762107288754957}
+  - component: {fileID: 1970769453845170774}
   m_Layer: 11
   m_Name: Footstep Trigger LeftFoot
   m_TagString: Untagged
@@ -17486,7 +17604,20 @@ MonoBehaviour:
     m_Bits: 1985
   triggerEnterEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1970769453845170774}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.CharController.AiController.NoiseEmitter,
+          DaftAppleGames.Darskerry.Core
+        m_MethodName: MakeNoise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   triggerExitEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -17608,6 +17739,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1970769453845170774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7989280164469581425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018652ce4f8b2d94eaf98b765f1e798b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseLevel: 0.6
 --- !u!1 &7998309433972466388
 GameObject:
   m_ObjectHideFlags: 0

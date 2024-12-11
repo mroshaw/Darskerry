@@ -63,7 +63,7 @@ namespace DaftAppleGames.Darskerry.Core.Spawning
 
         private float DistanceFromCamera()
         {
-            return (_camera.transform.position - transform.position).magnitude;
+            return _camera ? (_camera.transform.position - transform.position).magnitude : 0.0f;
         }
         #endregion
     }
