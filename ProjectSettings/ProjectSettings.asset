@@ -40,8 +40,6 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
-    duration: 2
   - logo: {fileID: 21300000, guid: 2e3accfb20231b54cb02478f59024843, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
@@ -144,7 +142,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.0.76 (Prototype)
+  bundleVersion: 0.0.93 (Prototype)
   preloadedAssets:
   - {fileID: 0}
   - {fileID: -944628639613478452, guid: 003fdb5442deecd40a25fce3201b0901, type: 3}
@@ -954,7 +952,10 @@ PlayerSettings:
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  qualitySettingsNames: []
+  qualitySettingsNames:
+  - High Fidelity
+  - Balanced
+  - Performant
   projectName: 
   organizationId: 
   cloudEnabled: 0

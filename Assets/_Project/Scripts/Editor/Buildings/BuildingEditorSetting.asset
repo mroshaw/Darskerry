@@ -64,16 +64,16 @@ MonoBehaviour:
     - candle
     lightObjectLayers:
     - PropsExterior
-    lightMode: 0
-    radius: 0
-    intensityLumens: 150
-    filterColor: {r: 227, g: 197, b: 100, a: 255}
-    temperature: 5630
-    range: 10
-    enableVolumetrics: 0
+    lightMode: 1
+    radius: 0.025
+    intensityLumens: 125
+    filterColor: {r: 1, g: 1, b: 1, a: 255}
+    temperature: 4800
+    range: 15
+    enableVolumetrics: 1
     enableShadowMap: 1
     shadowMapUpdateMode: 2
-    lightLayers: 0
+    lightLayers: 5
     dayTimeState: 0
     nightTimeState: 0
   meshSettings:

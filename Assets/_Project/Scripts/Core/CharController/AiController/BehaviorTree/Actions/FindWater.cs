@@ -9,15 +9,21 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.BehaviourTre
     [NodeDescription(name: "AI Find Water", story: "[Agent] finds nearest [WaterSource]", category: "Action/Needs", id: "cfbeaaac6039bc4e972763f2f0fd128e")]
     public partial class FindWaterAction : AiBrainAction
     {
-    [SerializeReference] public BlackboardVariable<Transform> WaterSource;
-    protected override Status OnStart()
+        [SerializeReference] public BlackboardVariable<Transform> WaterSource;
+
+        private Transform _foundWaterSource;
+
+        protected override Status OnStart()
         {
             if(!Init())
             {
                 return Status.Failure;
             }
 
-            WaterSource.Value = AiBrain.GetClosestWaterSource().transform;
+            if(AiBrain.GetClosestWaterSource(out _foundWaterSource))
+            {
+                WaterSource.Value = _foundWaterSource;
+            }
             return Status.Success;
         }
     }

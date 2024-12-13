@@ -283,14 +283,19 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             knownWaterSources = FindObjectsByType<WaterSource>(FindObjectsSortMode.None);
         }
 
-        public WaterSource GetClosestWaterSource()
+        public bool GetClosestWaterSource(out Transform closestWaterSource)
         {
             if (knownWaterSources == null || knownWaterSources.Length == 0)
-                return null;
+            {
+                closestWaterSource = null;
+                return false;
 
-            WaterSource closestWaterSource = null;
+            }
+
             float closestDistanceSqr = float.MaxValue;
             Vector3 playerPosition = transform.position;
+
+            closestWaterSource = null;
 
             foreach (WaterSource waterSource in knownWaterSources)
             {
@@ -303,11 +308,11 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                 if (distanceSqr < closestDistanceSqr)
                 {
                     closestDistanceSqr = distanceSqr;
-                    closestWaterSource = waterSource;
+                    closestWaterSource = waterSource.transform;
                 }
             }
 
-            return closestWaterSource;
+            return closestWaterSource != null;
         }
         #endregion
         #endregion

@@ -67,19 +67,19 @@ MonoBehaviour:
     _groups: []
     _defaultValue: 1
     ConnectionObject: {fileID: 11400000, guid: b2c5d0026c6e32645be431611f9cd6e6, type: 2}
-  - _isActive: 1
+  - _isActive: 0
     ID: cameratogglessgi
     ApplyImmediately: 1
     _groups: []
     _defaultValue: 1
     ConnectionObject: {fileID: 11400000, guid: a3fd24c3bd3a32343b911a3798fcb695, type: 2}
-  - _isActive: 1
+  - _isActive: 0
     ID: cameratoggleshadows
     ApplyImmediately: 1
     _groups: []
     _defaultValue: 1
     ConnectionObject: {fileID: 11400000, guid: 2bc597198c314484296e4abaa285697b, type: 2}
-  - _isActive: 1
+  - _isActive: 0
     ID: cameratogglebloom
     ApplyImmediately: 1
     _groups: []
@@ -126,7 +126,7 @@ MonoBehaviour:
     _optionLabels: []
     _overrideConnectionLabels: 0
     ConnectionObject: {fileID: 11400000, guid: 28d8c95fa02364942a6f9aada6121e4f, type: 2}
-  - _isActive: 1
+  - _isActive: 0
     ID: gfxQuality
     ApplyImmediately: 1
     _groups: []
@@ -134,7 +134,7 @@ MonoBehaviour:
     _optionLabels: []
     _overrideConnectionLabels: 0
     ConnectionObject: {fileID: 11400000, guid: fe228db790d29f648a557871ccc2037d, type: 2}
-  - _isActive: 1
+  - _isActive: 0
     ID: shadowDistance
     ApplyImmediately: 1
     _groups: []
@@ -142,7 +142,7 @@ MonoBehaviour:
     _optionLabels: []
     _overrideConnectionLabels: 0
     ConnectionObject: {fileID: 11400000, guid: c71b9f2999fd7b9479352132ad82c605, type: 2}
-  - _isActive: 1
+  - _isActive: 0
     ID: shadowResolution
     ApplyImmediately: 1
     _groups: []
@@ -206,6 +206,30 @@ MonoBehaviour:
     _optionLabels: []
     _overrideConnectionLabels: 0
     ConnectionObject: {fileID: 11400000, guid: e480217035af2154bb5e816d952cdff1, type: 2}
+  - _isActive: 1
+    ID: ssgiPreset
+    ApplyImmediately: 1
+    _groups: []
+    _defaultValue: 1
+    _optionLabels: []
+    _overrideConnectionLabels: 0
+    ConnectionObject: {fileID: 11400000, guid: 8c0b42b69fd0d5847b4909d4cecc4d69, type: 2}
+  - _isActive: 1
+    ID: fogPreset
+    ApplyImmediately: 1
+    _groups: []
+    _defaultValue: 1
+    _optionLabels: []
+    _overrideConnectionLabels: 0
+    ConnectionObject: {fileID: 11400000, guid: f9d7013cb56042e4dbf05dfaf2d71286, type: 2}
+  - _isActive: 1
+    ID: shadowsPreset
+    ApplyImmediately: 1
+    _groups: []
+    _defaultValue: 1
+    _optionLabels: []
+    _overrideConnectionLabels: 0
+    ConnectionObject: {fileID: 11400000, guid: a436db8459cf5c846b704b846e39bf88, type: 2}
   _integers: []
   _floats:
   - _isActive: 0
