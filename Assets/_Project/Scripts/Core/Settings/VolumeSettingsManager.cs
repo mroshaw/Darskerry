@@ -24,77 +24,60 @@ namespace DaftAppleGames.Darskerry.Core.Settings
         [BoxGroup("Targets")] [SerializeField] private Light sunLight;
         [BoxGroup("Targets")] [SerializeField] private Light moonLight;
 
-        [BoxGroup("Providers")] [SerializeField] private SsgiVolumeSettingsProvider ssgiVolumeSettings;
-        [BoxGroup("Providers")] [SerializeField] private FogVolumeSettingsProvider fogVolumeSettings;
-        [BoxGroup("Providers")] [SerializeField] private ShadowsVolumeSettingsProvider shadowsVolumeSettings;
+        [BoxGroup("Providers")] [SerializeField] private VolumeSettingsProvider[] volumeSettingsProviders;
 
         public VolumeProfile SkyGlobalVolumeProfile => skyGlobalVolume.profile;
         public VolumeProfile LightingVolumeProfile => lightingVolume.profile;
         public VolumeProfile PostProcessingVolumeProfile => postProcessingVolume.profile;
-
         public Light Sun => sunLight;
         public Light Moon => moonLight;
 
         #endregion
 
+        #region Startup
+
+        protected override void Awake()
+        {
+            volumeSettingsProviders = GetComponentsInChildren<VolumeSettingsProvider>(false);
+        }
+
+        #endregion
+
         #region Public Methods
 
-        public void ApplySsgiSettings(PresetQuality presetQuality)
+        public void ApplySettings<T>(PresetQuality presetQuality) where T : VolumeSettingsProvider
         {
-            ApplySettings(ssgiVolumeSettings, presetQuality);
-        }
-
-        public PresetQuality GetSsgiDefault()
-        {
-            return ssgiVolumeSettings.DefaultPreset;
-        }
-
-        public PresetQuality GetFogDefault()
-        {
-            return fogVolumeSettings.DefaultPreset;
-        }
-
-        public PresetQuality GetShadowsDefault()
-        {
-            return shadowsVolumeSettings.DefaultPreset;
-        }
-
-
-        public void ApplyFogSettings(PresetQuality presetQuality)
-        {
-            ApplySettings(fogVolumeSettings, presetQuality);
-        }
-
-        public void ApplyShadowsSettings(PresetQuality presetQuality)
-        {
-            ApplySettings(shadowsVolumeSettings, presetQuality);
-        }
-
-
-        private void ApplySettings(SettingsProvider settingProvider, PresetQuality presetQuality)
-        {
-            switch (presetQuality)
+            foreach (VolumeSettingsProvider currProvider in volumeSettingsProviders)
             {
-                case PresetQuality.VeryLow:
-                    settingProvider.ApplyVeryLowPreset();
-                    break;
-                case PresetQuality.Low:
-                    settingProvider.ApplyLowPreset();
-                    break;
-                case PresetQuality.Medium:
-                    settingProvider.ApplyMediumPreset();
-                    break;
-                case PresetQuality.High:
-                    settingProvider.ApplyHighPreset();
-                    break;
-                case PresetQuality.VeryHigh:
-                    settingProvider.ApplyVeryHighPreset();
-                    break;
-                case PresetQuality.Ultra:
-                    settingProvider.ApplyUltraPreset();
-                    break;
+                if (currProvider.GetType() == typeof(T))
+                {
+                    currProvider.Apply(presetQuality);
+                }
             }
         }
+
+        public PresetQuality GetDefaultPreset<T>() where T : VolumeSettingsProvider
+        {
+            foreach (VolumeSettingsProvider currProvider in volumeSettingsProviders)
+            {
+                if (currProvider.GetType() == typeof(T))
+                {
+                    return currProvider.DefaultPreset;
+                }
+            }
+            return PresetQuality.Medium;
+        }
+        #endregion
+
+        #region Editor Methods
+#if UNITY_EDITOR
+        [Button("Refresh Providers")]
+        private void RefreshProviders()
+        {
+            volumeSettingsProviders = GetComponentsInChildren<VolumeSettingsProvider>(false);
+        }
+
+#endif
         #endregion
     }
 }

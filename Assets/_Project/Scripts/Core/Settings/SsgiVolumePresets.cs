@@ -8,6 +8,10 @@ namespace DaftAppleGames.Darskerry.Core.Settings
     public class SsgiVolumePresets : VolumePresets
     {
         [BoxGroup("Defaults")] public ScalableSettingLevelParameter.Level ssgiQualityLevel;
-        [BoxGroup("Defaults")] public bool fullResolution = true;
+        [BoxGroup("Defaults")] public int maxRaySteps;
+        [BoxGroup("Defaults")] public bool denoiseEnabled;
+        [BoxGroup("Defaults")] public bool halfResDenoiserEnabled;
+        [BoxGroup("Defaults")] public bool secondDenoiserEnabled;
+        [BoxGroup("Defaults")] public bool fullResolution;
     }
 }

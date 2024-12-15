@@ -17,7 +17,7 @@ namespace DaftAppleGames.Darskerry.Core.Settings
         [BoxGroup("Presets")] public SettingPreset veryHighPreset;
         [BoxGroup("Presets")] public SettingPreset ultraPreset;
 
-        [BoxGroup("Events")] public UnityEvent<SettingPreset> onSettingsChangedEvent;
+        [BoxGroup("Events")] public UnityEvent<PresetQuality> onSettingsChangedEvent;
 
         public PresetQuality CurrentPreset { get; private set; }
         public PresetQuality DefaultPreset => defaultPreset;
@@ -32,65 +32,85 @@ namespace DaftAppleGames.Darskerry.Core.Settings
             InitSettings();
         }
 
-        protected virtual void Start()
-        {
-
-        }
         #endregion
 
-
-        [BoxGroup("Apply")] [Button("Very Low")]
-        public void ApplyVeryLowPreset()
+        public void ApplyDefaultPreset()
         {
-            CurrentPreset = PresetQuality.VeryLow;
-            ApplySettings(veryLowPreset);
+            Apply(defaultPreset);
         }
 
-
-        [BoxGroup("Apply")] [Button("Low")]
-        public void ApplyLowPreset()
+        public void Apply(PresetQuality presetQuality)
         {
-            CurrentPreset = PresetQuality.Low;
-            ApplyPreset(lowPreset);
-        }
-
-        [BoxGroup("Apply")] [Button("Medium")]
-        public void ApplyMediumPreset()
-        {
-            CurrentPreset = PresetQuality.Medium;
-            ApplyPreset(mediumPreset);
-        }
-
-        [BoxGroup("Apply")] [Button("High")]
-        public void ApplyHighPreset()
-        {
-            CurrentPreset = PresetQuality.High;
-            ApplyPreset(highPreset);
-        }
-
-        [BoxGroup("Apply")] [Button("Very High")]
-        public void ApplyVeryHighPreset()
-        {
-            CurrentPreset = PresetQuality.VeryHigh;
-            ApplyPreset(veryHighPreset);
-        }
-
-        [BoxGroup("Apply")] [Button("Ultra")]
-        public void ApplyUltraPreset()
-        {
-            CurrentPreset = PresetQuality.Ultra;
-            ApplyPreset(ultraPreset);
-        }
-
-        private void ApplyPreset(SettingPreset preset)
-        {
-            ApplySettings(preset);
-            onSettingsChangedEvent.Invoke(preset);
+            switch (presetQuality)
+            {
+                case PresetQuality.VeryLow:
+                    ApplySettings(veryLowPreset);
+                    break;
+                case PresetQuality.Low:
+                    ApplySettings(lowPreset);
+                    break;
+                case PresetQuality.Medium:
+                    ApplySettings(mediumPreset);
+                    break;
+                case PresetQuality.High:
+                    ApplySettings(highPreset);
+                    break;
+                case PresetQuality.VeryHigh:
+                    ApplySettings(veryHighPreset);
+                    break;
+                case PresetQuality.Ultra:
+                    ApplySettings(ultraPreset);
+                    break;
+            }
+            CurrentPreset = presetQuality;
+            onSettingsChangedEvent.Invoke(presetQuality);
         }
 
         protected abstract void ApplySettings(SettingPreset volumeSettings);
 
         protected abstract void InitSettings();
+
+#region Editor methods
+        #if UNITY_EDITOR
+
+        [BoxGroup("Apply")] [Button("Very Low")]
+        private void ApplyVeryLowPreset()
+        {
+            Apply(PresetQuality.VeryLow);
+        }
+
+
+        [BoxGroup("Apply")] [Button("Low")]
+        private void ApplyLowPreset()
+        {
+            Apply(PresetQuality.Low);
+        }
+
+        [BoxGroup("Apply")] [Button("Medium")]
+        private void ApplyMediumPreset()
+        {
+            Apply(PresetQuality.Medium);
+        }
+
+        [BoxGroup("Apply")] [Button("High")]
+        private void ApplyHighPreset()
+        {
+            Apply(PresetQuality.High);
+        }
+
+        [BoxGroup("Apply")] [Button("Very High")]
+        private void ApplyVeryHighPreset()
+        {
+            Apply(PresetQuality.VeryHigh);
+        }
+
+        [BoxGroup("Apply")] [Button("Ultra")]
+        private void ApplyUltraPreset()
+        {
+            Apply(PresetQuality.Ultra);
+        }
+#endif
+        #endregion
 
     }
 }

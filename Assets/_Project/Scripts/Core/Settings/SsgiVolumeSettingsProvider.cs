@@ -13,7 +13,11 @@ namespace DaftAppleGames.Darskerry.Core.Settings
             {
                 _giProfileOverrides.enable.value = ssgiVolumeSettings.settingEnabled;
                 _giProfileOverrides.fullResolutionSS.value = ssgiVolumeSettings.fullResolution;
-                _giProfileOverrides.quality.value = (int)ssgiVolumeSettings.ssgiQualityLevel;
+                _giProfileOverrides.quality.levelAndOverride = ((int)ssgiVolumeSettings.ssgiQualityLevel, true);
+                _giProfileOverrides.maxRaySteps = ssgiVolumeSettings.maxRaySteps;
+                _giProfileOverrides.denoise = ssgiVolumeSettings.denoiseEnabled;
+                _giProfileOverrides.halfResolutionDenoiser = ssgiVolumeSettings.halfResDenoiserEnabled;
+                _giProfileOverrides.secondDenoiserPass = ssgiVolumeSettings.secondDenoiserEnabled;
             }
         }
 
@@ -22,11 +26,12 @@ namespace DaftAppleGames.Darskerry.Core.Settings
             base.InitSettings();
             if(!LightingVolumeProfile.TryGet<GlobalIllumination>(out _giProfileOverrides))
             {
-                Debug.LogError($"SSGIVolumeSettings: cannot find SSGI override on volume profile {LightingVolumeProfile.name}");
+                Debug.LogError($"SsgiVolumeSettingsProvider: cannot find GlobalIllumination override on volume profile {LightingVolumeProfile.name}");
             }
             _giProfileOverrides.active = true;
             _giProfileOverrides.quality.overrideState = true;
             _giProfileOverrides.enable.overrideState = true;
+            _giProfileOverrides.quality.levelAndOverride = (0, true);
             _giProfileOverrides.fullResolutionSS.overrideState = true;
         }
     }

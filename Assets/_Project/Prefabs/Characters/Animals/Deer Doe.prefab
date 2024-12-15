@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 4fc78093-b452-416c-a97f-44a5bf35c3d1
+  guid: b807134d-c003-4408-8625-88cd61781f2b
 --- !u!114 &562747798931870366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +754,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8806547491359502958}
     m_Modifications:
     - target: {fileID: 8088803665567068489, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088803665567068489, guid: f317a66714524ad4da0b1850b5371238, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 1cb8a527abeb24c4da6d6f09eb243d37, type: 2}
@@ -761,6 +765,26 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 534f1263f9444b44bbf8c0a6dc56ae53, type: 2}
+    - target: {fileID: 8088803665567068491, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088803665567068493, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088803665567068493, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088803665567068495, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088803665567068495, guid: f317a66714524ad4da0b1850b5371238, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 38
+      objectReference: {fileID: 0}
     - target: {fileID: 8088803665580670007, guid: f317a66714524ad4da0b1850b5371238, type: 3}
       propertyPath: m_Name
       value: DeerDoe

@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 179093909}
   - component: {fileID: 179093908}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sky Global Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
   priority: 10
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 22b57dc306b2c08418c7c5c6dbeb3f63, type: 2}
+  sharedProfile: {fileID: 11400000, guid: dc26b2ccf04cd8a449c10006663f504d, type: 2}
 --- !u!4 &179093909
 Transform:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 457821236}
   - component: {fileID: 457821235}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Advanced(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,8 @@ GameObject:
   - component: {fileID: 852714359}
   - component: {fileID: 852714360}
   - component: {fileID: 852714361}
-  m_Layer: 0
+  - component: {fileID: 852714362}
+  m_Layer: 3
   m_Name: Volume Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1b913163c36f54abac52de0671516b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultPreset: 3
+  defaultPreset: 1
   veryLowPreset: {fileID: 11400000, guid: 836c586f4fd80314e97fe0a14212cf9b, type: 2}
   lowPreset: {fileID: 11400000, guid: 54d67b6c160222545817385ea4632e95, type: 2}
   mediumPreset: {fileID: 11400000, guid: dc15ed2e747d4644ba17197ba38cdb5d, type: 2}
@@ -483,6 +484,28 @@ MonoBehaviour:
   onSettingsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &852714362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852714356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cde547e6c6d9d4baf3a43061f349fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPreset: 3
+  veryLowPreset: {fileID: 11400000, guid: 4fd5e7a8f7a4fe24e8af217b381bafba, type: 2}
+  lowPreset: {fileID: 11400000, guid: 4306273ea98e1764283111b5f7c39349, type: 2}
+  mediumPreset: {fileID: 11400000, guid: 6382aaadc5ec3ea429ed932779833384, type: 2}
+  highPreset: {fileID: 11400000, guid: 93f84a6e501530245a3c12847cb1b252, type: 2}
+  veryHighPreset: {fileID: 11400000, guid: 21b24a2162b4b7740959e4f8741ca92d, type: 2}
+  ultraPreset: {fileID: 11400000, guid: bbbfc360377140c4e90f6d7a745b8d0a, type: 2}
+  onSettingsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &987403351
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 987403352}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Detailed Cloud Volumes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,55 +542,6 @@ Transform:
   - {fileID: 9094013071667733343}
   m_Father: {fileID: 1748855154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1133555835
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1133555836}
-  - component: {fileID: 1133555837}
-  m_Layer: 3
-  m_Name: Fog Global Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1133555836
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133555835}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1748855154}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1133555837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133555835}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 6190921c93c0d384080e8912766ad9c9, type: 2}
 --- !u!1 &1164324168
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +803,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 7
+  m_LightlayersMask: 32
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -854,9 +828,9 @@ MonoBehaviour:
   m_VolumetricShadowDimmer: 1
   m_ShadowFadeDistance: 10000
   m_UseContactShadow:
-    m_Override: 0
-    m_UseOverride: 1
-    m_Level: 0
+    m_Override: 1
+    m_UseOverride: 0
+    m_Level: 1
   m_RayTracedContactShadow: 0
   m_ShadowTint: {r: 0, g: 0, b: 0, a: 1}
   m_PenumbraTint: 0
@@ -943,7 +917,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 7
+  m_RenderingLayerMask: 32
   m_Lightmapping: 1
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
@@ -1060,7 +1034,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 13
+  m_RenderingLayerMask: 32
   m_Lightmapping: 1
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
@@ -1301,7 +1275,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 13
+  m_LightlayersMask: 32
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -1449,55 +1423,6 @@ MonoBehaviour:
     maskMode: 0
     materialMask: {fileID: 0}
   m_Version: 3
---- !u!1 &1712875485
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1712875486}
-  - component: {fileID: 1712875487}
-  m_Layer: 3
-  m_Name: Detail Lighting Global Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1712875486
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712875485}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1748855154}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1712875487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712875485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 10
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 2213611b8927a9d47a64b355f7379647, type: 2}
 --- !u!1 &1748855153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,8 +1433,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1748855154}
   - component: {fileID: 1748855155}
-  m_Layer: 0
-  m_Name: Volumes
+  m_Layer: 3
+  m_Name: Global Volumes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1532,9 +1457,7 @@ Transform:
   - {fileID: 179093909}
   - {fileID: 1774925823}
   - {fileID: 987403352}
-  - {fileID: 1712875486}
   - {fileID: 1795298043}
-  - {fileID: 1133555836}
   - {fileID: 274968219}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1555,9 +1478,11 @@ MonoBehaviour:
   postProcessingVolume: {fileID: 1795298044}
   sunLight: {fileID: 1164324174}
   moonLight: {fileID: 1330048376}
-  ssgiVolumeSettings: {fileID: 852714359}
-  fogVolumeSettings: {fileID: 852714360}
-  shadowsVolumeSettings: {fileID: 852714361}
+  volumeSettingsProviders:
+  - {fileID: 852714359}
+  - {fileID: 852714360}
+  - {fileID: 852714361}
+  - {fileID: 852714362}
 --- !u!1 &1774925822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,7 +1493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1774925823}
   - component: {fileID: 1774925824}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lighting Global Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1606,7 +1531,7 @@ MonoBehaviour:
   priority: 10
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 2213611b8927a9d47a64b355f7379647, type: 2}
+  sharedProfile: {fileID: 11400000, guid: ce26c2de9cb744045b093ab1cbe660e7, type: 2}
 --- !u!1 &1795298042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1580,7 @@ MonoBehaviour:
   priority: 10
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 460d6fafcbd9be3459f041749d87d670, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 810705780d42aab44b16620b156dca03, type: 2}
 --- !u!1 &2054030744
 GameObject:
   m_ObjectHideFlags: 1
@@ -1760,7 +1685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9094013071667733343}
   - component: {fileID: 5039440760407146421}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cloudy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1809,8 +1734,16 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 6463203887767042328, guid: e9214963ba867b94c97134624bbe5a02, type: 3}
+      propertyPath: probeLayerMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6463203887767042328, guid: e9214963ba867b94c97134624bbe5a02, type: 3}
       propertyPath: allowDynamicResolution
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6463203887767042328, guid: e9214963ba867b94c97134624bbe5a02, type: 3}
+      propertyPath: volumeLayerMask.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6463203887767042328, guid: e9214963ba867b94c97134624bbe5a02, type: 3}
       propertyPath: customRenderingSettings
@@ -1890,7 +1823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 809838082477844405}
   - component: {fileID: 8639783650866771555}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ManualCumulonimbus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1907,7 +1840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 809838081683169431}
   - component: {fileID: 8639783650390962497}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ManualComplete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1924,7 +1857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 809838081832646904}
   - component: {fileID: 8639783650239392046}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ManualCirroStratus
   m_TagString: Untagged
   m_Icon: {fileID: 0}

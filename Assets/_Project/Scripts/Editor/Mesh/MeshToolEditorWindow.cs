@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 namespace DaftAppleGames.Editor.ObjectTools
 {
     public enum MeshProperties { CastShadows, StaticShadowCaster, ContributeGI, ReceiveGI, MotionVectors, DynamicOcclusion, RenderLayerMask, Priority }
-    public enum LightLayerPresets { Interior, Exterior, Both }
+    public enum LightLayerPresets { Interior, Exterior, Both, InteriorNoSun, ExteriorNoSun, BothNoSun }
 
     public class MeshToolEditorWindow : OdinEditorWindow
     {
@@ -22,6 +22,16 @@ namespace DaftAppleGames.Editor.ObjectTools
         [BoxGroup("Selected Objects")]
         [SerializeField]
         private GameObject[] selectedObjects;
+
+        [BoxGroup("Tool Settings")] [SerializeField] private bool showDebug = true;
+
+        private void WriteLog(string logMessage)
+        {
+            if (showDebug)
+            {
+                Debug.Log(logMessage);
+            }
+        }
 
         /// <summary>
         /// Refresh the list of GameObjects selected
@@ -124,9 +134,9 @@ namespace DaftAppleGames.Editor.ObjectTools
 
         private void ApplyIndividualSetting(MeshProperties meshProperties)
         {
-            foreach (MeshRenderer renderer in GetChildMeshRenderers())
+            foreach (Renderer renderer in GetChildRenderers())
             {
-                Debug.Log($"Updating '{meshProperties}' on '{renderer.gameObject.name}'");
+                WriteLog($"Updating '{meshProperties}' on '{renderer.gameObject.name}'");
                 switch (meshProperties)
                 {
                     case MeshProperties.CastShadows:
@@ -149,7 +159,11 @@ namespace DaftAppleGames.Editor.ObjectTools
                         GameObjectUtility.SetStaticEditorFlags(renderer.gameObject, newFlags);
                         break;
                     case MeshProperties.ReceiveGI:
-                        renderer.receiveGI = receiveGI;
+                        if (renderer is MeshRenderer meshRenderer)
+                        {
+                            meshRenderer.receiveGI = receiveGI;
+                        }
+
                         break;
                     case MeshProperties.RenderLayerMask:
                         switch (lightlayerPreset)
@@ -158,13 +172,26 @@ namespace DaftAppleGames.Editor.ObjectTools
                                 renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly");
                                 break;
 
+                            case LightLayerPresets.InteriorNoSun:
+                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly", "Sun/Moon");
+                                break;
+
                             case LightLayerPresets.Exterior:
+                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("ExteriorOnly", "Sun/Moon");
+                                break;
+
+                            case LightLayerPresets.ExteriorNoSun:
                                 renderer.renderingLayerMask = RenderingLayerMask.GetMask("ExteriorOnly");
                                 break;
 
                             case LightLayerPresets.Both:
+                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly", "ExteriorOnly", "Sun/Moon");
+                                break;
+
+                            case LightLayerPresets.BothNoSun:
                                 renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly", "ExteriorOnly");
                                 break;
+
                         }
 
                         break;
@@ -177,14 +204,14 @@ namespace DaftAppleGames.Editor.ObjectTools
         /// Return all MeshRenderers in selected GameObjects
         /// </summary>
         /// <returns></returns>
-        private List<MeshRenderer> GetChildMeshRenderers()
+        private List<Renderer> GetChildRenderers()
         {
-            List<MeshRenderer> allRenderers = new List<MeshRenderer>();
+            List<Renderer> allRenderers = new List<Renderer>();
 
             foreach (GameObject gameObject in Selection.gameObjects)
             {
                 // Check if prefab
-                allRenderers.AddRange(gameObject.GetComponentsInChildren<MeshRenderer>(true));
+                allRenderers.AddRange(gameObject.GetComponentsInChildren<Renderer>(true));
             }
 
             return allRenderers;

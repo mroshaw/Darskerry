@@ -613,15 +613,13 @@ MonoBehaviour:
   targetLostEvent:
     m_PersistentCalls:
       m_Calls: []
-  debugEnabled: 1
-  detectedTargetsDebug: []
   blockedLayerMask:
     serializedVersion: 2
     m_Bits: 1984
   eyesTransform: {fileID: 20460792719009618}
   visionSensorRange: 15
   visionSensorAngle: 140
-  visibleTargetsDebug: []
+  drawLineOfSightRay: 0
   visionConeGizmoResolution: 50
 --- !u!114 &5996635482970299674
 MonoBehaviour:
@@ -646,8 +644,6 @@ MonoBehaviour:
   targetLostEvent:
     m_PersistentCalls:
       m_Calls: []
-  debugEnabled: 1
-  detectedTargetsDebug: []
   minSoundVolume: 0.5
 --- !u!1 &9037549825899228978
 GameObject:
@@ -688,6 +684,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9190457800932508691}
     m_Modifications:
+    - target: {fileID: 1094560506062740078, guid: ae3440a52fde4514e8ce7d9e828f19e1, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 38
+      objectReference: {fileID: 0}
     - target: {fileID: 1094560506066986158, guid: ae3440a52fde4514e8ce7d9e828f19e1, type: 3}
       propertyPath: m_Enabled
       value: 0

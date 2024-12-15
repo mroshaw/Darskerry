@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -163,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stampVersion: 1
-  layer: {fileID: 8574412962073106934, guid: 13f07eec89987cd4a845de5910024312, type: 2}
+  layer: {fileID: 8574412962073106934, guid: 8f7c5ffbe9f28554aa5fd23aa4be2395, type: 2}
   filterSet:
     falloffFilter:
       filterType: 0
@@ -607,7 +608,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 32
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
@@ -715,7 +716,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 1
+  m_LightlayersMask: 32
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -1298,6 +1299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854213010}
+  - component: {fileID: 854213013}
   - component: {fileID: 854213012}
   - component: {fileID: 854213011}
   m_Layer: 0
@@ -1319,7 +1321,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1828146067}
   m_Father: {fileID: 1511513817}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!154 &854213011
@@ -1356,7 +1359,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 0
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 1
   m_SplatMapDistance: 1000
@@ -1377,11 +1380,27 @@ Terrain:
   m_ScaleInLightmap: 0.0256
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_GroupingID: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 32
   m_AllowAutoConnect: 1
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
+--- !u!114 &854213013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854213009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d8f892f1714204a9305a7a4373a06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detailManager: {fileID: 1828146068}
+  treeManager: {fileID: 0}
+  beingDestroyed: 0
+  terrainSelectedToolIndex: -1
 --- !u!1 &872892892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,7 +1561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stampVersion: 1
-  layer: {fileID: 8574412962073106934, guid: 8b3287c6f9cfa014392d8c972e9adc1c, type: 2}
+  layer: {fileID: 8574412962073106934, guid: e5e3e8b918b15634480b10bbae156538, type: 2}
   filterSet:
     falloffFilter:
       filterType: 0
@@ -2409,7 +2428,10 @@ MonoBehaviour:
       ambientAreaColor: {r: 0, g: 0, b: 1, a: 0.5}
       noisePreviewColor: {r: 1, g: 0, b: 0, a: 0.8}
       filterPreviewColor: {r: 0, g: 0, b: 1, a: 0.8}
+    gizmoVisibility: 1
   explicitTerrains: []
+  msConfig: {fileID: 0}
+  _proxyRenderMode: 0
 --- !u!4 &1511513817
 Transform:
   m_ObjectHideFlags: 0
@@ -2478,7 +2500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stampVersion: 1
-  layer: {fileID: 8574412962073106934, guid: aaab3eb0fe32f1d44964986fd199f0f4, type: 2}
+  layer: {fileID: 8574412962073106934, guid: 2e5204706ee129340829d741ad910982, type: 2}
   filterSet:
     falloffFilter:
       filterType: 0
@@ -3202,6 +3224,88 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!1 &1828146066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828146067}
+  - component: {fileID: 1828146068}
+  m_Layer: 0
+  m_Name: GPUI Detail Manager (New Terrain)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1828146067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828146066}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 854213010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828146068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828146066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adddf321eb1fbcf4d8340adcd407871a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prototypeList:
+  - {fileID: 4704139939538738799, guid: 85d83f8037d4af444ac053f19c38060a, type: 2}
+  - {fileID: 6881805241098797445, guid: 85d83f8037d4af444ac053f19c38060a, type: 2}
+  - {fileID: -419500467241414096, guid: 85d83f8037d4af444ac053f19c38060a, type: 2}
+  - {fileID: -2201699658215055909, guid: 85d83f8037d4af444ac053f19c38060a, type: 2}
+  autoSelectCamera: 1
+  cameraData:
+    mainCamera: {fileID: 1823688466}
+    renderOnlySelectedCamera: 0
+  useFloatingOriginHandler: 0
+  applyFloatingOriginRotationAndScale: 0
+  floatingOriginTransform: {fileID: 0}
+  isFrustumCulling: 1
+  isOcclusionCulling: 1
+  minCullingDistance: 0
+  selectedPrototypeList: []
+  isPrototypeTextMode: 0
+  showSceneSettingsBox: 1
+  showPrototypeBox: 1
+  showAdvancedBox: 0
+  showHelpText: 0
+  showDebugBox: 1
+  showGlobalValuesBox: 1
+  showRegisteredPrefabsBox: 0
+  showPrototypesBox: 1
+  keepSimulationLive: 1
+  updateSimulation: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  lightProbeDisabled: 0
+  _terrain: {fileID: 854213012}
+  additionalTerrains: []
+  terrainSettings: {fileID: 11400000, guid: 85d83f8037d4af444ac053f19c38060a, type: 2}
+  detailLayer: 0
+  runInThreads: 0
+  threadHeightResolution: 1025
+  threadDetailResolution: 1024
 --- !u!1 &1849878174
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,7 +3435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stampVersion: 1
-  layer: {fileID: 8574412962073106934, guid: 0eda84247b1982a4dadc57b6b4ea6a90, type: 2}
+  layer: {fileID: 8574412962073106934, guid: 7c00b13dbe454764eab646536ed8fa6d, type: 2}
   filterSet:
     falloffFilter:
       filterType: 0
