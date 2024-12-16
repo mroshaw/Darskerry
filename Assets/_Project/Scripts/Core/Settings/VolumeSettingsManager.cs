@@ -13,7 +13,7 @@ namespace DaftAppleGames.Darskerry.Core.Settings
         VeryHigh,
         Ultra
     }
-
+    [DefaultExecutionOrder(-500)]
     public class VolumeSettingsManager : Singleton<VolumeSettingsManager>
     {
         #region Class Variables
@@ -38,6 +38,7 @@ namespace DaftAppleGames.Darskerry.Core.Settings
 
         protected override void Awake()
         {
+            base.Awake();
             volumeSettingsProviders = GetComponentsInChildren<VolumeSettingsProvider>(false);
         }
 
@@ -54,6 +55,19 @@ namespace DaftAppleGames.Darskerry.Core.Settings
                     currProvider.Apply(presetQuality);
                 }
             }
+        }
+
+        public PresetQuality GetCurrentPreset<T>() where T : VolumeSettingsProvider
+        {
+            foreach (VolumeSettingsProvider currProvider in volumeSettingsProviders)
+            {
+                if (currProvider.GetType() == typeof(T))
+                {
+                    return currProvider.CurrentPreset;
+                }
+            }
+
+            return PresetQuality.Medium;
         }
 
         public PresetQuality GetDefaultPreset<T>() where T : VolumeSettingsProvider

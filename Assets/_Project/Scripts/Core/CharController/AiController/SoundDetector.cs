@@ -46,7 +46,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
                         // Add the target, if it's not already there
                         if (_audibleTargets.AddTarget(currTarget.Value))
                         {
-                            Debug.Log("Sound Target Detected!");
+                            // Debug.Log("Sound Target Detected!");
                             NewTargetDetected(currTarget.Value, true);
                         }
                     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace DaftAppleGames.Editor.ObjectTools
+namespace DaftAppleGames.Editor.Mesh
 {
     public class MeshSettingsEditorWindow : OdinEditorWindow
     {

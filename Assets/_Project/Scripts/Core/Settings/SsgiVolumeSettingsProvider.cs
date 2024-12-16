@@ -13,7 +13,7 @@ namespace DaftAppleGames.Darskerry.Core.Settings
             {
                 _giProfileOverrides.enable.value = ssgiVolumeSettings.settingEnabled;
                 _giProfileOverrides.fullResolutionSS.value = ssgiVolumeSettings.fullResolution;
-                _giProfileOverrides.quality.levelAndOverride = ((int)ssgiVolumeSettings.ssgiQualityLevel, true);
+                _giProfileOverrides.quality.levelAndOverride = ((int)ssgiVolumeSettings.ssgiQualityLevel, false);
                 _giProfileOverrides.maxRaySteps = ssgiVolumeSettings.maxRaySteps;
                 _giProfileOverrides.denoise = ssgiVolumeSettings.denoiseEnabled;
                 _giProfileOverrides.halfResolutionDenoiser = ssgiVolumeSettings.halfResDenoiserEnabled;

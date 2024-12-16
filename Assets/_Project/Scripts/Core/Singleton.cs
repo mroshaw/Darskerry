@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core
 {
+    [DefaultExecutionOrder(-500)]
     public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T _instance;
@@ -17,12 +19,12 @@ namespace DaftAppleGames.Darskerry.Core
                     if (_instance == null && !_quitting)
                     {
 
-                        _instance = GameObject.FindFirstObjectByType<T>();
+                        _instance = FindFirstObjectByType<T>(FindObjectsInactive.Include);
                         if (_instance == null)
                         {
-                            GameObject go = new GameObject(typeof(T).ToString());
+                            GameObject go = new(typeof(T).ToString());
                             _instance = go.AddComponent<T>();
-                            DontDestroyOnLoad(_instance.gameObject);
+                            // DontDestroyOnLoad(_instance.gameObject);
                         }
                     }
 

@@ -1,14 +1,12 @@
 using System;
-using System.Linq;
 using DaftAppleGames.Darskerry.Core.Extensions;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
 using RenderingLayerMask = UnityEngine.Rendering.HighDefinition.RenderingLayerMask;
 
-namespace DaftAppleGames.Editor.ObjectTools
+namespace DaftAppleGames.Editor.Mesh
 {
     [Serializable]
     internal class MeshSettings

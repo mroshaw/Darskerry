@@ -51,7 +51,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             if (triggerEvents)
             {
-                Debug.Log("Base Target Detected! Event triggered!");
+                // Debug.Log("Base Target Detected! Event triggered!");
                 newTargetDetectedEvent.Invoke(detectedTarget);
             }
         }
@@ -60,7 +60,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             if (triggerEvents)
             {
-                Debug.Log("Target Lost! Event triggered!");
+                // Debug.Log("Target Lost! Event triggered!");
                 targetLostEvent.Invoke(lostTarget);
             }
         }

@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace DaftAppleGames.Editor.ObjectTools
+namespace DaftAppleGames.Editor.Mesh
 {
     public enum MeshProperties { CastShadows, StaticShadowCaster, ContributeGI, ReceiveGI, MotionVectors, DynamicOcclusion, RenderLayerMask, Priority }
     public enum LightLayerPresets { Interior, Exterior, Both, InteriorNoSun, ExteriorNoSun, BothNoSun }
@@ -124,11 +124,11 @@ namespace DaftAppleGames.Editor.ObjectTools
         [Button("Fix LOD Groups")]
         public void FixLodGroups()
         {
-
             foreach (GameObject gameObject in Selection.gameObjects)
             {
                 ConfigureLodGroup(gameObject);
             }
+            SavePrefabChanges();
         }
 
 
@@ -282,6 +282,13 @@ namespace DaftAppleGames.Editor.ObjectTools
             lodGroup.fadeMode = lodGroupSettings.fadeMode;
             int numberOfLods = lodGroup.lodCount;
             Debug.Log($"Number of LODs in {prefabGameObject.name}: {numberOfLods}");
+
+            if (numberOfLods > 6)
+            {
+                Debug.LogError($"{prefabGameObject.name} has too many LODs!");
+                return;
+            }
+
             LOD[] lods = lodGroup.GetLODs();
 
             if (numberOfLods == 0)
@@ -305,6 +312,9 @@ namespace DaftAppleGames.Editor.ObjectTools
                     break;
                 case 5:
                     lodWeights = lodGroupSettings.fiveLodWeights;
+                    break;
+                case 6:
+                    lodWeights = lodGroupSettings.sixLodWeights;
                     break;
             }
 

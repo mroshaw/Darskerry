@@ -12,7 +12,7 @@ namespace DaftAppleGames.Darskerry.Core.Settings
             if (volumeSettings is SsaoVolumePresets ssaoVolumeSettings)
             {
                 _ssaoProfileOverrides.intensity.value = ssaoVolumeSettings.settingEnabled? 0 : ssaoVolumeSettings.intensity;
-                _ssaoProfileOverrides.quality.levelAndOverride = ((int)ssaoVolumeSettings.ssaoQualityLevel, true);
+                _ssaoProfileOverrides.quality.levelAndOverride = ((int)ssaoVolumeSettings.ssaoQualityLevel, false);
                 _ssaoProfileOverrides.fullResolution = ssaoVolumeSettings.fullResolution;
                 _ssaoProfileOverrides.stepCount = ssaoVolumeSettings.stepCount;
             }

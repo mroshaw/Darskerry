@@ -54,7 +54,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.FootSteps
             {
                 return;
             }
-            
+
             GetSurfaceFromCollision(transform, other, out FootstepSurface footstepSurface,
                 out Vector3 spawnPosition);
 

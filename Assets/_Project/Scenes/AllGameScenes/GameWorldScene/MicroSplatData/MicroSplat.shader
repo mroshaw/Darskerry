@@ -235,14 +235,12 @@ Shader "Terrain"
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
       #define _TESSDISTANCE 1
       #define _PERTEXTESSDISPLACE 1
       #define _TRIPLANAR 1
-      #define _TRIPLANARHEIGHTBLEND 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYHD 1
@@ -7796,14 +7794,12 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
       #define _TESSDISTANCE 1
       #define _PERTEXTESSDISPLACE 1
       #define _TRIPLANAR 1
-      #define _TRIPLANARHEIGHTBLEND 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYHD 1
@@ -15181,14 +15177,12 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
       #define _TESSDISTANCE 1
       #define _PERTEXTESSDISPLACE 1
       #define _TRIPLANAR 1
-      #define _TRIPLANARHEIGHTBLEND 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYHD 1
@@ -22647,14 +22641,12 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
       #define _TESSDISTANCE 1
       #define _PERTEXTESSDISPLACE 1
       #define _TRIPLANAR 1
-      #define _TRIPLANARHEIGHTBLEND 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYHD 1
@@ -30096,14 +30088,12 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
       #define _TESSDISTANCE 1
       #define _PERTEXTESSDISPLACE 1
       #define _TRIPLANAR 1
-      #define _TRIPLANARHEIGHTBLEND 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYHD 1
@@ -37488,14 +37478,12 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
       #define _TESSDISTANCE 1
       #define _PERTEXTESSDISPLACE 1
       #define _TRIPLANAR 1
-      #define _TRIPLANARHEIGHTBLEND 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYHD 1
@@ -44875,14 +44863,12 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
       #define _TESSDISTANCE 1
       #define _PERTEXTESSDISPLACE 1
       #define _TRIPLANAR 1
-      #define _TRIPLANARHEIGHTBLEND 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYHD 1
@@ -52287,14 +52273,12 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
       #define _TESSDISTANCE 1
       #define _PERTEXTESSDISPLACE 1
       #define _TRIPLANAR 1
-      #define _TRIPLANARHEIGHTBLEND 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYHD 1
@@ -59701,14 +59685,12 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
       #define _TESSDISTANCE 1
       #define _PERTEXTESSDISPLACE 1
       #define _TRIPLANAR 1
-      #define _TRIPLANARHEIGHTBLEND 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYHD 1
@@ -67000,7 +66982,7 @@ float3 GetTessFactors ()
       
       
    }
-   Dependency "BaseMapShader" =  "Hidden/Terrain_Base902858012"
-   Fallback "Hidden/Terrain_Base902858012"
+   Dependency "BaseMapShader" =  "Hidden/Terrain_Base-168329540"
+   Fallback "Hidden/Terrain_Base-168329540"
    CustomEditor "MicroSplatShaderGUI"
 }

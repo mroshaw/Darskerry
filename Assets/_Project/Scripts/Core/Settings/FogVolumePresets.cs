@@ -7,7 +7,7 @@ namespace DaftAppleGames.Darskerry.Core.Settings
     [CreateAssetMenu(fileName = "FogVolumeSettingsSO", menuName = "Daft Apple Games/Quality Presets/FogPreset", order = 1)]
     public class FogVolumePresets : VolumePresets
     {
-        [BoxGroup("Defaults")] public ScalableSettingLevelParameter.Level fogQualityLevel;
-        [BoxGroup("Defaults")] public bool volumetricEnabled = true;
+        [BoxGroup("Defaults")] public ScalableSettingLevelParameter.Level volumetricFogQualityLevel;
+        [BoxGroup("Defaults")] public bool volumetricEnabled = false;
     }
 }

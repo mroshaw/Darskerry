@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DaftAppleGames.Editor.ObjectTools
+namespace DaftAppleGames.Editor.Mesh
 {
     /// <summary>
     /// Scriptable Object to store Editor usable instances of the Player Character Configuration
