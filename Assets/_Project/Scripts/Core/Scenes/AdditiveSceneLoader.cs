@@ -43,22 +43,8 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         private bool _hasLoaded = false;
         private bool _hasActivated = false;
 
-        // Singleton static instance
-        private static AdditiveSceneLoader _instance;
-        public static AdditiveSceneLoader Instance => _instance;
-
         private void Awake()
         {
-            // Set up singleton
-            if (_instance != null && _instance != this)
-            {
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
-
             if (loadScenesOnAwake)
             {
                 LoadAllScenes();

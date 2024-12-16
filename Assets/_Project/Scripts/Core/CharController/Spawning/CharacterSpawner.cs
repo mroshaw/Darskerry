@@ -1,4 +1,4 @@
-using DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps;
+using DaftAppleGames.Darskerry.Core.CharController.FootSteps;
 using ECM2;
 using Sirenix.OdinInspector;
 using UnityEditor;

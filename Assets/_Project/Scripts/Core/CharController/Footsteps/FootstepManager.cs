@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps
+namespace DaftAppleGames.Darskerry.Core.CharController.FootSteps
 {
     public class FootstepManager : MonoBehaviour
     {

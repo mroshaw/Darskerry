@@ -1,6 +1,7 @@
+using DaftAppleGames.Darskerry.Core.CharController.AiController;
 using UnityEngine;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps
+namespace DaftAppleGames.Darskerry.Core.CharController.FootSteps
 {
     public class FootstepTrigger : CharacterTrigger
     {
@@ -49,11 +50,11 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps
         #region Class methods
         public override void TriggerEnter(Collider other)
         {
-            if (_cooldownCounter > 0.0f)
+            if (_cooldownCounter > 0.0f || other is null)
             {
                 return;
             }
-
+            
             GetSurfaceFromCollision(transform, other, out FootstepSurface footstepSurface,
                 out Vector3 spawnPosition);
 

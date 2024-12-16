@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps
+namespace DaftAppleGames.Darskerry.Core.CharController.FootSteps
 {
     [CreateAssetMenu(fileName = "FootstepSurface", menuName = "Footsteps/Foot Step Surface", order = 1)]
     public class FootstepSurface : ScriptableObject

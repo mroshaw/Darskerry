@@ -11,9 +11,13 @@ namespace DaftAppleGames.Darskerry.Core.Scenes
         [BoxGroup("Events")] public UnityEvent faderFinishedEvent;
         private void Start()
         {
-            AdditiveSceneLoader.Instance.allScenesLoadedEvent.AddListener(AllScenesLoadedProxy);
-            AdditiveSceneLoader.Instance.faderStartedEvent.AddListener(FaderStartedProxy);
-            AdditiveSceneLoader.Instance.faderFinishedEvent.AddListener(FaderFinishedProxy);
+            AdditiveSceneLoader loader = FindAnyObjectByType<AdditiveSceneLoader>();
+            if (loader)
+            {
+                loader.allScenesLoadedEvent.AddListener(AllScenesLoadedProxy);
+                loader.faderStartedEvent.AddListener(FaderStartedProxy);
+                loader.faderFinishedEvent.AddListener(FaderFinishedProxy);
+            }
         }
 
         private void AllScenesLoadedProxy()

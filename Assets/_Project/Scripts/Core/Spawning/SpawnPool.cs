@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps;
+using DaftAppleGames.Darskerry.Core.CharController.FootSteps;
 using DaftAppleGames.Darskerry.Core.Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;

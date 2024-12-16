@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController.FootSteps
+namespace DaftAppleGames.Darskerry.Core.CharController.FootSteps
 {
     public enum PrefabPoolType { FootstepMarks, FootstepParticles, AiCharacter };
 

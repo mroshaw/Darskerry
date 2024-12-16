@@ -195,9 +195,9 @@ namespace DaftAppleGames.Editor.ObjectTools
                         }
 
                         break;
-
                 }
             }
+            SavePrefabChanges();
         }
 
         /// <summary>
