@@ -54,13 +54,13 @@ GameObject:
   - component: {fileID: 6924846138456223950}
   - component: {fileID: 4881255923535286687}
   - component: {fileID: 3846178564153701706}
-  - component: {fileID: 79234412933126063}
   - component: {fileID: 5785661246989091378}
   - component: {fileID: 1022756068661290752}
   - component: {fileID: 6483384248996965852}
   - component: {fileID: 4536111902363851204}
   - component: {fileID: 1040839562457760421}
   - component: {fileID: 7362081367868434247}
+  - component: {fileID: 7059630093038822104}
   m_Layer: 0
   m_Name: Deer Stag
   m_TagString: Untagged
@@ -531,51 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: ee4ab3c5-4f2b-4d57-8d21-c596ccbcc662
---- !u!114 &79234412933126063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4590575480512812058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 949d511d8f351b441b849bcdaf1dd047, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1022756068661290752}
-        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.Spawning.MaterialFader,
-          DaftAppleGames.Darskerry.Core
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  DespawnEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1022756068661290752}
-        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.Spawning.MaterialFader,
-          DaftAppleGames.Darskerry.Core
-        m_MethodName: FadeOut
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  guid: 7f93316f-e348-4f33-a5af-709b980affe7
 --- !u!114 &5785661246989091378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +701,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   minSoundVolume: 0.5
+--- !u!114 &7059630093038822104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590575480512812058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650ebba98b812fc479de83cbc0b2102e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  despawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5155801340354389930
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,31 +1,18 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.UserInterface
 {
     /// <summary>
     /// Singleton class to administer over active UI windows
     /// </summary>
-    public class UiController : MonoBehaviour
+    public class UiController : Singleton<UiController>
     {
-        // Singleton static instance
-        private static UiController _instance;
-        public static UiController Instance => _instance;
-
         private static List<BaseUiWindow> _windows = new();
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
-
+            base.Awake();
             _windows = new();
         }
 

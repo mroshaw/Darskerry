@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 8587710745515362972}
   - component: {fileID: 3577538268906839080}
   - component: {fileID: 4814995168843355444}
+  - component: {fileID: 2795388153148100393}
   m_Layer: 0
   m_Name: NPC Female 2
   m_TagString: Untagged
@@ -563,7 +564,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: f1c9e05c-36bf-4908-aa48-a846f75745c7
+  guid: c4074e41-e4d6-4df3-a8c8-0383a59ef18a
+--- !u!114 &2795388153148100393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797291456282664070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650ebba98b812fc479de83cbc0b2102e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  despawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &3486645297136518714
 PrefabInstance:
   m_ObjectHideFlags: 0

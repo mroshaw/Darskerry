@@ -27,7 +27,10 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         public void DeregisterSpawner(CharacterSpawner spawner)
         {
-            spawners.Remove(spawner);
+            if (spawners != null && spawners.Contains(spawner))
+            {
+                spawners.Remove(spawner);
+            }
         }
 
         private void PlayerSpawnerSpawnedEventProxy()

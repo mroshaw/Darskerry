@@ -23,6 +23,7 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
         public bool IsUiOpen => isUiOpen;
 
         private static PlayerInput _playerInput;
+        private static string _controlScheme;
 
         private bool _isCursorVisible;
         private CursorLockMode _cursorLockMode;
@@ -32,10 +33,17 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
         private void OnEnable()
         {
             // Subscribe to input changed
-            if (!_playerInput)
+            StartCoroutine(FindPlayerInputAsync());
+        }
+
+        private IEnumerator FindPlayerInputAsync()
+        {
+            while (!_playerInput)
             {
                 _playerInput = FindFirstObjectByType<PlayerInput>();
+                yield return null;
             }
+            _playerInput.controlsChangedEvent.RemoveListener(ControlSchemeChangedHandler);
             _playerInput.controlsChangedEvent.AddListener(ControlSchemeChangedHandler);
         }
 
@@ -50,6 +58,8 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
         public virtual void Awake()
         {
             _uiCanvasGroup = uiCanvas.GetComponent<CanvasGroup>();
+            // Subscribe to input changed
+            StartCoroutine(FindPlayerInputAsync());
         }
 
         public virtual void Start()
@@ -58,6 +68,11 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
             if (UiController.Instance)
             {
                 UiController.Instance.RegisterUiWindow(this);
+            }
+
+            if (startSelectedGameObject && !EventSystem.current.firstSelectedGameObject)
+            {
+                EventSystem.current.firstSelectedGameObject = startSelectedGameObject;
             }
 
             // Start with UI in specified default state
@@ -76,19 +91,25 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
         {
             Debug.Log($"Control scheme changed to: {playerInput.currentControlScheme}");
 
+            _controlScheme = playerInput.currentControlScheme;
+
             if (isUiOpen)
             {
-                // Gamepad
-                if (playerInput.currentControlScheme == "Gamepad")
-                {
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
-                }
-                else
-                {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                }
+                SetCursorState();
+            }
+        }
+
+        private void SetCursorState()
+        {
+            if (_controlScheme == "Gamepad")
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
         }
 
@@ -164,9 +185,7 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
                     EventSystem.current.SetSelectedGameObject(startSelectedGameObject);
                 }
 
-                // Make cursor visible
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
+                SetCursorState();
 
                 if (triggerEvents)
                 {
@@ -178,8 +197,8 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
                 // Restore cursor state, if all windows closed
                 if (!UiController.Instance.IsAnyUiOpen)
                 {
-                    Cursor.visible = _isCursorVisible;
-                    Cursor.lockState = _cursorLockMode;
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.None;
                 }
 
                 if (triggerEvents)
