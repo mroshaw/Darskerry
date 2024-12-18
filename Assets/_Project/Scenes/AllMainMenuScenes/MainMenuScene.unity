@@ -1722,6 +1722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 912691176}
   - component: {fileID: 912691177}
+  - component: {fileID: 912691178}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1761,6 +1762,164 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685705137c257b9449d0685858e1270d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &912691178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912691174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 003fdb5442deecd40a25fce3201b0901, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 1746809564}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3519862e-8f92-479a-b0b4-51c01bea127c
+    m_ActionName: 'Character Controls/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 38cff307-1315-4e5f-baa0-78277156d9f4
+    m_ActionName: 'Character Controls/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a3caa000-957c-4267-b0ed-42b4824c1fbb
+    m_ActionName: 'Character Controls/Crouch[/Keyboard/leftCtrl,/Keyboard/c]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bb74cef0-abe2-4177-a71e-87ec86011665
+    m_ActionName: 'Character Controls/Sprint[/Keyboard/leftShift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 99faa88a-45e1-4d99-a339-6a68292a8ac3
+    m_ActionName: 'Character Controls/Roll[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5ad52311-2a74-448c-b5f0-de35d4d28de8
+    m_ActionName: 'Character Controls/Attack[/Mouse/leftButton,/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dbe463f5-ebb3-4d7f-b859-6029db4123cd
+    m_ActionName: Character Controls/MoveGamepad
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 70b6e270-e0d7-4f7f-af62-102157901723
+    m_ActionName: 'Camera Controls/Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 34ccf5d9-707f-47ec-ab41-801590453556
+    m_ActionName: Camera Controls/LookGamepad
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eec65edb-cdaa-462c-acc5-8f51e4af06a9
+    m_ActionName: 'Camera Controls/Zoom[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4810fd45-4f16-4a4b-aae3-78c55039d68b
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 96dda4b2-100d-497b-86a1-878eae67a4ae
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: feb2620f-a405-4f4a-b6d8-922ca16c73d7
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5e32bee5-0dce-410e-8830-ce5dd100a8b1
+    m_ActionName: 'UI/Point[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4305a7ed-80ad-40a8-a791-f90c4dd27c4e
+    m_ActionName: 'UI/Click[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e5b73881-28be-4a2f-8000-2b841e2df66e
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0bf507a2-f3fc-427f-b5f6-c1905608b2b7
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f47c3c06-5a6e-4c49-b37e-622c506338ff
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bfc8483d-acda-4320-b0fa-485ce6bc5b05
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e2a5eb34-9900-4b0b-ac7e-bd3c064b2a2d
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9594fe38-4b14-4492-b5fb-cfd233b9165d
+    m_ActionName: 'System Controls/Pause[/Keyboard/escape,/Keyboard/p]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 98c7d434-0b18-4602-a6cc-78575087ea0f
+    m_ActionName: 'Debug Controls/ToggleGPUI[/Keyboard/l]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 194228cd-8828-4c54-901a-10759d30f0fe
+    m_ActionName: 'Fly Cam Controls/FlyForward[/Keyboard/w]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b8ac533d-353f-47a9-9708-5dc968edce33
+    m_ActionName: 'Fly Cam Controls/FlyBackward[/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d17b6fd8-bcb9-45c4-a5a2-97547a77b19a
+    m_ActionName: 'Fly Cam Controls/FlyLeft[/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3a734f3a-cb8f-493b-a6e5-fa42d8f724ae
+    m_ActionName: 'Fly Cam Controls/FlyRight[/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d270a362-7ffd-4d88-9c7e-9cb662b36948
+    m_ActionName: 'Fly Cam Controls/FlyUp[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 349566de-e902-4082-a91c-863358f5f529
+    m_ActionName: 'Fly Cam Controls/FlyDown[/Keyboard/leftCtrl]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17c74ff5-e3ac-493b-be1f-f136a87ab560
+    m_ActionName: 'Fly Cam Controls/FlyToggleFocus[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 88c3ce09-9751-45be-91b5-fa2c02e65fb6
+    m_ActionName: 'Fly Cam Controls/FlySpeedUp[/Keyboard/leftShift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ecff1f80-76d3-4939-b9e6-2ad35bd99ec6
+    m_ActionName: 'Fly Cam Controls/FlyLook[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: abda10f3-36b3-49e7-9149-a22ed15dce1d
+    m_ActionName: 'Fly Cam Controls/FlyLookEnabled[/Mouse/rightButton]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Character Controls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1003368621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,7 +2793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1515265669}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!1 &1826538341

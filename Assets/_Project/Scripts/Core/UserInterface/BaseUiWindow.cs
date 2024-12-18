@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace DaftAppleGames.Darskerry.Core.UserInterface
 {
@@ -21,10 +22,30 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
 
         public bool IsUiOpen => isUiOpen;
 
+        private static PlayerInput _playerInput;
+
         private bool _isCursorVisible;
         private CursorLockMode _cursorLockMode;
 
         private CanvasGroup _uiCanvasGroup;
+
+        private void OnEnable()
+        {
+            // Subscribe to input changed
+            if (!_playerInput)
+            {
+                _playerInput = FindFirstObjectByType<PlayerInput>();
+            }
+            _playerInput.controlsChangedEvent.AddListener(ControlSchemeChangedHandler);
+        }
+
+        private void OnDisable()
+        {
+            if (_playerInput)
+            {
+                _playerInput.controlsChangedEvent.RemoveListener(ControlSchemeChangedHandler);
+            }
+        }
 
         public virtual void Awake()
         {
@@ -48,6 +69,26 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface
             if (UiController.Instance)
             {
                 UiController.Instance.UnRegisterUiWindow(this);
+            }
+        }
+
+        private void ControlSchemeChangedHandler(PlayerInput playerInput)
+        {
+            Debug.Log($"Control scheme changed to: {playerInput.currentControlScheme}");
+
+            if (isUiOpen)
+            {
+                // Gamepad
+                if (playerInput.currentControlScheme == "Gamepad")
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
             }
         }
 
