@@ -19,6 +19,8 @@ namespace DaftAppleGames.Darskerry.Core.Settings
         #region Class Variables
 
         [BoxGroup("Targets")] [SerializeField] private Volume skyGlobalVolume;
+        [BoxGroup("Targets")] [SerializeField] private Volume cloudsVolume;
+        [BoxGroup("Targets")] [SerializeField] private Volume fogVolume;
         [BoxGroup("Targets")] [SerializeField] private Volume lightingVolume;
         [BoxGroup("Targets")] [SerializeField] private Volume postProcessingVolume;
         [BoxGroup("Targets")] [SerializeField] private Light sunLight;
@@ -27,8 +29,11 @@ namespace DaftAppleGames.Darskerry.Core.Settings
         [BoxGroup("Providers")] [SerializeField] private VolumeSettingsProvider[] volumeSettingsProviders;
 
         public VolumeProfile SkyGlobalVolumeProfile => skyGlobalVolume.profile;
+        public VolumeProfile CloudsVolumeProfile => cloudsVolume.profile;
+        public VolumeProfile FogVolumeProfile => fogVolume.profile;
         public VolumeProfile LightingVolumeProfile => lightingVolume.profile;
         public VolumeProfile PostProcessingVolumeProfile => postProcessingVolume.profile;
+
         public Light Sun => sunLight;
         public Light Moon => moonLight;
 

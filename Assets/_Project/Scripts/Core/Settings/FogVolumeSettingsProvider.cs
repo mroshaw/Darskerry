@@ -20,9 +20,9 @@ namespace DaftAppleGames.Darskerry.Core.Settings
         protected override void InitSettings()
         {
             base.InitSettings();
-            if(!SkyGlobalVolumeProfile.TryGet<Fog>(out _fogOverrides))
+            if(!FogVolumeProfile.TryGet<Fog>(out _fogOverrides))
             {
-                Debug.LogError($"FogVolumeSettings: cannot find Fog override on volume profile {SkyGlobalVolumeProfile.name}");
+                Debug.LogError($"FogVolumeSettings: cannot find Fog override on volume profile {FogVolumeProfile.name}");
             }
             _fogOverrides.active = true;
             _fogOverrides.quality.overrideState = true;
