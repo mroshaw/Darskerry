@@ -66,14 +66,28 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
         [BoxGroup("Build Control")] [Button("Build Windows Game (Incr)", ButtonSizes.Large), GUIColor(0, 1, 0)]
         private void BuildIncrementalWinGame()
         {
-            BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus, false);
+            BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus, false, false);
         }
+
+        [BoxGroup("Build Control")] [Button("Build Windows Game (Incr Dev)", ButtonSizes.Large), GUIColor(0, 1, 0)]
+        private void BuildIncrementalDebugWinGame()
+        {
+            BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus, false, true);
+        }
+
 
         [BoxGroup("Build Control")] [Button("Build Windows Game (Full)")]
         private void BuildFullWinGame()
         {
-            BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus, true);
+            BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus, true, false);
         }
+
+        [BoxGroup("Build Control")] [Button("Build Windows Game (Full Dev)")]
+        private void BuildFullWinDevGame()
+        {
+            BuildPlayer(_buildSettings.winBuildTargetSettings, _buildSettings.winBuildStatus, true, true);
+        }
+
 
         [BoxGroup("Build Control")] [Button("Show in Explorer")]
         private void OpenWindowsBuildInExplorer()
@@ -253,11 +267,11 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
         /// <summary>
         /// Call the aSync build player co-coroutine
         /// </summary>
-        private void BuildPlayer(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus, bool cleanBuild)
+        private void BuildPlayer(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus, bool cleanBuild, bool devBuild)
         {
             BuildApplierStart();
             LoadEmptyScene();
-            EditorCoroutineUtility.StartCoroutine(BuildPlayerAsync(buildTargetSettings, buildStatus, cleanBuild), this);
+            EditorCoroutineUtility.StartCoroutine(BuildPlayerAsync(buildTargetSettings, buildStatus, cleanBuild, devBuild), this);
             BuildApplierEnd();
         }
 
@@ -265,7 +279,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
         /// Async build player method, so we can monitor progress and update status
         /// </summary>
         /// <returns></returns>
-        private IEnumerator BuildPlayerAsync(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus, bool cleanBuild)
+        private IEnumerator BuildPlayerAsync(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus, bool cleanBuild, bool devBuild)
         {
             // Save all open scenes
             EditorSceneManager.SaveOpenScenes();
@@ -279,7 +293,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
                 CleanFolder(buildTargetSettings.gameFolder);
             }
 
-            BuildOptions newBuildOptions = cleanBuild ? _buildSettings.winBuildTargetSettings.buildOptions | BuildOptions.CleanBuildCache : _buildSettings.winBuildTargetSettings.buildOptions & ~BuildOptions.CleanBuildCache;
+            BuildOptions newBuildOptions = (cleanBuild ? BuildOptions.CleanBuildCache : new()) | (devBuild ? _buildSettings.winBuildTargetSettings.devBuildOptions : _buildSettings.winBuildTargetSettings.releaseBuildOptions);
             BuildReport buildReport = BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, buildTargetSettings.FullPath, buildTargetSettings.buildTarget, newBuildOptions);
             while (BuildPipeline.isBuildingPlayer)
             {

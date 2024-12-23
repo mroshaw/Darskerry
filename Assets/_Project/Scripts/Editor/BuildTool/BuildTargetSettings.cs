@@ -9,7 +9,11 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
     public class BuildTargetSettings
     {
         [BoxGroup("Build Settings")] public BuildTarget buildTarget = BuildTarget.StandaloneWindows64;
-        [BoxGroup("Build Settings")] public BuildOptions buildOptions = BuildOptions.CompressWithLz4HC;
+        [BoxGroup("Build Settings")] public BuildOptions releaseBuildOptions = BuildOptions.CompressWithLz4HC;
+        [BoxGroup("Build Settings")] public BuildOptions devBuildOptions = BuildOptions.Development &
+                                                                             BuildOptions.AllowDebugging &
+                                                                             BuildOptions.ConnectWithProfiler &
+                                                                             BuildOptions.EnableDeepProfilingSupport;
         [BoxGroup("Build Settings")] public string gameFolder = @"E:\Dev\DAG\Itch Builds\Retro Racket Revolution\Retro Racket Revolution Windows";
         [BoxGroup("Build Settings")] public string fileName = @"Retro Racket Revolution.exe";
 

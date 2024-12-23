@@ -9,7 +9,7 @@ OcclusionCullingSettings:
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: 0dadef5d6604ec740ad693841fcafb9d
-  m_OcclusionCullingData: {fileID: 36300000, guid: d5b3e6133a5d3c24382bbfdda98b4eb4, type: 2}
+  m_OcclusionCullingData: {fileID: 36300000, guid: 2271468a802be0a47a1748df524b3f59, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -260,11 +260,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1711943647086116664, guid: 5032786945ee8c44984280087debb95d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2888923956359077170, guid: 5032786945ee8c44984280087debb95d, type: 3}
       propertyPath: far clip plane
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888923956359077170, guid: 5032786945ee8c44984280087debb95d, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2888923956359077170, guid: 5032786945ee8c44984280087debb95d, type: 3}
       propertyPath: m_AllowDynamicResolution
@@ -330,7 +334,8 @@ PrefabInstance:
       propertyPath: deepLearningSuperSamplingUseCustomQualitySettings
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3539954352885545985, guid: 5032786945ee8c44984280087debb95d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

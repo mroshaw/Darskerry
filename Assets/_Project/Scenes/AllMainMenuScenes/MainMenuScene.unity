@@ -5,8 +5,8 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 2
-    smallestHole: 0.2
+    smallestOccluder: 1
+    smallestHole: 0.1
     backfaceThreshold: 100
   m_SceneGUID: 51524a99b7908934496629631bc786f7
   m_OcclusionCullingData: {fileID: 36300000, guid: 2a140943af64d6d4bb1ffaa3dff9a24d, type: 2}
@@ -1122,7 +1122,7 @@ OcclusionArea:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625547053}
   serializedVersion: 2
-  m_Size: {x: 100, y: 100, z: 100}
+  m_Size: {x: 250, y: 40, z: 250}
   m_Center: {x: 0, y: 0, z: 0}
   m_IsViewVolume: 1
 --- !u!4 &625547055
@@ -1134,7 +1134,7 @@ Transform:
   m_GameObject: {fileID: 625547053}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 312.4355, y: 34.827126, z: 196.05788}
+  m_LocalPosition: {x: 250, y: 40, z: 250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1745,9 +1745,9 @@ Transform:
   m_Children:
   - {fileID: 1890572782}
   - {fileID: 2074105210}
-  - {fileID: 1746809563}
   - {fileID: 1864933417}
   - {fileID: 1681418119}
+  - {fileID: 1746809563}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &912691177
@@ -3562,7 +3562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  size: {x: 503.01, y: 60.11624, z: 503.01}
+  size: {x: 253.01001, y: 62.788254, z: 253.01001}
   overrideRendererFilters: 0
   minRendererVolumeSize: 0.1
   objectLayerMask:
@@ -3602,7 +3602,7 @@ Transform:
   m_GameObject: {fileID: 2022920046}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 250, y: 28.553122, z: 250}
+  m_LocalPosition: {x: 250, y: 30.14549, z: 250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -11,6 +11,10 @@ namespace DaftAppleGames.Darskerry.Core.UserInterface.MainMenu
         {
             TMP_Text versionText = GetComponent<TMP_Text>();
             versionText.text = Application.version.ToString();
+            if (Debug.isDebugBuild)
+            {
+                versionText.text += "\nDEV BUILD";
+            }
         }
     }
 }
