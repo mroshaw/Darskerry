@@ -293,8 +293,15 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
                 CleanFolder(buildTargetSettings.gameFolder);
             }
 
-            BuildOptions newBuildOptions = (cleanBuild ? BuildOptions.CleanBuildCache : new()) | (devBuild ? _buildSettings.winBuildTargetSettings.devBuildOptions : _buildSettings.winBuildTargetSettings.releaseBuildOptions);
-            BuildReport buildReport = BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, buildTargetSettings.FullPath, buildTargetSettings.buildTarget, newBuildOptions);
+            BuildOptions finalBuildOptions = devBuild ? _buildSettings.winBuildTargetSettings.devBuildOptions : _buildSettings.winBuildTargetSettings.releaseBuildOptions;
+            if (cleanBuild)
+            {
+                finalBuildOptions |= BuildOptions.CleanBuildCache;
+            }
+
+            LogBuildOptions(finalBuildOptions);
+
+            BuildReport buildReport = BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, buildTargetSettings.FullPath, buildTargetSettings.buildTarget, finalBuildOptions);
             while (BuildPipeline.isBuildingPlayer)
             {
                 yield return null;
@@ -490,6 +497,23 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
                 if (hdLightData != null)
                 {
                     hdLightData.EnableShadows(enabled);
+                }
+            }
+        }
+
+        public static void LogBuildOptions(BuildOptions options)
+        {
+            // Get all the values of the BuildOptions enum
+            var allOptions = Enum.GetValues(typeof(BuildOptions));
+
+            Debug.Log("BuildOptions set in this instance:");
+
+            // Check which flags are set in the provided options
+            foreach (BuildOptions option in allOptions)
+            {
+                if (options.HasFlag(option))
+                {
+                    Debug.Log($"- {option}");
                 }
             }
         }
