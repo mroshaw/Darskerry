@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController
 {
     public class GameCharacterAnimator : MonoBehaviour
     {
@@ -11,6 +11,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         private static readonly int Roll = Animator.StringToHash("Roll");
         private static readonly int Crouch = Animator.StringToHash("Crouch");
         private static readonly int Jump = Animator.StringToHash("Jump");
+        private static readonly int Swimming = Animator.StringToHash("Swimming");
 
         // Cached Character
         protected GameCharacter GameCharacter { get; private set; }
@@ -47,6 +48,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             Animator.SetBool(Ground, GameCharacter.IsGrounded());
             Animator.SetBool(Roll, GameCharacter.IsRolling());
             Animator.SetBool(Crouch, GameCharacter.IsCrouched());
+            Animator.SetBool(Swimming, GameCharacter.IsSwimming());
 
             // Calculate which leg is behind, so as to leave that leg trailing in the jump animation
             // (This code is reliant on the specific run cycle offset in our animations,

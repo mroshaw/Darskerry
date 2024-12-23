@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController.PlayerController
 {
     [RequireComponent(typeof(AudioSource))]
     public class PlayerAudio : MonoBehaviour

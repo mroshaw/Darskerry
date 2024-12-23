@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController
 {
     public abstract class CharacterTrigger : MonoBehaviour
     {

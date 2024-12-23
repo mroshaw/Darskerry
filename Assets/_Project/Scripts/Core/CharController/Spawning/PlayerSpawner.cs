@@ -1,3 +1,4 @@
+using DaftAppleGames.Darskerry.Core.CharController.PlayerController;
 using Sirenix.OdinInspector;
 using Unity.Cinemachine;
 using UnityEngine;

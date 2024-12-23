@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController.PlayerController
 {
     [DefaultExecutionOrder(-2)]
     public class SystemActionsInput : MonoBehaviour, PlayerControls.ISystemControlsActions

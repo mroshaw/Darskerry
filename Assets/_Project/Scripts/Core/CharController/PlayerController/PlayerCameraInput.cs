@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController.PlayerController
 {
     [RequireComponent(typeof(PlayerCamera))]
     public class PlayerCameraInput : MonoBehaviour, PlayerControls.ICameraControlsActions

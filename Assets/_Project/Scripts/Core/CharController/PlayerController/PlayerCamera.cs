@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController.PlayerController
 {
     public class PlayerCamera : MonoBehaviour
     {

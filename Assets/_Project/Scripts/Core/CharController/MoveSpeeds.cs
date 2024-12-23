@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController
 {
     public enum MovementSpeed { Walking = 2, Running = 4, Sprinting = 6 }
 

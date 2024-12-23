@@ -1,4 +1,4 @@
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController
 {
     public interface INoiseMaker
     {

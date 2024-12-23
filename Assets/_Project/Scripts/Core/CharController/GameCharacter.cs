@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController
 {
     public class GameCharacter : Character, IDamageable
     {
@@ -16,6 +16,8 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
 
         [FoldoutGroup("Events")] public UnityEvent crouchStartEvent;
         [FoldoutGroup("Events")] public UnityEvent crouchEndEvent;
+
+        [BoxGroup("Debug")] [ShowInInspector] private bool _isSwimmingDebug;
 
         public float CurrentHealth => currentHealth;
 
@@ -47,6 +49,17 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             UnCrouched -= CrouchEnded;
         }
         #endregion
+
+        #if UNITY_EDITOR
+        #region Update methods - DEBUG ONLY!
+
+        private void Update()
+        {
+            _isSwimmingDebug = IsSwimming();
+        }
+        #endregion
+        #endif
+
         #region Movement methods
 
         private void CrouchStarted()
@@ -58,7 +71,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         {
             crouchEndEvent.Invoke();
         }
-        public void SetMovementVelocity(Vector2 moveInput)
+        public void SetMovementVelocity(Vector3 moveInput)
         {
             // Handle sprinting
             if (!IsSprinting() && useRootMotion)
@@ -73,7 +86,8 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
             Vector3 movementDirection = Vector3.zero;
             movementDirection += Vector3.forward * moveInput.y;
             movementDirection += Vector3.right * moveInput.x;
-
+            movementDirection += Vector3.up * moveInput.z;
+            
             // If character has a camera assigned,
             // make movement direction relative to this camera view direction
             if (camera)

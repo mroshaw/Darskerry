@@ -1,7 +1,8 @@
+using ECM2;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DaftAppleGames.Darskerry.Core.CharController.AiController
+namespace DaftAppleGames.Darskerry.Core.CharController.PlayerController
 {
     /// <summary>
     /// This example shows how to make use of the new Input System,
@@ -17,7 +18,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         private GameCharacter _character;
 
         private Vector2 _lookInput;
-        [SerializeField] private Vector2 _moveInput;
+        [SerializeField] private Vector3 _moveInput;
 
         private void OnEnable()
         {
@@ -45,6 +46,28 @@ namespace DaftAppleGames.Darskerry.Core.CharController.AiController
         private void Update()
         {
             // Set character's movement direction vector
+            if (_character.IsSwimming())
+            {
+                Vector3 movementDirection = Vector3.zero;
+                movementDirection += _character.GetRightVector() * _moveInput.x;
+                Vector3 forward = _character.cameraTransform.forward;
+                movementDirection += forward * _moveInput.y;
+
+                if (_character.jumpInputPressed)
+                {
+                    // Use immersion depth to check if we are at top of water line,
+                    // if yes, jump of water
+
+                    float depth = _character.CalcImmersionDepth();
+                    if (depth > 0.1f)
+                    {
+                        Debug.Log("Swimming up!");
+                        movementDirection += _character.GetUpVector();
+                        _character.LaunchCharacter(_character.GetUpVector() * 0.1f, true);
+                    }
+                }
+                _character.SetMovementDirection(movementDirection);
+            }
             _character.SetMovementVelocity(_moveInput);
         }
 
