@@ -87,7 +87,7 @@ namespace DaftAppleGames.Darskerry.Core.CharController
             movementDirection += Vector3.forward * moveInput.y;
             movementDirection += Vector3.right * moveInput.x;
             movementDirection += Vector3.up * moveInput.z;
-            
+
             // If character has a camera assigned,
             // make movement direction relative to this camera view direction
             if (camera)

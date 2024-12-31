@@ -169,11 +169,11 @@ namespace DaftAppleGames.Editor.Mesh
                         switch (lightlayerPreset)
                         {
                             case LightLayerPresets.Interior:
-                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly");
+                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly", "Sun/Moon");
                                 break;
 
                             case LightLayerPresets.InteriorNoSun:
-                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly", "Sun/Moon");
+                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly");
                                 break;
 
                             case LightLayerPresets.Exterior:

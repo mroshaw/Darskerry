@@ -49,8 +49,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3345838675866423123, guid: 1a9e906368e74534b80d8938956ac36e, type: 3}
+      propertyPath: antialiasing
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345838675866423123, guid: 1a9e906368e74534b80d8938956ac36e, type: 3}
       propertyPath: customRenderingSettings
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345838675866423123, guid: 1a9e906368e74534b80d8938956ac36e, type: 3}
+      propertyPath: allowDeepLearningSuperSampling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345838675866423123, guid: 1a9e906368e74534b80d8938956ac36e, type: 3}
+      propertyPath: allowFidelityFX2SuperResolution
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4793367249538812082, guid: 1a9e906368e74534b80d8938956ac36e, type: 3}
       propertyPath: m_Name
@@ -61,8 +73,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9029990724236176056, guid: 1a9e906368e74534b80d8938956ac36e, type: 3}
-      propertyPath: field of view
-      value: 40
+      propertyPath: far clip plane
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 9029990724236176056, guid: 1a9e906368e74534b80d8938956ac36e, type: 3}
       propertyPath: m_OcclusionCulling

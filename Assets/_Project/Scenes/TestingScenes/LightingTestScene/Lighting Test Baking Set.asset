@@ -33,6 +33,7 @@ MonoBehaviour:
         m_Bits: 4294967291
   m_SceneGUIDs:
   - 29aebddba6619f349b0d98ea2e5e9cd1
+  - f3617bf78a992344187751ff14d83c84
   obsoleteScenesToNotBake: []
   m_LightingScenarios:
   - Default
@@ -112,20 +113,34 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   minRendererVolumeSize: 0.1
-  skyOcclusion: 0
+  skyOcclusion: 1
   skyOcclusionBakingSamples: 2048
   skyOcclusionBakingBounces: 2
   skyOcclusionAverageAlbedo: 0.6
   skyOcclusionBackFaceCulling: 0
-  skyOcclusionShadingDirection: 0
-  useRenderingLayers: 0
-  renderingLayerMasks: []
+  skyOcclusionShadingDirection: 1
+  useRenderingLayers: 1
+  renderingLayerMasks:
+  - mask:
+      serializedVersion: 0
+      m_Bits: 32
+    name: Mask 1
+  - mask:
+      serializedVersion: 0
+      m_Bits: 4
+    name: Mask 2
   m_SceneBakeData:
     m_Keys:
     - 29aebddba6619f349b0d98ea2e5e9cd1
+    - f3617bf78a992344187751ff14d83c84
     m_Values:
     - hasProbeVolume: 0
       bakeScene: 1
       bounds:
         m_Center: {x: 0, y: 0, z: 0}
         m_Extent: {x: 81, y: 81, z: 81}
+    - hasProbeVolume: 1
+      bakeScene: 1
+      bounds:
+        m_Center: {x: 243, y: 0, z: 243}
+        m_Extent: {x: 324, y: 81, z: 324}

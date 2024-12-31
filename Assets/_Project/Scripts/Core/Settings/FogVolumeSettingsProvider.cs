@@ -12,7 +12,7 @@ namespace DaftAppleGames.Darskerry.Core.Settings
             if (volumeSettings is FogVolumePresets fogVolumeSettings)
             {
                 _fogOverrides.active = fogVolumeSettings.settingEnabled;
-                // _fogOverrides.quality.value = (int)fogVolumeSettings.volumetricFogQualityLevel;
+                _fogOverrides.quality.value = (int)fogVolumeSettings.volumetricFogQualityLevel;
                 // _fogOverrides.enableVolumetricFog.value = fogVolumeSettings.volumetricEnabled;
             }
         }
@@ -26,7 +26,7 @@ namespace DaftAppleGames.Darskerry.Core.Settings
             }
             _fogOverrides.active = true;
             _fogOverrides.quality.overrideState = true;
-            // _fogOverrides.enableVolumetricFog.overrideState = true;
+            _fogOverrides.enableVolumetricFog.overrideState = true;
         }
     }
 }
