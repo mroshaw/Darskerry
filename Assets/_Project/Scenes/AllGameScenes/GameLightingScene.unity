@@ -192,8 +192,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 382185740}
-  - component: {fileID: 382185741}
   - component: {fileID: 382185742}
+  - component: {fileID: 382185743}
   m_Layer: 3
   m_Name: Sky Weather and Water
   m_TagString: Untagged
@@ -223,30 +223,6 @@ Transform:
   - {fileID: 1378136113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &382185741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382185739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647b4f5aadb28a044970230c2c21061c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skyGlobalVolume: {fileID: 1627740315}
-  cloudsVolume: {fileID: 1412623886}
-  fogVolume: {fileID: 2006358568}
-  lightingVolume: {fileID: 117599126}
-  postProcessingVolume: {fileID: 611038460}
-  sunLight: {fileID: 1164324174}
-  moonLight: {fileID: 1330048376}
-  volumeSettingsProviders:
-  - {fileID: 1568687335}
-  - {fileID: 1568687334}
-  - {fileID: 1568687333}
-  - {fileID: 1568687332}
 --- !u!114 &382185742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +237,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeOfDay: {fileID: 1164324176}
   startingHour: 6
+  fogVolumeFader: {fileID: 2006358570}
+  cloudVolumeFader: {fileID: 1412623888}
+  startingWeatherPreset: {fileID: 11400000, guid: d2fc8cb469a7fb74181ad05c29987b56, type: 2}
   sceneHour: 6
+--- !u!114 &382185743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382185739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e44044647106634598c84c3080c55e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeTrigger: 20
+  enableTriggeredEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  awakeTriggeredEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  startTriggeredEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2006358570}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.TimeAndWeather.VolumeFader,
+          DaftAppleGames.Darskerry.Core
+        m_MethodName: FadeOutSource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &392006790
 GameObject:
   m_ObjectHideFlags: 1
@@ -942,6 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOfDay: 6
+  defaultTransitionDuration: 10
   timeSpeed: 0
   latitude: 48.83402
   longitude: 2.367259
@@ -1541,6 +1556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1412623887}
   - component: {fileID: 1412623886}
+  - component: {fileID: 1412623888}
   m_Layer: 3
   m_Name: Cloud Global Volume
   m_TagString: Untagged
@@ -1578,8 +1594,82 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1515959704}
   - {fileID: 1984376999}
   m_Father: {fileID: 382185740}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1412623888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412623885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd477a5aea90d33498839a93ac6acc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceVolume: {fileID: 1412623886}
+  tempTargetVolume: {fileID: 1515959703}
+  onTargetWeight: 1
+  offTargetWeight: 0
+  defaultTransitionDuration: 0
+  transitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  transitionCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isInTransition: 0
+--- !u!1 &1515959702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515959704}
+  - component: {fileID: 1515959703}
+  m_Layer: 3
+  m_Name: Temp Fader Cloud Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1515959703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515959702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 0}
+--- !u!4 &1515959704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515959702}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1412623887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1568687330
 GameObject:
@@ -1594,6 +1684,7 @@ GameObject:
   - component: {fileID: 1568687334}
   - component: {fileID: 1568687333}
   - component: {fileID: 1568687332}
+  - component: {fileID: 1568687336}
   m_Layer: 3
   m_Name: Volume Settings
   m_TagString: Untagged
@@ -1704,6 +1795,30 @@ MonoBehaviour:
   onSettingsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1568687336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568687330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647b4f5aadb28a044970230c2c21061c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyGlobalVolume: {fileID: 1627740315}
+  cloudsVolume: {fileID: 1412623886}
+  fogVolume: {fileID: 2006358568}
+  lightingVolume: {fileID: 117599126}
+  postProcessingVolume: {fileID: 611038460}
+  sunLight: {fileID: 1164324174}
+  moonLight: {fileID: 1330048376}
+  volumeSettingsProviders:
+  - {fileID: 1568687335}
+  - {fileID: 1568687334}
+  - {fileID: 1568687333}
+  - {fileID: 1568687332}
 --- !u!1 &1627740313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,6 +1868,55 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: dc26b2ccf04cd8a449c10006663f504d, type: 2}
+--- !u!1 &1706756803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1706756804}
+  - component: {fileID: 1706756805}
+  m_Layer: 3
+  m_Name: Temp Fader Fog Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1706756804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706756803}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2006358571}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1706756805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706756803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 0}
 --- !u!1 &1903245761
 GameObject:
   m_ObjectHideFlags: 19
@@ -1845,7 +2009,6 @@ GameObject:
   - component: {fileID: 2006358571}
   - component: {fileID: 2006358568}
   - component: {fileID: 2006358570}
-  - component: {fileID: 2006358569}
   m_Layer: 3
   m_Name: Fog Global Volume
   m_TagString: Untagged
@@ -1870,41 +2033,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: a482025a91fc3194cbf7a9f3f7e74f2f, type: 2}
---- !u!114 &2006358569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006358567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e44044647106634598c84c3080c55e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBeforeTrigger: 20
-  enableTriggeredEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  awakeTriggeredEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  startTriggeredEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2006358570}
-        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.TimeAndWeather.VolumeFader,
-          DaftAppleGames.Darskerry.Core
-        m_MethodName: FadeOutFirstSource
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2006358570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,19 +2045,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd477a5aea90d33498839a93ac6acc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceVolumes:
-  - {fileID: 2006358568}
-  targetVolumes: []
+  sourceVolume: {fileID: 2006358568}
+  tempTargetVolume: {fileID: 1706756805}
   onTargetWeight: 1
   offTargetWeight: 0.5
-  fadeDuration: 30
-  fadeStartedEvent:
+  defaultTransitionDuration: 0
+  transitionStartedEvent:
     m_PersistentCalls:
       m_Calls: []
-  fadeCompleteEvent:
+  transitionCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
-  _isFading: 0
+  isInTransition: 0
 --- !u!4 &2006358571
 Transform:
   m_ObjectHideFlags: 0
@@ -1942,7 +2069,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1706756804}
   m_Father: {fileID: 382185740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2027782772

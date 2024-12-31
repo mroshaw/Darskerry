@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -11,6 +12,7 @@ namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
         [Tooltip("Time of day normalized between 0 and 24h. For example 6.5 amount to 6:30am.")]
         [BoxGroup("Settings")] public float timeOfDay = 12f;
 
+        [BoxGroup("Settings")] [SerializeField] private float defaultTransitionDuration = 10.0f;
         [Tooltip("Sets the speed at which the time of day passes.")]
         [BoxGroup("Settings")] [SerializeField] private float timeSpeed = 1f;
 
@@ -53,6 +55,36 @@ namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
 
             SetSunPosition();
         }
+
+
+        #region Class Methods
+
+        public void GoToTime(float hour)
+        {
+            StartCoroutine(GoToTimeAsync(hour, defaultTransitionDuration));
+        }
+
+        public void GoToTime(float hour, float transitionDuration)
+        {
+            StartCoroutine(GoToTimeAsync(hour, transitionDuration));
+        }
+
+        private IEnumerator GoToTimeAsync(float targetHour, float transitionDuration)
+        {
+            float elapsedTime = 0;
+            float startTime = timeOfDay;
+
+            while (elapsedTime < transitionDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                timeOfDay = Mathf.Lerp(startTime, targetHour, elapsedTime / transitionDuration);
+                yield return null;
+            }
+
+            timeOfDay = targetHour;
+        }
+
+        #endregion
 
         void SetSunPosition()
         {

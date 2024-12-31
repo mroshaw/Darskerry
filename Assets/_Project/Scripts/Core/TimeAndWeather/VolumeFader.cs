@@ -11,21 +11,17 @@ namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
     {
         #region Class Variables
 
-        [BoxGroup("Settings")] [SerializeField] private Volume[] sourceVolumes;
-        [BoxGroup("Settings")] [SerializeField] private Volume[] targetVolumes;
+        [BoxGroup("Settings")] [SerializeField] private Volume sourceVolume;
+        [BoxGroup("Settings")] [SerializeField] private Volume tempTargetVolume;
         [BoxGroup("Settings")] [SerializeField] private float onTargetWeight = 1.0f;
         [BoxGroup("Settings")] [SerializeField] private float offTargetWeight = 0.0f;
-        [BoxGroup("Settings")] [SerializeField] private float fadeDuration;
-        [BoxGroup("Events")] public UnityEvent fadeStartedEvent;
-        [BoxGroup("Events")] public UnityEvent fadeCompleteEvent;
+        [BoxGroup("Settings")] [SerializeField] private float defaultTransitionDuration;
+        [BoxGroup("Events")] public UnityEvent transitionStartedEvent;
+        [BoxGroup("Events")] public UnityEvent transitionCompleteEvent;
 
-        [BoxGroup("Debug")] [SerializeField] private bool _isFading;
+        [BoxGroup("Debug")] [SerializeField] private bool isInTransition;
 
-        private int _numSourceVolumes;
-        private int _numTargetVolumes;
-
-        private float[] _currentSourceVolumeWeights;
-        private float[] _currentTargetVolumeWeights;
+        private VolumeProfile _currentProfile;
 
         #endregion
 
@@ -36,173 +32,100 @@ namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
         /// </summary>   
         private void Awake()
         {
-            _isFading = false;
-            _numSourceVolumes = sourceVolumes.Length;
-            _numTargetVolumes = targetVolumes.Length;
-            _currentSourceVolumeWeights = new float[_numSourceVolumes];
-            _currentTargetVolumeWeights = new float[_numTargetVolumes];
-            UpdateSourceVolumeWeights();
-            UpdateTargetVolumeWeights();
+            isInTransition = false;
+            _currentProfile = sourceVolume.profile;
         }
 
         #endregion
 
         #region Class Methods
 
-        private void UpdateSourceVolumeWeights()
+        [Button("Fade In Source")]
+        public void FadeInSource()
         {
-            for (int currVol = 0; currVol < _numSourceVolumes; currVol++)
-            {
-                _currentSourceVolumeWeights[currVol] = sourceVolumes[currVol].weight;
-            }
+            FadeToTarget(sourceVolume, onTargetWeight);
         }
 
-        private void UpdateTargetVolumeWeights()
+        [Button("Fade Out Source")]
+        public void FadeOutSource()
         {
-            for (int currVol = 0; currVol < _numTargetVolumes; currVol++)
-            {
-                _currentTargetVolumeWeights[currVol] = targetVolumes[currVol].weight;
-            }
+            FadeToTarget(sourceVolume, offTargetWeight);
         }
 
-
-        [Button("Fade In First Source")]
-        public void FadeInFirstSource()
+        private void FadeToTarget(Volume volume, float targetWeight)
         {
-            UpdateSourceVolumeWeights();
-            FadeSingleVolume(sourceVolumes[0], onTargetWeight);
-        }
-
-        [Button("Fade Out First Source")]
-        public void FadeOutFirstSource()
-        {
-            FadeSingleVolume(sourceVolumes[0], offTargetWeight);
-        }
-
-        public void FadeFirstSourceToFirstTarget()
-        {
-        }
-
-        public void FadeFirsTargetToFirstSource()
-        {
- }
-
-        protected void FadeSingleVolume(Volume volume, float targetWeight)
-        {
-            if (_isFading)
+            if (isInTransition)
             {
                 return;
             }
             StartCoroutine(FadeSingleVolumeAsync(volume, targetWeight));
         }
 
-        protected void FadeMultipleVolumes(Volume[] volumes, float[] currentVolumeWeights, int numVolumes, float targetWeight)
+        public void FadeToProfile(VolumeProfile targetProfile, float transitionDuration)
         {
-            if (_isFading)
-            {
-                return;
-            }
-            StartCoroutine(FadeMultipleVolumeAsync(volumes, currentVolumeWeights, numVolumes, targetWeight));
+            StartCoroutine(FadeToNewProfileAsync(targetProfile, transitionDuration));
+        }
+
+
+        public void FadeToProfile(VolumeProfile targetProfile)
+        {
+            StartCoroutine(FadeToNewProfileAsync(targetProfile, defaultTransitionDuration));
         }
 
         private IEnumerator FadeSingleVolumeAsync(Volume volume, float targetWeight)
         {
-            StartFade();
+            StartTransition();
             float elapsedTime = 0;
             float startWeight = volume.weight;
 
-            while (elapsedTime < fadeDuration)
+            while (elapsedTime < defaultTransitionDuration)
             {
-                volume.weight = Mathf.Lerp(startWeight, targetWeight, elapsedTime / fadeDuration);
+                volume.weight = Mathf.Lerp(startWeight, targetWeight, elapsedTime / defaultTransitionDuration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
             volume.weight = targetWeight;
-            CompleteFade();
+            CompleteTransition();
         }
 
-        private IEnumerator FadeMultipleVolumeAsync(Volume[] volumes, float[] currentVolumeWeights, int numVolumes, float targetWeight)
+        private IEnumerator FadeToNewProfileAsync(VolumeProfile targetProfile, float duration)
         {
-            StartFade();
+            StartTransition();
             float elapsedTime = 0;
-
-            while (elapsedTime < fadeDuration)
-            {
-                for(int currVolume = 0; currVolume < numVolumes; currVolume++)
-                {
-                    volumes[currVolume].weight = Mathf.Lerp(currentVolumeWeights[currVolume], targetWeight, elapsedTime / fadeDuration);
-                }
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
-            for(int currVolume = 0; currVolume < numVolumes; currVolume++)
-            {
-                volumes[currVolume].weight = targetWeight;
-            }
-
-            CompleteFade();
-        }
-
-        private IEnumerator FadeBetweenSingleVolumesAsync(Volume startVolume, float startVolumeStartWeight, float startVolumeEndWeight,
-                Volume endVolume ,float endVolumeStartWeight, float endVolumeEndWeight, float duration)
-        {
-            StartFade();
-            float elapsedTime = 0;
+            sourceVolume.weight = 1;
+            tempTargetVolume.weight = 0;
+            tempTargetVolume.profile = targetProfile;
 
             while (elapsedTime < duration)
             {
-                startVolume.weight = Mathf.Lerp(startVolumeStartWeight, startVolumeEndWeight, elapsedTime / duration);
-                endVolume.weight = Mathf.Lerp(endVolumeStartWeight, endVolumeEndWeight, elapsedTime / duration);
+                sourceVolume.weight = Mathf.Lerp(1, 0, elapsedTime / duration);
+                tempTargetVolume.weight = Mathf.Lerp(0, 1, elapsedTime / duration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
-            startVolume.weight = startVolumeEndWeight;
-            endVolume.weight = endVolumeEndWeight;
+            sourceVolume.weight = 1;
+            tempTargetVolume.weight = 0;
 
-            CompleteFade();
+            // Swap the volumes
+            sourceVolume.profile = targetProfile;
+            sourceVolume.weight = 1;
+            tempTargetVolume.weight = 0;
+            tempTargetVolume.profile = null;
+
+            CompleteTransition();
         }
 
-        private IEnumerator FadeBetweenMultipleVolumeAsync(Volume[] startVolumes, float startVolumeStartWeight, float startVolumeEndWeight,
-            Volume[] endVolumes ,float endVolumeStartWeight, float endVolumeEndWeight, float duration)
+        private void StartTransition()
         {
-            StartFade();
-            float elapsedTime = 0;
-
-            while (elapsedTime < duration)
-            {
-                foreach (Volume startVolume in startVolumes)
-                {
-                    startVolume.weight = Mathf.Lerp(startVolumeStartWeight, startVolumeEndWeight, elapsedTime / duration);
-                }
-
-                foreach (Volume endVolume in endVolumes)
-                {
-                    endVolume.weight = Mathf.Lerp(endVolumeStartWeight, endVolumeEndWeight, elapsedTime / duration);
-                }
-
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-
-            foreach (Volume endVolume in endVolumes)
-            {
-                endVolume.weight = endVolumeEndWeight;
-            }
-            CompleteFade();
+            isInTransition = true;
+            transitionStartedEvent.Invoke();
         }
 
-        private void StartFade()
+        private void CompleteTransition()
         {
-            _isFading = true;
-            fadeStartedEvent.Invoke();
-        }
-
-        private void CompleteFade()
-        {
-            _isFading = false;
-            fadeCompleteEvent.Invoke();
+            isInTransition = false;
+            transitionCompleteEvent.Invoke();
         }
 
         #endregion
