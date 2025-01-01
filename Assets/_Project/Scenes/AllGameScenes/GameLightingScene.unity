@@ -240,6 +240,9 @@ MonoBehaviour:
   fogVolumeFader: {fileID: 2006358570}
   cloudVolumeFader: {fileID: 1412623888}
   startingWeatherPreset: {fileID: 11400000, guid: d2fc8cb469a7fb74181ad05c29987b56, type: 2}
+  allWeatherPresets:
+  - {fileID: 11400000, guid: d2fc8cb469a7fb74181ad05c29987b56, type: 2}
+  - {fileID: 11400000, guid: d6f734d221f185942bc7f3dc4327c1bc, type: 2}
   sceneHour: 6
 --- !u!114 &382185743
 MonoBehaviour:
@@ -253,27 +256,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e44044647106634598c84c3080c55e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeTrigger: 20
+  delayBeforeTrigger: 5
+  triggerOnEnable: 0
   enableTriggeredEvent:
     m_PersistentCalls:
       m_Calls: []
+  triggerOnAwake: 0
   awakeTriggeredEvent:
     m_PersistentCalls:
       m_Calls: []
+  triggerOnStart: 1
   startTriggeredEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2006358570}
-        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.TimeAndWeather.VolumeFader,
+      - m_Target: {fileID: 382185742}
+        m_TargetAssemblyTypeName: DaftAppleGames.Darskerry.Core.TimeAndWeather.TimeAndWeatherController,
           DaftAppleGames.Darskerry.Core
-        m_MethodName: FadeOutSource
-        m_Mode: 1
+        m_MethodName: TransitionToWeatherPreset
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: LightCloudDry
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &392006790
@@ -1580,7 +1586,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: e0ace794b67116544acc0e6cf88bed6c, type: 2}
+  sharedProfile: {fileID: 11400000, guid: d28bcd2a1e987564ba350d15e0a789c4, type: 2}
 --- !u!4 &1412623887
 Transform:
   m_ObjectHideFlags: 0
@@ -1614,7 +1620,7 @@ MonoBehaviour:
   tempTargetVolume: {fileID: 1515959703}
   onTargetWeight: 1
   offTargetWeight: 0
-  defaultTransitionDuration: 0
+  defaultTransitionDuration: 5
   transitionStartedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1654,7 +1660,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
+  weight: 0
   sharedProfile: {fileID: 0}
 --- !u!4 &1515959704
 Transform:
@@ -1915,7 +1921,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
+  weight: 0
   sharedProfile: {fileID: 0}
 --- !u!1 &1903245761
 GameObject:
@@ -2032,7 +2038,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: a482025a91fc3194cbf7a9f3f7e74f2f, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 83838d1d0916225429275e4f8ef9caa8, type: 2}
 --- !u!114 &2006358570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,7 +2055,7 @@ MonoBehaviour:
   tempTargetVolume: {fileID: 1706756805}
   onTargetWeight: 1
   offTargetWeight: 0.5
-  defaultTransitionDuration: 0
+  defaultTransitionDuration: 30
   transitionStartedEvent:
     m_PersistentCalls:
       m_Calls: []

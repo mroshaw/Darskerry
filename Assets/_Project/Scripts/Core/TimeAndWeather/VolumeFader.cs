@@ -61,14 +61,15 @@ namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
             StartCoroutine(FadeSingleVolumeAsync(volume, targetWeight));
         }
 
-        public void FadeToProfile(VolumeProfile targetProfile, float transitionDuration)
+        public void TransitionToProfile(VolumeProfile targetProfile, float transitionDuration)
         {
             StartCoroutine(FadeToNewProfileAsync(targetProfile, transitionDuration));
         }
 
 
-        public void FadeToProfile(VolumeProfile targetProfile)
+        public void TransitionToProfile(VolumeProfile targetProfile)
         {
+            Debug.Log($"VolumeFader: Transitioning to: {targetProfile.name} on {sourceVolume.name}");
             StartCoroutine(FadeToNewProfileAsync(targetProfile, defaultTransitionDuration));
         }
 
@@ -109,6 +110,7 @@ namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
 
             // Swap the volumes
             sourceVolume.profile = targetProfile;
+            sourceVolume.sharedProfile = targetProfile;
             sourceVolume.weight = 1;
             tempTargetVolume.weight = 0;
             tempTargetVolume.profile = null;

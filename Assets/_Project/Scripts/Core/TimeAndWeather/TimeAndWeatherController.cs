@@ -1,8 +1,5 @@
-using System.Collections;
-using DaftAppleGames.Darskerry.Core.Settings;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using UnityEngine.Rendering;
 
 namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
 {
@@ -14,7 +11,8 @@ namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
         [BoxGroup("Time")] [SerializeField] private float startingHour = 20.9f;
         [BoxGroup("Weather")] [SerializeField] private VolumeFader fogVolumeFader;
         [BoxGroup("Weather")] [SerializeField] private VolumeFader cloudVolumeFader;
-        [BoxGroup("Weather")] [SerializeField] private WeatherPresets startingWeatherPreset;
+        [BoxGroup("Weather")] [SerializeField] private WeatherPreset startingWeatherPreset;
+        [BoxGroup("Weather")] [SerializeField] private WeatherPreset[] allWeatherPresets;
         [BoxGroup("Debug")] [SerializeField] private float sceneHour = 6.0f;
         #endregion
 
@@ -28,16 +26,60 @@ namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
             {
                 timeOfDay.timeOfDay = startingHour;
             }
+
+            if (startingWeatherPreset)
+            {
+                TransitionToWeatherPresetImmediate(startingWeatherPreset);
+            }
         }
 
         #endregion
 
         #region Class methods
 
+        public void TransitionToWeatherPreset(string weatherPresetName)
+        {
+            Debug.Log($"TimeAndWeatherController: Attempting transition to: {weatherPresetName}");
+            foreach (WeatherPreset preset in allWeatherPresets)
+            {
+                if (preset.weatherPresetName == weatherPresetName)
+                {
+                    TransitionToWeatherPreset(preset);
+                    return;
+                }
+            }
+            Debug.Log($"TimeAndWeatherController: Weather preset: {weatherPresetName} was not found!");
+
+        }
+
+        private void TransitionToWeatherPresetImmediate(WeatherPreset weatherPreset)
+        {
+            fogVolumeFader.TransitionToProfile(weatherPreset.fogVolumeProfile, 0.0f);
+            cloudVolumeFader.TransitionToProfile(weatherPreset.cloudVolumeProfile, 0.0f);
+        }
+
+        private void TransitionToWeatherPreset(WeatherPreset weatherPreset)
+        {
+            fogVolumeFader.TransitionToProfile(weatherPreset.fogVolumeProfile);
+            cloudVolumeFader.TransitionToProfile(weatherPreset.cloudVolumeProfile);
+        }
 
         #endregion
 
         #region Editor Methods
+
+        [BoxGroup("Weather Debug")] [Button("Foggy")]
+        private void SetFoggyWeather()
+        {
+            TransitionToWeatherPreset("FoggyDry");
+        }
+
+        [BoxGroup("Weather Debug")] [Button("Light Cloud")]
+        private void SetClearWeather()
+        {
+            TransitionToWeatherPreset("LightCloudDry");
+        }
+
 
         [BoxGroup("Time Debug")][Button("Set Scene Time")]
         private void SetSceneToDebug()

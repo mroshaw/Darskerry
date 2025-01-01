@@ -10,9 +10,12 @@ namespace DaftAppleGames.Darskerry.Core.Helpers
         #region Class Variables
         [BoxGroup("Settings")] [SerializeField] private float delayBeforeTrigger;
 
-        [BoxGroup("Events")] public UnityEvent enableTriggeredEvent;
-        [BoxGroup("Events")] public UnityEvent awakeTriggeredEvent;
-        [BoxGroup("Events")] public UnityEvent startTriggeredEvent;
+        [BoxGroup("Events")] [SerializeField] private bool triggerOnEnable;
+        [BoxGroup("Events")] [EnableIf("triggerOnEnable")] public UnityEvent enableTriggeredEvent;
+        [BoxGroup("Events")] [SerializeField] private bool triggerOnAwake;
+        [BoxGroup("Events")] [EnableIf("triggerOnAwake")] public UnityEvent awakeTriggeredEvent;
+        [BoxGroup("Events")] [SerializeField] private bool triggerOnStart;
+        [BoxGroup("Events")] [EnableIf("triggerOnStart")] public UnityEvent startTriggeredEvent;
 
         #endregion
 
@@ -22,7 +25,7 @@ namespace DaftAppleGames.Darskerry.Core.Helpers
         /// </summary>   
         private void OnEnable()
         {
-            if (enableTriggeredEvent != null)
+            if (triggerOnEnable)
             {
                 StartCoroutine(DelayedTriggerAsync(enableTriggeredEvent));
             }
@@ -33,7 +36,7 @@ namespace DaftAppleGames.Darskerry.Core.Helpers
         /// </summary>   
         private void Awake()
         {
-            if (awakeTriggeredEvent != null)
+            if (triggerOnAwake)
             {
                 StartCoroutine(DelayedTriggerAsync(awakeTriggeredEvent));
             }
@@ -44,7 +47,7 @@ namespace DaftAppleGames.Darskerry.Core.Helpers
         /// </summary>
         private void Start()
         {
-            if (startTriggeredEvent != null)
+            if (triggerOnStart)
             {
                 StartCoroutine(DelayedTriggerAsync(startTriggeredEvent));
             }
@@ -57,6 +60,7 @@ namespace DaftAppleGames.Darskerry.Core.Helpers
         private IEnumerator DelayedTriggerAsync(UnityEvent unityEvent)
         {
             yield return new WaitForSeconds(delayBeforeTrigger);
+            Debug.Log("DelayedTriggerAsync Event Triggered");
             unityEvent?.Invoke();
         }
         #endregion
