@@ -55,13 +55,13 @@ namespace DaftAppleGames.Darskerry.Core.TimeAndWeather
         private void TransitionToWeatherPresetImmediate(WeatherPreset weatherPreset)
         {
             fogVolumeFader.TransitionToProfile(weatherPreset.fogVolumeProfile, 0.0f);
-            cloudVolumeFader.TransitionToProfile(weatherPreset.cloudVolumeProfile, 0.0f);
+            // cloudVolumeFader.TransitionToProfile(weatherPreset.cloudVolumeProfile, 0.0f);
         }
 
         private void TransitionToWeatherPreset(WeatherPreset weatherPreset)
         {
             fogVolumeFader.TransitionToProfile(weatherPreset.fogVolumeProfile);
-            cloudVolumeFader.TransitionToProfile(weatherPreset.cloudVolumeProfile);
+            // cloudVolumeFader.TransitionToProfile(weatherPreset.cloudVolumeProfile);
         }
 
         #endregion

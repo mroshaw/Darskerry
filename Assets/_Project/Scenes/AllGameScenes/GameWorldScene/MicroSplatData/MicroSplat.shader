@@ -4,7 +4,7 @@
 //
 // Auto-generated shader code, don't hand edit!
 //
-//   Unity Version: 6000.0.30f1
+//   Unity Version: 6000.0.32f1
 //   MicroSplat Version: 3.9
 //   Render Pipeline: HDRP2023
 //   Platform: WindowsEditor
@@ -235,6 +235,7 @@ Shader "Terrain"
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -243,6 +244,7 @@ Shader "Terrain"
       #define _TRIPLANAR 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
+      #define _MSRENDERLOOP_UNITYHDRP6 1
       #define _MSRENDERLOOP_UNITYHD 1
       #define _MSRENDERLOOP_UNITYHDRP2020 1
       #define _MSRENDERLOOP_UNITYHDRP2021 1
@@ -7794,6 +7796,7 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -7802,6 +7805,7 @@ float3 GetTessFactors ()
       #define _TRIPLANAR 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
+      #define _MSRENDERLOOP_UNITYHDRP6 1
       #define _MSRENDERLOOP_UNITYHD 1
       #define _MSRENDERLOOP_UNITYHDRP2020 1
       #define _MSRENDERLOOP_UNITYHDRP2021 1
@@ -15177,6 +15181,7 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -15185,6 +15190,7 @@ float3 GetTessFactors ()
       #define _TRIPLANAR 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
+      #define _MSRENDERLOOP_UNITYHDRP6 1
       #define _MSRENDERLOOP_UNITYHD 1
       #define _MSRENDERLOOP_UNITYHDRP2020 1
       #define _MSRENDERLOOP_UNITYHDRP2021 1
@@ -22641,6 +22647,7 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -22649,6 +22656,7 @@ float3 GetTessFactors ()
       #define _TRIPLANAR 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
+      #define _MSRENDERLOOP_UNITYHDRP6 1
       #define _MSRENDERLOOP_UNITYHD 1
       #define _MSRENDERLOOP_UNITYHDRP2020 1
       #define _MSRENDERLOOP_UNITYHDRP2021 1
@@ -30088,6 +30096,7 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -30096,6 +30105,7 @@ float3 GetTessFactors ()
       #define _TRIPLANAR 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
+      #define _MSRENDERLOOP_UNITYHDRP6 1
       #define _MSRENDERLOOP_UNITYHD 1
       #define _MSRENDERLOOP_UNITYHDRP2020 1
       #define _MSRENDERLOOP_UNITYHDRP2021 1
@@ -37478,6 +37488,7 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -37486,6 +37497,7 @@ float3 GetTessFactors ()
       #define _TRIPLANAR 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
+      #define _MSRENDERLOOP_UNITYHDRP6 1
       #define _MSRENDERLOOP_UNITYHD 1
       #define _MSRENDERLOOP_UNITYHDRP2020 1
       #define _MSRENDERLOOP_UNITYHDRP2021 1
@@ -44863,6 +44875,7 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -44871,6 +44884,7 @@ float3 GetTessFactors ()
       #define _TRIPLANAR 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
+      #define _MSRENDERLOOP_UNITYHDRP6 1
       #define _MSRENDERLOOP_UNITYHD 1
       #define _MSRENDERLOOP_UNITYHDRP2020 1
       #define _MSRENDERLOOP_UNITYHDRP2021 1
@@ -52273,6 +52287,7 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -52281,6 +52296,7 @@ float3 GetTessFactors ()
       #define _TRIPLANAR 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
+      #define _MSRENDERLOOP_UNITYHDRP6 1
       #define _MSRENDERLOOP_UNITYHD 1
       #define _MSRENDERLOOP_UNITYHDRP2020 1
       #define _MSRENDERLOOP_UNITYHDRP2021 1
@@ -59685,6 +59701,7 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
+      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -59693,6 +59710,7 @@ float3 GetTessFactors ()
       #define _TRIPLANAR 1
       #define _WINDPARTICULATE 1
       #define _PERTEXWINDPARTICULATE 1
+      #define _MSRENDERLOOP_UNITYHDRP6 1
       #define _MSRENDERLOOP_UNITYHD 1
       #define _MSRENDERLOOP_UNITYHDRP2020 1
       #define _MSRENDERLOOP_UNITYHDRP2021 1
@@ -66982,7 +67000,7 @@ float3 GetTessFactors ()
       
       
    }
-   Dependency "BaseMapShader" =  "Hidden/Terrain_Base-168329540"
-   Fallback "Hidden/Terrain_Base-168329540"
+   Dependency "BaseMapShader" =  "Hidden/Terrain_Base485991801"
+   Fallback "Hidden/Terrain_Base485991801"
    CustomEditor "MicroSplatShaderGUI"
 }
