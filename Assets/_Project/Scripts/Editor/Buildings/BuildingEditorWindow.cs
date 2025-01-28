@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using DaftAppleGames.Darskerry.Core.Buildings;
-using DaftAppleGames.Darskerry.Core.Extensions;
+using DaftAppleGames.Extensions;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;

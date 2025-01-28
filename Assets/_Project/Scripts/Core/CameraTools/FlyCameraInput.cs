@@ -1,5 +1,4 @@
-using DaftAppleGames.Darskerry.Core.CharController.AiController;
-using DaftAppleGames.Darskerry.Core.CharController.PlayerController;
+using DaftAppleGames.TpCharacterController.PlayerController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,14 +22,14 @@ namespace DaftAppleGames.Darskerry.Core.CameraTools
 
         private void OnEnable()
         {
-            PlayerCharacterInputManager.Instance.PlayerControls.FlyCamControls.Enable();
-            PlayerCharacterInputManager.Instance.PlayerControls.FlyCamControls.SetCallbacks(this);
+            // PlayerCharacterInputManager.Instance.PlayerControls.FlyCamControls.Enable();
+            // PlayerCharacterInputManager.Instance.PlayerControls.FlyCamControls.SetCallbacks(this);
         }
 
         private void OnDisable()
         {
-            PlayerCharacterInputManager.Instance.PlayerControls.FlyCamControls.Disable();
-            PlayerCharacterInputManager.Instance.PlayerControls.FlyCamControls.RemoveCallbacks(this);
+            // PlayerCharacterInputManager.Instance.PlayerControls.FlyCamControls.Disable();
+            // PlayerCharacterInputManager.Instance.PlayerControls.FlyCamControls.RemoveCallbacks(this);
         }
 
         private void LateUpdate()

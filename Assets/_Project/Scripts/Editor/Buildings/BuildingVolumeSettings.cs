@@ -1,6 +1,6 @@
 using System;
 using DaftAppleGames.Darskerry.Core.Buildings;
-using DaftAppleGames.Darskerry.Core.Extensions;
+using DaftAppleGames.Extensions;
 using DaftAppleGames.Editor.Mesh;
 using JBooth.MicroVerseCore;
 using UnityEngine;

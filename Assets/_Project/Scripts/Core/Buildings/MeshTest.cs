@@ -1,5 +1,5 @@
 using System.Linq;
-using DaftAppleGames.Darskerry.Core.Extensions;
+using DaftAppleGames.Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;

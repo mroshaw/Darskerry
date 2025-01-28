@@ -1,6 +1,6 @@
 using System;
 using DaftAppleGames.Darskerry.Core.Buildings;
-using DaftAppleGames.Darskerry.Core.Extensions;
+using DaftAppleGames.Extensions;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Editor.BuildingTools

@@ -1,5 +1,5 @@
 using System;
-using DaftAppleGames.Darskerry.Core.Extensions;
+using DaftAppleGames.Extensions;
 using DaftAppleGames.Editor.Mesh;
 using UnityEngine;
 
