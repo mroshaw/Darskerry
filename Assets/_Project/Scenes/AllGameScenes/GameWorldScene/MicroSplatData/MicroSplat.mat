@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PerTexProps:
-        m_Texture: {fileID: 704454551891027801, guid: 67ea2937b418e1248b1adbbe931ee932, type: 2}
+        m_Texture: {fileID: -4738800828430842791, guid: 67ea2937b418e1248b1adbbe931ee932, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TerrainHeightmapTexture:
@@ -142,7 +142,7 @@ Material:
     - _TransparentZWrite: 0
     - _TriplanarContrast: 4
     - _UseShadowThreshold: 0
-    - _WindParticulateOcclusionStrength: 1
+    - _WindParticulateOcclusionStrength: 0.048
     - _WindParticulateRotation: 0
     - _WindParticulateStrength: 1
     - _WindParticulateStretch: 0.3
@@ -159,13 +159,13 @@ Material:
     - _SnowParticulateParams: {r: 1, g: 1, b: 1, a: 0.25}
     - _SnowParticulateShadow: {r: 0.01, g: 1, b: 0, a: 0}
     - _SnowParticulateShadowColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TessData1: {r: 12, g: 0.12, b: 4, a: 0}
-    - _TessData2: {r: 20, g: 45, b: 0.2, a: 0.25}
-    - _TriplanarUVScale: {r: 1, g: 1, b: 0, a: 0}
+    - _TessData1: {r: 12, g: 0.8, b: 4, a: 0}
+    - _TessData2: {r: 20, g: 1000, b: 0.19999999, a: 0.25}
+    - _TriplanarUVScale: {r: 0.02, g: 0.02, b: 0, a: 0}
     - _UVScale: {r: 1, g: 1, b: 0, a: 0}
-    - _WindEmissive: {r: 0, g: 0, b: 0, a: 0}
+    - _WindEmissive: {r: 0.196, g: 0, b: 0, a: 0}
     - _WindParticulateAngleMask: {r: -1, g: -1, b: 1, a: 1}
-    - _WindParticulateColor: {r: 1, g: 0.5694697, b: 0, a: 1}
+    - _WindParticulateColor: {r: 0.8300472, g: 0.8867924, b: 0.5898006, a: 1}
     - _WindParticulateHeightMask: {r: 0, g: 0, b: 99999, a: 99999}
     - _WindParticulateParams: {r: 1, g: 1, b: 1, a: 0.25}
     - _WindParticulateShadow: {r: 0.01, g: 1, b: 0, a: 0}

@@ -4,14 +4,14 @@
 //
 // Auto-generated shader code, don't hand edit!
 //
-//   Unity Version: 6000.0.32f1
+//   Unity Version: 6000.0.40f1
 //   MicroSplat Version: 3.9
 //   Render Pipeline: HDRP2023
 //   Platform: WindowsEditor
 ////////////////////////////////////////
 
 
-Shader "Hidden/Terrain_Base485991801"
+Shader "Hidden/Game Terrain_Base530990294"
 {
    Properties
    {
@@ -232,7 +232,6 @@ Shader "Hidden/Terrain_Base485991801"
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -696,7 +695,7 @@ Shader "Hidden/Terrain_Base485991801"
                // float4 vertexColor : COLOR;
 
                
-               #if _HDRP && (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
+               #if (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
                   float3 previousPositionOS : TEXCOORD4; // Contain previous transform position (in case of skinning for example)
                   #if defined (_ADD_PRECOMPUTED_VELOCITY)
                      float3 precomputedVelocity    : TEXCOORD5; // Add Precomputed Velocity (Alembic computes velocities on runtime side).
@@ -5819,6 +5818,14 @@ void ApplyTerrainTangent(inout VertexToPixel input)
 void ModifyVertex(inout VertexData v, inout ExtraV2F d)
 {
    ApplyMeshModification(v);
+
+   #if _TESSONLYDISPLACE
+      #if _MICROVERSEPREVIEW 
+         v.vertex.y = OffsetVertex(v, d).y;
+      #else
+         v.vertex.xyz += OffsetVertex(v, d);
+      #endif
+   #endif
 
    #if _MICROVERTEXMESH || _MICRODIGGERMESH
       EncodeVertexWorkflow(v, d);
@@ -6878,7 +6885,6 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -7350,7 +7356,7 @@ float3 GetTessFactors ()
                // float4 vertexColor : COLOR;
 
                
-               #if _HDRP && (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
+               #if (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
                   float3 previousPositionOS : TEXCOORD4; // Contain previous transform position (in case of skinning for example)
                   #if defined (_ADD_PRECOMPUTED_VELOCITY)
                      float3 precomputedVelocity    : TEXCOORD5; // Add Precomputed Velocity (Alembic computes velocities on runtime side).
@@ -12474,6 +12480,14 @@ void ApplyTerrainTangent(inout VertexToPixel input)
 void ModifyVertex(inout VertexData v, inout ExtraV2F d)
 {
    ApplyMeshModification(v);
+
+   #if _TESSONLYDISPLACE
+      #if _MICROVERSEPREVIEW 
+         v.vertex.y = OffsetVertex(v, d).y;
+      #else
+         v.vertex.xyz += OffsetVertex(v, d);
+      #endif
+   #endif
 
    #if _MICROVERTEXMESH || _MICRODIGGERMESH
       EncodeVertexWorkflow(v, d);
@@ -13348,7 +13362,6 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -13816,7 +13829,7 @@ float3 GetTessFactors ()
                // float4 vertexColor : COLOR;
 
                
-               #if _HDRP && (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
+               #if (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
                   float3 previousPositionOS : TEXCOORD4; // Contain previous transform position (in case of skinning for example)
                   #if defined (_ADD_PRECOMPUTED_VELOCITY)
                      float3 precomputedVelocity    : TEXCOORD5; // Add Precomputed Velocity (Alembic computes velocities on runtime side).
@@ -18939,6 +18952,14 @@ void ApplyTerrainTangent(inout VertexToPixel input)
 void ModifyVertex(inout VertexData v, inout ExtraV2F d)
 {
    ApplyMeshModification(v);
+
+   #if _TESSONLYDISPLACE
+      #if _MICROVERSEPREVIEW 
+         v.vertex.y = OffsetVertex(v, d).y;
+      #else
+         v.vertex.xyz += OffsetVertex(v, d);
+      #endif
+   #endif
 
    #if _MICROVERTEXMESH || _MICRODIGGERMESH
       EncodeVertexWorkflow(v, d);
@@ -19899,7 +19920,6 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -20366,7 +20386,7 @@ float3 GetTessFactors ()
                // float4 vertexColor : COLOR;
 
                
-               #if _HDRP && (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
+               #if (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
                   float3 previousPositionOS : TEXCOORD4; // Contain previous transform position (in case of skinning for example)
                   #if defined (_ADD_PRECOMPUTED_VELOCITY)
                      float3 precomputedVelocity    : TEXCOORD5; // Add Precomputed Velocity (Alembic computes velocities on runtime side).
@@ -25489,6 +25509,14 @@ void ApplyTerrainTangent(inout VertexToPixel input)
 void ModifyVertex(inout VertexData v, inout ExtraV2F d)
 {
    ApplyMeshModification(v);
+
+   #if _TESSONLYDISPLACE
+      #if _MICROVERSEPREVIEW 
+         v.vertex.y = OffsetVertex(v, d).y;
+      #else
+         v.vertex.xyz += OffsetVertex(v, d);
+      #endif
+   #endif
 
    #if _MICROVERTEXMESH || _MICRODIGGERMESH
       EncodeVertexWorkflow(v, d);
@@ -26433,7 +26461,6 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -26901,7 +26928,7 @@ float3 GetTessFactors ()
                // float4 vertexColor : COLOR;
 
                
-               #if _HDRP && (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
+               #if (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
                   float3 previousPositionOS : TEXCOORD4; // Contain previous transform position (in case of skinning for example)
                   #if defined (_ADD_PRECOMPUTED_VELOCITY)
                      float3 precomputedVelocity    : TEXCOORD5; // Add Precomputed Velocity (Alembic computes velocities on runtime side).
@@ -32024,6 +32051,14 @@ void ApplyTerrainTangent(inout VertexToPixel input)
 void ModifyVertex(inout VertexData v, inout ExtraV2F d)
 {
    ApplyMeshModification(v);
+
+   #if _TESSONLYDISPLACE
+      #if _MICROVERSEPREVIEW 
+         v.vertex.y = OffsetVertex(v, d).y;
+      #else
+         v.vertex.xyz += OffsetVertex(v, d);
+      #endif
+   #endif
 
    #if _MICROVERTEXMESH || _MICRODIGGERMESH
       EncodeVertexWorkflow(v, d);
@@ -32910,7 +32945,6 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -33376,7 +33410,7 @@ float3 GetTessFactors ()
                // float4 vertexColor : COLOR;
 
                
-               #if _HDRP && (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
+               #if (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
                   float3 previousPositionOS : TEXCOORD4; // Contain previous transform position (in case of skinning for example)
                   #if defined (_ADD_PRECOMPUTED_VELOCITY)
                      float3 precomputedVelocity    : TEXCOORD5; // Add Precomputed Velocity (Alembic computes velocities on runtime side).
@@ -38499,6 +38533,14 @@ void ApplyTerrainTangent(inout VertexToPixel input)
 void ModifyVertex(inout VertexData v, inout ExtraV2F d)
 {
    ApplyMeshModification(v);
+
+   #if _TESSONLYDISPLACE
+      #if _MICROVERSEPREVIEW 
+         v.vertex.y = OffsetVertex(v, d).y;
+      #else
+         v.vertex.xyz += OffsetVertex(v, d);
+      #endif
+   #endif
 
    #if _MICROVERTEXMESH || _MICRODIGGERMESH
       EncodeVertexWorkflow(v, d);
@@ -39382,7 +39424,6 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -39841,7 +39882,7 @@ float3 GetTessFactors ()
                // float4 vertexColor : COLOR;
 
                
-               #if _HDRP && (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
+               #if (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
                   float3 previousPositionOS : TEXCOORD4; // Contain previous transform position (in case of skinning for example)
                   #if defined (_ADD_PRECOMPUTED_VELOCITY)
                      float3 precomputedVelocity    : TEXCOORD5; // Add Precomputed Velocity (Alembic computes velocities on runtime side).
@@ -44964,6 +45005,14 @@ void ApplyTerrainTangent(inout VertexToPixel input)
 void ModifyVertex(inout VertexData v, inout ExtraV2F d)
 {
    ApplyMeshModification(v);
+
+   #if _TESSONLYDISPLACE
+      #if _MICROVERSEPREVIEW 
+         v.vertex.y = OffsetVertex(v, d).y;
+      #else
+         v.vertex.xyz += OffsetVertex(v, d);
+      #endif
+   #endif
 
    #if _MICROVERTEXMESH || _MICRODIGGERMESH
       EncodeVertexWorkflow(v, d);
@@ -45879,7 +45928,6 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -46340,7 +46388,7 @@ float3 GetTessFactors ()
                // float4 vertexColor : COLOR;
 
                
-               #if _HDRP && (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
+               #if (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
                   float3 previousPositionOS : TEXCOORD4; // Contain previous transform position (in case of skinning for example)
                   #if defined (_ADD_PRECOMPUTED_VELOCITY)
                      float3 precomputedVelocity    : TEXCOORD5; // Add Precomputed Velocity (Alembic computes velocities on runtime side).
@@ -51463,6 +51511,14 @@ void ApplyTerrainTangent(inout VertexToPixel input)
 void ModifyVertex(inout VertexData v, inout ExtraV2F d)
 {
    ApplyMeshModification(v);
+
+   #if _TESSONLYDISPLACE
+      #if _MICROVERSEPREVIEW 
+         v.vertex.y = OffsetVertex(v, d).y;
+      #else
+         v.vertex.xyz += OffsetVertex(v, d);
+      #endif
+   #endif
 
    #if _MICROVERTEXMESH || _MICRODIGGERMESH
       EncodeVertexWorkflow(v, d);
@@ -52378,7 +52434,6 @@ float3 GetTessFactors ()
       #define _USEGRADMIP 1
       #define _MAX8TEXTURES 1
       #define _PERTEXUVSCALEOFFSET 1
-      #define _PERTEXSMOOTHSTR 1
       #define _BRANCHSAMPLES 1
       #define _BRANCHSAMPLESAGR 1
       #define _DISTANCENOISE 1
@@ -52837,7 +52892,7 @@ float3 GetTessFactors ()
                // float4 vertexColor : COLOR;
 
                
-               #if _HDRP && (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
+               #if (_PASSMOTIONVECTOR || (_PASSFORWARD && defined(_WRITE_TRANSPARENT_MOTION_VECTOR)))
                   float3 previousPositionOS : TEXCOORD4; // Contain previous transform position (in case of skinning for example)
                   #if defined (_ADD_PRECOMPUTED_VELOCITY)
                      float3 precomputedVelocity    : TEXCOORD5; // Add Precomputed Velocity (Alembic computes velocities on runtime side).
@@ -57960,6 +58015,14 @@ void ApplyTerrainTangent(inout VertexToPixel input)
 void ModifyVertex(inout VertexData v, inout ExtraV2F d)
 {
    ApplyMeshModification(v);
+
+   #if _TESSONLYDISPLACE
+      #if _MICROVERSEPREVIEW 
+         v.vertex.y = OffsetVertex(v, d).y;
+      #else
+         v.vertex.xyz += OffsetVertex(v, d);
+      #endif
+   #endif
 
    #if _MICROVERTEXMESH || _MICRODIGGERMESH
       EncodeVertexWorkflow(v, d);
