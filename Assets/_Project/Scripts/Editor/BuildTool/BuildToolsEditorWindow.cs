@@ -5,8 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using DaftAppleGames.Darskerry.Core;
-using DaftAppleGames.Darskerry.Core.Scenes;
+using DaftAppleGames.Scenes;
+using DaftAppleGames.Utilities;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
@@ -458,7 +458,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
                 Debug.Log($"Baking additive scene set: {additiveSettings.name}");
                 EditorSceneManager.OpenScene(additiveSettings.loaderScene.GetScenePath());
                 AdditiveSceneLoader sceneLoader = Object.FindAnyObjectByType<AdditiveSceneLoader>();
-                sceneLoader.LoadAllScenes();
+                sceneLoader.LoadAndActivateAllScenes();
                 Lightmapping.Bake();
             }
 

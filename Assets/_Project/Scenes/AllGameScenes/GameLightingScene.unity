@@ -9,7 +9,7 @@ OcclusionCullingSettings:
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: 0dadef5d6604ec740ad693841fcafb9d
-  m_OcclusionCullingData: {fileID: 36300000, guid: d5b3e6133a5d3c24382bbfdda98b4eb4, type: 2}
+  m_OcclusionCullingData: {fileID: 36300000, guid: 2271468a802be0a47a1748df524b3f59, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000008, guid: a263590f369eb74498e74818be8740dd, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ae572bc16f40c6247bf8c622c83faed8, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -203,6 +203,82 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b54ced07e93281645b74bbbc7f86eaad, type: 3}
+--- !u!1 &457208250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 457208252}
+  - component: {fileID: 457208251}
+  m_Layer: 0
+  m_Name: Global Adaptive Probe Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &457208251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457208250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cded085d155cde949b60f67a11dbc3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  size: {x: 503.01, y: 67.859116, z: 503.01}
+  overrideRendererFilters: 0
+  minRendererVolumeSize: 0.1
+  objectLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  lowestSubdivLevelOverride: 0
+  highestSubdivLevelOverride: 2
+  overridesSubdivLevels: 0
+  mightNeedRebaking: 0
+  cachedTransform:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: -250
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: -32.424557
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: -250
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  cachedHashCode: -2001674695
+  fillEmptySpaces: 0
+  version: 2
+  globalVolume: 0
+--- !u!4 &457208252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457208250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 250, y: 32.424557, z: 250}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &529407472
 GameObject:
   m_ObjectHideFlags: 1
@@ -232,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83d2f7ae04ab6f4f99b0d85377be998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializedBakingSet: {fileID: 0}
+  serializedBakingSet: {fileID: 11400000, guid: bc7bb24ab77404240a16f32ba86ef409, type: 2}
   sceneGUID: 0dadef5d6604ec740ad693841fcafb9d
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
@@ -282,9 +358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Profile: {fileID: 11400000, guid: dc26b2ccf04cd8a449c10006663f504d, type: 2}
+  m_Profile: {fileID: 11400000, guid: b9da76e6aa82f9649838e06c0edef10f, type: 2}
   m_StaticLightingSkyUniqueID: 4
-  m_StaticLightingCloudsUniqueID: 1
+  m_StaticLightingCloudsUniqueID: 0
   m_StaticLightingVolumetricClouds: 0
   bounces: 1
 --- !u!4 &1140708979
@@ -739,7 +815,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 3.67342e-40, y: 1.4546743e-37, z: 9.1858e-41, w: 1.4546743e-37}
+  m_BoundingSphereOverride: {x: 4.74289e-40, y: 6.691364e-38, z: 0.00064101815, w: 5.51023e-40}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -1514,7 +1590,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 7500
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 9.1858e-41, y: 4.591775e-39, z: 2.2227777e-38, w: 9.1858e-41}
+  m_BoundingSphereOverride: {x: 6.2900887e-30, y: -0.00000090533285, z: 4.2524543e-31, w: 1.7600102e-35}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -2811,3 +2887,4 @@ SceneRoots:
   - {fileID: 1903245763}
   - {fileID: 529407474}
   - {fileID: 435009267}
+  - {fileID: 457208252}

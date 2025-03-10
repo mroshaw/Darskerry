@@ -1,4 +1,4 @@
-using DaftAppleGames.Darskerry.Core.Scenes;
+using DaftAppleGames.Scenes;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
@@ -64,11 +64,11 @@ namespace Assets._Project.Scripts.Editor.EditorTools
         private void CallAdditiveLoader()
         {
             // Find the additive scene loader and load all scenes
-            AdditiveSceneLoader additiveSceneLoader = Object.FindAnyObjectByType<AdditiveSceneLoader>();
+            AdditiveSceneLoader sceneLoader = Object.FindAnyObjectByType<AdditiveSceneLoader>();
 
-            if (additiveSceneLoader)
+            if (sceneLoader)
             {
-                additiveSceneLoader.LoadAllScenes();
+                sceneLoader.LoadAndActivateAllScenes();
             }
         }
     }

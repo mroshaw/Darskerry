@@ -43,6 +43,10 @@ Material:
         m_Texture: {fileID: 18700000, guid: 70ba19b41c910ed46a820313ecd19b96, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DistanceNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -56,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PerTexProps:
-        m_Texture: {fileID: -6681815197464114625, guid: 9f1436dac5af3c340b4460bcca13586a, type: 2}
+        m_Texture: {fileID: -1798499584109843380, guid: 9f1436dac5af3c340b4460bcca13586a, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TerrainHeightmapTexture:
@@ -136,6 +140,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - _DistanceNoiseScaleStrengthFade: {r: 0.25, g: 0.5, b: 100, a: 250}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _TriplanarUVScale: {r: 0.02, g: 0.02, b: 0, a: 0}
     - _UVScale: {r: 1, g: 1, b: 0, a: 0}
