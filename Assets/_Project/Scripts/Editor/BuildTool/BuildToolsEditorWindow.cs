@@ -270,7 +270,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
         private void BuildPlayer(BuildTargetSettings buildTargetSettings, BuildStatus buildStatus, bool cleanBuild, bool devBuild)
         {
             BuildApplierStart();
-            LoadEmptyScene();
+            // LoadEmptyScene();
             EditorCoroutineUtility.StartCoroutine(BuildPlayerAsync(buildTargetSettings, buildStatus, cleanBuild, devBuild), this);
             BuildApplierEnd();
         }

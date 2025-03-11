@@ -9,7 +9,7 @@ OcclusionCullingSettings:
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: 07a9bf3c8612b4a44854fec3436deca8
-  m_OcclusionCullingData: {fileID: 36300000, guid: 2a140943af64d6d4bb1ffaa3dff9a24d, type: 2}
+  m_OcclusionCullingData: {fileID: 36300000, guid: 652dfdc2ffc4ca54498b0f960b4c743a, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000008, guid: 762847158482d9f4ca2d60bc16ea7ab9, type: 2}
+  m_LightingDataAsset: {fileID: 112000008, guid: 5cb687c3853a7cf4f8648ddce86ddead, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ae572bc16f40c6247bf8c622c83faed8, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -173,15 +173,36 @@ MonoBehaviour:
   loadStartedEvent:
     m_PersistentCalls:
       m_Calls: []
-  scenesLoadedEvent:
+  sceneLoadedEvent:
     m_PersistentCalls:
       m_Calls: []
-  scenesActivatedEvent:
+  sceneActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  allScenesLoadedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  allScenesActivatedEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1577633538}
         m_TargetAssemblyTypeName: DaftAppleGames.Settings.SettingsApplier, DaftAppleGames.UIandSettings.Core
         m_MethodName: LoadAndApplySettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  everythingReadyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1387585964}
+        m_TargetAssemblyTypeName: DaftAppleGames.Scenes.SceneFader, DaftAppleGames.Core
+        m_MethodName: FadeIn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -235,6 +256,56 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319427765}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &556231829
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 556231831}
+  - component: {fileID: 556231830}
+  m_Layer: 0
+  m_Name: ProbeVolumePerSceneData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &556231830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556231829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83d2f7ae04ab6f4f99b0d85377be998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedBakingSet: {fileID: 0}
+  sceneGUID: 07a9bf3c8612b4a44854fec3436deca8
+  obsoleteAsset: {fileID: 0}
+  obsoleteCellSharedDataAsset: {fileID: 0}
+  obsoleteCellSupportDataAsset: {fileID: 0}
+  obsoleteSerializedScenarios: []
+--- !u!4 &556231831
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556231829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -937,19 +1008,7 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 954e221b2888650448cd9413a9c0f832, type: 2}
   allSettingsAppliedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1387585964}
-        m_TargetAssemblyTypeName: DaftAppleGames.Scenes.SceneFader, DaftAppleGames.Shared.Core
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &1577633539
 Transform:
   m_ObjectHideFlags: 0
@@ -1143,56 +1202,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952399353}
   m_CullTransparentMesh: 1
---- !u!1 &1990939130
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1990939132}
-  - component: {fileID: 1990939131}
-  m_Layer: 0
-  m_Name: ProbeVolumePerSceneData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1990939131
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990939130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a83d2f7ae04ab6f4f99b0d85377be998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializedBakingSet: {fileID: 0}
-  sceneGUID: 07a9bf3c8612b4a44854fec3436deca8
-  obsoleteAsset: {fileID: 0}
-  obsoleteCellSharedDataAsset: {fileID: 0}
-  obsoleteCellSupportDataAsset: {fileID: 0}
-  obsoleteSerializedScenarios: []
---- !u!4 &1990939132
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990939130}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2102558474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,6 +1277,83 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &8073039709216981742
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3849668470270000307, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313621972215477480, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: field of view
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788860563341269486, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_Name
+      value: Main Menu Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792496008699999949, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792496008699999949, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: antialiasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792496008699999949, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: probeLayerMask.m_Bits
+      value: 32720
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 321.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 46.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 166.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9425676
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.3340156
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -39.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922753312772587083, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0a64f80022a0c524ca3003186086ec0c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1275,6 +1361,7 @@ SceneRoots:
   - {fileID: 590720004}
   - {fileID: 1387585963}
   - {fileID: 133658175}
-  - {fileID: 319427767}
   - {fileID: 1577633539}
-  - {fileID: 1990939132}
+  - {fileID: 8073039709216981742}
+  - {fileID: 319427767}
+  - {fileID: 556231831}

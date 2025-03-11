@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loaderScene:
     sceneName: MainMenuLoaderScene
+    isMain: 0
     sceneAsset: {fileID: 102900000, guid: 07a9bf3c8612b4a44854fec3436deca8, type: 3}
-    isMain: 0
   additiveScenes:
-  - sceneName: MainMenuLightingScene
-    sceneAsset: {fileID: 102900000, guid: 60e7dd2cae9fb1948ba0a625ba823842, type: 3}
-    isMain: 0
-  - sceneName: MainMenuWorldScene
-    sceneAsset: {fileID: 102900000, guid: d667f642e3669c3458de14ce556e4f48, type: 3}
-    isMain: 0
   - sceneName: MainMenuScene
+    isMain: 0
     sceneAsset: {fileID: 102900000, guid: 51524a99b7908934496629631bc786f7, type: 3}
+  - sceneName: MainMenuWorldScene
     isMain: 1
+    sceneAsset: {fileID: 102900000, guid: d667f642e3669c3458de14ce556e4f48, type: 3}
+  - sceneName: MainMenuLightingScene
+    isMain: 0
+    sceneAsset: {fileID: 102900000, guid: 60e7dd2cae9fb1948ba0a625ba823842, type: 3}
