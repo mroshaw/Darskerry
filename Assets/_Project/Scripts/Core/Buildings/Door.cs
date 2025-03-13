@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 namespace DaftAppleGames.Darskerry.Core.Buildings
 {
+    public enum DoorOpenDirection { Inwards, Outwards}
+    internal enum DoorState { Open, Opening, Closing, Closed }
     public class Door : MonoBehaviour
     {
         [BoxGroup("Settings")] [SerializeField] public float openAngle = 110.0f;
@@ -17,6 +19,8 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
         [BoxGroup("Audio")] [SerializeField] public AudioClip[] closingClips;
         [BoxGroup("Audio")] [SerializeField] public AudioClip[] closedClips;
 
+        [FoldoutGroup("Events")] public UnityEvent onStartOpeningInwards;
+        [FoldoutGroup("Events")] public UnityEvent onStartOpeningOutwards;
         [FoldoutGroup("Events")] public UnityEvent openingStartEvent;
         [FoldoutGroup("Events")] public UnityEvent openingEndEvent;
         [FoldoutGroup("Events")] public UnityEvent closingStartEvent;
@@ -26,24 +30,19 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
 
         private AudioSource _audioSource;
 
-        public bool IsOpen { get; private set; }
-        private bool _isMoving;
+        public bool IsOpen => _doorState == DoorState.Open;
+        public bool IsMoving => _doorState == DoorState.Opening || _doorState == DoorState.Closing;
 
+        private DoorState _doorState = DoorState.Closed;
         private Quaternion _doorClosedRotation;
-        private Quaternion _doorOpenRotation;
-
-        private void OnEnable()
-        {
-            _isMoving = false;
-            IsOpen = false;
-            StopAllCoroutines();
-        }
 
         private void Start()
         {
             _doorClosedRotation = transform.localRotation;
-            _doorOpenRotation = gameObject.transform.rotation * Quaternion.Euler(gameObject.transform.up * openAngle);
             _audioSource = GetComponent<AudioSource>();
+
+            _doorState = DoorState.Closed;
+            StopAllCoroutines();
         }
 
         public void AddBlocker(Transform blocker)
@@ -62,44 +61,55 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
         }
 
         [Button("Open and Close Door")]
-        public void OpenAndCloseDoor()
+        public void OpenAndCloseDoor(DoorOpenDirection doorOpenDirection)
         {
-            if (_isMoving || IsOpen)
+            if (IsMoving || IsOpen)
             {
                 return;
             }
 
-            StartCoroutine(OpenAndCloseDoorAsync());
+            StartCoroutine(OpenAndCloseDoorAsync(doorOpenDirection));
         }
 
         [Button("Open Door")]
-        public void OpenDoor()
+        public void OpenDoor(DoorOpenDirection direction)
         {
-            if (_isMoving || IsOpen)
+            if (IsMoving || IsOpen)
             {
                 return;
             }
 
-            StartCoroutine(OpenDoorAsync());
+            StartCoroutine(OpenDoorAsync(direction));
         }
 
-        private IEnumerator OpenDoorAsync()
+        private IEnumerator OpenDoorAsync(DoorOpenDirection direction)
         {
-            _isMoving = true;
+            _doorState = DoorState.Opening;
             PlayRandomClip(openingClips);
             openingStartEvent.Invoke();
+            if (direction == DoorOpenDirection.Inwards)
+            {
+                onStartOpeningInwards?.Invoke();
+            }
+            else
+            {
+                onStartOpeningOutwards?.Invoke();
+            }
+
             float timer = 0;
             Quaternion startValue = transform.localRotation;
 
+            Quaternion doorOpenRotation = gameObject.transform.localRotation * Quaternion.Euler(gameObject.transform.up * (direction == DoorOpenDirection.Inwards ? -openAngle : openAngle));
+
             while (timer < openingTime)
             {
-                transform.rotation = Quaternion.Lerp(startValue, _doorOpenRotation, timer / openingTime);
+                transform.localRotation = Quaternion.Lerp(startValue, doorOpenRotation, timer / openingTime);
                 timer += Time.deltaTime;
                 yield return null;
             }
 
-            _isMoving = false;
-            IsOpen = true;
+            _doorState = DoorState.Open;
+
             openingEndEvent.Invoke();
         }
 
@@ -107,7 +117,7 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
         [Button("Close Door")]
         public void CloseDoor()
         {
-            if (_isMoving || !IsOpen)
+            if (IsMoving || !IsOpen)
             {
                 return;
             }
@@ -118,28 +128,29 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
         private IEnumerator CloseDoorAsync()
         {
             // Door closes
+            _doorState = DoorState.Closing;
             PlayRandomClip(closingClips);
             closingStartEvent.Invoke();
             float timer = 0;
             Quaternion startValue = transform.localRotation;
             while (timer < closingTime)
             {
-                transform.rotation = Quaternion.Lerp(startValue, _doorClosedRotation, timer / closingTime);
+                transform.localRotation = Quaternion.Lerp(startValue, _doorClosedRotation, timer / closingTime);
                 timer += Time.deltaTime;
                 yield return null;
             }
 
             transform.localRotation = _doorClosedRotation;
-            _isMoving = false;
-            IsOpen = false;
+
+            _doorState = DoorState.Closed;
             PlayRandomClip(closedClips);
             closingEndEvent.Invoke();
         }
 
-        private IEnumerator OpenAndCloseDoorAsync()
+        private IEnumerator OpenAndCloseDoorAsync(DoorOpenDirection doorOpenDirection)
         {
             // Door opening
-            yield return OpenDoorAsync();
+            yield return OpenDoorAsync(doorOpenDirection);
 
             // Door stays open
             yield return new WaitForSeconds(stayOpenTime);

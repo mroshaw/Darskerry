@@ -1,31 +1,27 @@
+using DaftAppleGames.Gameplay;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Core.Buildings
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class DoorTrigger : MonoBehaviour
+    public class DoorTrigger : ActionTrigger
     {
-        private Door _door;
-
-        private void OnEnable()
-        {
-            _door = GetComponentInParent<Door>();
-        }
-
+        [SerializeField] private Door door;
+        [SerializeField] private DoorOpenDirection doorOpenDirection;
         private void Start()
         {
             // Move from parent so not animated with the door
-            GameObject doorParent = _door.transform.parent.gameObject;
+            GameObject doorParent = door.transform.parent.gameObject;
             gameObject.transform.SetParent(doorParent.transform);
         }
 
-        private void OnTriggerEnter(Collider other)
+        public override void TriggerEnter(Collider other)
         {
             OpenDoor();
         }
 
-        private void OnTriggerExit(Collider other)
+        public override void TriggerExit(Collider other)
         {
             CloseDoor();
         }
@@ -33,20 +29,20 @@ namespace DaftAppleGames.Darskerry.Core.Buildings
         [Button("Open and Close Door")]
         private void OpenAndCloseDoor()
         {
-            _door.OpenAndCloseDoor();
+            door.OpenAndCloseDoor(doorOpenDirection);
         }
 
 
         [Button("Open Door")]
         private void OpenDoor()
         {
-            _door.OpenDoor();
+            door.OpenDoor(doorOpenDirection);
         }
 
         [Button("Close Door")]
         private void CloseDoor()
         {
-            _door.CloseDoor();
+            door.CloseDoor();
         }
     }
 }
