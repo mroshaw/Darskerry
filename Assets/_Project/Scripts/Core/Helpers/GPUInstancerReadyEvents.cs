@@ -1,3 +1,4 @@
+#if GPU_INSTANCER
 using GPUInstancer;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -37,3 +38,4 @@ namespace DaftAppleGames.Darskerry
         }
     }
 }
+#endif

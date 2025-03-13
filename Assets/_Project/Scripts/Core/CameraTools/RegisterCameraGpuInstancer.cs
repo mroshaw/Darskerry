@@ -8,15 +8,9 @@ namespace DaftAppleGames.Darskerry.Core.CameraTools
     [RequireComponent(typeof(Camera))]
     public class RegisterCameraGpuInstancer : MonoBehaviour
     {
-
-        private void Awake()
-        {
-            StartCoroutine(SetCameraAsync());
-        }
-
         private void Start()
         {
-            // GPUInstancerAPI.SetCamera(GetComponent<Camera>());
+            StartCoroutine(SetCameraAsync());
         }
 
         private IEnumerator SetCameraAsync()
