@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 293029934226398644}
   - component: {fileID: 7504844522672837609}
   - component: {fileID: 3496852863432317439}
-  - component: {fileID: 2902661277530894838}
   - component: {fileID: 326176042686054703}
   m_Layer: 0
   m_Name: Main Camera Player
@@ -69,7 +68,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -112,7 +111,7 @@ MonoBehaviour:
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 32776
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 3
   SMAAQuality: 2
@@ -234,18 +233,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!114 &2902661277530894838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6951558962008715763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762811d5a7381b842b19e9f3ef62c316, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &326176042686054703
 MonoBehaviour:
   m_ObjectHideFlags: 0

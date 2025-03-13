@@ -809,7 +809,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1484990520789995964}
   - component: {fileID: 5135495725647396328}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magica Capsule Collider (spine_03)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1906,7 +1906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4776192409847986982}
   - component: {fileID: 7404415162234475743}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magica Capsule Collider (pelvis)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3046,7 +3046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6622695404226845081}
   - component: {fileID: 6904446852843627531}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magica Cloth (Hair)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7153,7 +7153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2240172136387969673}
   - component: {fileID: 4861323840102635226}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magica Capsule Collider (thigh_l)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9842,7 +9842,7 @@ GameObject:
   - component: {fileID: 7607631727124251304}
   - component: {fileID: 2661251804843292818}
   - component: {fileID: 5876949954903730307}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Footstep Trigger LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12315,7 +12315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6475198020556356600}
   - component: {fileID: 3396448799941519439}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magica Capsule Collider (thigh_r)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13603,7 +13603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4817468466779966695}
   - component: {fileID: 8961116986506651866}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magica Cloth (P Cloth)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17085,7 +17085,7 @@ GameObject:
   - component: {fileID: 4587488898808343132}
   - component: {fileID: 1426501152265761741}
   - component: {fileID: 1981391815246257762}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Footstep Trigger RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19809,9 +19809,17 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6925541596680316173, guid: 2180da63985794948a4b86414f0f7d1b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8924241024866228744, guid: 2180da63985794948a4b86414f0f7d1b, type: 3}
       propertyPath: m_Name
       value: Player Setup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924241024866228744, guid: 2180da63985794948a4b86414f0f7d1b, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19846,20 +19854,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e2053c8a3dfb947bc2060456ca7cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepsEnabled: 0
   footstepTriggers:
   - {fileID: 7607631727124251304}
   - {fileID: 4587488898808343132}
-  footstepSurfaces: []
-  defaultSurface: {fileID: 0}
+  footstepSurfaces:
+  - {fileID: 11400000, guid: c1b15a4c43d16e24cbdd9fcf99ce4df6, type: 2}
+  - {fileID: 11400000, guid: 28c231b74f49cad4b85dc9fc730a574e, type: 2}
+  - {fileID: 11400000, guid: 375d9997f9992934c9c62aee67f97392, type: 2}
+  - {fileID: 11400000, guid: a2e007b61d62cc0488365b196b717db2, type: 2}
+  - {fileID: 11400000, guid: 420e97116175a0e418ff0ca1ebb2dad1, type: 2}
+  - {fileID: 11400000, guid: 812b6233706cbca47b570dde5e7c6189, type: 2}
+  - {fileID: 11400000, guid: dc6e4ba01388cdb48830bd209a5e633a, type: 2}
+  defaultSurface: {fileID: 11400000, guid: f5492bce3bd45a940af7d68de0f937d4, type: 2}
   triggerLayerMask:
     serializedVersion: 2
     m_Bits: 1984
   audioMixerGroup: {fileID: -6464323900965202910, guid: 954e221b2888650448cd9413a9c0f832, type: 2}
   debugTextureName: 0
   alignToTerrainSlope: 0
-  particleFxPool: {fileID: 0}
-  decalPool: {fileID: 0}
 --- !u!4 &6252017467572836245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7690702516719554581, guid: 2180da63985794948a4b86414f0f7d1b, type: 3}
@@ -19921,7 +19933,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2902661277530894838, guid: 5032786945ee8c44984280087debb95d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

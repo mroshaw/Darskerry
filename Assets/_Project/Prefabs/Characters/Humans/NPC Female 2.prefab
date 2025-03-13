@@ -51,7 +51,6 @@ GameObject:
   - component: {fileID: 5589961193959273899}
   - component: {fileID: 3760652044512313405}
   - component: {fileID: 4936553993674803429}
-  - component: {fileID: 8587710745515362972}
   - component: {fileID: 3577538268906839080}
   - component: {fileID: 4814995168843355444}
   - component: {fileID: 2795388153148100393}
@@ -59,6 +58,7 @@ GameObject:
   - component: {fileID: 3756486436982980996}
   - component: {fileID: 7602935724424020079}
   - component: {fileID: 6428749142196602443}
+  - component: {fileID: 6957208940078505220}
   m_Layer: 14
   m_Name: NPC Female 2
   m_TagString: Untagged
@@ -509,72 +509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838519e5d02343249e0d4ddd7578cba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8587710745515362972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797291456282664070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ff8926a22266ac4b8a233d965c9438b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationMode: 1
-  _rotationRate: 540
-  _startingMovementMode: 1
-  _maxWalkSpeed: 5
-  _minAnalogWalkSpeed: 0
-  _maxAcceleration: 20
-  _brakingDecelerationWalking: 20
-  _groundFriction: 8
-  _canEverCrouch: 1
-  _crouchedHeight: 1.25
-  _unCrouchedHeight: 2
-  _maxWalkSpeedCrouched: 3
-  _maxFallSpeed: 40
-  _brakingDecelerationFalling: 0
-  _fallingLateralFriction: 0.3
-  _airControl: 0.3
-  _canEverJump: 1
-  _canJumpWhileCrouching: 1
-  _jumpMaxCount: 1
-  _jumpImpulse: 5
-  _jumpMaxHoldTime: 0
-  _jumpMaxPreGroundedTime: 0
-  _jumpMaxPostGroundedTime: 0
-  _maxFlySpeed: 10
-  _brakingDecelerationFlying: 0
-  _flyingFriction: 1
-  _maxSwimSpeed: 3
-  _brakingDecelerationSwimming: 0
-  _swimmingFriction: 0
-  _buoyancy: 1
-  _gravity: {x: 0, y: -9.81, z: 0}
-  _gravityScale: 1
-  _useRootMotion: 1
-  _impartPlatformMovement: 0
-  _impartPlatformRotation: 0
-  _impartPlatformVelocity: 0
-  _enablePhysicsInteraction: 0
-  _applyPushForceToCharacters: 0
-  _applyStandingDownwardForce: 0
-  _mass: 1
-  _pushForceScale: 1
-  _standingDownwardForceScale: 1
-  _camera: {fileID: 0}
-  sprintSpeed: 0
-  rollImpulse: 0
-  maxHealth: 0
-  maxStamina: 0
-  currentHealth: 0
-  crouchStartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  crouchEndEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &3577538268906839080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9ed28dbd6bf8c4ca1d03efcaebb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 5cf9b3bf-427d-4d8a-9fea-f0cf1c4806b5
+  guid: d2ffaace-e9c2-4149-9f3b-d2dd5d8ca34e
 --- !u!114 &2795388153148100393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,9 +567,6 @@ MonoBehaviour:
   m_Graph: {fileID: -5801731707225311110, guid: 60fa4eec12c43b04b81c17913d98afb3, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 6059619832544887133
-  - rid: 6059619832544887134
-  - rid: 6059619832544887135
-  - rid: 6059619832544887136
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -649,30 +580,6 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 797291456282664070}
-    - rid: 6059619832544887134
-      type: {class: 'BlackboardVariable`1[[RelationshipToPlayer, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 3799278613351342917
-          m_Value1: 673461603112088423
-        Name: Player Relationship
-        m_Value: 2
-    - rid: 6059619832544887135
-      type: {class: 'BlackboardVariable`1[[DaftAppleGames.Darskerry.Core.CharController.AiController.AiBrain, DaftAppleGames.Darskerry.Core]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 13743249389936159987
-          m_Value1: 4846904776781450044
-        Name: AiBrain
-        m_Value: {fileID: 5273161645374936690}
-    - rid: 6059619832544887136
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 15382450224429744143
-          m_Value1: 5147467468817119527
-        Name: Animator
-        m_Value: {fileID: 7049163257516992693}
 --- !u!114 &3756486436982980996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,6 +662,61 @@ MonoBehaviour:
   targetLostEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6957208940078505220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797291456282664070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cf32970eac4c9498a96ba8d86aad38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationMode: 1
+  _rotationRate: 540
+  _startingMovementMode: 1
+  _maxWalkSpeed: 5
+  _minAnalogWalkSpeed: 0
+  _maxAcceleration: 20
+  _brakingDecelerationWalking: 20
+  _groundFriction: 8
+  _canEverCrouch: 1
+  _crouchedHeight: 1.25
+  _unCrouchedHeight: 2
+  _maxWalkSpeedCrouched: 3
+  _maxFallSpeed: 40
+  _brakingDecelerationFalling: 0
+  _fallingLateralFriction: 0.3
+  _airControl: 0.3
+  _canEverJump: 1
+  _canJumpWhileCrouching: 1
+  _jumpMaxCount: 1
+  _jumpImpulse: 5
+  _jumpMaxHoldTime: 0
+  _jumpMaxPreGroundedTime: 0
+  _jumpMaxPostGroundedTime: 0
+  _maxFlySpeed: 10
+  _brakingDecelerationFlying: 0
+  _flyingFriction: 1
+  _maxSwimSpeed: 3
+  _brakingDecelerationSwimming: 0
+  _swimmingFriction: 0
+  _buoyancy: 1
+  _gravity: {x: 0, y: -9.81, z: 0}
+  _gravityScale: 1
+  _useRootMotion: 0
+  _impartPlatformMovement: 0
+  _impartPlatformRotation: 0
+  _impartPlatformVelocity: 0
+  _enablePhysicsInteraction: 0
+  _applyPushForceToCharacters: 0
+  _applyStandingDownwardForce: 0
+  _mass: 1
+  _pushForceScale: 1
+  _standingDownwardForceScale: 1
+  _camera: {fileID: 0}
 --- !u!1001 &3486645297136518714
 PrefabInstance:
   m_ObjectHideFlags: 0
