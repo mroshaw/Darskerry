@@ -24,6 +24,8 @@ MonoBehaviour:
     - crate
     capsuleObjectNames:
     - barrel
+    meshObjectNames:
+    - carpet
   lightingSettings:
   - lightType: 0
     lightParentObjectNames:
@@ -82,7 +84,7 @@ MonoBehaviour:
       receiveGlobalIllumination: 2
       isStaticShadowCaster: 1
       shadowCastingMode: 1
-      lightLayerMask: 3
+      lightLayerMask: 34
       motionVectorMode: 0
       allowDynamicOcclusion: 0
     exteriorMeshSettings:
@@ -90,7 +92,7 @@ MonoBehaviour:
       receiveGlobalIllumination: 2
       isStaticShadowCaster: 1
       shadowCastingMode: 1
-      lightLayerMask: 5
+      lightLayerMask: 36
       motionVectorMode: 0
       allowDynamicOcclusion: 0
     interiorPropMeshSettings:
@@ -98,7 +100,7 @@ MonoBehaviour:
       receiveGlobalIllumination: 2
       isStaticShadowCaster: 1
       shadowCastingMode: 1
-      lightLayerMask: 3
+      lightLayerMask: 34
       motionVectorMode: 0
       allowDynamicOcclusion: 0
     exteriorPropMeshSettings:
@@ -106,7 +108,7 @@ MonoBehaviour:
       receiveGlobalIllumination: 2
       isStaticShadowCaster: 1
       shadowCastingMode: 1
-      lightLayerMask: 5
+      lightLayerMask: 36
       motionVectorMode: 0
       allowDynamicOcclusion: 0
   volumeSettings:

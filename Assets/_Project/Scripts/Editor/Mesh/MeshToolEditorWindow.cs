@@ -119,7 +119,7 @@ namespace DaftAppleGames.Editor.Mesh
 
 
 
-        [PropertyOrder(8)][BoxGroup("LOD Fixer")][SerializeField] private LodGroupSettings lodGroupSettings = new();
+        [PropertyOrder(8)][BoxGroup("LOD Fixer")][SerializeField] private LodGroupSettingsSO lodGroupSettings;
         [PropertyOrder(8)]
         [Button("Fix LOD Groups")]
         public void FixLodGroups()
@@ -131,6 +131,18 @@ namespace DaftAppleGames.Editor.Mesh
             SavePrefabChanges();
         }
 
+
+        private void ConfigureLodGroup(GameObject gameObject)
+        {
+            LODGroup lodGroup = gameObject.GetComponent<LODGroup>();
+            if (!lodGroup)
+            {
+                Debug.LogError($"There is no LODGroup on {gameObject.name}");
+                return;
+            }
+            lodGroupSettings.ConfigureLodGroup(lodGroup);
+            SavePrefabChanges();
+        }
 
         private void ApplyIndividualSetting(MeshProperties meshProperties)
         {
@@ -269,97 +281,6 @@ namespace DaftAppleGames.Editor.Mesh
                     }
                 }
             }
-        }
-
-        private void ConfigureLodGroup(GameObject prefabGameObject)
-        {
-            LODGroup lodGroup = prefabGameObject.GetComponent<LODGroup>();
-            if (!lodGroup)
-            {
-                Debug.Log($"No LODGroup on {prefabGameObject.name}");
-                return;
-            }
-            lodGroup.fadeMode = lodGroupSettings.fadeMode;
-            int numberOfLods = lodGroup.lodCount;
-            Debug.Log($"Number of LODs in {prefabGameObject.name}: {numberOfLods}");
-
-            if (numberOfLods > 6)
-            {
-                Debug.LogError($"{prefabGameObject.name} has too many LODs!");
-                return;
-            }
-
-            LOD[] lods = lodGroup.GetLODs();
-
-            if (numberOfLods == 0)
-            {
-                Debug.Log($"LODGroup has no LODs on {prefabGameObject.name}");
-                return;
-            }
-
-            float[] lodWeights = new[] { 0.0f };
-
-            switch (numberOfLods)
-            {
-                case 2:
-                    lodWeights = lodGroupSettings.twoLodWeights;
-                    break;
-                case 3:
-                    lodWeights = lodGroupSettings.threeLodWeights;
-                    break;
-                case 4:
-                    lodWeights = lodGroupSettings.fourLodWeights;
-                    break;
-                case 5:
-                    lodWeights = lodGroupSettings.fiveLodWeights;
-                    break;
-                case 6:
-                    lodWeights = lodGroupSettings.sixLodWeights;
-                    break;
-            }
-
-            float weightSum = 0;
-            for (int k = 0; k < lods.Length; k++)
-            {
-
-                if (k >= lodWeights.Length)
-                {
-                    weightSum += lodWeights[lodWeights.Length - 1];
-                }
-                else
-                {
-                    weightSum += lodWeights[k];
-                }
-            }
-
-            Debug.Log($"Total LOD weights: {weightSum}");
-
-            float maxLength = 1 - lodGroupSettings.cullRatio;
-            float curLodPos = 1;
-            for (int j = 0; j < lods.Length; j++)
-            {
-                float weight = j < lodWeights.Length ? lodWeights[j] : lodWeights[lodWeights.Length - 1];
-
-                float lengthRatio = weightSum != 0 ? weight / weightSum : 1;
-
-                float lodLength = maxLength * lengthRatio;
-                curLodPos = curLodPos - lodLength;
-
-                lods[j].screenRelativeTransitionHeight = curLodPos;
-            }
-
-            for (int i = 0; i < lods.Length; i++)
-            {
-                Debug.Log($"Lod {i}: {lods[i].screenRelativeTransitionHeight}");
-            }
-
-            lodGroup.SetLODs(lods);
-
-            // Recalculate bounds
-            lodGroup.RecalculateBounds();
-
-            SavePrefabChanges();
-
         }
     }
 }

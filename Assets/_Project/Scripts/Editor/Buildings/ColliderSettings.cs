@@ -1,6 +1,7 @@
 using System;
 using DaftAppleGames.Darskerry.Core.Buildings;
 using DaftAppleGames.Extensions;
+using UnityEditor;
 using UnityEngine;
 
 namespace DaftAppleGames.Darskerry.Editor.BuildingTools
@@ -10,21 +11,27 @@ namespace DaftAppleGames.Darskerry.Editor.BuildingTools
     {
         [SerializeField] internal string[] boxObjectNames;
         [SerializeField] internal string[] capsuleObjectNames;
+        [SerializeField] internal string[] meshObjectNames;
 
         internal void ApplyToBuilding(Building building)
         {
-            foreach (Transform childTransform in building.GetComponentsInChildren<Transform>())
+            foreach (MeshRenderer renderer in building.GetComponentsInChildren<MeshRenderer>(true))
             {
-                string itemName = childTransform.gameObject.name;
+                string itemName = renderer.gameObject.name;
 
                 if (boxObjectNames.ItemInString(itemName))
                 {
-                    Apply(childTransform.gameObject, typeof(BoxCollider));
+                    Apply(renderer.gameObject, typeof(BoxCollider));
                 }
 
                 if (capsuleObjectNames.ItemInString(itemName))
                 {
-                    Apply(childTransform.gameObject, typeof(CapsuleCollider));
+                    Apply(renderer.gameObject, typeof(CapsuleCollider));
+                }
+
+                if (meshObjectNames.ItemInString(itemName))
+                {
+                    Apply(renderer.gameObject, typeof(MeshCollider));
                 }
             }
         }
@@ -44,6 +51,15 @@ namespace DaftAppleGames.Darskerry.Editor.BuildingTools
                 CapsuleCollider capsuleCollider = itemGameObject.EnsureComponent<CapsuleCollider>();
                 ConfigureCapsuleCollider(capsuleCollider);
             }
+
+            if (colliderType == typeof(MeshCollider))
+            {
+                MeshCollider meshCollider = itemGameObject.EnsureComponent<MeshCollider>();
+                ConfigureMeshCollider(meshCollider);
+            }
+
+            EditorUtility.SetDirty(itemGameObject);
+            PrefabUtility.RecordPrefabInstancePropertyModifications(itemGameObject);
         }
 
         private void ConfigureBoxCollider(BoxCollider boxCollider)
@@ -51,6 +67,10 @@ namespace DaftAppleGames.Darskerry.Editor.BuildingTools
         }
 
         private void ConfigureCapsuleCollider(CapsuleCollider capsuleCollider)
+        {
+        }
+
+        private void ConfigureMeshCollider(MeshCollider capsuleCollider)
         {
         }
     }

@@ -68,7 +68,7 @@ namespace Assets._Project.Scripts.Editor.EditorTools
 
             if (sceneLoader)
             {
-                sceneLoader.LoadAndActivateAllScenes();
+                sceneLoader.LoadScenesInEditor();
             }
         }
     }
