@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 namespace DaftAppleGames.Editor.Mesh
 {
     public enum MeshProperties { CastShadows, StaticShadowCaster, ContributeGI, ReceiveGI, MotionVectors, DynamicOcclusion, RenderLayerMask, Priority }
-    public enum LightLayerPresets { Interior, Exterior, Both, InteriorNoSun, ExteriorNoSun, BothNoSun }
+    public enum LightLayerPresets { Interior, Exterior, Both, None }
 
     public class MeshToolEditorWindow : OdinEditorWindow
     {
@@ -149,6 +149,7 @@ namespace DaftAppleGames.Editor.Mesh
             foreach (Renderer renderer in GetChildRenderers())
             {
                 WriteLog($"Updating '{meshProperties}' on '{renderer.gameObject.name}'");
+                Undo.RegisterCompleteObjectUndo(renderer.gameObject, $"Update {meshProperties} on '{renderer.gameObject.name}'");
                 switch (meshProperties)
                 {
                     case MeshProperties.CastShadows:
@@ -181,29 +182,16 @@ namespace DaftAppleGames.Editor.Mesh
                         switch (lightlayerPreset)
                         {
                             case LightLayerPresets.Interior:
-                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly", "Sun/Moon");
-                                break;
-
-                            case LightLayerPresets.InteriorNoSun:
-                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly");
+                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("Interior");
                                 break;
 
                             case LightLayerPresets.Exterior:
-                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("ExteriorOnly", "Sun/Moon");
-                                break;
-
-                            case LightLayerPresets.ExteriorNoSun:
-                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("ExteriorOnly");
+                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("Exterior");
                                 break;
 
                             case LightLayerPresets.Both:
-                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly", "ExteriorOnly", "Sun/Moon");
+                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("Interior", "Exterior");
                                 break;
-
-                            case LightLayerPresets.BothNoSun:
-                                renderer.renderingLayerMask = RenderingLayerMask.GetMask("InteriorOnly", "ExteriorOnly");
-                                break;
-
                         }
 
                         break;

@@ -8,14 +8,14 @@ namespace DaftAppleGames.Darskerry.Editor.ObjectTools
 {
     public class TerrainAlignEditorWindow : OdinEditorWindow
     {
-        [BoxGroup("Settings")] public bool alignParentOnly = false;
-        [BoxGroup("Settings")] public bool alignToSlope = true;
+        [BoxGroup("Settings")] public bool alignPosition = true;
+        [BoxGroup("Settings")] public bool alignRotation = true;
         [BoxGroup("Settings")] public bool alignX = true;
         [BoxGroup("Settings")] public bool alignY = true;
         [BoxGroup("Settings")] public bool alignZ = true;
 
         [SerializeField]
-        [BoxGroup("Selected Objects")] private GameObject[] _selectedGameObjects;
+        [BoxGroup("Selected Objects")] private GameObject[] selectedGameObjects;
 
         [MenuItem("Daft Apple Games/Terrains/Object Aligner")]
         public static void ShowWindow()
@@ -30,21 +30,23 @@ namespace DaftAppleGames.Darskerry.Editor.ObjectTools
         /// </summary>
         private void OnSelectionChange()
         {
-            _selectedGameObjects = Selection.gameObjects;
+            selectedGameObjects = Selection.gameObjects;
         }
 
         [Button("Align selected")]
         private void AlignSelected()
         {
-
             foreach (GameObject currGameObject in Selection.gameObjects)
             {
-                if (alignParentOnly)
-                {
-                    AlignGameObject(currGameObject);
-                    return;
-                }
+                AlignGameObject(currGameObject);
+            }
+        }
 
+        [Button("Align children of selected")]
+        private void AlignChildrenOfSelected()
+        {
+            foreach (GameObject currGameObject in Selection.gameObjects)
+            {
                 for (int currChildIndex = 0; currChildIndex < currGameObject.transform.childCount; currChildIndex++)
                 {
                     AlignGameObject(currGameObject.transform.GetChild(currChildIndex).gameObject);
@@ -58,9 +60,7 @@ namespace DaftAppleGames.Darskerry.Editor.ObjectTools
         /// <param name="targetGameObject"></param>
         private void AlignGameObject(GameObject targetGameObject)
         {
-            Terrain.activeTerrain.AlignObject(targetGameObject, true, true, alignX, alignY, alignZ);
-            EditorUtility.SetDirty(targetGameObject);
-
+            Terrain.activeTerrain.AlignObject(targetGameObject, alignPosition, alignRotation, alignX, alignY, alignZ);
         }
     }
 }
