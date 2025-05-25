@@ -199,7 +199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &244157101
 Transform:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 32
+  m_RenderingLayerMask: 4
   m_Lightmapping: 1
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
@@ -396,10 +396,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c72cf48e80b80948a5b3fc67faecce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  celestialBodiesManager: {fileID: 0}
   timeOfDay: 8
+  defaultTransitionDuration: 10
+  timeProgression: 1
   timeSpeed: 0
+  applyInEditor: 0
+  useLatAndLong: 0
   latitude: 48.83402
   longitude: 2.367259
+  timeChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  hourPassedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  minutePassedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &457713172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,7 +655,7 @@ MonoBehaviour:
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
   m_EvsmBlurPasses: 0
-  m_LightlayersMask: 32
+  m_LightlayersMask: 4
   m_LinkShadowLayers: 1
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
@@ -807,7 +821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &730890285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,19 +1015,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd477a5aea90d33498839a93ac6acc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceVolumes:
-  - {fileID: 1001266852}
-  targetVolumes: []
+  sourceVolume: {fileID: 0}
+  tempTargetVolume: {fileID: 0}
   onTargetWeight: 1
   offTargetWeight: 0.5
-  fadeDuration: 15
-  fadeStartedEvent:
+  defaultTransitionDuration: 0
+  transitionStartedEvent:
     m_PersistentCalls:
       m_Calls: []
-  fadeCompleteEvent:
+  transitionCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
-  _isFading: 0
+  isInTransition: 0
 --- !u!114 &1001266854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,12 +1040,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeTrigger: 5
+  triggerOnEnable: 0
   enableTriggeredEvent:
     m_PersistentCalls:
       m_Calls: []
+  triggerOnAwake: 0
   awakeTriggeredEvent:
     m_PersistentCalls:
       m_Calls: []
+  triggerOnStart: 0
   startTriggeredEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1945,7 +1961,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 10000
-  field of view: 40
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1983,8 +1999,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711943648048135160}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13489036, y: -0.52292466, z: 0.08414047, w: 0.8374215}
-  m_LocalPosition: {x: 337.52225, y: 49.607735, z: 181.16026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 312.98, y: 36.005, z: 180.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

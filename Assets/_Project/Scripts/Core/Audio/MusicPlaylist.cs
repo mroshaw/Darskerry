@@ -7,7 +7,14 @@ namespace DaftAppleGames.Darskerry.Core.Audio
     public class MusicPlaylist : ScriptableObject
     {
         // Public serializable properties
-        [BoxGroup("Music")] public MusicClip[] musicClips;
+        [BoxGroup("Music")] [SerializeField] private MusicClip[] musicClips;
+
+        internal int TotalTracks => musicClips.Length;
+
+        internal MusicClip GetTrack(int index)
+        {
+            return musicClips[index];
+        }
 
     }
 }
