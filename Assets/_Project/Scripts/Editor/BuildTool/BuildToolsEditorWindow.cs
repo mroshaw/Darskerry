@@ -458,7 +458,7 @@ namespace DaftAppleGames.Darskerry.Editor.BuildTool
                 Debug.Log($"Baking additive scene set: {additiveSettings.name}");
                 EditorSceneManager.OpenScene(additiveSettings.loaderScene.GetScenePath());
                 AdditiveSceneLoader sceneLoader = Object.FindAnyObjectByType<AdditiveSceneLoader>();
-                sceneLoader.LoadAndActivateAllScenes();
+                sceneLoader.LoadScenesInEditor();
                 Lightmapping.Bake();
             }
 
