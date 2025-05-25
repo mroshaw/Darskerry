@@ -9,6 +9,14 @@ TagManager:
   - Friend
   - Player
   - CinemachineTarget
+  - Bird
+  - BirdObstacle
+  - Crop
+  - NonCombatNPC
+  - CombatNPC
+  - ForestAnimal
+  - FarmAnimal
+  - Creature
   layers:
   - Default
   - TransparentFX
@@ -22,9 +30,9 @@ TagManager:
   - PropsExterior
   - PropsInterior
   - Player
-  - Animal
-  - Enemy
-  - NPC
+  - Characters
+  - InteriorProps
+  - ExteriorProps
   - Triggers
   - 
   - 
@@ -48,8 +56,8 @@ TagManager:
     locked: 0
   m_RenderingLayers:
   - Default
-  - Interior
   - Exterior
+  - Interior
   - LampsOnly
   - ReflectionsOnly
   - Light Layer 5
